@@ -248,7 +248,7 @@ F id() { return F(1, 0); }
 void solve() {
     int N, Q;
     cin >> N >> Q;
-    SplayTree<S, op, e, reverse_prod, F, mapping, composition, id> st;
+    LazyReversibleSplayTree<S, op, e, reverse_prod, F, mapping, composition, id> st;
     for(int i = 0; i < N; i++) {
         int a;
         cin >> a;
