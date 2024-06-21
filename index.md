@@ -88,11 +88,6 @@ data:
     - icon: ':warning:'
       path: string/rollong_hash.cpp
       title: string/rollong_hash.cpp
-  verificationCategories:
-  - name: .
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: example.test.cpp
-      title: example.test.cpp
+  verificationCategories: []
 layout: toppage
 ---
