@@ -17,7 +17,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/convolution_mod
     links:
     - https://judge.yosupo.jp/problem/convolution_mod
-  bundledCode: "#line 1 \"test/verify/yosupo_convolution.test.cpp\"\n#define PROBLEM\
+  bundledCode: "#line 1 \"verify/yosupo/yosupo_convolution.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/convolution_mod\"\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#line 1 \"data_structure/static_modint.hpp\"\ntemplate<int\
     \ m=998244353> struct StaticModint {\n    using mint = StaticModint;\n    int\
@@ -99,7 +99,7 @@ data:
     \ {\n            fa[i] *= fb[i];\n        }\n\n        auto c = Transform(fa,\
     \ true);\n\n        vector<long long> ret(a.size() + b.size() - 1);\n        for(int\
     \ i = 0; i < (int)a.size() + b.size() - 1; i++) {\n            ret[i] = c[i].Val();\n\
-    \        }\n\n        return ret;\n    }\n};\n#line 7 \"test/verify/yosupo_convolution.test.cpp\"\
+    \        }\n\n        return ret;\n    }\n};\n#line 7 \"verify/yosupo/yosupo_convolution.test.cpp\"\
     \n\nint main() {\n    int N, M;\n    cin >> N >> M;\n    vector<long long> A(N),\
     \ B(M);\n    for(int i = 0; i < N; i++) {\n        cin >> A[i];\n    }\n    for(int\
     \ i = 0; i < M; i++) {\n        cin >> B[i];\n    }\n\n    NTT ntt;\n\n    auto\
@@ -116,15 +116,15 @@ data:
   - convolution/ntt.hpp
   - data_structure/static_modint.hpp
   isVerificationFile: true
-  path: test/verify/yosupo_convolution.test.cpp
+  path: verify/yosupo/yosupo_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-06-22 00:41:57+09:00'
+  timestamp: '2024-06-22 04:42:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/yosupo_convolution.test.cpp
+documentation_of: verify/yosupo/yosupo_convolution.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/yosupo_convolution.test.cpp
-- /verify/test/verify/yosupo_convolution.test.cpp.html
-title: test/verify/yosupo_convolution.test.cpp
+- /verify/verify/yosupo/yosupo_convolution.test.cpp
+- /verify/verify/yosupo/yosupo_convolution.test.cpp.html
+title: verify/yosupo/yosupo_convolution.test.cpp
 ---

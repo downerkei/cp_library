@@ -14,7 +14,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
     links:
     - https://judge.yosupo.jp/problem/point_add_range_sum
-  bundledCode: "#line 1 \"test/verify/yosupo_point_add_range_sum.test.cpp\"\n#define\
+  bundledCode: "#line 1 \"verify/yosupo/yosupo_point_add_range_sum.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"data_structure/fenwick_tree.hpp\"\
     \ntemplate <typename T>\nstruct FenwickTree {\n  public:\n    FenwickTree(int\
@@ -23,7 +23,7 @@ data:
     \        }\n    }\n\n    T Sum(int r) {\n        T s = 0;\n        while(r > 0)\
     \ {\n            s += data[r - 1];\n            r -= r & -r;\n        }\n    \
     \    return s;\n    }\n\n    T Sum(int r, int l) {\n        return Sum(l) - Sum(r);\n\
-    \    }\n\n  private:\n    int n_;\n    vector<T> data;\n};\n#line 7 \"test/verify/yosupo_point_add_range_sum.test.cpp\"\
+    \    }\n\n  private:\n    int n_;\n    vector<T> data;\n};\n#line 7 \"verify/yosupo/yosupo_point_add_range_sum.test.cpp\"\
     \n\nint main(){\n    int N, Q;\n    cin >> N >> Q;\n\n    FenwickTree<long long>\
     \ bit(N); \n\n    for(int i = 0; i < N; i++) {\n        int a;\n        cin >>\
     \ a;\n        bit.Add(i, a);\n    }\n\n    for(int i = 0; i < Q; i++) {\n    \
@@ -43,15 +43,15 @@ data:
   dependsOn:
   - data_structure/fenwick_tree.hpp
   isVerificationFile: true
-  path: test/verify/yosupo_point_add_range_sum.test.cpp
+  path: verify/yosupo/yosupo_point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-21 22:22:16+09:00'
+  timestamp: '2024-06-22 04:42:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/verify/yosupo_point_add_range_sum.test.cpp
+documentation_of: verify/yosupo/yosupo_point_add_range_sum.test.cpp
 layout: document
 redirect_from:
-- /verify/test/verify/yosupo_point_add_range_sum.test.cpp
-- /verify/test/verify/yosupo_point_add_range_sum.test.cpp.html
-title: test/verify/yosupo_point_add_range_sum.test.cpp
+- /verify/verify/yosupo/yosupo_point_add_range_sum.test.cpp
+- /verify/verify/yosupo/yosupo_point_add_range_sum.test.cpp.html
+title: verify/yosupo/yosupo_point_add_range_sum.test.cpp
 ---

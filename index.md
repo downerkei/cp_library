@@ -23,12 +23,12 @@ data:
     - icon: ':warning:'
       path: data_structure/lazy_segmemt_tree.cpp
       title: data_structure/lazy_segmemt_tree.cpp
+    - icon: ':heavy_check_mark:'
+      path: data_structure/montgomery_modint_32.hpp
+      title: data_structure/montgomery_modint_32.hpp
     - icon: ':warning:'
-      path: data_structure/montgomery_modint_32.cpp
-      title: data_structure/montgomery_modint_32.cpp
-    - icon: ':warning:'
-      path: data_structure/montgomery_modint_64.cpp
-      title: data_structure/montgomery_modint_64.cpp
+      path: data_structure/montgomery_modint_64.hpp
+      title: data_structure/montgomery_modint_64.hpp
     - icon: ':warning:'
       path: data_structure/segment_tree.cpp
       title: data_structure/segment_tree.cpp
@@ -75,9 +75,9 @@ data:
     - icon: ':warning:'
       path: math/pow.cpp
       title: math/pow.cpp
-    - icon: ':warning:'
-      path: math/random_number_generator.cpp
-      title: math/random_number_generator.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/random_number_generator.hpp
+      title: math/random_number_generator.hpp
   - name: other/matching
     pages:
     - icon: ':warning:'
@@ -89,19 +89,24 @@ data:
       path: string/rollong_hash.cpp
       title: string/rollong_hash.cpp
   verificationCategories:
-  - name: test/verify
+  - name: verify/unit_test
     pages:
     - icon: ':heavy_check_mark:'
-      path: test/verify/yosupo_convolution.test.cpp
-      title: test/verify/yosupo_convolution.test.cpp
+      path: verify/unit_test/montgomery_modint_32.test.cpp
+      title: verify/unit_test/montgomery_modint_32.test.cpp
+  - name: verify/yosupo
+    pages:
     - icon: ':heavy_check_mark:'
-      path: test/verify/yosupo_double_ended_priority_queue.test.cpp
-      title: test/verify/yosupo_double_ended_priority_queue.test.cpp
+      path: verify/yosupo/yosupo_convolution.test.cpp
+      title: verify/yosupo/yosupo_convolution.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/verify/yosupo_point_add_range_sum.test.cpp
-      title: test/verify/yosupo_point_add_range_sum.test.cpp
+      path: verify/yosupo/yosupo_double_ended_priority_queue.test.cpp
+      title: verify/yosupo/yosupo_double_ended_priority_queue.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/verify/yosupo_unionfind.test.cpp
-      title: test/verify/yosupo_unionfind.test.cpp
+      path: verify/yosupo/yosupo_point_add_range_sum.test.cpp
+      title: verify/yosupo/yosupo_point_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_unionfind.test.cpp
+      title: verify/yosupo/yosupo_unionfind.test.cpp
 layout: toppage
 ---

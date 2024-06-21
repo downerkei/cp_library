@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo_point_add_range_sum.test.cpp
-    title: test/verify/yosupo_point_add_range_sum.test.cpp
+    path: verify/yosupo/yosupo_point_add_range_sum.test.cpp
+    title: verify/yosupo/yosupo_point_add_range_sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -33,7 +33,7 @@ data:
   timestamp: '2024-06-21 22:19:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo_point_add_range_sum.test.cpp
+  - verify/yosupo/yosupo_point_add_range_sum.test.cpp
 documentation_of: data_structure/fenwick_tree.hpp
 layout: document
 redirect_from:

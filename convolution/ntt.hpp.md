@@ -7,8 +7,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/verify/yosupo_convolution.test.cpp
-    title: test/verify/yosupo_convolution.test.cpp
+    path: verify/yosupo/yosupo_convolution.test.cpp
+    title: verify/yosupo/yosupo_convolution.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -156,7 +156,7 @@ data:
   timestamp: '2024-06-22 00:41:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/verify/yosupo_convolution.test.cpp
+  - verify/yosupo/yosupo_convolution.test.cpp
 documentation_of: convolution/ntt.hpp
 layout: document
 redirect_from:
