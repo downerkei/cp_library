@@ -14,7 +14,7 @@ data:
     - icon: ':warning:'
       path: data_structure/binary_search_tree.cpp
       title: data_structure/binary_search_tree.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.hpp
       title: data_structure/fenwick_tree.hpp
     - icon: ':warning:'
@@ -91,7 +91,7 @@ data:
   verificationCategories:
   - name: test/verify
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo_point_add_range_sum.test.cpp
       title: test/verify/yosupo_point_add_range_sum.test.cpp
 layout: toppage
