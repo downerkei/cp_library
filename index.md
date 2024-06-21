@@ -3,9 +3,9 @@ data:
   libraryCategories:
   - name: convolution
     pages:
-    - icon: ':warning:'
-      path: convolution/fft.cpp
-      title: convolution/fft.cpp
+    - icon: ':x:'
+      path: convolution/fft.hpp
+      title: convolution/fft.hpp
     - icon: ':x:'
       path: convolution/ntt.hpp
       title: convolution/ntt.hpp
@@ -91,6 +91,9 @@ data:
   verificationCategories:
   - name: test/verify
     pages:
+    - icon: ':x:'
+      path: test/verify/atcoder_atc001_c.test.cpp
+      title: test/verify/atcoder_atc001_c.test.cpp
     - icon: ':x:'
       path: test/verify/yosupo_convolution.test.cpp
       title: test/verify/yosupo_convolution.test.cpp
