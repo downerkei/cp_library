@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// 二分探索木
 template<class T=int>
 struct BinarySearchTree{
     struct Node{
@@ -12,8 +13,8 @@ struct BinarySearchTree{
     };
 
     Node* root = nullptr;
-
-    Node* find(T x) {
+    
+    Node* Find(T x) {
         Node* cur = root;
         while(cur) {
             if(cur->val == x) return cur;
@@ -23,7 +24,7 @@ struct BinarySearchTree{
         return cur;
     }
 
-    void insert(T x) {
+    void Insert(T x) {
         Node* new_node = new Node(x);
         Node* cur = root;
         Node* pre = nullptr;
@@ -38,7 +39,7 @@ struct BinarySearchTree{
         new_node->p = pre;
     }
 
-    bool erase(T x) {
+    bool Erase(T x) {
         Node* del = find(x);
         if(!del) return false;
         if(!del->l) transplant(del, del->r);
@@ -59,7 +60,7 @@ struct BinarySearchTree{
         return true;
     }
 
-    void transplant(Node* u, Node* v) {
+    void Transplant(Node* u, Node* v) {
         if(u == root) root = v;
         else if(u == u->p->l) u->p->l = v;
         else u->p->r = v;

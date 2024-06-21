@@ -6,7 +6,7 @@ struct FenwickTree {
   public:
     FenwickTree(int n) : n_(n), data(n) {}
 
-    void add(int p, T x) {
+    void Add(int p, T x) {
         p++;
         while(p <= n_) {
             data[p - 1] += x;
@@ -14,7 +14,7 @@ struct FenwickTree {
         }
     }
 
-    T sum(int r) {
+    T Sum(int r) {
         T s = 0;
         while(r > 0) {
             s += data[r - 1];
@@ -23,7 +23,7 @@ struct FenwickTree {
         return s;
     }
 
-    T sum(int r, int l) {
+    T Sum(int r, int l) {
         return sum(l) - sum(r);
     }
 
@@ -41,7 +41,7 @@ int main(){
     for(int i = 0; i < N; i++) {
         int a;
         cin >> a;
-        bit.add(i, a);
+        bit.Add(i, a);
     }
 
     for(int i = 0; i < Q; i++) {
@@ -50,13 +50,13 @@ int main(){
         if(t == 0) {
             int p, x;
             cin >> p >> x;
-            bit.add(p, x);
+            bit.Add(p, x);
         }
 
         if(t == 1) {
             int l, r;
             cin >> l >> r;
-            cout << bit.sum(l, r) << endl;
+            cout << bit.Sum(l, r) << endl;
         }
     }
 
