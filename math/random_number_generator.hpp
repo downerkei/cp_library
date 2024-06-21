@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 struct RandomNumberGenerator {
     mt19937 mt;
 
@@ -17,11 +14,3 @@ struct RandomNumberGenerator {
         return (*this)(0, b);
     }
 };
-
-int main() {
-    RandomNumberGenerator rnd;
-
-    cout << rnd(10) << endl;
-
-    return 0;
-}

@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 // modint
 // using mint = MontgomeryModInt64; と定義する
 // mint::set_mod(M); でmodをMに設定する
@@ -107,16 +104,3 @@ struct MontgomeryModint64 {
         return r.inv();
     }
 };
-
-using mint = MontgomeryModint64;
-
-int main() {
-    mint::set_mod(11);
-
-    for(int i = 0; i < 20; i++) {
-        cout << mint(i) << endl;
-    }
-    
-
-    return 0;
-}

@@ -1,10 +1,10 @@
-#include <bits/stdc++.h>
-using namespace std;
-
+// mod奇数の剰余計算高速
 struct MontgomeryModint32 {
     using mint = MontgomeryModint32;
     using u32 = uint32_t;
     using u64 = uint64_t;
+
+    u32 _v;
 
     // static変数
     // R = 2 ^ 32
@@ -13,13 +13,13 @@ struct MontgomeryModint32 {
     static inline u32 T64;     // 2 ^ 64 (mod MOD)
 
     // static関数
-    static void set_mod(u32 mod) {
+    static void SetMod(u32 mod) {
         MOD = mod;
         T64 = -u64(mod) % mod;
-        INV_MOD = get_inv_mod();
+        INV_MOD = GetInvMod();
     }
     // ニュートン法で逆元を求める
-    static u32 get_inv_mod() {
+    static u32 GetInvMod() {
         u32 res = MOD;
         for(int i = 0; i < 4; ++i) res *= 2 - MOD * res;
         return res;
@@ -29,15 +29,25 @@ struct MontgomeryModint32 {
         return (v + u64(u32(v) * u32(-INV_MOD)) * MOD) >> 32;
     }
 
-    u32 _v;
+    mint Inv() const { return Pow(MOD - 2); }
+    mint Pow(u64 n) const {
+        mint res(1), mul(*this);
+        while(n) {
+            if(n & 1) res *= mul;
+            mul *= mul;
+            n >>= 1;
+        }
+        return res;
+    }
+
+    u32 Val() const {
+        u32 res = MR(_v);
+        return res >= MOD ? res - MOD : res;
+    }
 
     MontgomeryModint32(): _v(0) {}
     MontgomeryModint32(long long v): _v(MR((u64(v) + MOD) * T64)) {}
 
-    u32 val() const {
-        u32 res = MR(_v);
-        return res >= MOD ? res - MOD : res;
-    }
     
     mint operator + () const { return *this; }
     mint operator - () const { return mint() - mint(*this); }
@@ -65,19 +75,8 @@ struct MontgomeryModint32 {
         return *this;
     }
     mint& operator /= (const mint& r) {
-        *this *= r.inv();
+        *this *= r.Inv();
         return *this;
-    }
-
-    mint inv() const { return pow(MOD - 2); }
-    mint pow(u64 n) const {
-        mint res(1), mul(*this);
-        while(n) {
-            if(n & 1) res *= mul;
-            mul *= mul;
-            n >>= 1;
-        }
-        return res;
     }
 
     bool operator == (const mint& r) const {
@@ -94,19 +93,6 @@ struct MontgomeryModint32 {
         return is;
     }
     friend ostream& operator << (ostream& os, const mint& x) {
-        return os << x.val();
+        return os << x.Val();
     }
 };
-
-using mint = MontgomeryModint32;
-
-int main() {
-    mint::set_mod(11);
-
-    for(int i = 0; i < 20; i++) {
-        cout << mint(i) << endl;
-    }
-    
-
-    return 0;
-}
