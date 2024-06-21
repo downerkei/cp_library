@@ -11,9 +11,9 @@ data:
       title: convolution/ntt.cpp
   - name: data_structure
     pages:
-    - icon: ':warning:'
-      path: data_structure/binary_search_tree.cpp
-      title: data_structure/binary_search_tree.cpp
+    - icon: ':heavy_check_mark:'
+      path: data_structure/binary_search_tree.hpp
+      title: data_structure/binary_search_tree.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.hpp
       title: data_structure/fenwick_tree.hpp
@@ -91,6 +91,9 @@ data:
   verificationCategories:
   - name: test/verify
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/verify/yosupo_double_ended_priority_queue.test.cpp
+      title: test/verify/yosupo_double_ended_priority_queue.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/verify/yosupo_point_add_range_sum.test.cpp
       title: test/verify/yosupo_point_add_range_sum.test.cpp
