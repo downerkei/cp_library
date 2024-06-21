@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/verify/atcoder_atc001_c.test.cpp
-    title: test/verify/atcoder_atc001_c.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"convolution/fft.hpp\"\nstruct FFT{\n    // k\u756A\u76EE\
@@ -74,9 +71,8 @@ data:
   path: convolution/fft.hpp
   requiredBy: []
   timestamp: '2024-06-21 23:36:53+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/verify/atcoder_atc001_c.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: convolution/fft.hpp
 layout: document
 redirect_from:
