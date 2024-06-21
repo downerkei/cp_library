@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 template<int m> struct StaticModint {
     using mint = StaticModint;
     int _v;
@@ -68,10 +65,4 @@ template<int m> struct StaticModint {
     }
 };
 
-using mint = StaticModint<998244353>;
-
-int main() {
-
-
-    return 0;
-}
+// using mint = StaticModint<998244353>;
