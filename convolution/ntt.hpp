@@ -89,15 +89,15 @@ struct NTT{
         n = 1; while(n < a.size() + b.size() - 1) n *= 2;
 
         // ninvの計算
-        ninv = mint(n).inv().val();
+        ninv = mint(n).Inv().Val();
 
         BitReversal(n);
 
         // 1のn乗根計算
         // MOD - 1 = 119 * 2 ^ 23 = d * nと表せる(nは2冪)
         // g ^ (MOD - 1) = (g ^ d) ^ n ≡ 1なので，ω = g ^ d
-        int d = ((MOD - 1) / n).val();
-        mint w = g.pow(d);
+        int d = ((MOD - 1) / n).Val();
+        mint w = g.Pow(d);
         NthRoots(n, w);
 
         vector<mint> ma(a.size()), mb(b.size());
@@ -119,7 +119,7 @@ struct NTT{
 
         vector<long long> ret(a.size() + b.size() - 1);
         for(int i = 0; i < (int)a.size() + b.size() - 1; i++) {
-            ret[i] = c[i].val();
+            ret[i] = c[i].Val();
         }
 
         return ret;
