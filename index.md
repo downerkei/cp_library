@@ -14,9 +14,9 @@ data:
     - icon: ':warning:'
       path: data_structure/binary_search_tree.cpp
       title: data_structure/binary_search_tree.cpp
-    - icon: ':warning:'
-      path: data_structure/fenwick_tree.cpp
-      title: data_structure/fenwick_tree.cpp
+    - icon: ':x:'
+      path: data_structure/fenwick_tree.hpp
+      title: data_structure/fenwick_tree.hpp
     - icon: ':warning:'
       path: data_structure/lazy_reversible_splay_tree.cpp
       title: data_structure/lazy_reversible_splay_tree.cpp
@@ -88,6 +88,11 @@ data:
     - icon: ':warning:'
       path: string/rollong_hash.cpp
       title: string/rollong_hash.cpp
-  verificationCategories: []
+  verificationCategories:
+  - name: test/verify
+    pages:
+    - icon: ':x:'
+      path: test/verify/yosupo_point_add_range_sum.test.cpp
+      title: test/verify/yosupo_point_add_range_sum.test.cpp
 layout: toppage
 ---
