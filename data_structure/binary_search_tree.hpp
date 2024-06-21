@@ -1,7 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-// 二分探索木
 template<class T=int>
 struct BinarySearchTree{
     struct Node{
@@ -13,7 +9,7 @@ struct BinarySearchTree{
     };
 
     Node* root = nullptr;
-    
+
     Node* Find(T x) {
         Node* cur = root;
         while(cur) {
@@ -40,19 +36,19 @@ struct BinarySearchTree{
     }
 
     bool Erase(T x) {
-        Node* del = find(x);
+        Node* del = Find(x);
         if(!del) return false;
-        if(!del->l) transplant(del, del->r);
-        else if(!del->r) transplant(del, del->l);
+        if(!del->l) Transplant(del, del->r);
+        else if(!del->r) Transplant(del, del->l);
         else {
             Node* nxt = del->r;
             while(nxt->l) nxt = nxt->l;
             if(del->r != nxt) {
-                transplant(nxt, nxt->r);    
+                Transplant(nxt, nxt->r);    
                 nxt->r = del->r;
                 nxt->r->p = nxt;
             }
-            transplant(del, nxt);
+            Transplant(del, nxt);
             nxt->l = del->l;
             nxt->l->p = nxt;
         }
@@ -65,5 +61,27 @@ struct BinarySearchTree{
         else if(u == u->p->l) u->p->l = v;
         else u->p->r = v;
         if(v) v->p = u->p;
+    }
+
+    T Minimum() {
+        Node* cur = root;
+        Node* pre = nullptr;
+        while(cur) {
+            pre = cur;
+            cur = cur->l;
+        }
+        if(!pre) return -1;
+        return pre->val;
+    }
+
+    T Maximum() {
+        Node* cur = root;
+        Node* pre = nullptr;
+        while(cur) {
+            pre = cur;
+            cur = cur->r;
+        }
+        if(!pre) return -1;
+        return pre->val;
     }
 };
