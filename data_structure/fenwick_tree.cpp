@@ -1,3 +1,5 @@
+#define PLOBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,7 +26,7 @@ struct FenwickTree {
     }
 
     T Sum(int r, int l) {
-        return sum(l) - sum(r);
+        return Sum(l) - Sum(r);
     }
 
   private:
