@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: convolution/ntt.hpp
     title: convolution/ntt.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/static_modint.hpp
     title: data_structure/static_modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/convolution_mod
@@ -33,7 +33,7 @@ data:
     \    }\n    constexpr mint& operator *= (const mint& r) {\n        unsigned long\
     \ long z = _v;\n        z *= r._v;\n        _v = (unsigned int)(z % m); return\
     \ *this;\n    }\n    constexpr mint& operator /= (const mint& r) {\n        return\
-    \ *this *= r.inv(); \n    }\n\n    constexpr mint Pow(long long n) const {\n \
+    \ *this *= r.Inv(); \n    }\n\n    constexpr mint Pow(long long n) const {\n \
     \       mint x = *this, r = 1; \n        while(n) {\n            if(n & 1) r *=\
     \ x;\n            x *= x;\n            n >>= 1;\n        }\n        return r;\n\
     \    }\n    constexpr mint Inv() const {\n        return Pow(m - 2);\n    }\n\n\
@@ -118,8 +118,8 @@ data:
   isVerificationFile: true
   path: test/verify/yosupo_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-06-21 23:28:19+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-22 00:41:57+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/verify/yosupo_convolution.test.cpp
 layout: document

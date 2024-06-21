@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/static_modint.hpp
     title: data_structure/static_modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/verify/yosupo_convolution.test.cpp
     title: test/verify/yosupo_convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"data_structure/static_modint.hpp\"\ntemplate<int m=998244353>\
@@ -27,7 +27,7 @@ data:
     \      if(_v < r._v) _v += m;\n        _v -= r._v; return *this;\n    }\n    constexpr\
     \ mint& operator *= (const mint& r) {\n        unsigned long long z = _v;\n  \
     \      z *= r._v;\n        _v = (unsigned int)(z % m); return *this;\n    }\n\
-    \    constexpr mint& operator /= (const mint& r) {\n        return *this *= r.inv();\
+    \    constexpr mint& operator /= (const mint& r) {\n        return *this *= r.Inv();\
     \ \n    }\n\n    constexpr mint Pow(long long n) const {\n        mint x = *this,\
     \ r = 1; \n        while(n) {\n            if(n & 1) r *= x;\n            x *=\
     \ x;\n            n >>= 1;\n        }\n        return r;\n    }\n    constexpr\
@@ -153,8 +153,8 @@ data:
   isVerificationFile: false
   path: convolution/ntt.hpp
   requiredBy: []
-  timestamp: '2024-06-21 23:28:19+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-06-22 00:41:57+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/verify/yosupo_convolution.test.cpp
 documentation_of: convolution/ntt.hpp

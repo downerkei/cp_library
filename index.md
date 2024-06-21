@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: convolution/fft.hpp
       title: convolution/fft.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: convolution/ntt.hpp
       title: convolution/ntt.hpp
   - name: data_structure
@@ -32,7 +32,7 @@ data:
     - icon: ':warning:'
       path: data_structure/segment_tree.cpp
       title: data_structure/segment_tree.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/static_modint.hpp
       title: data_structure/static_modint.hpp
     - icon: ':heavy_check_mark:'
@@ -91,7 +91,7 @@ data:
   verificationCategories:
   - name: test/verify
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/verify/yosupo_convolution.test.cpp
       title: test/verify/yosupo_convolution.test.cpp
     - icon: ':heavy_check_mark:'
