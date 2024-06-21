@@ -1,5 +1,6 @@
 {
 "test/verify/yosupo_convolution.test.cpp": "2024-06-21 23:03:39 +0900",
 "test/verify/yosupo_double_ended_priority_queue.test.cpp": "2024-06-21 22:30:47 +0900",
-"test/verify/yosupo_point_add_range_sum.test.cpp": "2024-06-21 22:22:16 +0900"
+"test/verify/yosupo_point_add_range_sum.test.cpp": "2024-06-21 22:22:16 +0900",
+"test/verify/yosupo_unionfind.test.cpp": "2024-06-21 23:11:34 +0900"
 }
