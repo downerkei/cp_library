@@ -82,18 +82,18 @@ data:
     \ ret;\n    }\n\n    // \u7573\u307F\u8FBC\u307F\n    vector<long long> Convolution(vector<long\
     \ long>& a, vector<long long>& b) {\n        // n\u306E\u8A08\u7B97\n        n\
     \ = 1; while(n < a.size() + b.size() - 1) n *= 2;\n\n        // ninv\u306E\u8A08\
-    \u7B97\n        ninv = mint(n).inv().val();\n\n        BitReversal(n);\n\n   \
+    \u7B97\n        ninv = mint(n).Inv().Val();\n\n        BitReversal(n);\n\n   \
     \     // 1\u306En\u4E57\u6839\u8A08\u7B97\n        // MOD - 1 = 119 * 2 ^ 23 =\
     \ d * n\u3068\u8868\u305B\u308B(n\u306F2\u51AA)\n        // g ^ (MOD - 1) = (g\
     \ ^ d) ^ n \u2261 1\u306A\u306E\u3067\uFF0C\u03C9 = g ^ d\n        int d = ((MOD\
-    \ - 1) / n).val();\n        mint w = g.pow(d);\n        NthRoots(n, w);\n\n  \
+    \ - 1) / n).Val();\n        mint w = g.Pow(d);\n        NthRoots(n, w);\n\n  \
     \      vector<mint> ma(a.size()), mb(b.size());\n        for(int i = 0; i < (int)a.size();\
     \ i++) {\n            ma[i] = a[i];\n        }\n        for(int i = 0; i < (int)b.size();\
     \ i++) {\n            mb[i] = b[i];\n        }\n\n        vector<mint> fa = Transform(ma);\n\
     \        vector<mint> fb = Transform(mb);\n\n        for(int i = 0; i < n; i++)\
     \ {\n            fa[i] *= fb[i];\n        }\n\n        auto c = Transform(fa,\
     \ true);\n\n        vector<long long> ret(a.size() + b.size() - 1);\n        for(int\
-    \ i = 0; i < (int)a.size() + b.size() - 1; i++) {\n            ret[i] = c[i].val();\n\
+    \ i = 0; i < (int)a.size() + b.size() - 1; i++) {\n            ret[i] = c[i].Val();\n\
     \        }\n\n        return ret;\n    }\n};\n"
   code: "#include \"../data_structure/static_modint.hpp\"\n\nstruct NTT{\n    using\
     \ mint = StaticModint<998244353>;\n\n    // n: \u7573\u307F\u8FBC\u307F\u5F8C\u306E\
@@ -135,25 +135,25 @@ data:
     \ ret;\n    }\n\n    // \u7573\u307F\u8FBC\u307F\n    vector<long long> Convolution(vector<long\
     \ long>& a, vector<long long>& b) {\n        // n\u306E\u8A08\u7B97\n        n\
     \ = 1; while(n < a.size() + b.size() - 1) n *= 2;\n\n        // ninv\u306E\u8A08\
-    \u7B97\n        ninv = mint(n).inv().val();\n\n        BitReversal(n);\n\n   \
+    \u7B97\n        ninv = mint(n).Inv().Val();\n\n        BitReversal(n);\n\n   \
     \     // 1\u306En\u4E57\u6839\u8A08\u7B97\n        // MOD - 1 = 119 * 2 ^ 23 =\
     \ d * n\u3068\u8868\u305B\u308B(n\u306F2\u51AA)\n        // g ^ (MOD - 1) = (g\
     \ ^ d) ^ n \u2261 1\u306A\u306E\u3067\uFF0C\u03C9 = g ^ d\n        int d = ((MOD\
-    \ - 1) / n).val();\n        mint w = g.pow(d);\n        NthRoots(n, w);\n\n  \
+    \ - 1) / n).Val();\n        mint w = g.Pow(d);\n        NthRoots(n, w);\n\n  \
     \      vector<mint> ma(a.size()), mb(b.size());\n        for(int i = 0; i < (int)a.size();\
     \ i++) {\n            ma[i] = a[i];\n        }\n        for(int i = 0; i < (int)b.size();\
     \ i++) {\n            mb[i] = b[i];\n        }\n\n        vector<mint> fa = Transform(ma);\n\
     \        vector<mint> fb = Transform(mb);\n\n        for(int i = 0; i < n; i++)\
     \ {\n            fa[i] *= fb[i];\n        }\n\n        auto c = Transform(fa,\
     \ true);\n\n        vector<long long> ret(a.size() + b.size() - 1);\n        for(int\
-    \ i = 0; i < (int)a.size() + b.size() - 1; i++) {\n            ret[i] = c[i].val();\n\
+    \ i = 0; i < (int)a.size() + b.size() - 1; i++) {\n            ret[i] = c[i].Val();\n\
     \        }\n\n        return ret;\n    }\n};"
   dependsOn:
   - data_structure/static_modint.hpp
   isVerificationFile: false
   path: convolution/ntt.hpp
   requiredBy: []
-  timestamp: '2024-06-21 23:20:27+09:00'
+  timestamp: '2024-06-21 23:28:19+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/verify/yosupo_convolution.test.cpp
