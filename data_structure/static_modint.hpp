@@ -1,4 +1,4 @@
-template<int m> struct StaticModint {
+template<int m=998244353> struct StaticModint {
     using mint = StaticModint;
     int _v;
 
@@ -6,7 +6,7 @@ template<int m> struct StaticModint {
     template<class T>
     constexpr StaticModint(T v) : _v((v % m + m) % m) {}
 
-    constexpr int val() const { return _v; }
+    constexpr int Val() const { return _v; }
 
     constexpr mint& operator ++ () { return *this += 1; }
     constexpr mint& operator -- () { return *this -= 1; }
@@ -30,7 +30,7 @@ template<int m> struct StaticModint {
         return *this *= r.inv(); 
     }
 
-    constexpr mint pow(long long n) const {
+    constexpr mint Pow(long long n) const {
         mint x = *this, r = 1; 
         while(n) {
             if(n & 1) r *= x;
@@ -39,8 +39,8 @@ template<int m> struct StaticModint {
         }
         return r;
     }
-    constexpr mint inv() const {
-        return pow(m - 2);
+    constexpr mint Inv() const {
+        return Pow(m - 2);
     }
 
     constexpr mint operator + () const { return *this; }
@@ -64,5 +64,3 @@ template<int m> struct StaticModint {
         return os << x._v;
     }
 };
-
-// using mint = StaticModint<998244353>;
