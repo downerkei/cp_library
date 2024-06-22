@@ -29,9 +29,9 @@ data:
     - icon: ':warning:'
       path: data_structure/montgomery_modint_64.hpp
       title: data_structure/montgomery_modint_64.hpp
-    - icon: ':warning:'
-      path: data_structure/segment_tree.cpp
-      title: data_structure/segment_tree.cpp
+    - icon: ':heavy_check_mark:'
+      path: data_structure/segment_tree.hpp
+      title: data_structure/segment_tree.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/static_modint.hpp
       title: data_structure/static_modint.hpp
@@ -103,8 +103,11 @@ data:
       path: verify/yosupo/yosupo_double_ended_priority_queue.test.cpp
       title: verify/yosupo/yosupo_double_ended_priority_queue.test.cpp
     - icon: ':heavy_check_mark:'
-      path: verify/yosupo/yosupo_point_add_range_sum.test.cpp
-      title: verify/yosupo/yosupo_point_add_range_sum.test.cpp
+      path: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
+      title: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp
+      title: verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_unionfind.test.cpp
       title: verify/yosupo/yosupo_unionfind.test.cpp
