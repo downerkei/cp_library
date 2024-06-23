@@ -43,6 +43,9 @@ data:
     - icon: ':warning:'
       path: dp/longest_increasing_subsequence.cpp
       title: dp/longest_increasing_subsequence.cpp
+    - icon: ':heavy_check_mark:'
+      path: dp/rerooting_dp.hpp
+      title: dp/rerooting_dp.hpp
   - name: math
     pages:
     - icon: ':warning:'
@@ -89,6 +92,11 @@ data:
       path: string/rollong_hash.cpp
       title: string/rollong_hash.cpp
   verificationCategories:
+  - name: verify/aoj
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_1595.test.cpp
+      title: verify/aoj/aoj_1595.test.cpp
   - name: verify/unit_test
     pages:
     - icon: ':heavy_check_mark:'
