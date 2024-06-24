@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/aoj/aoj_1595.test.cpp
     title: verify/aoj/aoj_1595.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"dp/rerooting_dp.hpp\"\ntemplate<class E, E (*merge)(E, E),\
@@ -65,7 +65,7 @@ data:
   path: dp/rerooting_dp.hpp
   requiredBy: []
   timestamp: '2024-06-25 07:26:45+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/aoj/aoj_1595.test.cpp
 documentation_of: dp/rerooting_dp.hpp

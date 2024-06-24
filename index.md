@@ -43,7 +43,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/longest_increasing_subsequence.hpp
       title: dp/longest_increasing_subsequence.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/rerooting_dp.hpp
       title: dp/rerooting_dp.hpp
   - name: math
@@ -94,7 +94,7 @@ data:
   verificationCategories:
   - name: verify/aoj
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_1595.test.cpp
       title: verify/aoj/aoj_1595.test.cpp
     - icon: ':heavy_check_mark:'
