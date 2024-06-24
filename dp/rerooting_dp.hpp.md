@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/aoj/aoj_1595.test.cpp
     title: verify/aoj/aoj_1595.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"dp/rerooting_dp.hpp\"\ntemplate<class E, E (*merge)(E, E),\
@@ -29,12 +29,13 @@ data:
     \            int nv = G[v][i];\n            if(nv == p) continue;\n          \
     \  dp2[nv] = dp2[v];\n            if(i - 1 >= 0) dp2[nv] = merge(dp2[nv], lp[i\
     \ - 1]);\n            if(i + 1 < (int)G[v].size()) dp2[nv] = merge(dp2[nv], rp[i\
-    \ + 1]);\n            dp2[nv] = put_v(dp2[nv], nv);\n            dfs2(nv, v);\n\
+    \ + 1]);\n            dp2[nv] = put_v(dp2[nv], v);\n            dfs2(nv, v);\n\
     \        }\n    }\n\n    void dfs3(int v, int p=-1) {\n        for(int nv : G[v])\
     \ {\n            if(nv == p) continue;\n            ans[v] = merge(ans[v], dp1[nv]);\n\
     \            dfs3(nv, v);\n        }\n        ans[v] = merge(ans[v], dp2[v]);\n\
-    \    }\n\n    vector<E> solve() {\n        dfs1(0);\n        dfs2(0);\n      \
-    \  dfs3(0);\n        return ans;\n    }\n};\n"
+    \        ans[v] = put_v(ans[v], v);\n    }\n\n    vector<E> solve() {\n      \
+    \  dfs1(0);\n        dfs2(0);\n        dfs3(0);\n        return ans;\n    }\n\
+    };\n"
   code: "template<class E, E (*merge)(E, E), E (*e)(), E(*put_v)(E, int)>\nstruct\
     \ RerootingDP{\n    int n;\n    vector<vector<int>> G;\n    vector<E> dp1, dp2,\
     \ ans;\n    RerootingDP(int n) : n(n), G(n), dp1(n, e()), dp2(n, e()), ans(n,\
@@ -53,18 +54,18 @@ data:
     \ nv = G[v][i];\n            if(nv == p) continue;\n            dp2[nv] = dp2[v];\n\
     \            if(i - 1 >= 0) dp2[nv] = merge(dp2[nv], lp[i - 1]);\n           \
     \ if(i + 1 < (int)G[v].size()) dp2[nv] = merge(dp2[nv], rp[i + 1]);\n        \
-    \    dp2[nv] = put_v(dp2[nv], nv);\n            dfs2(nv, v);\n        }\n    }\n\
+    \    dp2[nv] = put_v(dp2[nv], v);\n            dfs2(nv, v);\n        }\n    }\n\
     \n    void dfs3(int v, int p=-1) {\n        for(int nv : G[v]) {\n           \
     \ if(nv == p) continue;\n            ans[v] = merge(ans[v], dp1[nv]);\n      \
-    \      dfs3(nv, v);\n        }\n        ans[v] = merge(ans[v], dp2[v]);\n    }\n\
-    \n    vector<E> solve() {\n        dfs1(0);\n        dfs2(0);\n        dfs3(0);\n\
-    \        return ans;\n    }\n};"
+    \      dfs3(nv, v);\n        }\n        ans[v] = merge(ans[v], dp2[v]);\n    \
+    \    ans[v] = put_v(ans[v], v);\n    }\n\n    vector<E> solve() {\n        dfs1(0);\n\
+    \        dfs2(0);\n        dfs3(0);\n        return ans;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: dp/rerooting_dp.hpp
   requiredBy: []
-  timestamp: '2024-06-25 02:46:11+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-06-25 07:26:45+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - verify/aoj/aoj_1595.test.cpp
 documentation_of: dp/rerooting_dp.hpp
