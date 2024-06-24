@@ -88,9 +88,9 @@ data:
       title: other/matching/gale_shapley.cpp
   - name: string
     pages:
-    - icon: ':warning:'
-      path: string/rollong_hash.cpp
-      title: string/rollong_hash.cpp
+    - icon: ':heavy_check_mark:'
+      path: string/rollong_hash.hpp
+      title: string/rollong_hash.hpp
   verificationCategories:
   - name: verify/aoj
     pages:
@@ -125,5 +125,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_unionfind.test.cpp
       title: verify/yosupo/yosupo_unionfind.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_zalgorithm.test.cpp
+      title: verify/yosupo/yosupo_zalgorithm.test.cpp
 layout: toppage
 ---
