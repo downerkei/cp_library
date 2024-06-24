@@ -20,10 +20,10 @@ int main() {
         int u, v;
         cin >> u >> v;
         u--; v--;
-        G.AddEdge(u, v);
+        G.add_edge(u, v);
     }
 
-    for(auto ans : G.Solve()) {
+    for(auto ans : G.solve()) {
         cout << 2 * N - 2 - ans << endl;
     }
 
