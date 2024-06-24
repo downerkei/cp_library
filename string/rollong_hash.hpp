@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 struct RollingHash{
     using u64 = uint64_t;
 
@@ -87,7 +84,7 @@ struct RollingHash{
         return calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));
     }
 
-    // p始点のLCP計算
+    // p始点のLCP計算，O(logN)
     int get_LCP(int p) {
         int lb = -1, ub = N - p + 1;
         while(ub - lb > 1) {
@@ -98,7 +95,7 @@ struct RollingHash{
         return lb;
     }
 
-    // 全てのLCPを返す
+    // 全てのLCPを返す，O(NlogN)
     vector<int> all_LCP() {
         vector<int> ret(N);
         for(int i = 0; i < N; i++) {
@@ -182,20 +179,4 @@ vector<int> enumerate_palindromes(string S) {
     }
 
     return ret;
-}
-
-int main() {
-    string S;
-    cin >> S;
-
-    RollingHash rh(S);
-
-    vector<int> SA = rh.suffix_array();
-
-    for(int i : SA) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
