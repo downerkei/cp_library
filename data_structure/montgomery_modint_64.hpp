@@ -1,30 +1,22 @@
-// modint
-// using mint = MontgomeryModInt64; と定義する
-// mint::set_mod(M); でmodをMに設定する
 struct MontgomeryModint64 {
     using mint = MontgomeryModint64;
     using u64 = uint64_t;
     using u128 = __uint128_t;
 
-    // static変数
-    // R = 2 ^ 64
     static inline u64 MOD;
     static inline u64 INV_MOD;  // INV_MOD * MOD ≡ 1 (mod 2 ^ 64)
     static inline u64 T128;     // 2 ^ 128 (mod MOD)
 
     u64 val;
 
-    // コンストラクタ
     MontgomeryModint64(): val(0) {}
     MontgomeryModint64(long long v): val(MR((u128(v) + MOD) * T128)) {}
 
-    // 値を返す
     u64 get() const {
         u64 res = MR(val);
         return res >= MOD ? res - MOD : res;
     }
 
-    // static関数
     static u64 get_mod() { return MOD; }
     static void set_mod(u64 mod) {
         MOD = mod;
@@ -37,12 +29,11 @@ struct MontgomeryModint64 {
         for(int i = 0; i < 5; ++i) res *= 2 - MOD * res;
         return res;
     }
-    // モンゴメリリダクション
     static u64 MR(const u128& v) {
         return (v + u128(u64(v) * u64(-INV_MOD)) * MOD) >> 64;
     }
 
-    // 算術演算子
+    mint operator + () const { return mint(*this); }
     mint operator - () const { return mint() - mint(*this); }
 
     mint operator + (const mint& r) const { return mint(*this) += r; }
@@ -78,7 +69,6 @@ struct MontgomeryModint64 {
         return res;
     }
 
-    // その他演算子
     bool operator == (const mint& r) const {
         return (val >= MOD ? val - MOD : val) == (r.val >= MOD ? r.val - MOD : r.val);
     }
@@ -86,14 +76,12 @@ struct MontgomeryModint64 {
         return (val >= MOD ? val - MOD : val) != (r.val >= MOD ? r.val - MOD : r.val);
     }
 
-    // 入力
     friend istream& operator >> (istream& is, mint& x) {
         long long t;
         is >> t;
         x = mint(t);
         return is;
     }
-    // 出力
     friend ostream& operator << (ostream& os, const mint& x) {
         return os << x.get();
     }
