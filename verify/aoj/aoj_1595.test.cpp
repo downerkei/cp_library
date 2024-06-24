@@ -24,7 +24,7 @@ int main() {
     }
 
     for(auto ans : G.solve()) {
-        cout << 2 * N - 2 - ans << endl;
+        cout << 2 * N - 2 - ans + 1 << endl;
     }
 
     return 0;
