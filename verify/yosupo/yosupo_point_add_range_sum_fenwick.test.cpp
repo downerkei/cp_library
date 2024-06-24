@@ -14,7 +14,7 @@ int main(){
     for(int i = 0; i < N; i++) {
         int a;
         cin >> a;
-        bit.Add(i, a);
+        bit.add(i, a);
     }
 
     for(int i = 0; i < Q; i++) {
@@ -23,13 +23,13 @@ int main(){
         if(t == 0) {
             int p, x;
             cin >> p >> x;
-            bit.Add(p, x);
+            bit.add(p, x);
         }
 
         if(t == 1) {
             int l, r;
             cin >> l >> r;
-            cout << bit.Sum(l, r) << endl;
+            cout << bit.sum(l, r) << endl;
         }
     }
 

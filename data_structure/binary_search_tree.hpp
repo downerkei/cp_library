@@ -10,7 +10,7 @@ struct BinarySearchTree{
 
     Node* root = nullptr;
 
-    Node* Find(T x) {
+    Node* find(T x) {
         Node* cur = root;
         while(cur) {
             if(cur->val == x) return cur;
@@ -20,7 +20,7 @@ struct BinarySearchTree{
         return cur;
     }
 
-    void Insert(T x) {
+    void insert(T x) {
         Node* new_node = new Node(x);
         Node* cur = root;
         Node* pre = nullptr;
@@ -35,20 +35,20 @@ struct BinarySearchTree{
         new_node->p = pre;
     }
 
-    bool Erase(T x) {
-        Node* del = Find(x);
+    bool erase(T x) {
+        Node* del = find(x);
         if(!del) return false;
-        if(!del->l) Transplant(del, del->r);
-        else if(!del->r) Transplant(del, del->l);
+        if(!del->l) transplant(del, del->r);
+        else if(!del->r) transplant(del, del->l);
         else {
             Node* nxt = del->r;
             while(nxt->l) nxt = nxt->l;
             if(del->r != nxt) {
-                Transplant(nxt, nxt->r);    
+                transplant(nxt, nxt->r);    
                 nxt->r = del->r;
                 nxt->r->p = nxt;
             }
-            Transplant(del, nxt);
+            transplant(del, nxt);
             nxt->l = del->l;
             nxt->l->p = nxt;
         }
@@ -56,14 +56,14 @@ struct BinarySearchTree{
         return true;
     }
 
-    void Transplant(Node* u, Node* v) {
+    void transplant(Node* u, Node* v) {
         if(u == root) root = v;
         else if(u == u->p->l) u->p->l = v;
         else u->p->r = v;
         if(v) v->p = u->p;
     }
 
-    T Minimum() {
+    T minimum() {
         Node* cur = root;
         Node* pre = nullptr;
         while(cur) {
@@ -74,7 +74,7 @@ struct BinarySearchTree{
         return pre->val;
     }
 
-    T Maximum() {
+    T maximum() {
         Node* cur = root;
         Node* pre = nullptr;
         while(cur) {

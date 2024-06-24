@@ -3,7 +3,7 @@ struct FenwickTree {
   public:
     FenwickTree(int n) : n_(n), data(n) {}
 
-    void Add(int p, T x) {
+    void add(int p, T x) {
         p++;
         while(p <= n_) {
             data[p - 1] += x;
@@ -11,7 +11,7 @@ struct FenwickTree {
         }
     }
 
-    T Sum(int r) {
+    T sum(int r) {
         T s = 0;
         while(r > 0) {
             s += data[r - 1];
@@ -20,8 +20,8 @@ struct FenwickTree {
         return s;
     }
 
-    T Sum(int r, int l) {
-        return Sum(l) - Sum(r);
+    T sum(int r, int l) {
+        return sum(l) - sum(r);
     }
 
   private:

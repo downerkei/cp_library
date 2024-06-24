@@ -12,7 +12,7 @@ int main() {
     while(N--) {
         int a;
         cin >> a;
-        bst.Insert(a);
+        bst.insert(a);
     }
     while(Q--) {
         int q;
@@ -20,16 +20,16 @@ int main() {
         if(q == 0) {
             int x;
             cin >> x;
-            bst.Insert(x);
+            bst.insert(x);
         }
         if(q == 1) {
-            int out = bst.Minimum();
-            bst.Erase(out);
+            int out = bst.minimum();
+            bst.erase(out);
             cout << out << endl;
         }
         if(q == 2) {
-            int out = bst.Maximum();
-            bst.Erase(out);
+            int out = bst.maximum();
+            bst.erase(out);
             cout << out << endl;
         }
     }

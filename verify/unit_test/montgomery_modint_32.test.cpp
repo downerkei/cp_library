@@ -14,7 +14,7 @@ void set_test() {
         int mod = rnd(1e9);
         if(mod % 2 == 0) mod += 1;
 
-        mint::SetMod(mod);
+        mint::set_mod(mod);
 
         int v = rnd(mod + 1, 1e9);
 
@@ -23,34 +23,34 @@ void set_test() {
 }
 
 void operator_test(int mod) {
-    mint::SetMod(mod);
+    mint::set_mod(mod);
     for(int i = 0; i < 1e5; i++) {
         int a = rnd(mod);
         if(rnd(1e9) % 10 == 0) a = 0;
         if(rnd(1e9) % 10 == 0) a = mod - 1;
         mint A = a;
-        assert(A.Val() == a);
+        assert(A.val() == a);
 
         int b = rnd(mod);
         if(rnd(1e9) % 10 == 0) b = 0;
         if(rnd(1e9) % 10 == 0) b = mod - 1;
         mint B = b;
-        assert(B.Val() == b);
+        assert(B.val() == b);
 
         int c = (a + b) % mod;
         mint C = A + B;
-        assert(C.Val() == c);
+        assert(C.val() == c);
 
         int d = (a + mod - b) % mod;
         mint D = A - B;
-        assert(D.Val() == d);
+        assert(D.val() == d);
 
         int e = (1LL * a * b) % mod;
         mint E = A * B;
-        assert(E.Val() == e);
+        assert(E.val() == e);
 
         mint F = rnd(1, mod);
-        mint G = F.Inv();
+        mint G = F.inv();
         if(F * G != 1) cerr << mod << endl;
         assert(F * G == 1);
     }

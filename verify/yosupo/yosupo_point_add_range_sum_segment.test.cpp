@@ -25,12 +25,12 @@ int main() {
         if(q == 0) {
             long long p, x;
             cin >> p >> x;
-            seg.Set(p, x + seg.Get(p));
+            seg.set(p, x + seg.get(p));
         }
         if(q == 1) {
             int l, r;
             cin >> l >> r;
-            cout << seg.Prod(l, r) << endl;
+            cout << seg.prod(l, r) << endl;
         } 
     }
 

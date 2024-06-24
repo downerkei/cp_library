@@ -13,13 +13,13 @@ struct MontgomeryModint32 {
     static inline u32 T64;     // 2 ^ 64 (mod MOD)
 
     // static関数
-    static void SetMod(u32 mod) {
+    static void set_mod(u32 mod) {
         MOD = mod;
         T64 = -u64(mod) % mod;
-        INV_MOD = GetInvMod();
+        INV_MOD = get_inv_mod();
     }
     // ニュートン法で逆元を求める
-    static u32 GetInvMod() {
+    static u32 get_inv_mod() {
         u32 res = MOD;
         for(int i = 0; i < 4; ++i) res *= 2 - MOD * res;
         return res;
@@ -29,8 +29,8 @@ struct MontgomeryModint32 {
         return (v + u64(u32(v) * u32(-INV_MOD)) * MOD) >> 32;
     }
 
-    mint Inv() const { return Pow(MOD - 2); }
-    mint Pow(u64 n) const {
+    mint inv() const { return pow(MOD - 2); }
+    mint pow(u64 n) const {
         mint res(1), mul(*this);
         while(n) {
             if(n & 1) res *= mul;
@@ -40,7 +40,7 @@ struct MontgomeryModint32 {
         return res;
     }
 
-    u32 Val() const {
+    u32 val() const {
         u32 res = MR(_v);
         return res >= MOD ? res - MOD : res;
     }
@@ -75,7 +75,7 @@ struct MontgomeryModint32 {
         return *this;
     }
     mint& operator /= (const mint& r) {
-        *this *= r.Inv();
+        *this *= r.inv();
         return *this;
     }
 
@@ -93,6 +93,6 @@ struct MontgomeryModint32 {
         return is;
     }
     friend ostream& operator << (ostream& os, const mint& x) {
-        return os << x.Val();
+        return os << x.val();
     }
 };

@@ -16,7 +16,7 @@ struct SegmentTree{
         for(int i = n - 1; i >= 1; i--) data[i] = op(data[i<<1], data[i<<1|1]);
     }
 
-    void Set(int i, S x) {
+    void set(int i, S x) {
         i += n;
         data[i] = x;
         while(i > 1) {
@@ -25,7 +25,7 @@ struct SegmentTree{
         }
     }
 
-    S Prod(int l, int r) {
+    S prod(int l, int r) {
         l += n; r += n;
         S vl = e(), vr = e();
         while(l < r) {
@@ -36,5 +36,5 @@ struct SegmentTree{
         return op(vl, vr);
     }
 
-    S Get(int i) { return data[i + n]; }
+    S get(int i) { return data[i + n]; }
 };
