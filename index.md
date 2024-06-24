@@ -26,7 +26,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/montgomery_modint_32.hpp
       title: data_structure/montgomery_modint_32.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/montgomery_modint_64.hpp
       title: data_structure/montgomery_modint_64.hpp
     - icon: ':heavy_check_mark:'
@@ -69,9 +69,9 @@ data:
     - icon: ':warning:'
       path: math/is_prime.cpp
       title: math/is_prime.cpp
-    - icon: ':warning:'
-      path: math/miller_rabin.cpp
-      title: math/miller_rabin.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/miller_rabin.hpp
+      title: math/miller_rabin.hpp
     - icon: ':warning:'
       path: math/pollards_rho.cpp
       title: math/pollards_rho.cpp
@@ -125,6 +125,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp
       title: verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_primality_test.test.cpp
+      title: verify/yosupo/yosupo_primality_test.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_suffix_array.test.cpp
       title: verify/yosupo/yosupo_suffix_array.test.cpp
