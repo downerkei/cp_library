@@ -40,9 +40,9 @@ data:
       title: data_structure/union_find.hpp
   - name: dp
     pages:
-    - icon: ':warning:'
-      path: dp/longest_increasing_subsequence.cpp
-      title: dp/longest_increasing_subsequence.cpp
+    - icon: ':heavy_check_mark:'
+      path: dp/longest_increasing_subsequence.hpp
+      title: dp/longest_increasing_subsequence.hpp
     - icon: ':heavy_check_mark:'
       path: dp/rerooting_dp.hpp
       title: dp/rerooting_dp.hpp
@@ -97,6 +97,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_1595.test.cpp
       title: verify/aoj/aoj_1595.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_DPL_1_D.test.cpp
+      title: verify/aoj/aoj_DPL_1_D.test.cpp
   - name: verify/unit_test
     pages:
     - icon: ':heavy_check_mark:'
