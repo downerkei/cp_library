@@ -1,6 +1,7 @@
 {
 "verify/aoj/aoj_1595.test.cpp": "2024-06-24 04:26:03 +0900",
 "verify/unit_test/montgomery_modint_32.test.cpp": "2024-06-22 04:42:05 +0900",
+"verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp": "2024-06-24 22:48:56 +0900",
 "verify/yosupo/yosupo_convolution.test.cpp": "2024-06-22 04:42:05 +0900",
 "verify/yosupo/yosupo_double_ended_priority_queue.test.cpp": "2024-06-22 04:42:05 +0900",
 "verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp": "2024-06-23 00:19:43 +0900",
