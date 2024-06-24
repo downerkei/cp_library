@@ -48,9 +48,9 @@ data:
       title: dp/rerooting_dp.hpp
   - name: math
     pages:
-    - icon: ':warning:'
-      path: math/binomial_coefficient.cpp
-      title: math/binomial_coefficient.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/binomial_coefficient.hpp
+      title: math/binomial_coefficient.hpp
     - icon: ':warning:'
       path: math/crt.cpp
       title: math/crt.cpp
@@ -104,6 +104,9 @@ data:
       title: verify/unit_test/montgomery_modint_32.test.cpp
   - name: verify/yosupo
     pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
+      title: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_convolution.test.cpp
       title: verify/yosupo/yosupo_convolution.test.cpp
