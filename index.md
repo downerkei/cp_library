@@ -126,6 +126,9 @@ data:
       path: verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp
       title: verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_suffix_array.test.cpp
+      title: verify/yosupo/yosupo_suffix_array.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_unionfind.test.cpp
       title: verify/yosupo/yosupo_unionfind.test.cpp
     - icon: ':heavy_check_mark:'
