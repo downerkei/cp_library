@@ -39,7 +39,7 @@ struct RerootingDP{
             dp2[nv] = dp2[v];
             if(i - 1 >= 0) dp2[nv] = merge(dp2[nv], lp[i - 1]);
             if(i + 1 < (int)G[v].size()) dp2[nv] = merge(dp2[nv], rp[i + 1]);
-            dp2[nv] = put_v(dp2[nv], nv);
+            dp2[nv] = put_v(dp2[nv], v);
             dfs2(nv, v);
         }
     }
@@ -51,6 +51,7 @@ struct RerootingDP{
             dfs3(nv, v);
         }
         ans[v] = merge(ans[v], dp2[v]);
+        ans[v] = put_v(ans[v], v);
     }
 
     vector<E> solve() {
