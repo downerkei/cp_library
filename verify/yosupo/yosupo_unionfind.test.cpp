@@ -16,11 +16,11 @@ int main() {
         cin >> t >> u >> v;
 
         if(t == 0) {
-            uf.Unite(u, v);
+            uf.unite(u, v);
         }
 
         if(t == 1) {
-            cout << uf.Same(u, v) << endl;
+            cout << uf.same(u, v) << endl;
         }
     }
 
