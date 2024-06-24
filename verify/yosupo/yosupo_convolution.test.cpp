@@ -18,7 +18,7 @@ int main() {
 
     NTT ntt;
 
-    auto c = ntt.Convolution(A, B);
+    auto c = ntt.convolution(A, B);
 
     for(auto i : c) {
         cout << i << " ";

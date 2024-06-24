@@ -20,7 +20,7 @@ struct NTT{
     // {0}の各要素に2 ^ 2を加えて{0, 4}
     // {0, 4}の各要素に2 ^ 1を加えて{0, 4, 2, 6}
     // {0, 4, 2, 6}の各要素に2 ^ 0を加えて{0, 4, 2, 6, 1, 5, 3, 7}
-    void BitReversal(int n) {
+    void bit_reversal(int n) {
         br.resize(n);
         int p = 1, d = n / 2;
         while(p < n) {
@@ -34,7 +34,7 @@ struct NTT{
 
     // MOD上1のn乗根の配列を生成
     // n: 要素数(2冪)，w: 1のn乗根のひとつ
-    void NthRoots(int n, mint w) {
+    void n_th_roots(int n, mint w) {
         roots.resize(n);
         roots[0] = 1;
         for(int i = 1; i < n; i++) {
@@ -44,12 +44,12 @@ struct NTT{
 
     // 再帰的に変換
     // l: 更新対象区間の左端，len: 更新対象区間の長さ
-    void TransformRecursive(vector<mint>& c, int l, int len) {
+    void transform_recursive(vector<mint>& c, int l, int len) {
         if(len == 1) return;
         int d = n / len, h = len / 2;
 
-        TransformRecursive(c, l, h);
-        TransformRecursive(c, l + h, h);
+        transform_recursive(c, l, h);
+        transform_recursive(c, l + h, h);
 
         // バタフライ演算
         for(int i = 0; i < h; i++) {
@@ -62,7 +62,7 @@ struct NTT{
 
     // 数論変換，長さは2冪
     // c: 変換列，inv: 逆変換かどうか
-    vector<mint> Transform(vector<mint>& c, bool inv=false) {
+    vector<mint> transform(vector<mint>& c, bool inv=false) {
         vector<mint> ret(n, 0);
 
         // ビット反転置換
@@ -70,7 +70,7 @@ struct NTT{
             ret[br[i]] = c[i];
         }
 
-        TransformRecursive(ret, 0, n);
+        transform_recursive(ret, 0, n);
 
         // NTTならそのまま出力
         if(!inv) return ret;
@@ -84,21 +84,21 @@ struct NTT{
     }
 
     // 畳み込み
-    vector<long long> Convolution(vector<long long>& a, vector<long long>& b) {
+    vector<long long> convolution(vector<long long>& a, vector<long long>& b) {
         // nの計算
         n = 1; while(n < a.size() + b.size() - 1) n *= 2;
 
         // ninvの計算
         ninv = mint(n).Inv().Val();
 
-        BitReversal(n);
+        bit_reversal(n);
 
         // 1のn乗根計算
         // MOD - 1 = 119 * 2 ^ 23 = d * nと表せる(nは2冪)
         // g ^ (MOD - 1) = (g ^ d) ^ n ≡ 1なので，ω = g ^ d
         int d = ((MOD - 1) / n).Val();
         mint w = g.Pow(d);
-        NthRoots(n, w);
+        n_th_roots(n, w);
 
         vector<mint> ma(a.size()), mb(b.size());
         for(int i = 0; i < (int)a.size(); i++) {
@@ -108,14 +108,14 @@ struct NTT{
             mb[i] = b[i];
         }
 
-        vector<mint> fa = Transform(ma);
-        vector<mint> fb = Transform(mb);
+        vector<mint> fa = transform(ma);
+        vector<mint> fb = transform(mb);
 
         for(int i = 0; i < n; i++) {
             fa[i] *= fb[i];
         }
 
-        auto c = Transform(fa, true);
+        auto c = transform(fa, true);
 
         vector<long long> ret(a.size() + b.size() - 1);
         for(int i = 0; i < (int)a.size() + b.size() - 1; i++) {
