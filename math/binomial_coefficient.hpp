@@ -1,13 +1,7 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-// nCr mod P を計算する
-// 前処理 O(N)、クエリO(1)
 struct BinomialCoefficient{
     int MOD;
     vector<long long> fact, fact_inv, inv;
 
-    // 最大値n, 法p
     BinomialCoefficient(int n=1e5, int p=998244353) : MOD(p), fact(n + 1), fact_inv(n + 1), inv(n + 1) {
         fact[0] = fact[1] = 1;
         fact_inv[0] = fact_inv[1] = 1;
@@ -20,7 +14,6 @@ struct BinomialCoefficient{
         }
     }
 
-    // nCr mod P を計算する
     long long comb(int n, int r) {
         if(n < 0 || n < r) return 0;
         return fact[n] * fact_inv[n-r] % MOD * fact_inv[r] % MOD;
@@ -39,14 +32,4 @@ long long comb(int n, int r) {
     }
 
     return ret;
-}
-
-int main() {
-    BinomialCoefficient binom(10, 1e9 + 7);
-
-    cout << binom.comb(2, 1) << endl;
-
-    cout << comb(60, 30) << endl;
-
-    return 0;
 }
