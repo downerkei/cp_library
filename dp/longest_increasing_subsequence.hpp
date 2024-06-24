@@ -1,7 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-// longest increasing subsequence
 template<class T>
 int longest_increasing_subsequence(const vector<T> &A) {
     vector<T> lis;
@@ -12,16 +8,4 @@ int longest_increasing_subsequence(const vector<T> &A) {
         else *it = p;
     }
     return lis.size();
-}
-
-int main() {
-    int N;
-    cin >> N;
-    vector<int> A(N);
-    for(int i = 0; i < N; i++) {
-        cin >> A[i];
-    }
-    cout << longest_increasing_subsequence<int>(A) << endl;
-
-    return 0;
 }
