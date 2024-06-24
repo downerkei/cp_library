@@ -22,7 +22,7 @@ data:
     using namespace std;\n\n#line 1 \"data_structure/static_modint.hpp\"\ntemplate<int\
     \ m=998244353> struct StaticModint {\n    using mint = StaticModint;\n    int\
     \ _v;\n\n    constexpr StaticModint() : _v(0) {}\n    template<class T>\n    constexpr\
-    \ StaticModint(T v) : _v((v % m + m) % m) {}\n\n    constexpr int Val() const\
+    \ StaticModint(T v) : _v((v % m + m) % m) {}\n\n    constexpr int val() const\
     \ { return _v; }\n\n    constexpr mint& operator ++ () { return *this += 1; }\n\
     \    constexpr mint& operator -- () { return *this -= 1; }\n    constexpr mint\
     \ operator ++ (int) { mint res = *this; ++*this; return res; }\n    constexpr\
@@ -33,10 +33,10 @@ data:
     \    }\n    constexpr mint& operator *= (const mint& r) {\n        unsigned long\
     \ long z = _v;\n        z *= r._v;\n        _v = (unsigned int)(z % m); return\
     \ *this;\n    }\n    constexpr mint& operator /= (const mint& r) {\n        return\
-    \ *this *= r.Inv(); \n    }\n\n    constexpr mint Pow(long long n) const {\n \
+    \ *this *= r.inv(); \n    }\n\n    constexpr mint pow(long long n) const {\n \
     \       mint x = *this, r = 1; \n        while(n) {\n            if(n & 1) r *=\
     \ x;\n            x *= x;\n            n >>= 1;\n        }\n        return r;\n\
-    \    }\n    constexpr mint Inv() const {\n        return Pow(m - 2);\n    }\n\n\
+    \    }\n    constexpr mint inv() const {\n        return pow(m - 2);\n    }\n\n\
     \    constexpr mint operator + () const { return *this; }\n    constexpr mint\
     \ operator - () const { return mint() - *this; }\n\n    constexpr mint operator\
     \ + (const mint& r) const { return mint(*this) += r; }\n    constexpr mint operator\
@@ -87,11 +87,11 @@ data:
     \ ret;\n    }\n\n    // \u7573\u307F\u8FBC\u307F\n    vector<long long> convolution(vector<long\
     \ long>& a, vector<long long>& b) {\n        // n\u306E\u8A08\u7B97\n        n\
     \ = 1; while(n < a.size() + b.size() - 1) n *= 2;\n\n        // ninv\u306E\u8A08\
-    \u7B97\n        ninv = mint(n).Inv().Val();\n\n        bit_reversal(n);\n\n  \
+    \u7B97\n        ninv = mint(n).inv().val();\n\n        bit_reversal(n);\n\n  \
     \      // 1\u306En\u4E57\u6839\u8A08\u7B97\n        // MOD - 1 = 119 * 2 ^ 23\
     \ = d * n\u3068\u8868\u305B\u308B(n\u306F2\u51AA)\n        // g ^ (MOD - 1) =\
     \ (g ^ d) ^ n \u2261 1\u306A\u306E\u3067\uFF0C\u03C9 = g ^ d\n        int d =\
-    \ ((MOD - 1) / n).Val();\n        mint w = g.Pow(d);\n        n_th_roots(n, w);\n\
+    \ ((MOD - 1) / n).val();\n        mint w = g.pow(d);\n        n_th_roots(n, w);\n\
     \n        vector<mint> ma(a.size()), mb(b.size());\n        for(int i = 0; i <\
     \ (int)a.size(); i++) {\n            ma[i] = a[i];\n        }\n        for(int\
     \ i = 0; i < (int)b.size(); i++) {\n            mb[i] = b[i];\n        }\n\n \
@@ -99,7 +99,7 @@ data:
     \n        for(int i = 0; i < n; i++) {\n            fa[i] *= fb[i];\n        }\n\
     \n        auto c = transform(fa, true);\n\n        vector<long long> ret(a.size()\
     \ + b.size() - 1);\n        for(int i = 0; i < (int)a.size() + b.size() - 1; i++)\
-    \ {\n            ret[i] = c[i].Val();\n        }\n\n        return ret;\n    }\n\
+    \ {\n            ret[i] = c[i].val();\n        }\n\n        return ret;\n    }\n\
     };\n#line 7 \"verify/yosupo/yosupo_convolution.test.cpp\"\n\nint main() {\n  \
     \  int N, M;\n    cin >> N >> M;\n    vector<long long> A(N), B(M);\n    for(int\
     \ i = 0; i < N; i++) {\n        cin >> A[i];\n    }\n    for(int i = 0; i < M;\
@@ -119,7 +119,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-06-25 02:36:40+09:00'
+  timestamp: '2024-06-25 02:50:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_convolution.test.cpp

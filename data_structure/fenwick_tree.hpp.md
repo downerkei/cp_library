@@ -13,24 +13,24 @@ data:
     links: []
   bundledCode: "#line 1 \"data_structure/fenwick_tree.hpp\"\ntemplate <typename T>\n\
     struct FenwickTree {\n  public:\n    FenwickTree(int n) : n_(n), data(n) {}\n\n\
-    \    void Add(int p, T x) {\n        p++;\n        while(p <= n_) {\n        \
-    \    data[p - 1] += x;\n            p += p & -p;\n        }\n    }\n\n    T Sum(int\
+    \    void add(int p, T x) {\n        p++;\n        while(p <= n_) {\n        \
+    \    data[p - 1] += x;\n            p += p & -p;\n        }\n    }\n\n    T sum(int\
     \ r) {\n        T s = 0;\n        while(r > 0) {\n            s += data[r - 1];\n\
-    \            r -= r & -r;\n        }\n        return s;\n    }\n\n    T Sum(int\
-    \ r, int l) {\n        return Sum(l) - Sum(r);\n    }\n\n  private:\n    int n_;\n\
+    \            r -= r & -r;\n        }\n        return s;\n    }\n\n    T sum(int\
+    \ r, int l) {\n        return sum(l) - sum(r);\n    }\n\n  private:\n    int n_;\n\
     \    vector<T> data;\n};\n"
   code: "template <typename T>\nstruct FenwickTree {\n  public:\n    FenwickTree(int\
-    \ n) : n_(n), data(n) {}\n\n    void Add(int p, T x) {\n        p++;\n       \
+    \ n) : n_(n), data(n) {}\n\n    void add(int p, T x) {\n        p++;\n       \
     \ while(p <= n_) {\n            data[p - 1] += x;\n            p += p & -p;\n\
-    \        }\n    }\n\n    T Sum(int r) {\n        T s = 0;\n        while(r > 0)\
+    \        }\n    }\n\n    T sum(int r) {\n        T s = 0;\n        while(r > 0)\
     \ {\n            s += data[r - 1];\n            r -= r & -r;\n        }\n    \
-    \    return s;\n    }\n\n    T Sum(int r, int l) {\n        return Sum(l) - Sum(r);\n\
+    \    return s;\n    }\n\n    T sum(int r, int l) {\n        return sum(l) - sum(r);\n\
     \    }\n\n  private:\n    int n_;\n    vector<T> data;\n};"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/fenwick_tree.hpp
   requiredBy: []
-  timestamp: '2024-06-21 22:19:45+09:00'
+  timestamp: '2024-06-25 02:44:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
