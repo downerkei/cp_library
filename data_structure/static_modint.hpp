@@ -27,7 +27,7 @@ template<int m=998244353> struct StaticModint {
         _v = (unsigned int)(z % m); return *this;
     }
     constexpr mint& operator /= (const mint& r) {
-        return *this *= r.Inv(); 
+        return *this *= r.inv(); 
     }
 
     constexpr mint pow(long long n) const {
