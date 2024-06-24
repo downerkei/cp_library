@@ -117,6 +117,9 @@ data:
       path: verify/yosupo/yosupo_double_ended_priority_queue.test.cpp
       title: verify/yosupo/yosupo_double_ended_priority_queue.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
+      title: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
       title: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
     - icon: ':heavy_check_mark:'
