@@ -69,9 +69,9 @@ data:
     - icon: ':warning:'
       path: math/inversion_number.cpp
       title: math/inversion_number.cpp
-    - icon: ':warning:'
-      path: math/is_prime.cpp
-      title: math/is_prime.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/is_prime.hpp
+      title: math/is_prime.hpp
     - icon: ':heavy_check_mark:'
       path: math/miller_rabin.hpp
       title: math/miller_rabin.hpp
@@ -98,8 +98,11 @@ data:
       path: verify/aoj/aoj_1595.test.cpp
       title: verify/aoj/aoj_1595.test.cpp
     - icon: ':heavy_check_mark:'
-      path: verify/aoj/aoj_DPL_1_D.test.cpp
-      title: verify/aoj/aoj_DPL_1_D.test.cpp
+      path: verify/aoj/aoj_alds1_1_c.test.cpp
+      title: verify/aoj/aoj_alds1_1_c.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_dpl_1_d.test.cpp
+      title: verify/aoj/aoj_dpl_1_d.test.cpp
   - name: verify/unit_test
     pages:
     - icon: ':heavy_check_mark:'

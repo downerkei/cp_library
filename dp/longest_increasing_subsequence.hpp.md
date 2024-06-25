@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/aoj/aoj_DPL_1_D.test.cpp
-    title: verify/aoj/aoj_DPL_1_D.test.cpp
+    path: verify/aoj/aoj_dpl_1_d.test.cpp
+    title: verify/aoj/aoj_dpl_1_d.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -28,7 +28,7 @@ data:
   timestamp: '2024-06-25 03:00:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/aoj/aoj_DPL_1_D.test.cpp
+  - verify/aoj/aoj_dpl_1_d.test.cpp
 documentation_of: dp/longest_increasing_subsequence.hpp
 layout: document
 redirect_from:
