@@ -8,7 +8,7 @@ documentation_of: //math/ext_gcd.hpp
 
 ax + by = gcd(a, b)となる(x, y)をひとつ計算し，d = gcd(a, b)を返す
 
-この(x, y)は|x| + |y|が最小のものであり，かつx <= yである(らしい)．
+この(x, y)は abs(x) + abs(y) が最小のものであり，かつx <= yである(らしい)．
 
 ## 計算
 
