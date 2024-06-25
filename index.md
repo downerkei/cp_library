@@ -66,9 +66,9 @@ data:
     - icon: ':warning:'
       path: math/gcd.cpp
       title: math/gcd.cpp
-    - icon: ':warning:'
-      path: math/inversion_number.cpp
-      title: math/inversion_number.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/inversion_number.hpp
+      title: math/inversion_number.hpp
     - icon: ':heavy_check_mark:'
       path: math/is_prime.hpp
       title: math/is_prime.hpp
@@ -100,6 +100,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_alds1_1_c.test.cpp
       title: verify/aoj/aoj_alds1_1_c.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_alds1_5_d.test.cpp
+      title: verify/aoj/aoj_alds1_5_d.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp

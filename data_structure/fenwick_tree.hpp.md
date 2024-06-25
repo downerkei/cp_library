@@ -1,8 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: math/inversion_number.hpp
+    title: math/inversion_number.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/aoj/aoj_alds1_5_d.test.cpp
+    title: verify/aoj/aoj_alds1_5_d.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
     title: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
@@ -29,10 +35,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: data_structure/fenwick_tree.hpp
-  requiredBy: []
+  requiredBy:
+  - math/inversion_number.hpp
   timestamp: '2024-06-25 02:44:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/aoj/aoj_alds1_5_d.test.cpp
   - verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
 documentation_of: data_structure/fenwick_tree.hpp
 layout: document
