@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/crt.hpp
     title: "\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/ext_gcd.hpp
     title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/186
@@ -47,7 +47,7 @@ data:
   path: verify/yukicoder/yukicoder_186.test.cpp
   requiredBy: []
   timestamp: '2024-06-26 03:18:46+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yukicoder/yukicoder_186.test.cpp
 layout: document
