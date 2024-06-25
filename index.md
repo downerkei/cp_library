@@ -81,11 +81,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/random_number_generator.hpp
       title: math/random_number_generator.hpp
-  - name: other/matching
-    pages:
-    - icon: ':warning:'
-      path: other/matching/gale_shapley.cpp
-      title: other/matching/gale_shapley.cpp
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
