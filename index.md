@@ -75,9 +75,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/miller_rabin.hpp
       title: math/miller_rabin.hpp
-    - icon: ':warning:'
-      path: math/pow.cpp
-      title: math/pow.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/pow.hpp
+      title: math/pow.hpp
     - icon: ':heavy_check_mark:'
       path: math/random_number_generator.hpp
       title: math/random_number_generator.hpp
@@ -106,6 +106,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_ntl_1_a.test.cpp
       title: verify/aoj/aoj_ntl_1_a.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_ntl_1_b.test.cpp
+      title: verify/aoj/aoj_ntl_1_b.test.cpp
   - name: verify/unit_test
     pages:
     - icon: ':heavy_check_mark:'
