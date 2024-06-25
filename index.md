@@ -60,6 +60,9 @@ data:
     - icon: ':warning:'
       path: math/factorize.cpp
       title: math/factorize.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/fast_factorize.hpp
+      title: math/fast_factorize.hpp
     - icon: ':warning:'
       path: math/gcd.cpp
       title: math/gcd.cpp
@@ -72,9 +75,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/miller_rabin.hpp
       title: math/miller_rabin.hpp
-    - icon: ':warning:'
-      path: math/pollards_rho.cpp
-      title: math/pollards_rho.cpp
     - icon: ':warning:'
       path: math/pow.cpp
       title: math/pow.cpp
@@ -119,6 +119,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
       title: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_factorize.test.cpp
+      title: verify/yosupo/yosupo_factorize.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
       title: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp

@@ -3,9 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: math/fast_factorize.hpp
+    title: math/fast_factorize.hpp
+  - icon: ':heavy_check_mark:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_factorize.test.cpp
+    title: verify/yosupo/yosupo_factorize.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_primality_test.test.cpp
     title: verify/yosupo/yosupo_primality_test.test.cpp
@@ -93,11 +99,13 @@ data:
   isVerificationFile: false
   path: data_structure/montgomery_modint_64.hpp
   requiredBy:
+  - math/fast_factorize.hpp
   - math/miller_rabin.hpp
   timestamp: '2024-06-25 08:47:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_primality_test.test.cpp
+  - verify/yosupo/yosupo_factorize.test.cpp
 documentation_of: data_structure/montgomery_modint_64.hpp
 layout: document
 redirect_from:
