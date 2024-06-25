@@ -51,12 +51,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/binomial_coefficient.hpp
       title: math/binomial_coefficient.hpp
-    - icon: ':warning:'
-      path: math/crt.cpp
-      title: math/crt.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
+      path: math/crt.hpp
+      title: "\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406"
+    - icon: ':question:'
       path: math/ext_gcd.hpp
-      title: math/ext_gcd.hpp
+      title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
     - icon: ':heavy_check_mark:'
       path: math/factorize.hpp
       title: math/factorize.hpp
@@ -158,5 +158,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_zalgorithm.test.cpp
       title: verify/yosupo/yosupo_zalgorithm.test.cpp
+  - name: verify/yukicoder
+    pages:
+    - icon: ':x:'
+      path: verify/yukicoder/yukicoder_186.test.cpp
+      title: verify/yukicoder/yukicoder_186.test.cpp
 layout: toppage
 ---
