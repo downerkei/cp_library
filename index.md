@@ -57,9 +57,9 @@ data:
     - icon: ':warning:'
       path: math/ext_gcd.cpp
       title: math/ext_gcd.cpp
-    - icon: ':warning:'
-      path: math/factorize.cpp
-      title: math/factorize.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/factorize.hpp
+      title: math/factorize.hpp
     - icon: ':heavy_check_mark:'
       path: math/fast_factorize.hpp
       title: math/fast_factorize.hpp
@@ -103,6 +103,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_ntl_1_a.test.cpp
+      title: verify/aoj/aoj_ntl_1_a.test.cpp
   - name: verify/unit_test
     pages:
     - icon: ':heavy_check_mark:'
