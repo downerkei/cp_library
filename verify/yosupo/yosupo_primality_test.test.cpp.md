@@ -57,21 +57,21 @@ data:
     \ os << x.get();\n    }\n    friend mint modpow(const mint& r, long long n) {\n\
     \        return r.pow(n);\n    } \n    friend mint modinv(const mint& r) {\n \
     \       return r.inv();\n    }\n};\n#line 2 \"math/miller_rabin.hpp\"\n\nnamespace\
-    \ fast_factorize {\n    \nusing mint = MontgomeryModint64;\nbool miller_rabin(long\
+    \ fast_factorize {\n\nusing mint = MontgomeryModint64;\nbool miller_rabin(long\
     \ long N, vector<long long> A) {\n    mint::set_mod(N);\n    long long s = 0,\
-    \ d = N - 1;\n    while(d % 2 == 0) {\n        s++;\n        d >>= 1;\n    }\n\
-    \    for(long long a : A) {\n        if(N <= a) return true;\n        mint x =\
+    \ d = N - 1;\n    while(!(d & 1)) {\n        s++;\n        d >>= 1;\n    }\n \
+    \   for(long long a : A) {\n        if(N <= a) return true;\n        mint x =\
     \ mint(a).pow(d);\n        if(x == 1) continue;\n        long long t;\n      \
     \  for(t = 0; t < s; t++) {\n            if(x == N - 1) break;\n            x\
     \ *= x;\n        }\n        if(t == s) return false;\n    }\n    return true;\n\
     }\n\nbool is_prime(long long N) {\n    if(N <= 1) return false;\n    if(N == 2)\
-    \ return true;\n    if(N % 2 == 0) return false;\n\n    if(N < 4759123141LL) return\
+    \ return true;\n    if(!(N & 1)) return false;\n\n    if(N < 4759123141LL) return\
     \ miller_rabin(N, {2, 7, 61});\n\n    return miller_rabin(N, {2, 325, 9375, 28178,\
-    \ 450775, 9780504, 1795265022});\n}\n} // namespace fast_factorize\n#line 7 \"\
-    verify/yosupo/yosupo_primality_test.test.cpp\"\n\nint main() {\n    int Q;\n \
-    \   cin >> Q;\n    while(Q--) {\n        long long N;\n        cin >> N;\n   \
-    \     if(fast_factorize::is_prime(N)) cout << \"Yes\" << endl;\n        else cout\
-    \ << \"No\" << endl;\n    }\n\n    return 0;\n}\n"
+    \ 450775, 9780504, 1795265022});\n}\n\n} // namespace fast_factorize\n#line 7\
+    \ \"verify/yosupo/yosupo_primality_test.test.cpp\"\n\nint main() {\n    int Q;\n\
+    \    cin >> Q;\n    while(Q--) {\n        long long N;\n        cin >> N;\n  \
+    \      if(fast_factorize::is_prime(N)) cout << \"Yes\" << endl;\n        else\
+    \ cout << \"No\" << endl;\n    }\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../math/miller_rabin.hpp\"\
     \n\nint main() {\n    int Q;\n    cin >> Q;\n    while(Q--) {\n        long long\
@@ -83,7 +83,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_primality_test.test.cpp
   requiredBy: []
-  timestamp: '2024-06-25 08:47:59+09:00'
+  timestamp: '2024-06-25 11:57:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_primality_test.test.cpp
