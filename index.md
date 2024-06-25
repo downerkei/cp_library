@@ -54,9 +54,9 @@ data:
     - icon: ':warning:'
       path: math/crt.cpp
       title: math/crt.cpp
-    - icon: ':warning:'
-      path: math/ext_gcd.cpp
-      title: math/ext_gcd.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/ext_gcd.hpp
+      title: math/ext_gcd.hpp
     - icon: ':heavy_check_mark:'
       path: math/factorize.hpp
       title: math/factorize.hpp
@@ -115,6 +115,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_ntl_1_b.test.cpp
       title: verify/aoj/aoj_ntl_1_b.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_ntl_1_e.test.cpp
+      title: verify/aoj/aoj_ntl_1_e.test.cpp
   - name: verify/unit_test
     pages:
     - icon: ':heavy_check_mark:'
