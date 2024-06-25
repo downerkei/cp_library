@@ -63,9 +63,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fast_factorize.hpp
       title: math/fast_factorize.hpp
-    - icon: ':warning:'
-      path: math/gcd.cpp
-      title: math/gcd.cpp
+    - icon: ':heavy_check_mark:'
+      path: math/gcd.hpp
+      title: math/gcd.hpp
     - icon: ':heavy_check_mark:'
       path: math/inversion_number.hpp
       title: math/inversion_number.hpp
@@ -97,6 +97,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_1595.test.cpp
       title: verify/aoj/aoj_1595.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_alds1_1_b.test.cpp
+      title: verify/aoj/aoj_alds1_1_b.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_alds1_1_c.test.cpp
       title: verify/aoj/aoj_alds1_1_c.test.cpp
