@@ -17,9 +17,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.hpp
       title: data_structure/fenwick_tree.hpp
-    - icon: ':warning:'
-      path: data_structure/lazy_reversible_splay_tree.cpp
-      title: data_structure/lazy_reversible_splay_tree.cpp
+    - icon: ':heavy_check_mark:'
+      path: data_structure/lazy_reversible_splay_tree.hpp
+      title: "\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\u80FD\u30B9\u30D7\u30EC\u30FC\
+        \u6728"
     - icon: ':warning:'
       path: data_structure/lazy_segmemt_tree.cpp
       title: data_structure/lazy_segmemt_tree.cpp
@@ -129,6 +130,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_double_ended_priority_queue.test.cpp
       title: verify/yosupo/yosupo_double_ended_priority_queue.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_dynamic_sequence_range_affine_range_sum.test.cpp
+      title: verify/yosupo/yosupo_dynamic_sequence_range_affine_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
       title: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
