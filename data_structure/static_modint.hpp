@@ -51,8 +51,8 @@ template<int m=998244353> struct StaticModint {
     constexpr mint operator * (const mint& r) const { return mint(*this) *= r; }
     constexpr mint operator / (const mint& r) const { return mint(*this) /= r; }
     
-    constexpr bool operator == (const mint& r) { return _v == r._v; }
-    constexpr bool operator != (const mint& r) { return _v != r._v; }
+    constexpr bool operator == (const mint& r) const { return _v == r._v; }
+    constexpr bool operator != (const mint& r) const { return _v != r._v; }
 
     friend istream& operator >> (istream& is, mint& x) {
         long long t;
