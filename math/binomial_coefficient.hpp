@@ -15,7 +15,7 @@ struct BinomialCoefficient{
     }
 
     long long comb(int n, int r) {
-        if(n < 0 || n < r) return 0;
+        if(n < 0 || n < r || r < 0) return 0;
         return fact[n] * fact_inv[n-r] % MOD * fact_inv[r] % MOD;
     }
 };
