@@ -1,4 +1,5 @@
 vector<pair<long long, int>> factorize(long long N) {
+    assert(0 < N);
     vector<pair<long long, int>> ret;
     for(long long p = 2; p * p <= N; p++) {
         if(N % p != 0) continue;
