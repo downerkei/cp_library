@@ -82,6 +82,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/random_number_generator.hpp
       title: math/random_number_generator.hpp
+    - icon: ':heavy_check_mark:'
+      path: math/sqrt_floor.hpp
+      title: math/sqrt_floor.hpp
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
@@ -119,6 +122,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/unit_test/montgomery_modint_32.test.cpp
       title: verify/unit_test/montgomery_modint_32.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/unit_test/sqrt_floor.test.cpp
+      title: verify/unit_test/sqrt_floor.test.cpp
   - name: verify/yosupo
     pages:
     - icon: ':heavy_check_mark:'

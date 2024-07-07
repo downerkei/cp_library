@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/unit_test/montgomery_modint_32.test.cpp
     title: verify/unit_test/montgomery_modint_32.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/unit_test/sqrt_floor.test.cpp
+    title: verify/unit_test/sqrt_floor.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -30,6 +33,7 @@ data:
   timestamp: '2024-06-22 04:42:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/unit_test/sqrt_floor.test.cpp
   - verify/unit_test/montgomery_modint_32.test.cpp
 documentation_of: math/random_number_generator.hpp
 layout: document
