@@ -158,6 +158,9 @@ data:
       path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
       title: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_staticrmq.test.cpp
+      title: verify/yosupo/yosupo_staticrmq.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_suffix_array.test.cpp
       title: verify/yosupo/yosupo_suffix_array.test.cpp
     - icon: ':heavy_check_mark:'
