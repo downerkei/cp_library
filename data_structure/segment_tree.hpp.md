@@ -48,8 +48,8 @@ data:
   timestamp: '2024-06-25 02:44:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp
   - verify/yosupo/yosupo_staticrmq.test.cpp
+  - verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp
 documentation_of: data_structure/segment_tree.hpp
 layout: document
 redirect_from:

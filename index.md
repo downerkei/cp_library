@@ -47,6 +47,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/rerooting_dp.hpp
       title: dp/rerooting_dp.hpp
+  - name: graph
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/dijkstra.hpp
+      title: graph/dijkstra.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
@@ -157,6 +162,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
       title: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_shortest_path.test.cpp
+      title: verify/yosupo/yosupo_shortest_path.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_staticrmq.test.cpp
       title: verify/yosupo/yosupo_staticrmq.test.cpp
