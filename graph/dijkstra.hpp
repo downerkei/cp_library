@@ -1,29 +1,39 @@
 struct Dijkstra{
     static constexpr long long INF = 2e18;
-    vector<long long> dis;
+    vector<long long> dist;
     vector<int> pre;
-    priority_queue<pair<long long, int>> pq;
-    vector<int> p;
-    Dijkstra(vector<vector<pair<int, long long>>>& G, int s) : dis(G.size(), INF), pre(G.size(), -1) {
-        dis[s] = 0;
+    vector<vector<pair<int, long long>>> G;
+
+    Dijkstra(int N) : G(N), dist(N, INF), pre(N, -1) {}
+
+    void add_edge(int a, int b, long long c) {
+        G[a].push_back({b, c});
+    }
+
+    vector<long long> solve(int s) {
+        dist[s] = 0;
+        priority_queue<pair<long long, int>> pq;
         pq.push({0, s});
         while(pq.size()) {
             auto [d, v] = pq.top(); pq.pop();
-            if(dis[v] < -d) continue;
+            if(dist[v] < -d) continue;
             for(auto [nv, c] : G[v]) {
-                if(dis[nv] <= dis[v] + c) continue;
-                dis[nv] = dis[v] + c;
+                if(dist[nv] <= dist[v] + c) continue;
+                dist[nv] = dist[v] + c;
                 pre[nv] = v;
-                pq.push({-dis[nv], nv});
+                pq.push({-dist[nv], nv});
             }
         }
+        for(int i = 0; i < (int)G.size(); i++) {
+            if(dist[i] == INF) dist[i] = -1;
+        }
+        return dist;
     }
 
-    long long dist(int t) { return (dis[t] == INF) ? -1 : dis[t]; }
-    vector<int> path(int t) {
-        if(p.size()) return p;
-        for(; t != -1; t = pre[t]) p.push_back(t);
-        reverse(p.begin(), p.end());
-        return p;
+    vector<int> calc_path(int t) {
+        vector<int> path;
+        for(; t != -1; t = pre[t]) path.push_back(t);
+        reverse(path.begin(), path.end());
+        return path;
     }
 };
