@@ -6,6 +6,9 @@ using namespace std;
 #include "../../math/binomial_coefficient.hpp"
 
 int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    
     int T, m;
     cin >> T >> m;
 
