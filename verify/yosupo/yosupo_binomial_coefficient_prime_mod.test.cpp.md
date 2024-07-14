@@ -31,22 +31,22 @@ data:
     \ {\n    if(r < 0 || n < r) return 0;\n    long long ret = 1;\n    for(long long\
     \ i = 1; i <= r; i++) {\n        ret *= n--;\n        ret /= i;\n    }\n\n   \
     \ return ret;\n}\n#line 7 \"verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp\"\
-    \n\nint main() {\n    int T, m;\n    cin >> T >> m;\n\n    BinomialCoefficient\
-    \ binom(min((int)1e7, m), m);\n\n    while(T--) {\n        int n, k;\n       \
-    \ cin >> n >> k;\n        cout << binom.comb(n, k) << endl;\n    }\n\n    return\
-    \ 0;\n}\n"
+    \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
+    \  \n    int T, m;\n    cin >> T >> m;\n\n    BinomialCoefficient binom(min((int)1e7,\
+    \ m), m);\n\n    while(T--) {\n        int n, k;\n        cin >> n >> k;\n   \
+    \     cout << binom.comb(n, k) << endl;\n    }\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../math/binomial_coefficient.hpp\"\
-    \n\nint main() {\n    int T, m;\n    cin >> T >> m;\n\n    BinomialCoefficient\
-    \ binom(min((int)1e7, m), m);\n\n    while(T--) {\n        int n, k;\n       \
-    \ cin >> n >> k;\n        cout << binom.comb(n, k) << endl;\n    }\n\n    return\
-    \ 0;\n}"
+    \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
+    \  \n    int T, m;\n    cin >> T >> m;\n\n    BinomialCoefficient binom(min((int)1e7,\
+    \ m), m);\n\n    while(T--) {\n        int n, k;\n        cin >> n >> k;\n   \
+    \     cout << binom.comb(n, k) << endl;\n    }\n\n    return 0;\n}"
   dependsOn:
   - math/binomial_coefficient.hpp
   isVerificationFile: true
   path: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-06-27 19:55:46+09:00'
+  timestamp: '2024-07-14 14:43:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
