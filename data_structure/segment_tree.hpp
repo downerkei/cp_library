@@ -36,5 +36,7 @@ struct SegmentTree{
         return op(vl, vr);
     }
 
+    S all_prod() { return prod(0, n); }
+
     S get(int i) { return data[i + n]; }
 };
