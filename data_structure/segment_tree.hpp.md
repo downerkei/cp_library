@@ -26,8 +26,8 @@ data:
     \ }\n\n    S prod(int l, int r) {\n        l += n; r += n;\n        S vl = e(),\
     \ vr = e();\n        while(l < r) {\n            if(l & 1) vl = op(vl, data[l++]);\n\
     \            if(r & 1) vr = op(data[--r], vr);\n            l >>= 1; r >>= 1;\n\
-    \        }\n        return op(vl, vr);\n    }\n\n    S all_prod() { return prod(0,\
-    \ n); }\n\n    S get(int i) { return data[i + n]; }\n};\n"
+    \        }\n        return op(vl, vr);\n    }\n\n    S all_prod() { return data[1];\
+    \ }\n\n    S get(int i) { return data[i + n]; }\n};\n"
   code: "template<class S, S (*op)(S, S), S (*e)()>\nstruct SegmentTree{\n    int\
     \ n;\n    vector<S> data;\n\n    SegmentTree(int sz=0) : n(1) {\n        while(n\
     \ < sz) n *= 2;\n        data.resize(2 * n, e());\n    }\n\n    SegmentTree(const\
@@ -40,13 +40,13 @@ data:
     \ {\n        l += n; r += n;\n        S vl = e(), vr = e();\n        while(l <\
     \ r) {\n            if(l & 1) vl = op(vl, data[l++]);\n            if(r & 1) vr\
     \ = op(data[--r], vr);\n            l >>= 1; r >>= 1;\n        }\n        return\
-    \ op(vl, vr);\n    }\n\n    S all_prod() { return prod(0, n); }\n\n    S get(int\
-    \ i) { return data[i + n]; }\n};"
+    \ op(vl, vr);\n    }\n\n    S all_prod() { return data[1]; }\n\n    S get(int\
+    \ i) { return data[i + n]; }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2024-07-23 19:46:23+09:00'
+  timestamp: '2024-07-23 19:50:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_staticrmq.test.cpp

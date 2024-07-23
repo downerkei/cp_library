@@ -29,7 +29,7 @@ data:
     \ {\n        l += n; r += n;\n        S vl = e(), vr = e();\n        while(l <\
     \ r) {\n            if(l & 1) vl = op(vl, data[l++]);\n            if(r & 1) vr\
     \ = op(data[--r], vr);\n            l >>= 1; r >>= 1;\n        }\n        return\
-    \ op(vl, vr);\n    }\n\n    S all_prod() { return prod(0, n); }\n\n    S get(int\
+    \ op(vl, vr);\n    }\n\n    S all_prod() { return data[1]; }\n\n    S get(int\
     \ i) { return data[i + n]; }\n};\n#line 7 \"verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp\"\
     \n\nusing S = long long;\nS op(S l, S r) { return l + r; }\nS e() { return 0;\
     \ }\n\nint main() {\n    int N, Q;\n    cin >> N >> Q;\n    vector<long long>\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp
   requiredBy: []
-  timestamp: '2024-07-23 19:46:23+09:00'
+  timestamp: '2024-07-23 19:50:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_point_add_range_sum_segment.test.cpp
