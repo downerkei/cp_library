@@ -24,5 +24,6 @@
 "verify/yosupo/yosupo_suffix_array.test.cpp": "2024-06-25 04:29:19 +0900",
 "verify/yosupo/yosupo_unionfind.test.cpp": "2024-06-25 02:47:24 +0900",
 "verify/yosupo/yosupo_zalgorithm.test.cpp": "2024-06-25 03:39:44 +0900",
+"verify/yukicoder/yukicoder_1002.test.cpp": "2024-07-26 01:41:40 +0900",
 "verify/yukicoder/yukicoder_186.test.cpp": "2024-06-26 03:18:46 +0900"
 }
