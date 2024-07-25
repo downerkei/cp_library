@@ -49,6 +49,9 @@ data:
       title: dp/rerooting_dp.hpp
   - name: graph
     pages:
+    - icon: ':warning:'
+      path: graph/centroid_decomposition.hpp
+      title: graph/centroid_decomposition.hpp
     - icon: ':heavy_check_mark:'
       path: graph/dijkstra.hpp
       title: graph/dijkstra.hpp
@@ -95,6 +98,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/rollong_hash.hpp
       title: string/rollong_hash.hpp
+  - name: verify/yukicoder
+    pages:
+    - icon: ':warning:'
+      path: verify/yukicoder/yukicoder_1002.cpp
+      title: verify/yukicoder/yukicoder_1002.cpp
   verificationCategories:
   - name: verify/aoj
     pages:
