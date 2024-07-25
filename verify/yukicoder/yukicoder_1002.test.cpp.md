@@ -1,20 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: graph/centroid_decomposition.hpp
     title: graph/centroid_decomposition.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://yukicoder.me/problems/no/1002
     links:
     - https://yukicoder.me/problems/no/1002
-  bundledCode: "#line 1 \"verify/yukicoder/yukicoder_1002.cpp\"\n#define PROBLEM \"\
-    https://yukicoder.me/problems/no/1002\"\n\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\n\n#line 1 \"graph/centroid_decomposition.hpp\"\nstruct CentroidDecomposition{\n\
+  bundledCode: "#line 1 \"verify/yukicoder/yukicoder_1002.test.cpp\"\n#define PROBLEM\
+    \ \"https://yukicoder.me/problems/no/1002\"\n\n#include <bits/stdc++.h>\nusing\
+    \ namespace std;\n\n#line 1 \"graph/centroid_decomposition.hpp\"\nstruct CentroidDecomposition{\n\
     \    vector<vector<int>> G, T;\n    vector<int> sub, ord;\n    vector<int> used;\n\
     \    int r;\n \n    CentroidDecomposition(vector<vector<int>>& G) : G(G), T(G.size()),\
     \ sub(G.size()), used(G.size()) {\n        build_dfs();\n    } \n \n    int calc_sub(int\
@@ -29,8 +31,8 @@ data:
     \ \n        if(p == -1) r = centroid;\n        else {\n            T[p].push_back(centroid);\n\
     \            T[centroid].push_back(p);\n        }\n \n        for(int nv : G[centroid])\
     \ {\n            if(used[nv]) continue;\n            build_dfs(nv, centroid);\n\
-    \        }\n    }\n};\n#line 7 \"verify/yukicoder/yukicoder_1002.cpp\"\n\nint\
-    \ main() {\n    int N, K;\n    cin >> N >> K;\n    vector<vector<int>> G(N);\n\
+    \        }\n    }\n};\n#line 7 \"verify/yukicoder/yukicoder_1002.test.cpp\"\n\n\
+    int main() {\n    int N, K;\n    cin >> N >> K;\n    vector<vector<int>> G(N);\n\
     \    vector<vector<pair<int, int>>> E(N);\n    for(int i = 0; i < N - 1; i++)\
     \ {\n        int u, v, c;\n        cin >> u >> v >> c;\n        u--; v--;\n  \
     \      G[u].push_back(v);\n        G[v].push_back(u);\n        E[u].push_back({v,\
@@ -100,16 +102,16 @@ data:
     \    }\n\n    cout << ans << endl;\n\n    return 0;\n}"
   dependsOn:
   - graph/centroid_decomposition.hpp
-  isVerificationFile: false
-  path: verify/yukicoder/yukicoder_1002.cpp
+  isVerificationFile: true
+  path: verify/yukicoder/yukicoder_1002.test.cpp
   requiredBy: []
-  timestamp: '2024-07-26 01:37:09+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2024-07-26 01:41:40+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: verify/yukicoder/yukicoder_1002.cpp
+documentation_of: verify/yukicoder/yukicoder_1002.test.cpp
 layout: document
 redirect_from:
-- /library/verify/yukicoder/yukicoder_1002.cpp
-- /library/verify/yukicoder/yukicoder_1002.cpp.html
-title: verify/yukicoder/yukicoder_1002.cpp
+- /verify/verify/yukicoder/yukicoder_1002.test.cpp
+- /verify/verify/yukicoder/yukicoder_1002.test.cpp.html
+title: verify/yukicoder/yukicoder_1002.test.cpp
 ---

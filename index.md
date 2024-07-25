@@ -49,7 +49,7 @@ data:
       title: dp/rerooting_dp.hpp
   - name: graph
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/centroid_decomposition.hpp
       title: graph/centroid_decomposition.hpp
     - icon: ':heavy_check_mark:'
@@ -98,11 +98,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/rollong_hash.hpp
       title: string/rollong_hash.hpp
-  - name: verify/yukicoder
-    pages:
-    - icon: ':warning:'
-      path: verify/yukicoder/yukicoder_1002.cpp
-      title: verify/yukicoder/yukicoder_1002.cpp
   verificationCategories:
   - name: verify/aoj
     pages:
@@ -187,6 +182,9 @@ data:
       title: verify/yosupo/yosupo_zalgorithm.test.cpp
   - name: verify/yukicoder
     pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/yukicoder/yukicoder_1002.test.cpp
+      title: verify/yukicoder/yukicoder_1002.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yukicoder/yukicoder_186.test.cpp
       title: verify/yukicoder/yukicoder_186.test.cpp
