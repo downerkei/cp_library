@@ -51,7 +51,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: graph/centroid_decomposition.hpp
-      title: graph/centroid_decomposition.hpp
+      title: "\u91CD\u5FC3\u5206\u89E3"
     - icon: ':heavy_check_mark:'
       path: graph/dijkstra.hpp
       title: graph/dijkstra.hpp
