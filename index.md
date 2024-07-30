@@ -47,14 +47,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/rerooting_dp.hpp
       title: dp/rerooting_dp.hpp
-  - name: graph
+  - name: graph/shortest_path
     pages:
     - icon: ':heavy_check_mark:'
-      path: graph/centroid_decomposition.hpp
-      title: "\u91CD\u5FC3\u5206\u89E3"
+      path: graph/shortest_path/dijkstra.hpp
+      title: graph/shortest_path/dijkstra.hpp
+  - name: graph/tree
+    pages:
     - icon: ':heavy_check_mark:'
-      path: graph/dijkstra.hpp
-      title: graph/dijkstra.hpp
+      path: graph/tree/centroid_decomposition.hpp
+      title: graph/tree/centroid_decomposition.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'

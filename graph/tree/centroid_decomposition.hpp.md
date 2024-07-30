@@ -11,7 +11,7 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"graph/centroid_decomposition.hpp\"\nstruct CentroidDecomposition{\n\
+  bundledCode: "#line 1 \"graph/tree/centroid_decomposition.hpp\"\nstruct CentroidDecomposition{\n\
     \    vector<vector<int>> G, T;\n    vector<int> sub, ord;\n    vector<int> used;\n\
     \    int r;\n \n    CentroidDecomposition(vector<vector<int>>& G) : G(G), T(G.size()),\
     \ sub(G.size()), used(G.size()) {\n        build_dfs();\n    } \n \n    int calc_sub(int\
@@ -44,29 +44,16 @@ data:
     \            build_dfs(nv, centroid);\n        }\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: graph/centroid_decomposition.hpp
+  path: graph/tree/centroid_decomposition.hpp
   requiredBy: []
-  timestamp: '2024-07-26 01:37:09+09:00'
+  timestamp: '2024-07-31 03:16:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yukicoder/yukicoder_1002.test.cpp
-documentation_of: graph/centroid_decomposition.hpp
+documentation_of: graph/tree/centroid_decomposition.hpp
 layout: document
-title: "\u91CD\u5FC3\u5206\u89E3"
+redirect_from:
+- /library/graph/tree/centroid_decomposition.hpp
+- /library/graph/tree/centroid_decomposition.hpp.html
+title: graph/tree/centroid_decomposition.hpp
 ---
-
-## 概要
-
-重心分解
-
-木において，ある頂点を取り除くといくつかの木に分裂する．分裂後の木のサイズがすべて元のサイズの半分以下の場合，その頂点を木の重心という．
-
-重心を取り除いた部分木についても再帰的に分解を行い，最終的にサイズが1になるまで続ける．
-
-## コンストラクタ
-
-```cpp
-CentroidDecomposition cd(const vector<vector<int>>& G);
-```
-
-* 連結リスト`G`を入力として，重心同士を結んだ根付き木`T`を連結リストで構築．また，`T`をdfs行きがけ順で探索したものを`ord`，`T`の根を`r`に格納する．
