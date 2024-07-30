@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../graph/dijkstra.hpp"
+#include "../../graph/shortest_path/dijkstra.hpp"
 
 int main() {
     cin.tie(nullptr);
