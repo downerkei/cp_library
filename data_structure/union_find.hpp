@@ -21,7 +21,7 @@ struct UnionFind {
         return true;
     }
 
-    int dize(int a) {
+    int size(int a) {
         return siz[root(a)];
     }
 
