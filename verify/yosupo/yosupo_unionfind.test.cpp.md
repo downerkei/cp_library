@@ -24,7 +24,7 @@ data:
     \ = root(a), rb = root(b);\n        if(ra == rb) return false;\n        if(rank[ra]\
     \ < rank[rb]) swap(ra, rb);\n        par[rb] = ra;\n        if(rank[ra] == rank[rb])\
     \ rank[ra]++;\n        siz[ra] += siz[rb];\n        return true;\n    }\n\n  \
-    \  int dize(int a) {\n        return siz[root(a)];\n    }\n\n  private:\n    vector<int>\
+    \  int size(int a) {\n        return siz[root(a)];\n    }\n\n  private:\n    vector<int>\
     \ par, rank, siz;\n};\n#line 7 \"verify/yosupo/yosupo_unionfind.test.cpp\"\n\n\
     int main() {\n    int N, Q;\n    cin >> N >> Q;\n\n    UnionFind uf(N);\n\n  \
     \  for(int i = 0; i < Q; i++) {\n        int t, u, v;\n        cin >> t >> u >>\
@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_unionfind.test.cpp
   requiredBy: []
-  timestamp: '2024-06-25 02:47:24+09:00'
+  timestamp: '2024-07-31 03:07:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_unionfind.test.cpp

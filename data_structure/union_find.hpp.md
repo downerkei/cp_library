@@ -18,7 +18,7 @@ data:
     \    }\n\n    bool unite(int a, int b) {\n        int ra = root(a), rb = root(b);\n\
     \        if(ra == rb) return false;\n        if(rank[ra] < rank[rb]) swap(ra,\
     \ rb);\n        par[rb] = ra;\n        if(rank[ra] == rank[rb]) rank[ra]++;\n\
-    \        siz[ra] += siz[rb];\n        return true;\n    }\n\n    int dize(int\
+    \        siz[ra] += siz[rb];\n        return true;\n    }\n\n    int size(int\
     \ a) {\n        return siz[root(a)];\n    }\n\n  private:\n    vector<int> par,\
     \ rank, siz;\n};\n"
   code: "struct UnionFind {\n  public:\n    UnionFind(int n) : par(n, -1), rank(n,\
@@ -28,13 +28,13 @@ data:
     \ b) {\n        int ra = root(a), rb = root(b);\n        if(ra == rb) return false;\n\
     \        if(rank[ra] < rank[rb]) swap(ra, rb);\n        par[rb] = ra;\n      \
     \  if(rank[ra] == rank[rb]) rank[ra]++;\n        siz[ra] += siz[rb];\n       \
-    \ return true;\n    }\n\n    int dize(int a) {\n        return siz[root(a)];\n\
+    \ return true;\n    }\n\n    int size(int a) {\n        return siz[root(a)];\n\
     \    }\n\n  private:\n    vector<int> par, rank, siz;\n};"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union_find.hpp
   requiredBy: []
-  timestamp: '2024-06-25 02:44:34+09:00'
+  timestamp: '2024-07-31 03:07:18+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_unionfind.test.cpp
