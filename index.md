@@ -49,7 +49,7 @@ data:
       title: dp/rerooting_dp.hpp
   - name: graph/flow
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/flow/ford_fulkerson.hpp
       title: graph/flow/ford_fulkerson.hpp
   - name: graph/shortest_path
@@ -123,7 +123,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_grl_6_a.test.cpp
       title: verify/aoj/aoj_grl_6_a.test.cpp
     - icon: ':heavy_check_mark:'
