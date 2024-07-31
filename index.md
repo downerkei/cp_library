@@ -47,6 +47,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/rerooting_dp.hpp
       title: dp/rerooting_dp.hpp
+  - name: graph/flow
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph/flow/max_flow.hpp
+      title: graph/flow/max_flow.hpp
   - name: graph/shortest_path
     pages:
     - icon: ':heavy_check_mark:'
@@ -118,6 +123,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_grl_6_a.test.cpp
+      title: verify/aoj/aoj_grl_6_a.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_ntl_1_a.test.cpp
       title: verify/aoj/aoj_ntl_1_a.test.cpp
