@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../graph/flow/max_flow.hpp"
+#include "../../graph/flow/ford_fulkerson.hpp"
 
 int main() {
     int V, E;
