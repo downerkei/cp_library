@@ -3,7 +3,8 @@ struct FordFulkerson{
     struct Edge{
         int from, to, rev;
         flow_t cap;
-        Edge(int f, int t, int r, flow_t c) : from(f), to(t), rev(r), cap(c) {}
+        bool is_rev;
+        Edge(int f, int t, int r, flow_t c, bool b) : from(f), to(t), rev(r), cap(c), is_rev(b) {}
     };
 
     vector<vector<Edge>> G;
@@ -15,8 +16,8 @@ struct FordFulkerson{
     void add_edge(int from, int to, flow_t cap) {
         int fromrev = G[from].size();
         int torev = G[to].size();
-        G[from].push_back(Edge(from, to, torev, cap));
-        G[to].push_back(Edge(to, from, fromrev, 0));
+        G[from].push_back(Edge(from, to, torev, cap, 0));
+        G[to].push_back(Edge(to, from, fromrev, 0, 1));
     }
 
     flow_t dfs(int v, int t, flow_t f) {
@@ -45,6 +46,17 @@ struct FordFulkerson{
             flow_t flow = dfs(s, t, INF);
             if(flow == 0) break;
             ret += flow;
+        }
+        return ret;
+    }
+
+    vector<Edge> edges() {
+        vector<Edge> ret;
+        for(const auto& v : G) {
+            for(const auto& e : v) {
+                if(e.is_rev) continue;
+                ret.push_back(e);
+            }
         }
         return ret;
     }
