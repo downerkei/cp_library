@@ -177,8 +177,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_suffix_array.test.cpp
-  - verify/yosupo/yosupo_enumerate_palindromes.test.cpp
   - verify/yosupo/yosupo_zalgorithm.test.cpp
+  - verify/yosupo/yosupo_enumerate_palindromes.test.cpp
 documentation_of: string/rollong_hash.hpp
 layout: document
 redirect_from:

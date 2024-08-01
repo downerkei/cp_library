@@ -50,6 +50,9 @@ data:
   - name: graph/flow
     pages:
     - icon: ':heavy_check_mark:'
+      path: graph/flow/dinic.hpp
+      title: graph/flow/dinic.hpp
+    - icon: ':heavy_check_mark:'
       path: graph/flow/ford_fulkerson.hpp
       title: graph/flow/ford_fulkerson.hpp
   - name: graph/shortest_path
@@ -124,8 +127,11 @@ data:
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp
     - icon: ':heavy_check_mark:'
-      path: verify/aoj/aoj_grl_6_a.test.cpp
-      title: verify/aoj/aoj_grl_6_a.test.cpp
+      path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
+      title: verify/aoj/aoj_grl_6_a_dinic.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
+      title: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_ntl_1_a.test.cpp
       title: verify/aoj/aoj_ntl_1_a.test.cpp
@@ -148,6 +154,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
       title: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_bipartitematching.test.cpp
+      title: verify/yosupo/yosupo_bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_convolution.test.cpp
       title: verify/yosupo/yosupo_convolution.test.cpp

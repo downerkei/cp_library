@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/aoj/aoj_grl_6_a.test.cpp
-    title: verify/aoj/aoj_grl_6_a.test.cpp
+    path: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
+    title: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -61,7 +61,7 @@ data:
   timestamp: '2024-07-31 23:32:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/aoj/aoj_grl_6_a.test.cpp
+  - verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
 documentation_of: graph/flow/ford_fulkerson.hpp
 layout: document
 redirect_from:

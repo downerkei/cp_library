@@ -14,7 +14,8 @@ data:
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp
     links:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp
-  bundledCode: "#line 1 \"verify/aoj/aoj_grl_6_a.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp\"\
+  bundledCode: "#line 1 \"verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"graph/flow/ford_fulkerson.hpp\"\
     \ntemplate<typename flow_t>\nstruct FordFulkerson{\n    struct Edge{\n       \
     \ int from, to, rev;\n        flow_t cap;\n        bool is_rev;\n        Edge(int\
@@ -36,7 +37,7 @@ data:
     \   }\n        return ret;\n    }\n\n    vector<Edge> edges() {\n        vector<Edge>\
     \ ret;\n        for(const auto& v : G) {\n            for(const auto& e : v) {\n\
     \                if(e.is_rev) continue;\n                ret.push_back(e);\n \
-    \           }\n        }\n        return ret;\n    }\n};\n#line 7 \"verify/aoj/aoj_grl_6_a.test.cpp\"\
+    \           }\n        }\n        return ret;\n    }\n};\n#line 7 \"verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp\"\
     \n\nint main() {\n    int V, E;\n    cin >> V >> E;\n    FordFulkerson<int> ff(V);\n\
     \n    for(int i = 0; i < E; i++) {\n        int u, v, c;\n        cin >> u >>\
     \ v >> c;\n        ff.add_edge(u, v, c);\n    }\n\n    cout << ff.max_flow(0,\
@@ -50,15 +51,15 @@ data:
   dependsOn:
   - graph/flow/ford_fulkerson.hpp
   isVerificationFile: true
-  path: verify/aoj/aoj_grl_6_a.test.cpp
+  path: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
   requiredBy: []
-  timestamp: '2024-07-31 23:33:19+09:00'
+  timestamp: '2024-08-02 01:15:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: verify/aoj/aoj_grl_6_a.test.cpp
+documentation_of: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
 layout: document
 redirect_from:
-- /verify/verify/aoj/aoj_grl_6_a.test.cpp
-- /verify/verify/aoj/aoj_grl_6_a.test.cpp.html
-title: verify/aoj/aoj_grl_6_a.test.cpp
+- /verify/verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
+- /verify/verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp.html
+title: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
 ---
