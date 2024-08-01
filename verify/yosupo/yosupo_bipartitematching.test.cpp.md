@@ -44,11 +44,16 @@ data:
     \    }\n\n        return 0;\n    }\n\n    vector<Edge> edges() {\n        vector<Edge>\
     \ ret;\n        for(const auto& v : G) {\n            for(const auto& e : v) {\n\
     \                if(e.is_rev) continue;\n                ret.push_back(e);\n \
-    \           }\n        }\n        return ret;\n    }\n};\n#line 7 \"verify/yosupo/yosupo_bipartitematching.test.cpp\"\
-    \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n\
-    \    int L, R, M;\n    cin >> L >> R >> M;\n\n    Dinic<int> dinic(L + R + 2);\n\
-    \n    for(int i = 0; i < M; i++) {\n        int a, b;\n        cin >> a >> b;\n\
-    \        dinic.add_edge(a, L + b, 1);\n    }\n\n    for(int i = 0; i < L; i++)\
+    \           }\n        }\n        return ret;\n    }\n\n    void debug() {\n \
+    \       for(const auto& v : G) {\n            for(const auto& e : v) {\n     \
+    \           if(e.is_rev) continue;\n                cout << e.from << \" -> \"\
+    \ << e.to << \" (flow : \" << G[e.to][e.rev].cap << \" / \"\n                \
+    \    << e.cap + G[e.to][e.rev].cap << \")\" << endl;\n            }\n        }\n\
+    \    }\n};\n#line 7 \"verify/yosupo/yosupo_bipartitematching.test.cpp\"\n\nint\
+    \ main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int\
+    \ L, R, M;\n    cin >> L >> R >> M;\n\n    Dinic<int> dinic(L + R + 2);\n\n  \
+    \  for(int i = 0; i < M; i++) {\n        int a, b;\n        cin >> a >> b;\n \
+    \       dinic.add_edge(a, L + b, 1);\n    }\n\n    for(int i = 0; i < L; i++)\
     \ {\n        dinic.add_edge(L + R, i, 1);\n    }\n\n    for(int i = 0; i < R;\
     \ i++) {\n        dinic.add_edge(L + i, L + R + 1, 1);\n    }\n\n    cout << dinic.max_flow(L\
     \ + R, L + R + 1) << endl;\n\n    const auto& edges = dinic.edges();\n\n    for(const\
@@ -72,7 +77,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2024-08-02 01:15:59+09:00'
+  timestamp: '2024-08-02 04:51:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_bipartitematching.test.cpp

@@ -42,7 +42,12 @@ data:
     \    }\n\n        return 0;\n    }\n\n    vector<Edge> edges() {\n        vector<Edge>\
     \ ret;\n        for(const auto& v : G) {\n            for(const auto& e : v) {\n\
     \                if(e.is_rev) continue;\n                ret.push_back(e);\n \
-    \           }\n        }\n        return ret;\n    }\n};\n"
+    \           }\n        }\n        return ret;\n    }\n\n    void debug() {\n \
+    \       for(const auto& v : G) {\n            for(const auto& e : v) {\n     \
+    \           if(e.is_rev) continue;\n                cout << e.from << \" -> \"\
+    \ << e.to << \" (flow : \" << G[e.to][e.rev].cap << \" / \"\n                \
+    \    << e.cap + G[e.to][e.rev].cap << \")\" << endl;\n            }\n        }\n\
+    \    }\n};\n"
   code: "template<typename flow_t>\nstruct Dinic{\n    struct Edge{\n        int from,\
     \ to, rev;\n        flow_t cap;\n        bool is_rev;\n        Edge(int f, int\
     \ t, int r, flow_t c, bool b) : from(f), to(t), rev(r), cap(c), is_rev(b) {}\n\
@@ -70,12 +75,17 @@ data:
     \    }\n        }\n\n        return 0;\n    }\n\n    vector<Edge> edges() {\n\
     \        vector<Edge> ret;\n        for(const auto& v : G) {\n            for(const\
     \ auto& e : v) {\n                if(e.is_rev) continue;\n                ret.push_back(e);\n\
-    \            }\n        }\n        return ret;\n    }\n};\n"
+    \            }\n        }\n        return ret;\n    }\n\n    void debug() {\n\
+    \        for(const auto& v : G) {\n            for(const auto& e : v) {\n    \
+    \            if(e.is_rev) continue;\n                cout << e.from << \" -> \"\
+    \ << e.to << \" (flow : \" << G[e.to][e.rev].cap << \" / \"\n                \
+    \    << e.cap + G[e.to][e.rev].cap << \")\" << endl;\n            }\n        }\n\
+    \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/dinic.hpp
   requiredBy: []
-  timestamp: '2024-08-02 01:15:59+09:00'
+  timestamp: '2024-08-02 04:51:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/aoj/aoj_grl_6_a_dinic.test.cpp

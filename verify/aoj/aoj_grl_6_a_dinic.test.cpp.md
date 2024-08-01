@@ -44,11 +44,16 @@ data:
     \    }\n        }\n\n        return 0;\n    }\n\n    vector<Edge> edges() {\n\
     \        vector<Edge> ret;\n        for(const auto& v : G) {\n            for(const\
     \ auto& e : v) {\n                if(e.is_rev) continue;\n                ret.push_back(e);\n\
-    \            }\n        }\n        return ret;\n    }\n};\n#line 7 \"verify/aoj/aoj_grl_6_a_dinic.test.cpp\"\
-    \n\nint main() {\n    int V, E;\n    cin >> V >> E;\n\n    Dinic<int> dinic(V);\n\
-    \n    for(int i = 0; i < E; i++) {\n        int u, v, c;\n        cin >> u >>\
-    \ v >> c;\n        dinic.add_edge(u, v, c);\n    }\n\n    cout << dinic.max_flow(0,\
-    \ V - 1) << endl;\n\n    return 0;\n}\n"
+    \            }\n        }\n        return ret;\n    }\n\n    void debug() {\n\
+    \        for(const auto& v : G) {\n            for(const auto& e : v) {\n    \
+    \            if(e.is_rev) continue;\n                cout << e.from << \" -> \"\
+    \ << e.to << \" (flow : \" << G[e.to][e.rev].cap << \" / \"\n                \
+    \    << e.cap + G[e.to][e.rev].cap << \")\" << endl;\n            }\n        }\n\
+    \    }\n};\n#line 7 \"verify/aoj/aoj_grl_6_a_dinic.test.cpp\"\n\nint main() {\n\
+    \    int V, E;\n    cin >> V >> E;\n\n    Dinic<int> dinic(V);\n\n    for(int\
+    \ i = 0; i < E; i++) {\n        int u, v, c;\n        cin >> u >> v >> c;\n  \
+    \      dinic.add_edge(u, v, c);\n    }\n\n    cout << dinic.max_flow(0, V - 1)\
+    \ << endl;\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../graph/flow/dinic.hpp\"\
     \n\nint main() {\n    int V, E;\n    cin >> V >> E;\n\n    Dinic<int> dinic(V);\n\
@@ -60,7 +65,7 @@ data:
   isVerificationFile: true
   path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
   requiredBy: []
-  timestamp: '2024-08-02 01:15:59+09:00'
+  timestamp: '2024-08-02 04:51:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/aoj/aoj_grl_6_a_dinic.test.cpp
