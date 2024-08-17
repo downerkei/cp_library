@@ -65,6 +65,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/tree/centroid_decomposition.hpp
       title: graph/tree/centroid_decomposition.hpp
+    - icon: ':heavy_check_mark:'
+      path: graph/tree/lowest_common_ancestor.hpp
+      title: graph/tree/lowest_common_ancestor.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
@@ -126,6 +129,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_gcl_5_c.test.cpp
+      title: verify/aoj/aoj_gcl_5_c.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
       title: verify/aoj/aoj_grl_6_a_dinic.test.cpp
