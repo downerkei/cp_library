@@ -1,33 +1,33 @@
 struct CentroidDecomposition{
-    vector<vector<int>> G, T;
+    vector<vector<int>> T;
     vector<int> sub, ord;
     vector<int> used;
     int r;
  
-    CentroidDecomposition(vector<vector<int>>& G) : G(G), T(G.size()), sub(G.size()), used(G.size()) {
-        build_dfs();
+    CentroidDecomposition(vector<vector<int>>& G) : T(G.size()), sub(G.size()), used(G.size()) {
+        build_dfs(G);
     } 
  
-    int calc_sub(int v, int p=-1) {
+    int calc_sub(vector<vector<int>>& G, int v, int p=-1) {
         sub[v] = 1;
         for(int nv : G[v]) {
             if(used[nv] || p == nv) continue;
-            sub[v] += calc_sub(nv, v);
+            sub[v] += calc_sub(G, nv, v);
         }
         return sub[v];
     }
  
-    int find_centroid(int v, int mid, int p=-1) {
+    int find_centroid(vector<vector<int>>& G, int v, int mid, int p=-1) {
         for(int nv : G[v]) {
             if(used[nv] || p == nv) continue;
-            if(sub[nv] > mid) return find_centroid(nv, mid, v);
+            if(sub[nv] > mid) return find_centroid(G, nv, mid, v);
         }
         return v;
     }
  
-    void build_dfs(int v=0, int p=-1) {
-        int sz = calc_sub(v);
-        int centroid = find_centroid(v, sz / 2);
+    void build_dfs(vector<vector<int>>& G, int v=0, int p=-1) {
+        int sz = calc_sub(G, v);
+        int centroid = find_centroid(G, v, sz / 2);
         used[centroid] = true;
         ord.push_back(centroid);
  
@@ -39,7 +39,7 @@ struct CentroidDecomposition{
  
         for(int nv : G[centroid]) {
             if(used[nv]) continue;
-            build_dfs(nv, centroid);
+            build_dfs(G, nv, centroid);
         }
     }
 };
