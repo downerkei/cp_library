@@ -179,6 +179,9 @@ data:
       path: verify/yosupo/yosupo_factorize.test.cpp
       title: verify/yosupo/yosupo_factorize.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_lca.test.cpp
+      title: verify/yosupo/yosupo_lca.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
       title: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
     - icon: ':heavy_check_mark:'
