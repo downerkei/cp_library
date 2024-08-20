@@ -24,7 +24,10 @@ int main() {
 
     vector<bool> used(N, false);
     long long ans = 0;
-    for(int centroid : cd.ord) {
+
+    vector<int> ord = cd.get_order();
+
+    for(int centroid : ord) {
         
         used[centroid] = true;
 

@@ -42,4 +42,10 @@ struct CentroidDecomposition{
             build_dfs(G, nv, centroid);
         }
     }
+
+    const vector<vector<int>>& get_tree() { return T; }
+
+    int get_root() { return r; }
+
+    const vector<int>& get_order() { return ord; }
 };
