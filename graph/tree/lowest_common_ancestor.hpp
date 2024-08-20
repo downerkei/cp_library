@@ -5,7 +5,7 @@ struct LowestCommonAncestor{
         init(G, root);
     }
 
-    void init(const vector<vector<int>>& G, int root) {
+    void init(const vector<vector<int>>& G, int root=0) {
         int N = G.size();
         int M = 1; while((1 << M) < N) M++;
         parent.assign(M, vector<int>(N, -1));
@@ -43,4 +43,6 @@ struct LowestCommonAncestor{
         }
         return parent[0][u];
     }
+
+    int dist_bitween(int u, int v) { return dist[u] + dist[v] - 2 * dist[lca(u, v)]; }
 };
