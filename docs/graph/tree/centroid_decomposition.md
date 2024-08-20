@@ -1,6 +1,6 @@
 ---
 title: 重心分解
-documentation_of: //graph/centroid_decomposition.hpp
+documentation_of: //graph/tree/centroid_decomposition.hpp
 ---
 
 ## 概要
