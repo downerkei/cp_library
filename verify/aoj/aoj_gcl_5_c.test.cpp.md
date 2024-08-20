@@ -19,8 +19,8 @@ data:
     \nstruct LowestCommonAncestor{\n    vector<vector<int>> parent;\n    vector<int>\
     \ dist;\n    LowestCommonAncestor(const vector<vector<int>>& G, int root=0) {\n\
     \        init(G, root);\n    }\n\n    void init(const vector<vector<int>>& G,\
-    \ int root) {\n        int N = G.size();\n        int M = 1; while((1 << M) <\
-    \ N) M++;\n        parent.assign(M, vector<int>(N, -1));\n        dist.assign(N,\
+    \ int root=0) {\n        int N = G.size();\n        int M = 1; while((1 << M)\
+    \ < N) M++;\n        parent.assign(M, vector<int>(N, -1));\n        dist.assign(N,\
     \ -1);\n        dfs(G, root, -1, 0);\n        for(int lv = 1; lv < M; lv++) {\n\
     \            for(int i = 0; i < N; i++) {\n                if(parent[lv - 1][i]\
     \ == -1) parent[lv][i] = -1;\n                else parent[lv][i] = parent[lv -\
@@ -33,7 +33,8 @@ data:
     \ >> lv) & 1) u = parent[lv][u];\n        }\n        if(u == v) return u;\n  \
     \      for(int lv = M - 1; lv >= 0; lv--) {\n            if(parent[lv][u] != parent[lv][v])\
     \ {\n                u = parent[lv][u];\n                v = parent[lv][v];\n\
-    \            }\n        }\n        return parent[0][u];\n    }\n};\n#line 7 \"\
+    \            }\n        }\n        return parent[0][u];\n    }\n\n    int dist_bitween(int\
+    \ u, int v) { return dist[u] + dist[v] - 2 * dist[lca(u, v)]; }\n};\n#line 7 \"\
     verify/aoj/aoj_gcl_5_c.test.cpp\"\n\nint main() {\n    int N;\n    cin >> N;\n\
     \n    vector<vector<int>> G(N);\n\n    for(int i = 0; i < N; i++) {\n        int\
     \ k;\n        cin >> k;\n        for(int j = 0; j < k; j++) {\n            int\
@@ -55,7 +56,7 @@ data:
   isVerificationFile: true
   path: verify/aoj/aoj_gcl_5_c.test.cpp
   requiredBy: []
-  timestamp: '2024-08-18 01:12:46+09:00'
+  timestamp: '2024-08-21 03:30:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/aoj/aoj_gcl_5_c.test.cpp
