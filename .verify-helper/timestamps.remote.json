@@ -31,5 +31,6 @@
 "verify/yosupo/yosupo_zalgorithm.test.cpp": "2024-06-25 03:39:44 +0900",
 "verify/yukicoder/yukicoder_1002.test.cpp": "2024-08-21 01:14:30 +0900",
 "verify/yukicoder/yukicoder_1094.test.cpp": "2024-08-22 21:06:18 +0900",
-"verify/yukicoder/yukicoder_186.test.cpp": "2024-06-26 03:18:46 +0900"
+"verify/yukicoder/yukicoder_186.test.cpp": "2024-06-26 03:18:46 +0900",
+"verify/yukicoder/yukicoder_386.test.cpp": "2024-08-22 21:34:42 +0900"
 }
