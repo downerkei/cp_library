@@ -214,6 +214,9 @@ data:
       path: verify/yukicoder/yukicoder_1002.test.cpp
       title: verify/yukicoder/yukicoder_1002.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yukicoder/yukicoder_1094.test.cpp
+      title: verify/yukicoder/yukicoder_1094.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yukicoder/yukicoder_186.test.cpp
       title: verify/yukicoder/yukicoder_186.test.cpp
 layout: toppage
