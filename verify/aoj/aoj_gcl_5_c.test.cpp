@@ -9,7 +9,7 @@ int main() {
     int N;
     cin >> N;
 
-    vector<vector<int>> G(N);
+    vector<vector<pair<int, int>>> G(N);
 
     for(int i = 0; i < N; i++) {
         int k;
@@ -17,12 +17,12 @@ int main() {
         for(int j = 0; j < k; j++) {
             int c;
             cin >> c;
-            G[i].push_back(c);
-            G[c].push_back(i);
+            G[i].push_back({c, 1});
+            G[c].push_back({i, 1});
         }
     }
 
-    LowestCommonAncestor lca(G, 0);
+    LowestCommonAncestor<int> lca(G, 0);
 
     int Q;
     cin >> Q;
