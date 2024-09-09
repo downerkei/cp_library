@@ -12,12 +12,16 @@ int main() {
     int T, m;
     cin >> T >> m;
 
-    BinomialCoefficient binom(min((int)1e7, m), m);
+    vector<int> N(T), K(T);
+    int mx = 0;
+    for(int i = 0; i < T; i++) {
+        cin >> N[i] >> K[i];
+        mx = max(mx, N[i]);
+    }
 
-    while(T--) {
-        int n, k;
-        cin >> n >> k;
-        cout << binom(n, k) << endl;
+    BinomialCoefficient binom(mx, m);
+    for(int i = 0; i < T; i++) {
+        cout << binom(N[i], K[i]) << "\n";
     }
 
     return 0;

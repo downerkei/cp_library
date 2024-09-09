@@ -16,6 +16,7 @@ struct BinomialCoefficient{
 
     long long operator() (int n, int r) {
         if(n < 0 || n < r || r < 0) return 0;
+        assert(n < fact.size());
         return fact[n] * fact_inv[n-r] % MOD * fact_inv[r] % MOD;
     }
 };
