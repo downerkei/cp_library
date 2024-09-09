@@ -17,7 +17,7 @@ int main() {
     while(T--) {
         int n, k;
         cin >> n >> k;
-        cout << binom.comb(n, k) << endl;
+        cout << binom(n, k) << endl;
     }
 
     return 0;
