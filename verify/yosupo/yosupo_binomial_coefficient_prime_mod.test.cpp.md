@@ -23,8 +23,8 @@ data:
     \  fact_inv[0] = fact_inv[1] = 1;\n        inv[1] = 1;\n\n        for(int i =\
     \ 2; i <= n; i++) {\n            fact[i] = fact[i-1] * i % MOD;\n            inv[i]\
     \ = MOD - inv[MOD%i] * (MOD / i) % MOD;\n            fact_inv[i] = fact_inv[i-1]\
-    \ * inv[i] % MOD;\n        }\n    }\n\n    long long comb(int n, int r) {\n  \
-    \      if(n < 0 || n < r || r < 0) return 0;\n        return fact[n] * fact_inv[n-r]\
+    \ * inv[i] % MOD;\n        }\n    }\n\n    long long operator() (int n, int r)\
+    \ {\n        if(n < 0 || n < r || r < 0) return 0;\n        return fact[n] * fact_inv[n-r]\
     \ % MOD * fact_inv[r] % MOD;\n    }\n};\n\n// nCr\u3092\u8A08\u7B97\u3059\u308B\
     \n// O(r)\u3067\u8A08\u7B97\uFF0C\u30AA\u30FC\u30D0\u30FC\u30D5\u30ED\u30FC\u306B\
     \u6CE8\u610F\n// 60C30 = 1e17\u304F\u3089\u3044\nlong long comb(int n, int r)\
@@ -34,19 +34,19 @@ data:
     \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
     \  \n    int T, m;\n    cin >> T >> m;\n\n    BinomialCoefficient binom(min((int)1e7,\
     \ m), m);\n\n    while(T--) {\n        int n, k;\n        cin >> n >> k;\n   \
-    \     cout << binom.comb(n, k) << endl;\n    }\n\n    return 0;\n}\n"
+    \     cout << binom(n, k) << endl;\n    }\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../math/binomial_coefficient.hpp\"\
     \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
     \  \n    int T, m;\n    cin >> T >> m;\n\n    BinomialCoefficient binom(min((int)1e7,\
     \ m), m);\n\n    while(T--) {\n        int n, k;\n        cin >> n >> k;\n   \
-    \     cout << binom.comb(n, k) << endl;\n    }\n\n    return 0;\n}"
+    \     cout << binom(n, k) << endl;\n    }\n\n    return 0;\n}"
   dependsOn:
   - math/binomial_coefficient.hpp
   isVerificationFile: true
   path: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
   requiredBy: []
-  timestamp: '2024-07-14 14:43:54+09:00'
+  timestamp: '2024-09-09 21:34:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
