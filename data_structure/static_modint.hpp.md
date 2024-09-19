@@ -45,7 +45,8 @@ data:
     \ != (const mint& r) const { return _v != r._v; }\n\n    friend istream& operator\
     \ >> (istream& is, mint& x) {\n        long long t;\n        is >> t;\n      \
     \  x = mint(t);\n        return is;\n    }\n    friend ostream& operator << (ostream&\
-    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n"
+    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n\nusing modint998244353\
+    \ = StaticModint<998244353>;\nusing modint1000000007 = StaticModint<1000000007>;\n"
   code: "template<int m=998244353> struct StaticModint {\n    using mint = StaticModint;\n\
     \    int _v;\n\n    constexpr StaticModint() : _v(0) {}\n    template<class T>\n\
     \    constexpr StaticModint(T v) : _v((v % m + m) % m) {}\n\n    constexpr int\
@@ -73,13 +74,14 @@ data:
     \ operator != (const mint& r) const { return _v != r._v; }\n\n    friend istream&\
     \ operator >> (istream& is, mint& x) {\n        long long t;\n        is >> t;\n\
     \        x = mint(t);\n        return is;\n    }\n    friend ostream& operator\
-    \ << (ostream& os, const mint& x) {\n        return os << x._v;\n    }\n};"
+    \ << (ostream& os, const mint& x) {\n        return os << x._v;\n    }\n};\n\n\
+    using modint998244353 = StaticModint<998244353>;\nusing modint1000000007 = StaticModint<1000000007>;\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/static_modint.hpp
   requiredBy:
   - convolution/ntt.hpp
-  timestamp: '2024-06-27 08:22:20+09:00'
+  timestamp: '2024-09-20 04:27:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_range_affine_range_sum.test.cpp

@@ -90,20 +90,22 @@ data:
     \ != (const mint& r) const { return _v != r._v; }\n\n    friend istream& operator\
     \ >> (istream& is, mint& x) {\n        long long t;\n        is >> t;\n      \
     \  x = mint(t);\n        return is;\n    }\n    friend ostream& operator << (ostream&\
-    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n#line 8 \"verify/yosupo/yosupo_range_affine_range_sum.test.cpp\"\
-    \n\nusing mint = StaticModint<998244353>;\n\nusing S = pair<mint, mint>;\nS op(S\
-    \ l, S r) { return {l.first + r.first, l.second + r.second}; }\nS e() { return\
-    \ {0, 0}; }\nusing F = pair<mint, mint>;\nS mapping(F f, S x) { return {x.first\
-    \ * f.first + x.second * f.second, x.second}; }\nF composition(F f, F g) { return\
-    \ {f.first * g.first, f.first * g.second + f.second}; }\nF id() { return {1, 0};\
-    \ }\n\nint main() {\n    int N, Q;\n    cin >> N >> Q;\n    vector<S> A(N);\n\
-    \    for(int i = 0; i < N; i++) {\n        int a;\n        cin >> a;\n       \
-    \ A[i] = {a, 1};\n    }\n\n    LazySegmentTree<S, op, e, F, mapping, composition,\
-    \ id> seg(A);\n\n    while(Q--) {\n        int q;\n        cin >> q;\n       \
-    \ if(q == 0) {\n            int l, r, b, c;\n            cin >> l >> r >> b >>\
-    \ c;\n            seg.apply(l, r, {b, c});\n        }\n        if(q == 1) {\n\
-    \            int l, r;\n            cin >> l >> r;\n            cout << seg.prod(l,\
-    \ r).first << endl;\n        }\n    }\n\n    return 0;\n}\n"
+    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n\nusing modint998244353\
+    \ = StaticModint<998244353>;\nusing modint1000000007 = StaticModint<1000000007>;\n\
+    #line 8 \"verify/yosupo/yosupo_range_affine_range_sum.test.cpp\"\n\nusing mint\
+    \ = StaticModint<998244353>;\n\nusing S = pair<mint, mint>;\nS op(S l, S r) {\
+    \ return {l.first + r.first, l.second + r.second}; }\nS e() { return {0, 0}; }\n\
+    using F = pair<mint, mint>;\nS mapping(F f, S x) { return {x.first * f.first +\
+    \ x.second * f.second, x.second}; }\nF composition(F f, F g) { return {f.first\
+    \ * g.first, f.first * g.second + f.second}; }\nF id() { return {1, 0}; }\n\n\
+    int main() {\n    int N, Q;\n    cin >> N >> Q;\n    vector<S> A(N);\n    for(int\
+    \ i = 0; i < N; i++) {\n        int a;\n        cin >> a;\n        A[i] = {a,\
+    \ 1};\n    }\n\n    LazySegmentTree<S, op, e, F, mapping, composition, id> seg(A);\n\
+    \n    while(Q--) {\n        int q;\n        cin >> q;\n        if(q == 0) {\n\
+    \            int l, r, b, c;\n            cin >> l >> r >> b >> c;\n         \
+    \   seg.apply(l, r, {b, c});\n        }\n        if(q == 1) {\n            int\
+    \ l, r;\n            cin >> l >> r;\n            cout << seg.prod(l, r).first\
+    \ << endl;\n        }\n    }\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../data_structure/lazy_segmemt_tree.hpp\"\
     \n#include \"../../data_structure/static_modint.hpp\"\n\nusing mint = StaticModint<998244353>;\n\
@@ -125,7 +127,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-27 08:22:20+09:00'
+  timestamp: '2024-09-20 04:27:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_range_affine_range_sum.test.cpp

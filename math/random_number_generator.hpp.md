@@ -33,8 +33,8 @@ data:
   timestamp: '2024-06-22 04:42:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/unit_test/montgomery_modint_32.test.cpp
   - verify/unit_test/sqrt_floor.test.cpp
+  - verify/unit_test/montgomery_modint_32.test.cpp
 documentation_of: math/random_number_generator.hpp
 layout: document
 redirect_from:
