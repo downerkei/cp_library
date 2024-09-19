@@ -64,3 +64,6 @@ template<int m=998244353> struct StaticModint {
         return os << x._v;
     }
 };
+
+using modint998244353 = StaticModint<998244353>;
+using modint1000000007 = StaticModint<1000000007>;
