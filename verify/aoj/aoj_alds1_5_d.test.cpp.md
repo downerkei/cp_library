@@ -21,12 +21,12 @@ data:
     https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_5_D\"\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#line 1 \"data_structure/fenwick_tree.hpp\"\ntemplate\
     \ <typename T>\nstruct FenwickTree {\n  public:\n    FenwickTree(int n) : n_(n),\
-    \ data(n) {}\n\n    void add(int p, T x) {\n        p++;\n        while(p <= n_)\
-    \ {\n            data[p - 1] += x;\n            p += p & -p;\n        }\n    }\n\
-    \n    T sum(int r) {\n        T s = 0;\n        while(r > 0) {\n            s\
-    \ += data[r - 1];\n            r -= r & -r;\n        }\n        return s;\n  \
-    \  }\n\n    T sum(int r, int l) {\n        return sum(l) - sum(r);\n    }\n\n\
-    \  private:\n    int n_;\n    vector<T> data;\n};\n#line 2 \"math/inversion_number.hpp\"\
+    \ data(n, 0) {}\n\n    void add(int p, T x) {\n        p++;\n        while(p <=\
+    \ n_) {\n            data[p - 1] += x;\n            p += p & -p;\n        }\n\
+    \    }\n\n    T sum(int r) {\n        T s = 0;\n        while(r > 0) {\n     \
+    \       s += data[r - 1];\n            r -= r & -r;\n        }\n        return\
+    \ s;\n    }\n\n    T sum(int r, int l) {\n        return sum(l) - sum(r);\n  \
+    \  }\n\n  private:\n    int n_;\n    vector<T> data;\n};\n#line 2 \"math/inversion_number.hpp\"\
     \n\ntemplate<typename T>\nlong long inversion_number(const vector<T>& A) {\n \
     \   vector<T> B = A;\n    sort(B.begin(), B.end());\n    B.erase(unique(B.begin(),\
     \ B.end()), B.end());\n\n    FenwickTree<T> bit(B.size());\n\n    long long ret\
@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: verify/aoj/aoj_alds1_5_d.test.cpp
   requiredBy: []
-  timestamp: '2024-06-26 02:16:51+09:00'
+  timestamp: '2024-09-24 04:35:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/aoj/aoj_alds1_5_d.test.cpp

@@ -15,9 +15,9 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"data_structure/fenwick_tree.hpp\"\ntemplate <typename T>\n\
-    struct FenwickTree {\n  public:\n    FenwickTree(int n) : n_(n), data(n) {}\n\n\
-    \    void add(int p, T x) {\n        p++;\n        while(p <= n_) {\n        \
-    \    data[p - 1] += x;\n            p += p & -p;\n        }\n    }\n\n    T sum(int\
+    struct FenwickTree {\n  public:\n    FenwickTree(int n) : n_(n), data(n, 0) {}\n\
+    \n    void add(int p, T x) {\n        p++;\n        while(p <= n_) {\n       \
+    \     data[p - 1] += x;\n            p += p & -p;\n        }\n    }\n\n    T sum(int\
     \ r) {\n        T s = 0;\n        while(r > 0) {\n            s += data[r - 1];\n\
     \            r -= r & -r;\n        }\n        return s;\n    }\n\n    T sum(int\
     \ r, int l) {\n        return sum(l) - sum(r);\n    }\n\n  private:\n    int n_;\n\
@@ -40,7 +40,7 @@ data:
   isVerificationFile: false
   path: math/inversion_number.hpp
   requiredBy: []
-  timestamp: '2024-06-26 02:16:51+09:00'
+  timestamp: '2024-09-24 04:35:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/aoj/aoj_alds1_5_d.test.cpp
