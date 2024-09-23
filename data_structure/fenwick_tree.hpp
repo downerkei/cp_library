@@ -1,7 +1,7 @@
 template <typename T>
 struct FenwickTree {
   public:
-    FenwickTree(int n) : n_(n), data(n) {}
+    FenwickTree(int n) : n_(n), data(n, 0) {}
 
     void add(int p, T x) {
         p++;
