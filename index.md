@@ -38,7 +38,7 @@ data:
       title: data_structure/static_modint.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/union_find.hpp
-      title: data_structure/union_find.hpp
+      title: UnionFind
   - name: dp
     pages:
     - icon: ':heavy_check_mark:'

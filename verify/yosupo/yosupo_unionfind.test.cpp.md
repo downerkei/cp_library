@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: data_structure/union_find.hpp
-    title: data_structure/union_find.hpp
+    title: UnionFind
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

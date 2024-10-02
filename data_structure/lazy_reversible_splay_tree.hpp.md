@@ -190,7 +190,7 @@ title: "\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\u80FD\u30B9\u30D7\u30EC\u30FC
 ## コンストラクタ
 
 ```cpp
-LazyReversibleSplayTree<S, op, e, reverse_prod, F, mapping, composition, id> st;
+LazyReversibleSplayTree<S, op, e, reverse_prod, F, mapping, composition, id> st
 ```
 
 * モノイドの型`S`
