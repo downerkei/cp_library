@@ -12,7 +12,7 @@ documentation_of: //data_structure/lazy_reversible_splay_tree.hpp
 ## コンストラクタ
 
 ```cpp
-LazyReversibleSplayTree<S, op, e, reverse_prod, F, mapping, composition, id> st;
+LazyReversibleSplayTree<S, op, e, reverse_prod, F, mapping, composition, id> st
 ```
 
 * モノイドの型`S`
