@@ -74,38 +74,33 @@ data:
     \u3059\uFF0CO(Nlog^2N)\n    vector<int> suffix_array() {\n        vector<int>\
     \ ret(N);\n        iota(ret.begin(), ret.end(), 0);\n        sort(ret.begin(),\
     \ ret.end(), [this](const int& i, const int& j) { return comp(i, j); });\n   \
-    \     return ret;\n    }\n};\n\n// b\u306Fa\u306E\u53CD\u8EE2\u5217\uFF0Cp\u4E2D\
-    \u5FC3(odd = false\u306A\u3089p\u3068p + 1\u4E2D\u5FC3)\u306E\u56DE\u6587\u306E\
-    \u9577\u3055\u3092\u8FD4\u3059\nint get_palindrome(int p, bool odd, RollingHash&\
-    \ a, RollingHash& b) {\n    int N = a.N;\n    int q = N - p - 1;\n\n    // \u5947\
-    \u6570\n    if(odd) {\n        int lb = -1, ub = min(N - p, p + 1);\n        while(ub\
-    \ - lb > 1) {\n            int mid = (ub + lb) / 2;\n            if(a.get_hash(p\
-    \ - mid, p + mid + 1) == b.get_hash(q - mid, q + mid + 1)) lb = mid;\n       \
-    \     else ub = mid;\n        }\n        return lb * 2 + 1;\n    }\n    // \u5076\
-    \u6570\n    else {\n        int lb = -1, ub = min(N - p - 1, p + 1);\n       \
-    \ while(ub - lb > 1) {\n            int mid = (lb + ub) / 2;\n            if(a.get_hash(p\
-    \ - mid, p + mid + 2) == b.get_hash(q - mid - 1, q + mid + 1)) lb = mid;\n   \
-    \         else ub = mid;\n        }\n        return lb * 2 + 2;\n    }\n}\n\n\
-    // \u6587\u5B57\u5217S\u306E\u5404\u4E2D\u5FC3\u306E\u6700\u5927\u56DE\u6587\u9577\
-    \u3092\u8FD4\u3059\nvector<int> enumerate_palindromes(string S) {\n    RollingHash\
-    \ a(S);\n    reverse(S.begin(), S.end());\n    RollingHash b(S);\n\n    vector<int>\
-    \ ret;\n    for(int i = 0; i < a.N; i++) {\n        ret.push_back(get_palindrome(i,\
-    \ true, a, b));\n        if(i == a.N - 1) break;\n        ret.push_back(get_palindrome(i,\
-    \ false, a, b));\n    }\n\n    return ret;\n}\n#line 7 \"verify/yosupo/yosupo_enumerate_palindromes.test.cpp\"\
-    \n\nint main() {\n    string S;\n    cin >> S;\n    for(auto ans : enumerate_palindromes(S))\
-    \ {\n        cout << ans << \" \";\n    }\n    cout << endl;\n\n    return 0;\n\
-    }\n"
+    \     return ret;\n    }\n};\n\n// i\u3092\u4E2D\u5FC3\u3068\u3057\u305F\u56DE\
+    \u6587\u306E\u9577\u3055\u3092\u8FD4\u3059\nint get_palindrome(int p, RollingHash&\
+    \ a, RollingHash& b) {\n    int N = a.N;\n    int q = N - p - 1;\n\n    // \u521D\
+    \u671F\u5024\n    int lb = 0, ub = min(N - p, p + 1);\n    while(ub - lb > 1)\
+    \ {\n        int mid = (ub + lb) / 2;\n        if(a.get_hash(p - mid, p + mid\
+    \ + 1) == b.get_hash(q - mid, q + mid + 1)) lb = mid;\n        else ub = mid;\n\
+    \    }\n\n    return lb;\n}\n\n// \u6587\u5B57\u5217S\u306E\u5404\u4E2D\u5FC3\u306E\
+    \u6700\u5927\u56DE\u6587\u9577\u3092\u8FD4\u3059\nvector<int> enumerate_palindromes(string\
+    \ S) {\n    int N = S.size();\n    string T = \"\";\n    for(int i = 0; i < N;\
+    \ i++) {\n        T += '$';\n        T += S[i];\n    }\n    T += '$';\n    RollingHash\
+    \ a(T);\n    reverse(T.begin(), T.end());\n    RollingHash b(T);\n\n    vector<int>\
+    \ ret;\n    for(int i = 1; i < a.N - 1; i++) {\n        ret.push_back(get_palindrome(i,\
+    \ a, b));\n    }\n\n    return ret;\n}\n#line 7 \"verify/yosupo/yosupo_enumerate_palindromes.test.cpp\"\
+    \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
+    \  string S;\n    cin >> S;\n    for(auto ans : enumerate_palindromes(S)) {\n\
+    \        cout << ans << \" \";\n    }\n    cout << endl;\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../string/rollong_hash.hpp\"\
-    \n\nint main() {\n    string S;\n    cin >> S;\n    for(auto ans : enumerate_palindromes(S))\
-    \ {\n        cout << ans << \" \";\n    }\n    cout << endl;\n\n    return 0;\n\
-    }"
+    \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
+    \  string S;\n    cin >> S;\n    for(auto ans : enumerate_palindromes(S)) {\n\
+    \        cout << ans << \" \";\n    }\n    cout << endl;\n\n    return 0;\n}"
   dependsOn:
   - string/rollong_hash.hpp
   isVerificationFile: true
   path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
   requiredBy: []
-  timestamp: '2024-06-25 04:19:14+09:00'
+  timestamp: '2024-10-04 09:07:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
