@@ -138,44 +138,38 @@ struct RollingHash{
     }
 };
 
-// bはaの反転列，p中心(odd = falseならpとp + 1中心)の回文の長さを返す
-int get_palindrome(int p, bool odd, RollingHash& a, RollingHash& b) {
+// iを中心とした回文の長さを返す
+int get_palindrome(int p, RollingHash& a, RollingHash& b) {
     int N = a.N;
     int q = N - p - 1;
 
-    // 奇数
-    if(odd) {
-        int lb = -1, ub = min(N - p, p + 1);
-        while(ub - lb > 1) {
-            int mid = (ub + lb) / 2;
-            if(a.get_hash(p - mid, p + mid + 1) == b.get_hash(q - mid, q + mid + 1)) lb = mid;
-            else ub = mid;
-        }
-        return lb * 2 + 1;
+    // 初期値
+    int lb = 0, ub = min(N - p, p + 1);
+    while(ub - lb > 1) {
+        int mid = (ub + lb) / 2;
+        if(a.get_hash(p - mid, p + mid + 1) == b.get_hash(q - mid, q + mid + 1)) lb = mid;
+        else ub = mid;
     }
-    // 偶数
-    else {
-        int lb = -1, ub = min(N - p - 1, p + 1);
-        while(ub - lb > 1) {
-            int mid = (lb + ub) / 2;
-            if(a.get_hash(p - mid, p + mid + 2) == b.get_hash(q - mid - 1, q + mid + 1)) lb = mid;
-            else ub = mid;
-        }
-        return lb * 2 + 2;
-    }
+
+    return lb;
 }
 
 // 文字列Sの各中心の最大回文長を返す
 vector<int> enumerate_palindromes(string S) {
-    RollingHash a(S);
-    reverse(S.begin(), S.end());
-    RollingHash b(S);
+    int N = S.size();
+    string T = "";
+    for(int i = 0; i < N; i++) {
+        T += '$';
+        T += S[i];
+    }
+    T += '$';
+    RollingHash a(T);
+    reverse(T.begin(), T.end());
+    RollingHash b(T);
 
     vector<int> ret;
-    for(int i = 0; i < a.N; i++) {
-        ret.push_back(get_palindrome(i, true, a, b));
-        if(i == a.N - 1) break;
-        ret.push_back(get_palindrome(i, false, a, b));
+    for(int i = 1; i < a.N - 1; i++) {
+        ret.push_back(get_palindrome(i, a, b));
     }
 
     return ret;
