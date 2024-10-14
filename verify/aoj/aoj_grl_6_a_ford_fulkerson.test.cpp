@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../graph/flow/ford_fulkerson.hpp"
+#include "../../flow/ford_fulkerson.hpp"
 
 int main() {
     int V, E;

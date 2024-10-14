@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../graph/tree/centroid_decomposition.hpp"
+#include "../../tree/centroid_decomposition.hpp"
 
 int main() {
     int N, K;

@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../graph/flow/dinic.hpp"
+#include "../../flow/dinic.hpp"
 
 int main() {
     int V, E;
