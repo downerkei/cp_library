@@ -1,36 +1,65 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: flow/ford_fulkerson.hpp
+    title: flow/ford_fulkerson.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
-    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../graph/flow/ford_fulkerson.hpp:\
-    \ line -1: no such header\n"
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp
+    links:
+    - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp
+  bundledCode: "#line 1 \"verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp\"\
+    \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"flow/ford_fulkerson.hpp\"\
+    \ntemplate<typename flow_t>\nstruct FordFulkerson{\n    struct Edge{\n       \
+    \ int from, to, rev;\n        flow_t cap;\n        bool is_rev;\n        Edge(int\
+    \ f, int t, int r, flow_t c, bool b) : from(f), to(t), rev(r), cap(c), is_rev(b)\
+    \ {}\n    };\n\n    vector<vector<Edge>> G;\n    vector<bool> used;\n    const\
+    \ flow_t INF = numeric_limits<flow_t>::max();\n\n    FordFulkerson(int N) : G(N),\
+    \ used(N, false) {}\n\n    void add_edge(int from, int to, flow_t cap) {\n   \
+    \     int fromrev = G[from].size();\n        int torev = G[to].size();\n     \
+    \   G[from].push_back(Edge(from, to, torev, cap, 0));\n        G[to].push_back(Edge(to,\
+    \ from, fromrev, 0, 1));\n    }\n\n    flow_t dfs(int v, int t, flow_t f) {\n\
+    \        if(v == t) return f;\n        used[v] = true;\n\n        for(Edge& e\
+    \ : G[v]) {\n            if(used[e.to]) continue;\n            if(e.cap == 0)\
+    \ continue;\n            flow_t flow = dfs(e.to, t, min(f, e.cap));\n        \
+    \    if(flow == 0) continue;\n\n            e.cap -= flow;\n            G[e.to][e.rev].cap\
+    \ += flow;\n\n            return flow;\n        }\n\n        return 0;\n    }\n\
+    \n    flow_t max_flow(int s, int t) {\n        flow_t ret = 0;\n        while(true)\
+    \ {\n            used.assign(G.size(), false);\n            flow_t flow = dfs(s,\
+    \ t, INF);\n            if(flow == 0) break;\n            ret += flow;\n     \
+    \   }\n        return ret;\n    }\n\n    vector<Edge> edges() {\n        vector<Edge>\
+    \ ret;\n        for(const auto& v : G) {\n            for(const auto& e : v) {\n\
+    \                if(e.is_rev) continue;\n                ret.push_back(e);\n \
+    \           }\n        }\n        return ret;\n    }\n\n    void debug() {\n \
+    \       for(const auto& v : G) {\n            for(const auto& e : v) {\n     \
+    \           if(e.is_rev) continue;\n                cout << e.from << \" -> \"\
+    \ << e.to << \" (flow : \" << G[e.to][e.rev].cap << \" / \"\n                \
+    \    << e.cap + G[e.to][e.rev].cap << \")\" << endl;\n            }\n        }\n\
+    \    }\n};\n#line 7 \"verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp\"\n\nint\
+    \ main() {\n    int V, E;\n    cin >> V >> E;\n    FordFulkerson<int> ff(V);\n\
+    \n    for(int i = 0; i < E; i++) {\n        int u, v, c;\n        cin >> u >>\
+    \ v >> c;\n        ff.add_edge(u, v, c);\n    }\n\n    cout << ff.max_flow(0,\
+    \ V - 1) << endl;\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp\"\
-    \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../graph/flow/ford_fulkerson.hpp\"\
+    \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../flow/ford_fulkerson.hpp\"\
     \n\nint main() {\n    int V, E;\n    cin >> V >> E;\n    FordFulkerson<int> ff(V);\n\
     \n    for(int i = 0; i < E; i++) {\n        int u, v, c;\n        cin >> u >>\
     \ v >> c;\n        ff.add_edge(u, v, c);\n    }\n\n    cout << ff.max_flow(0,\
     \ V - 1) << endl;\n\n    return 0;\n}\n"
-  dependsOn: []
+  dependsOn:
+  - flow/ford_fulkerson.hpp
   isVerificationFile: true
   path: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-14 21:14:48+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
 layout: document

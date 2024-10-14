@@ -2,10 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/aoj/aoj_gcl_5_c.test.cpp
+    title: verify/aoj/aoj_gcl_5_c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_lca.test.cpp
+    title: verify/yosupo/yosupo_lca.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yukicoder/yukicoder_1094.test.cpp
+    title: verify/yukicoder/yukicoder_1094.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yukicoder/yukicoder_386.test.cpp
+    title: verify/yukicoder/yukicoder_386.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"tree/lowest_common_ancestor.hpp\"\ntemplate<class T>\nstruct\
@@ -58,8 +70,12 @@ data:
   path: tree/lowest_common_ancestor.hpp
   requiredBy: []
   timestamp: '2024-10-14 15:35:37+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/yosupo/yosupo_lca.test.cpp
+  - verify/aoj/aoj_gcl_5_c.test.cpp
+  - verify/yukicoder/yukicoder_1094.test.cpp
+  - verify/yukicoder/yukicoder_386.test.cpp
 documentation_of: tree/lowest_common_ancestor.hpp
 layout: document
 redirect_from:

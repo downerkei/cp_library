@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
+    title: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"flow/ford_fulkerson.hpp\"\ntemplate<typename flow_t>\nstruct\
@@ -65,8 +68,9 @@ data:
   path: flow/ford_fulkerson.hpp
   requiredBy: []
   timestamp: '2024-10-14 15:35:37+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
 documentation_of: flow/ford_fulkerson.hpp
 layout: document
 redirect_from:

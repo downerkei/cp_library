@@ -2,10 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
+    title: verify/aoj/aoj_grl_6_a_dinic.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_bipartitematching.test.cpp
+    title: verify/yosupo/yosupo_bipartitematching.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"flow/dinic.hpp\"\ntemplate<typename flow_t>\nstruct Dinic{\n\
@@ -80,8 +86,10 @@ data:
   path: flow/dinic.hpp
   requiredBy: []
   timestamp: '2024-10-14 15:35:37+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/yosupo/yosupo_bipartitematching.test.cpp
+  - verify/aoj/aoj_grl_6_a_dinic.test.cpp
 documentation_of: flow/dinic.hpp
 layout: document
 redirect_from:

@@ -49,15 +49,15 @@ data:
       title: dp/rerooting_dp.hpp
   - name: flow
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: flow/dinic.hpp
       title: flow/dinic.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: flow/ford_fulkerson.hpp
       title: flow/ford_fulkerson.hpp
   - name: graph
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/dijkstra.hpp
       title: graph/dijkstra.hpp
     - icon: ':warning:'
@@ -121,10 +121,10 @@ data:
       title: string/rollong_hash.hpp
   - name: tree
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: tree/centroid_decomposition.hpp
       title: tree/centroid_decomposition.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: tree/lowest_common_ancestor.hpp
       title: tree/lowest_common_ancestor.hpp
   verificationCategories:
@@ -145,13 +145,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_gcl_5_c.test.cpp
       title: verify/aoj/aoj_gcl_5_c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
       title: verify/aoj/aoj_grl_6_a_dinic.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
       title: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
     - icon: ':heavy_check_mark:'
@@ -176,7 +176,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
       title: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_bipartitematching.test.cpp
       title: verify/yosupo/yosupo_bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
@@ -194,7 +194,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_factorize.test.cpp
       title: verify/yosupo/yosupo_factorize.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_lca.test.cpp
       title: verify/yosupo/yosupo_lca.test.cpp
     - icon: ':heavy_check_mark:'
@@ -209,7 +209,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
       title: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_shortest_path.test.cpp
       title: verify/yosupo/yosupo_shortest_path.test.cpp
     - icon: ':heavy_check_mark:'
@@ -226,16 +226,16 @@ data:
       title: verify/yosupo/yosupo_zalgorithm.test.cpp
   - name: verify/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yukicoder/yukicoder_1002.test.cpp
       title: verify/yukicoder/yukicoder_1002.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yukicoder/yukicoder_1094.test.cpp
       title: verify/yukicoder/yukicoder_1094.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yukicoder/yukicoder_186.test.cpp
       title: verify/yukicoder/yukicoder_186.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yukicoder/yukicoder_386.test.cpp
       title: verify/yukicoder/yukicoder_386.test.cpp
 layout: toppage
