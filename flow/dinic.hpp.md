@@ -2,23 +2,17 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
-    title: verify/aoj/aoj_grl_6_a_dinic.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: verify/yosupo/yosupo_bipartitematching.test.cpp
-    title: verify/yosupo/yosupo_bipartitematching.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"graph/flow/dinic.hpp\"\ntemplate<typename flow_t>\nstruct\
-    \ Dinic{\n    struct Edge{\n        int from, to, rev;\n        flow_t cap;\n\
-    \        bool is_rev;\n        Edge(int f, int t, int r, flow_t c, bool b) : from(f),\
-    \ to(t), rev(r), cap(c), is_rev(b) {}\n    };\n\n    vector<vector<Edge>> G;\n\
-    \    vector<int> dist;\n    vector<int> iter;\n    const flow_t INF = numeric_limits<flow_t>::max();\n\
+  bundledCode: "#line 1 \"flow/dinic.hpp\"\ntemplate<typename flow_t>\nstruct Dinic{\n\
+    \    struct Edge{\n        int from, to, rev;\n        flow_t cap;\n        bool\
+    \ is_rev;\n        Edge(int f, int t, int r, flow_t c, bool b) : from(f), to(t),\
+    \ rev(r), cap(c), is_rev(b) {}\n    };\n\n    vector<vector<Edge>> G;\n    vector<int>\
+    \ dist;\n    vector<int> iter;\n    const flow_t INF = numeric_limits<flow_t>::max();\n\
     \n    Dinic(int N) : G(N), dist(N), iter(N) {}\n\n    void add_edge(int from,\
     \ int to, flow_t cap) {\n        int fromrev = G[from].size();\n        int torev\
     \ = G[to].size();\n        G[from].push_back(Edge(from, to, torev, cap, 0));\n\
@@ -83,17 +77,15 @@ data:
     \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: graph/flow/dinic.hpp
+  path: flow/dinic.hpp
   requiredBy: []
-  timestamp: '2024-08-02 04:51:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - verify/yosupo/yosupo_bipartitematching.test.cpp
-  - verify/aoj/aoj_grl_6_a_dinic.test.cpp
-documentation_of: graph/flow/dinic.hpp
+  timestamp: '2024-10-14 15:35:37+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: flow/dinic.hpp
 layout: document
 redirect_from:
-- /library/graph/flow/dinic.hpp
-- /library/graph/flow/dinic.hpp.html
-title: graph/flow/dinic.hpp
+- /library/flow/dinic.hpp
+- /library/flow/dinic.hpp.html
+title: flow/dinic.hpp
 ---

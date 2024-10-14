@@ -47,27 +47,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/rerooting_dp.hpp
       title: dp/rerooting_dp.hpp
-  - name: graph/flow
+  - name: flow
     pages:
-    - icon: ':heavy_check_mark:'
-      path: graph/flow/dinic.hpp
-      title: graph/flow/dinic.hpp
-    - icon: ':heavy_check_mark:'
-      path: graph/flow/ford_fulkerson.hpp
-      title: graph/flow/ford_fulkerson.hpp
-  - name: graph/shortest_path
+    - icon: ':warning:'
+      path: flow/dinic.hpp
+      title: flow/dinic.hpp
+    - icon: ':warning:'
+      path: flow/ford_fulkerson.hpp
+      title: flow/ford_fulkerson.hpp
+  - name: graph
     pages:
-    - icon: ':heavy_check_mark:'
-      path: graph/shortest_path/dijkstra.hpp
-      title: graph/shortest_path/dijkstra.hpp
-  - name: graph/tree
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: graph/tree/centroid_decomposition.hpp
-      title: "\u91CD\u5FC3\u5206\u89E3"
-    - icon: ':heavy_check_mark:'
-      path: graph/tree/lowest_common_ancestor.hpp
-      title: graph/tree/lowest_common_ancestor.hpp
+    - icon: ':warning:'
+      path: graph/dijkstra.hpp
+      title: graph/dijkstra.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
@@ -124,6 +116,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/rollong_hash.hpp
       title: string/rollong_hash.hpp
+  - name: tree
+    pages:
+    - icon: ':warning:'
+      path: tree/centroid_decomposition.hpp
+      title: tree/centroid_decomposition.hpp
+    - icon: ':warning:'
+      path: tree/lowest_common_ancestor.hpp
+      title: tree/lowest_common_ancestor.hpp
   verificationCategories:
   - name: verify/aoj
     pages:
@@ -142,13 +142,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/aoj/aoj_gcl_5_c.test.cpp
       title: verify/aoj/aoj_gcl_5_c.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
       title: verify/aoj/aoj_grl_6_a_dinic.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
       title: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
     - icon: ':heavy_check_mark:'
@@ -173,7 +173,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
       title: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/yosupo/yosupo_bipartitematching.test.cpp
       title: verify/yosupo/yosupo_bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
@@ -191,7 +191,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_factorize.test.cpp
       title: verify/yosupo/yosupo_factorize.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/yosupo/yosupo_lca.test.cpp
       title: verify/yosupo/yosupo_lca.test.cpp
     - icon: ':heavy_check_mark:'
@@ -206,7 +206,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
       title: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/yosupo/yosupo_shortest_path.test.cpp
       title: verify/yosupo/yosupo_shortest_path.test.cpp
     - icon: ':heavy_check_mark:'
@@ -223,16 +223,16 @@ data:
       title: verify/yosupo/yosupo_zalgorithm.test.cpp
   - name: verify/yukicoder
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/yukicoder/yukicoder_1002.test.cpp
       title: verify/yukicoder/yukicoder_1002.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/yukicoder/yukicoder_1094.test.cpp
       title: verify/yukicoder/yukicoder_1094.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yukicoder/yukicoder_186.test.cpp
       title: verify/yukicoder/yukicoder_186.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/yukicoder/yukicoder_386.test.cpp
       title: verify/yukicoder/yukicoder_386.test.cpp
 layout: toppage

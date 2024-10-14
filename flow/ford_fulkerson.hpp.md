@@ -2,17 +2,14 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
-    title: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"graph/flow/ford_fulkerson.hpp\"\ntemplate<typename flow_t>\n\
-    struct FordFulkerson{\n    struct Edge{\n        int from, to, rev;\n        flow_t\
+  bundledCode: "#line 1 \"flow/ford_fulkerson.hpp\"\ntemplate<typename flow_t>\nstruct\
+    \ FordFulkerson{\n    struct Edge{\n        int from, to, rev;\n        flow_t\
     \ cap;\n        bool is_rev;\n        Edge(int f, int t, int r, flow_t c, bool\
     \ b) : from(f), to(t), rev(r), cap(c), is_rev(b) {}\n    };\n\n    vector<vector<Edge>>\
     \ G;\n    vector<bool> used;\n    const flow_t INF = numeric_limits<flow_t>::max();\n\
@@ -65,16 +62,15 @@ data:
     \    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: graph/flow/ford_fulkerson.hpp
+  path: flow/ford_fulkerson.hpp
   requiredBy: []
-  timestamp: '2024-08-02 04:52:03+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
-documentation_of: graph/flow/ford_fulkerson.hpp
+  timestamp: '2024-10-14 15:35:37+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: flow/ford_fulkerson.hpp
 layout: document
 redirect_from:
-- /library/graph/flow/ford_fulkerson.hpp
-- /library/graph/flow/ford_fulkerson.hpp.html
-title: graph/flow/ford_fulkerson.hpp
+- /library/flow/ford_fulkerson.hpp
+- /library/flow/ford_fulkerson.hpp.html
+title: flow/ford_fulkerson.hpp
 ---

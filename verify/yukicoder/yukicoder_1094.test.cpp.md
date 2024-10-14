@@ -1,52 +1,24 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/tree/lowest_common_ancestor.hpp
-    title: graph/tree/lowest_common_ancestor.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
-  attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/1094
-    links:
-    - https://yukicoder.me/problems/no/1094
-  bundledCode: "#line 1 \"verify/yukicoder/yukicoder_1094.test.cpp\"\n#define PROBLEM\
-    \ \"https://yukicoder.me/problems/no/1094\"\n\n#include <bits/stdc++.h>\nusing\
-    \ namespace std;\n\n#line 1 \"graph/tree/lowest_common_ancestor.hpp\"\ntemplate<class\
-    \ T>\nstruct LowestCommonAncestor{\n    vector<vector<int>> parent;\n    vector<int>\
-    \ height;\n    vector<T> dist;\n    LowestCommonAncestor(const vector<vector<pair<int,\
-    \ T>>>& G, int root=0) {\n        init(G, root);\n    }\n\n    void init(const\
-    \ vector<vector<pair<int, T>>>& G, int root=0) {\n        int N = G.size();\n\
-    \        int M = 1; while((1 << M) < N) M++;\n        parent.assign(M, vector<int>(N,\
-    \ -1));\n        height.assign(N, -1);\n        dist.assign(N, -1);\n        dfs(G,\
-    \ root, -1, 0, 0);\n        for(int lv = 1; lv < M; lv++) {\n            for(int\
-    \ i = 0; i < N; i++) {\n                if(parent[lv - 1][i] == -1) parent[lv][i]\
-    \ = -1;\n                else parent[lv][i] = parent[lv - 1][parent[lv - 1][i]];\n\
-    \            }\n        }\n    }\n\n    void dfs(const vector<vector<pair<int,\
-    \ T>>>& G, int v, int p, int h, T d) {\n        parent[0][v] = p;\n        height[v]\
-    \ = h;\n        dist[v] = d;\n        for(auto [nv, c] : G[v]) {\n           \
-    \ if(nv == p) continue;\n            dfs(G, nv, v, h + 1, d + c);\n        }\n\
-    \    }\n\n    int lca(int u, int v) {\n        if(height[u] < height[v]) swap(u,\
-    \ v);\n        int M = parent.size();\n        for(int lv = 0; lv < M; lv++) {\n\
-    \            if(((height[u] - height[v]) >> lv) & 1) u = parent[lv][u];\n    \
-    \    }\n        if(u == v) return u;\n        for(int lv = M - 1; lv >= 0; lv--)\
-    \ {\n            if(parent[lv][u] != parent[lv][v]) {\n                u = parent[lv][u];\n\
-    \                v = parent[lv][v];\n            }\n        }\n        return\
-    \ parent[0][u];\n    }\n\n    T dist_bitween(int u, int v) { return dist[u] +\
-    \ dist[v] - 2 * dist[lca(u, v)]; }\n\n    int path_len(int u, int v) { return\
-    \ height[u] + height[v] - 2 * height[lca(u, v)]; }\n};\n#line 7 \"verify/yukicoder/yukicoder_1094.test.cpp\"\
-    \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
-    \  int N;\n    cin >> N;\n    vector<vector<pair<int, int>>> G(N);\n    for(int\
-    \ i = 0; i < N - 1; i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n\
-    \        a--; b--;\n        G[a].push_back({b, c});\n        G[b].push_back({a,\
-    \ c});\n    }\n\n    LowestCommonAncestor<int> lca(G);\n\n    int Q;\n    cin\
-    \ >> Q;\n    while(Q--) {\n        int s, t;\n        cin >> s >> t;\n       \
-    \ s--; t--;\n        cout << lca.dist_bitween(s, t) << \"\\n\";\n    }\n\n   \
-    \ return 0;\n}\n"
+  _verificationStatusIcon: ':x:'
+  attributes: {}
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
+    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
+    \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../graph/tree/lowest_common_ancestor.hpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://yukicoder.me/problems/no/1094\"\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#include \"../../graph/tree/lowest_common_ancestor.hpp\"\
     \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
@@ -57,13 +29,12 @@ data:
     \ >> Q;\n    while(Q--) {\n        int s, t;\n        cin >> s >> t;\n       \
     \ s--; t--;\n        cout << lca.dist_bitween(s, t) << \"\\n\";\n    }\n\n   \
     \ return 0;\n}"
-  dependsOn:
-  - graph/tree/lowest_common_ancestor.hpp
+  dependsOn: []
   isVerificationFile: true
   path: verify/yukicoder/yukicoder_1094.test.cpp
   requiredBy: []
-  timestamp: '2024-08-22 21:06:18+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/yukicoder/yukicoder_1094.test.cpp
 layout: document

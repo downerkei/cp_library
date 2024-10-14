@@ -2,16 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: verify/yukicoder/yukicoder_1002.test.cpp
-    title: verify/yukicoder/yukicoder_1002.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"graph/tree/centroid_decomposition.hpp\"\nstruct CentroidDecomposition{\n\
+  bundledCode: "#line 1 \"tree/centroid_decomposition.hpp\"\nstruct CentroidDecomposition{\n\
     \    vector<vector<int>> T;\n    vector<int> sub, ord;\n    vector<int> used;\n\
     \    int r;\n \n    CentroidDecomposition(vector<vector<int>>& G) : T(G.size()),\
     \ sub(G.size()), used(G.size()) {\n        build_dfs(G);\n    } \n \n    int calc_sub(vector<vector<int>>&\
@@ -49,53 +46,15 @@ data:
     \ ord; }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: graph/tree/centroid_decomposition.hpp
+  path: tree/centroid_decomposition.hpp
   requiredBy: []
-  timestamp: '2024-08-21 01:14:30+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - verify/yukicoder/yukicoder_1002.test.cpp
-documentation_of: graph/tree/centroid_decomposition.hpp
+  timestamp: '2024-10-14 15:35:37+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: tree/centroid_decomposition.hpp
 layout: document
-title: "\u91CD\u5FC3\u5206\u89E3"
+redirect_from:
+- /library/tree/centroid_decomposition.hpp
+- /library/tree/centroid_decomposition.hpp.html
+title: tree/centroid_decomposition.hpp
 ---
-
-## 概要
-
-### 重心分解
-
-木において，ある頂点を取り除くといくつかの木に分裂する．分裂後の木のサイズがすべて元のサイズの半分以下の場合，その頂点を木の重心という．
-
-重心を取り除いた部分木についても再帰的に分解を行い，最終的にサイズが1になるまで続ける．
-
-## コンストラクタ
-
-```cpp
-CentroidDecomposition cd(vector<vector<int>> G);
-```
-
-* 連結リスト`G`を入力として，木の重心とその分裂後の木の重心同士を再帰的に結んだ根付き木`T`を連結リストで構築．また，`T`をdfs行きがけ順で探索したものを`ord`，`T`の根を`r`に格納する．
-
-## get_tree
-
-```cpp
-vector<vector<int>> get_tree();
-```
-
-* 重心同士を結んで木とした根付き木`T`をconst参照で返す．
-
-## get_root
-
-```cpp
-int get_root();
-```
-
-* `T`の根ノード`r`を返す．元の木`G`の重心でもある．
-
-## get_order
-
-```cpp
-vector<int> get_order();
-```
-
-* `T`をdfs行きがけ順である`ord`をconst参照で返す．
