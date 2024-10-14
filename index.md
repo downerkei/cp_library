@@ -106,6 +106,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/sqrt_floor.hpp
       title: math/sqrt_floor.hpp
+  - name: matrix
+    pages:
+    - icon: ':warning:'
+      path: matrix/left_rotate.hpp
+      title: matrix/left_rotate.hpp
+    - icon: ':warning:'
+      path: matrix/right_rotate.hpp
+      title: matrix/right_rotate.hpp
   - name: misc
     pages:
     - icon: ':warning:'
