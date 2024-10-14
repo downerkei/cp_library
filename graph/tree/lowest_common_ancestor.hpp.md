@@ -72,10 +72,10 @@ data:
   timestamp: '2024-08-22 20:57:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/aoj/aoj_gcl_5_c.test.cpp
   - verify/yosupo/yosupo_lca.test.cpp
-  - verify/yukicoder/yukicoder_386.test.cpp
+  - verify/aoj/aoj_gcl_5_c.test.cpp
   - verify/yukicoder/yukicoder_1094.test.cpp
+  - verify/yukicoder/yukicoder_386.test.cpp
 documentation_of: graph/tree/lowest_common_ancestor.hpp
 layout: document
 redirect_from:

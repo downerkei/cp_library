@@ -106,6 +106,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/sqrt_floor.hpp
       title: math/sqrt_floor.hpp
+  - name: misc
+    pages:
+    - icon: ':warning:'
+      path: misc/timer.hpp
+      title: misc/timer.hpp
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
