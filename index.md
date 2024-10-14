@@ -60,6 +60,9 @@ data:
     - icon: ':warning:'
       path: graph/dijkstra.hpp
       title: graph/dijkstra.hpp
+    - icon: ':warning:'
+      path: graph/lowlink.hpp
+      title: graph/lowlink.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
