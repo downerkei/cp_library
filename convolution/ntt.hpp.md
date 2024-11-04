@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/static_modint.hpp
     title: data_structure/static_modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/yosupo/yosupo_convolution.test.cpp
     title: verify/yosupo/yosupo_convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"data_structure/static_modint.hpp\"\ntemplate<int m=998244353>\
@@ -42,9 +42,9 @@ data:
     \ != (const mint& r) const { return _v != r._v; }\n\n    friend istream& operator\
     \ >> (istream& is, mint& x) {\n        long long t;\n        is >> t;\n      \
     \  x = mint(t);\n        return is;\n    }\n    friend ostream& operator << (ostream&\
-    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n\nusing modint998244353\
-    \ = StaticModint<998244353>;\nusing modint1000000007 = StaticModint<1000000007>;\n\
-    #line 2 \"convolution/ntt.hpp\"\n\nstruct NTT{\n    using mint = StaticModint<998244353>;\n\
+    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n\nusing mint =\
+    \ StaticModint<998244353>;\nusing mint = StaticModint<1000000007>;\n#line 2 \"\
+    convolution/ntt.hpp\"\n\nstruct NTT{\n    using mint = StaticModint<998244353>;\n\
     \n    // n: \u7573\u307F\u8FBC\u307F\u5F8C\u306E\u6570\u5217\u306E\u30B5\u30A4\
     \u30BA\n    // nunv: n\u306E\u9006\u6570\n    int n, ninv;\n    const mint MOD\
     \ = 998244353, g = 3;\n\n    // br: \u30D3\u30C3\u30C8\u53CD\u8EE2\u5217\n   \
@@ -157,8 +157,8 @@ data:
   isVerificationFile: false
   path: convolution/ntt.hpp
   requiredBy: []
-  timestamp: '2024-09-20 04:27:47+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-11-05 01:40:06+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - verify/yosupo/yosupo_convolution.test.cpp
 documentation_of: convolution/ntt.hpp
