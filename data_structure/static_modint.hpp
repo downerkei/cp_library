@@ -1,4 +1,4 @@
-template<int m=998244353> struct StaticModint {
+template<int m> struct StaticModint {
     using mint = StaticModint;
     int _v;
 
