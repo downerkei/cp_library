@@ -44,7 +44,7 @@ data:
     \                if(e.is_rev) continue;\n                ret.push_back(e);\n \
     \           }\n        }\n        return ret;\n    }\n\n    void debug() {\n \
     \       for(const auto& v : G) {\n            for(const auto& e : v) {\n     \
-    \           if(e.is_rev) continue;\n                cout << e.from << \" -> \"\
+    \           if(e.is_rev) continue;\n                cerr << e.from << \" -> \"\
     \ << e.to << \" (flow : \" << G[e.to][e.rev].cap << \" / \"\n                \
     \    << e.cap + G[e.to][e.rev].cap << \")\" << endl;\n            }\n        }\n\
     \    }\n};\n"
@@ -77,7 +77,7 @@ data:
     \ auto& e : v) {\n                if(e.is_rev) continue;\n                ret.push_back(e);\n\
     \            }\n        }\n        return ret;\n    }\n\n    void debug() {\n\
     \        for(const auto& v : G) {\n            for(const auto& e : v) {\n    \
-    \            if(e.is_rev) continue;\n                cout << e.from << \" -> \"\
+    \            if(e.is_rev) continue;\n                cerr << e.from << \" -> \"\
     \ << e.to << \" (flow : \" << G[e.to][e.rev].cap << \" / \"\n                \
     \    << e.cap + G[e.to][e.rev].cap << \")\" << endl;\n            }\n        }\n\
     \    }\n};\n"
@@ -85,7 +85,7 @@ data:
   isVerificationFile: false
   path: flow/dinic.hpp
   requiredBy: []
-  timestamp: '2024-10-14 15:35:37+09:00'
+  timestamp: '2024-11-16 05:43:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_bipartitematching.test.cpp

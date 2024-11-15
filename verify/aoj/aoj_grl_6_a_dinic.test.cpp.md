@@ -46,7 +46,7 @@ data:
     \ auto& e : v) {\n                if(e.is_rev) continue;\n                ret.push_back(e);\n\
     \            }\n        }\n        return ret;\n    }\n\n    void debug() {\n\
     \        for(const auto& v : G) {\n            for(const auto& e : v) {\n    \
-    \            if(e.is_rev) continue;\n                cout << e.from << \" -> \"\
+    \            if(e.is_rev) continue;\n                cerr << e.from << \" -> \"\
     \ << e.to << \" (flow : \" << G[e.to][e.rev].cap << \" / \"\n                \
     \    << e.cap + G[e.to][e.rev].cap << \")\" << endl;\n            }\n        }\n\
     \    }\n};\n#line 7 \"verify/aoj/aoj_grl_6_a_dinic.test.cpp\"\n\nint main() {\n\
@@ -65,7 +65,7 @@ data:
   isVerificationFile: true
   path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
   requiredBy: []
-  timestamp: '2024-10-14 21:14:48+09:00'
+  timestamp: '2024-11-16 05:43:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/aoj/aoj_grl_6_a_dinic.test.cpp
