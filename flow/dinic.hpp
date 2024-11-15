@@ -87,7 +87,7 @@ struct Dinic{
         for(const auto& v : G) {
             for(const auto& e : v) {
                 if(e.is_rev) continue;
-                cout << e.from << " -> " << e.to << " (flow : " << G[e.to][e.rev].cap << " / "
+                cerr << e.from << " -> " << e.to << " (flow : " << G[e.to][e.rev].cap << " / "
                     << e.cap + G[e.to][e.rev].cap << ")" << endl;
             }
         }
