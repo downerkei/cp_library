@@ -62,8 +62,8 @@ data:
     \ = e;\n//         while(l < r) {\n//             if(l & 1) vl = op(vl, data[l++]);\n\
     //             if(r & 1) vr = op(data[--r], vr);\n//             l >>= 1;\n//\
     \             r >>= 1;\n//         }\n\n//         return op(vl, vr);\n//    \
-    \ }\n};\n#line 1 \"data_structure/static_modint.hpp\"\ntemplate<int m=998244353>\
-    \ struct StaticModint {\n    using mint = StaticModint;\n    int _v;\n\n    constexpr\
+    \ }\n};\n#line 1 \"data_structure/static_modint.hpp\"\ntemplate<int m> struct\
+    \ StaticModint {\n    using mint = StaticModint;\n    int _v;\n\n    constexpr\
     \ StaticModint() : _v(0) {}\n    template<class T>\n    constexpr StaticModint(T\
     \ v) : _v((v % m + m) % m) {}\n\n    constexpr int val() const { return _v; }\n\
     \n    constexpr mint& operator ++ () { return *this += 1; }\n    constexpr mint&\
@@ -126,7 +126,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-11-05 01:40:06+09:00'
+  timestamp: '2024-11-16 03:41:17+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_range_affine_range_sum.test.cpp

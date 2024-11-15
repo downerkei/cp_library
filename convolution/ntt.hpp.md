@@ -14,8 +14,8 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"data_structure/static_modint.hpp\"\ntemplate<int m=998244353>\
-    \ struct StaticModint {\n    using mint = StaticModint;\n    int _v;\n\n    constexpr\
+  bundledCode: "#line 1 \"data_structure/static_modint.hpp\"\ntemplate<int m> struct\
+    \ StaticModint {\n    using mint = StaticModint;\n    int _v;\n\n    constexpr\
     \ StaticModint() : _v(0) {}\n    template<class T>\n    constexpr StaticModint(T\
     \ v) : _v((v % m + m) % m) {}\n\n    constexpr int val() const { return _v; }\n\
     \n    constexpr mint& operator ++ () { return *this += 1; }\n    constexpr mint&\
@@ -157,7 +157,7 @@ data:
   isVerificationFile: false
   path: convolution/ntt.hpp
   requiredBy: []
-  timestamp: '2024-11-05 01:40:06+09:00'
+  timestamp: '2024-11-16 03:41:17+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - verify/yosupo/yosupo_convolution.test.cpp
