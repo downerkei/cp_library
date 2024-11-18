@@ -20,17 +20,3 @@ struct BinomialCoefficient{
         return fact[n] * fact_inv[n-r] % MOD * fact_inv[r] % MOD;
     }
 };
-
-// nCrを計算する
-// O(r)で計算，オーバーフローに注意
-// 60C30 = 1e17くらい
-long long comb(int n, int r) {
-    if(r < 0 || n < r) return 0;
-    long long ret = 1;
-    for(long long i = 1; i <= r; i++) {
-        ret *= n--;
-        ret /= i;
-    }
-
-    return ret;
-}
