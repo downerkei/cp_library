@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: convolution/ntt.hpp
     title: convolution/ntt.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/static_modint.hpp
     title: data_structure/static_modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/convolution_mod
@@ -47,9 +47,9 @@ data:
     \ != (const mint& r) const { return _v != r._v; }\n\n    friend istream& operator\
     \ >> (istream& is, mint& x) {\n        long long t;\n        is >> t;\n      \
     \  x = mint(t);\n        return is;\n    }\n    friend ostream& operator << (ostream&\
-    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n\nusing mint =\
-    \ StaticModint<998244353>;\nusing mint = StaticModint<1000000007>;\n#line 2 \"\
-    convolution/ntt.hpp\"\n\nstruct NTT{\n    using mint = StaticModint<998244353>;\n\
+    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n\n// using mint\
+    \ = StaticModint<998244353>;\n// using mint = StaticModint<1000000007>;\n#line\
+    \ 2 \"convolution/ntt.hpp\"\n\nstruct NTT{\n    using mint = StaticModint<998244353>;\n\
     \n    // n: \u7573\u307F\u8FBC\u307F\u5F8C\u306E\u6570\u5217\u306E\u30B5\u30A4\
     \u30BA\n    // nunv: n\u306E\u9006\u6570\n    int n, ninv;\n    const mint MOD\
     \ = 998244353, g = 3;\n\n    // br: \u30D3\u30C3\u30C8\u53CD\u8EE2\u5217\n   \
@@ -121,8 +121,8 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-11-16 03:41:17+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-18 18:12:45+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_convolution.test.cpp
 layout: document

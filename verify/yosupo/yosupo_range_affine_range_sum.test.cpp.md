@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/lazy_segmemt_tree.hpp
     title: data_structure/lazy_segmemt_tree.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/static_modint.hpp
     title: data_structure/static_modint.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_affine_range_sum
@@ -90,9 +90,9 @@ data:
     \ != (const mint& r) const { return _v != r._v; }\n\n    friend istream& operator\
     \ >> (istream& is, mint& x) {\n        long long t;\n        is >> t;\n      \
     \  x = mint(t);\n        return is;\n    }\n    friend ostream& operator << (ostream&\
-    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n\nusing mint =\
-    \ StaticModint<998244353>;\nusing mint = StaticModint<1000000007>;\n#line 8 \"\
-    verify/yosupo/yosupo_range_affine_range_sum.test.cpp\"\n\nusing mint = StaticModint<998244353>;\n\
+    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n\n// using mint\
+    \ = StaticModint<998244353>;\n// using mint = StaticModint<1000000007>;\n#line\
+    \ 8 \"verify/yosupo/yosupo_range_affine_range_sum.test.cpp\"\n\nusing mint = StaticModint<998244353>;\n\
     \nusing S = pair<mint, mint>;\nS op(S l, S r) { return {l.first + r.first, l.second\
     \ + r.second}; }\nS e() { return {0, 0}; }\nusing F = pair<mint, mint>;\nS mapping(F\
     \ f, S x) { return {x.first * f.first + x.second * f.second, x.second}; }\nF composition(F\
@@ -126,8 +126,8 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-11-16 03:41:17+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-18 18:12:45+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
 layout: document
