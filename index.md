@@ -55,6 +55,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/ford_fulkerson.hpp
       title: flow/ford_fulkerson.hpp
+    - icon: ':warning:'
+      path: flow/primal_dual.hpp
+      title: flow/primal_dual.hpp
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
