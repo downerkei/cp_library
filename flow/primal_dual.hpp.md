@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/aoj/aoj_grl_6_b.test.cpp
+    title: verify/aoj/aoj_grl_6_b.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"flow/primal_dual.hpp\"\ntemplate<typename Cap, typename\
@@ -112,8 +115,9 @@ data:
   path: flow/primal_dual.hpp
   requiredBy: []
   timestamp: '2024-11-18 19:42:18+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/aoj/aoj_grl_6_b.test.cpp
 documentation_of: flow/primal_dual.hpp
 layout: document
 redirect_from:

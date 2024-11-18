@@ -55,7 +55,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/ford_fulkerson.hpp
       title: flow/ford_fulkerson.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: flow/primal_dual.hpp
       title: flow/primal_dual.hpp
   - name: graph
@@ -157,6 +157,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
       title: verify/aoj/aoj_grl_6_a_ford_fulkerson.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_grl_6_b.test.cpp
+      title: verify/aoj/aoj_grl_6_b.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_ntl_1_a.test.cpp
       title: verify/aoj/aoj_ntl_1_a.test.cpp
