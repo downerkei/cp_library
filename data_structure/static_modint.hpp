@@ -65,5 +65,5 @@ template<int m> struct StaticModint {
     }
 };
 
-using mint = StaticModint<998244353>;
-using mint = StaticModint<1000000007>;
+// using mint = StaticModint<998244353>;
+// using mint = StaticModint<1000000007>;
