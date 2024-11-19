@@ -133,11 +133,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/lowest_common_ancestor.hpp
       title: tree/lowest_common_ancestor.hpp
-  - name: verify/yosupo
-    pages:
-    - icon: ':warning:'
-      path: verify/yosupo/tempCodeRunnerFile.cpp
-      title: verify/yosupo/tempCodeRunnerFile.cpp
   verificationCategories:
   - name: verify/aoj
     pages:

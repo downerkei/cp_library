@@ -5,9 +5,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/enumerate_palindromes.hpp
     title: string/enumerate_palindromes.hpp
-  - icon: ':warning:'
-    path: verify/yosupo/tempCodeRunnerFile.cpp
-    title: verify/yosupo/tempCodeRunnerFile.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
@@ -122,7 +119,6 @@ data:
   isVerificationFile: false
   path: string/rolling_hash.hpp
   requiredBy:
-  - verify/yosupo/tempCodeRunnerFile.cpp
   - string/enumerate_palindromes.hpp
   timestamp: '2024-11-20 08:34:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
