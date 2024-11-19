@@ -6,10 +6,12 @@ using namespace std;
 #include "../../tree/lowest_common_ancestor.hpp"
 
 int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
     int N;
     cin >> N;
 
-    vector<vector<pair<int, int>>> G(N);
+    vector<vector<int>> G(N);
 
     for(int i = 0; i < N; i++) {
         int k;
@@ -17,19 +19,19 @@ int main() {
         for(int j = 0; j < k; j++) {
             int c;
             cin >> c;
-            G[i].push_back({c, 1});
-            G[c].push_back({i, 1});
+            G[i].push_back(c);
+            G[c].push_back(i);
         }
     }
 
-    LowestCommonAncestor<int> lca(G, 0);
+    LowestCommonAncestor lca(G, 0);
 
     int Q;
     cin >> Q;
     while(Q--) {
         int u, v;
         cin >> u >> v;
-        cout << lca.lca(u, v) << endl;
+        cout << lca.lca(u, v) << "\n";
     }
 
     return 0;

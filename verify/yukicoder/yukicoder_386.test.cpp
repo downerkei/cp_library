@@ -8,7 +8,6 @@ using namespace std;
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    
     int N;
     cin >> N;
     vector<int> A(N - 1), B(N - 1);
@@ -25,7 +24,7 @@ int main() {
         G[A[i]].push_back({B[i], C[A[i]] + C[B[i]]});
         G[B[i]].push_back({A[i], C[A[i]] + C[B[i]]});
     }
-    LowestCommonAncestor<int> lca(G);
+    LowestCommonAncestor lca(G);
 
     int M;
     cin >> M;
@@ -37,7 +36,7 @@ int main() {
         tax = tax / 2 * c;
         ans += tax;
     }
-    cout << ans << endl;
+    cout << ans << "\n";
 
     return 0;
 }

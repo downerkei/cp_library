@@ -10,15 +10,15 @@ int main() {
     ios::sync_with_stdio(false);
     int N, Q;
     cin >> N >> Q;
-    vector<vector<pair<int, int>>> G(N);
+    vector<vector<int>> G(N);
     for(int i = 1; i < N; i++) {
         int p;
         cin >> p;
-        G[i].push_back({p, 1});
-        G[p].push_back({i, 1});
+        G[i].push_back(p);
+        G[p].push_back(i);
     }
 
-    LowestCommonAncestor<int> lca(G);
+    LowestCommonAncestor lca(G);
 
     while(Q--) {
         int u, v;

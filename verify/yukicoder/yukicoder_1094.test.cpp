@@ -19,7 +19,7 @@ int main() {
         G[b].push_back({a, c});
     }
 
-    LowestCommonAncestor<int> lca(G);
+    LowestCommonAncestor lca(G);
 
     int Q;
     cin >> Q;
