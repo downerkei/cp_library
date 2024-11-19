@@ -3,168 +3,144 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
     title: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/yosupo/yosupo_suffix_array.test.cpp
     title: verify/yosupo/yosupo_suffix_array.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/yosupo/yosupo_zalgorithm.test.cpp
     title: verify/yosupo/yosupo_zalgorithm.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"string/rollong_hash.hpp\"\nstruct RollingHash{\n    using\
-    \ u64 = uint64_t;\n\n    // \u5B9A\u6570\n    constexpr static u64 MASK30 = (1UL\
-    \ << 30) - 1;\n    constexpr static u64 MASK31 = (1UL << 31) - 1;\n    constexpr\
-    \ static u64 MASK61 = (1UL << 61) - 1;\n    constexpr static u64 MOD = (1UL <<\
-    \ 61) - 1;\n    constexpr static u64 POSITIVIZER = MOD * 4;\n\n    // static\u5909\
-    \u6570\n    static inline u64 base;\n\n    // \u30E1\u30F3\u30D0\u5909\u6570\n\
-    \    int N;\n    vector<u64> hashed, power;\n    \n    // 30bit, 31bit\u3067\u533A\
-    \u5207\u308B\u639B\u3051\u7B97\n    u64 mul(const u64& a, const u64& b) {\n  \
-    \      u64 au = a >> 31;\n        u64 ad = a & MASK31;\n        u64 bu = b >>\
-    \ 31;\n        u64 bd = b & MASK31;\n        u64 mid = ad * bu + au * bd;\n  \
-    \      u64 midu = mid >> 30;\n        u64 midd = mid & MASK30;\n        return\
-    \ au * bu * 2 + midu + (midd << 31) + ad * bd;\n    }\n\n    // mod\u3092\u53D6\
-    \u308B\n    u64 calc_mod(const u64& x) {\n        u64 xu = x >> 61;\n        u64\
-    \ xd = x & MASK61;\n        u64 ret = xu + xd;\n        if(ret >= MOD) ret -=\
-    \ MOD;\n        return ret;\n    }\n\n    // base\u3092[0, MOD)\u304B\u3089\u4E71\
-    \u629E\n    void gen_base() {\n        random_device seed_gen;\n        mt19937_64\
+    \ u64 = uint64_t;\n\n    constexpr static u64 MASK30 = (1UL << 30) - 1;\n    constexpr\
+    \ static u64 MASK31 = (1UL << 31) - 1;\n    constexpr static u64 MASK61 = (1UL\
+    \ << 61) - 1;\n    constexpr static u64 MOD = (1UL << 61) - 1;\n    constexpr\
+    \ static u64 POSITIVIZER = MOD * 4;\n\n    static inline u64 base;\n\n    int\
+    \ N;\n    vector<u64> hashed, power;\n    \n    u64 mul(const u64& a, const u64&\
+    \ b) {\n        u64 au = a >> 31;\n        u64 ad = a & MASK31;\n        u64 bu\
+    \ = b >> 31;\n        u64 bd = b & MASK31;\n        u64 mid = ad * bu + au * bd;\n\
+    \        u64 midu = mid >> 30;\n        u64 midd = mid & MASK30;\n        return\
+    \ au * bu * 2 + midu + (midd << 31) + ad * bd;\n    }\n\n    u64 calc_mod(const\
+    \ u64& x) {\n        u64 xu = x >> 61;\n        u64 xd = x & MASK61;\n       \
+    \ u64 ret = xu + xd;\n        if(ret >= MOD) ret -= MOD;\n        return ret;\n\
+    \    }\n\n    void gen_base() {\n        random_device seed_gen;\n        mt19937_64\
     \ engine(seed_gen());\n        uniform_int_distribution<u64> rand(0, MOD - 1);\n\
-    \        base = rand(engine);\n    }\n\n    // \u30B3\u30F3\u30B9\u30C8\u30E9\u30AF\
-    \u30BF(\u6587\u5B57\u5217)\n    RollingHash(const string& S) {\n        // base\u521D\
-    \u671F\u5316\n        if(base == 0) gen_base();\n\n        // \u5909\u6570\u521D\
-    \u671F\u5316\n        N = (int)S.size();\n        power.resize(N + 1, 0);\n  \
-    \      hashed.resize(N + 1, 0);\n\n        // power, hashed\u8A08\u7B97\n    \
-    \    power[0] = 1;\n        for(int i = 0; i < N; i++) {\n            power[i\
-    \ + 1] = calc_mod(mul(power[i], base));\n            hashed[i + 1] = calc_mod(mul(hashed[i],\
-    \ base) + S[i]);\n        }\n    }\n    // \u30B3\u30F3\u30B9\u30C8\u30E9\u30AF\
-    \u30BF(\u6570\u5217)\n    RollingHash(const vector<int>& V) {\n        // base\u521D\
-    \u671F\u5316\n        if(base == 0) gen_base();\n\n        // \u5909\u6570\u521D\
-    \u671F\u5316\n        N = (int)V.size();\n        power.resize(N + 1, 0);\n  \
-    \      hashed.resize(N + 1, 0);\n\n        // power, hashed\u8A08\u7B97\n    \
-    \    power[0] = 1;\n        for(int i = 0; i < N; i++) {\n            power[i\
-    \ + 1] = mul(power[i], base);\n            hashed[i + 1] = calc_mod(mul(hashed[i],\
-    \ base) + V[i]);\n        }\n    }\n    \n    // [l, r)\u306E\u30CF\u30C3\u30B7\
-    \u30E5\u3092\u8A08\u7B97\n    u64 get_hash(int l, int r) {\n        return calc_mod(hashed[r]\
-    \ + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n\n    // p\u59CB\u70B9\
-    \u306ELCP\u8A08\u7B97\uFF0CO(logN)\n    int get_LCP(int p) {\n        int lb =\
-    \ -1, ub = N - p + 1;\n        while(ub - lb > 1) {\n            int mid = (ub\
-    \ + lb) / 2;\n            if(get_hash(p, p + mid) == get_hash(0, mid)) lb = mid;\n\
-    \            else ub = mid;\n        }\n        return lb;\n    }\n\n    // \u5168\
-    \u3066\u306ELCP\u3092\u8FD4\u3059\uFF0CO(NlogN)\n    vector<int> all_LCP() {\n\
-    \        vector<int> ret(N);\n        for(int i = 0; i < N; i++) {\n         \
-    \   ret[i] = get_LCP(i);\n        }\n        return ret;\n    }\n\n    // \u6BD4\
-    \u8F03\u95A2\u6570\uFF0CO(logN)\u3067i\u3068j\u306E\u63A5\u5C3E\u8F9E\u3092\u6BD4\
-    \u8F03\uFF0Csubstr(i) < substr(j)\u3092\u8FD4\u3059\n    bool comp(const int&\
-    \ i, const int& j) {\n        if(get_hash(i, i + 1) != get_hash(j, j + 1)) return\
-    \ get_hash(i, i + 1) < get_hash(j, j + 1);\n\n        // \u6307\u6570\u63A2\u7D22\
-    \u3067\u4E0A\u754C\u3092\u6C7A\u3081\u308B\n        int lb = 0, ub = 1, ma = N\
-    \ - max(i, j) + 1;\n        while(get_hash(i, i + ub) == get_hash(j, j + ub))\
-    \ {\n            ub *= 5;\n            if(ub >= ma) {\n                ub = ma;\n\
-    \                break;\n            }\n        }\n\n        // \u4E8C\u5206\u63A2\
-    \u7D22\u3067\u6700\u5927\u5171\u901A\u63A5\u982D\u8F9E\u9577\u3092\u5F97\u308B\
-    \n        while(ub - lb > 1) {\n            int mid = (ub + lb) / 2;\n       \
-    \     if(get_hash(i, i + mid) == get_hash(j, j + mid)) lb = mid;\n           \
-    \ else ub = mid;\n        }\n        if(i + lb == N) return true;\n        if(j\
-    \ + lb == N) return false;\n        return get_hash(i + lb, i + lb + 1) < get_hash(j\
-    \ + lb, j + lb + 1);\n    }\n\n    // SA\u3092\u8FD4\u3059\uFF0CO(Nlog^2N)\n \
-    \   vector<int> suffix_array() {\n        vector<int> ret(N);\n        iota(ret.begin(),\
-    \ ret.end(), 0);\n        sort(ret.begin(), ret.end(), [this](const int& i, const\
-    \ int& j) { return comp(i, j); });\n        return ret;\n    }\n};\n\n// i\u3092\
-    \u4E2D\u5FC3\u3068\u3057\u305F\u56DE\u6587\u306E\u9577\u3055\u3092\u8FD4\u3059\
-    \nint get_palindrome(int p, RollingHash& a, RollingHash& b) {\n    int N = a.N;\n\
-    \    int q = N - p - 1;\n\n    // \u521D\u671F\u5024\n    int lb = 0, ub = min(N\
-    \ - p, p + 1);\n    while(ub - lb > 1) {\n        int mid = (ub + lb) / 2;\n \
-    \       if(a.get_hash(p - mid, p + mid + 1) == b.get_hash(q - mid, q + mid + 1))\
-    \ lb = mid;\n        else ub = mid;\n    }\n\n    return lb;\n}\n\n// \u6587\u5B57\
-    \u5217S\u306E\u5404\u4E2D\u5FC3\u306E\u6700\u5927\u56DE\u6587\u9577\u3092\u8FD4\
-    \u3059\nvector<int> enumerate_palindromes(string S) {\n    int N = S.size();\n\
-    \    string T = \"\";\n    for(int i = 0; i < N; i++) {\n        T += '$';\n \
-    \       T += S[i];\n    }\n    T += '$';\n    RollingHash a(T);\n    reverse(T.begin(),\
-    \ T.end());\n    RollingHash b(T);\n\n    vector<int> ret;\n    for(int i = 1;\
-    \ i < a.N - 1; i++) {\n        ret.push_back(get_palindrome(i, a, b));\n    }\n\
-    \n    return ret;\n}\n"
-  code: "struct RollingHash{\n    using u64 = uint64_t;\n\n    // \u5B9A\u6570\n \
-    \   constexpr static u64 MASK30 = (1UL << 30) - 1;\n    constexpr static u64 MASK31\
-    \ = (1UL << 31) - 1;\n    constexpr static u64 MASK61 = (1UL << 61) - 1;\n   \
-    \ constexpr static u64 MOD = (1UL << 61) - 1;\n    constexpr static u64 POSITIVIZER\
-    \ = MOD * 4;\n\n    // static\u5909\u6570\n    static inline u64 base;\n\n   \
-    \ // \u30E1\u30F3\u30D0\u5909\u6570\n    int N;\n    vector<u64> hashed, power;\n\
-    \    \n    // 30bit, 31bit\u3067\u533A\u5207\u308B\u639B\u3051\u7B97\n    u64\
-    \ mul(const u64& a, const u64& b) {\n        u64 au = a >> 31;\n        u64 ad\
-    \ = a & MASK31;\n        u64 bu = b >> 31;\n        u64 bd = b & MASK31;\n   \
-    \     u64 mid = ad * bu + au * bd;\n        u64 midu = mid >> 30;\n        u64\
-    \ midd = mid & MASK30;\n        return au * bu * 2 + midu + (midd << 31) + ad\
-    \ * bd;\n    }\n\n    // mod\u3092\u53D6\u308B\n    u64 calc_mod(const u64& x)\
-    \ {\n        u64 xu = x >> 61;\n        u64 xd = x & MASK61;\n        u64 ret\
-    \ = xu + xd;\n        if(ret >= MOD) ret -= MOD;\n        return ret;\n    }\n\
-    \n    // base\u3092[0, MOD)\u304B\u3089\u4E71\u629E\n    void gen_base() {\n \
-    \       random_device seed_gen;\n        mt19937_64 engine(seed_gen());\n    \
-    \    uniform_int_distribution<u64> rand(0, MOD - 1);\n        base = rand(engine);\n\
-    \    }\n\n    // \u30B3\u30F3\u30B9\u30C8\u30E9\u30AF\u30BF(\u6587\u5B57\u5217\
-    )\n    RollingHash(const string& S) {\n        // base\u521D\u671F\u5316\n   \
-    \     if(base == 0) gen_base();\n\n        // \u5909\u6570\u521D\u671F\u5316\n\
-    \        N = (int)S.size();\n        power.resize(N + 1, 0);\n        hashed.resize(N\
-    \ + 1, 0);\n\n        // power, hashed\u8A08\u7B97\n        power[0] = 1;\n  \
-    \      for(int i = 0; i < N; i++) {\n            power[i + 1] = calc_mod(mul(power[i],\
-    \ base));\n            hashed[i + 1] = calc_mod(mul(hashed[i], base) + S[i]);\n\
-    \        }\n    }\n    // \u30B3\u30F3\u30B9\u30C8\u30E9\u30AF\u30BF(\u6570\u5217\
-    )\n    RollingHash(const vector<int>& V) {\n        // base\u521D\u671F\u5316\n\
-    \        if(base == 0) gen_base();\n\n        // \u5909\u6570\u521D\u671F\u5316\
+    \        base = rand(engine);\n    }\n\n    RollingHash(const string& S) { init(S);\
+    \ }\n    RollingHash(const vector<int>& V) { init(V); }\n\n    template<class\
+    \ VType>\n    void init(const VType& V) {\n        if(base == 0) gen_base();\n\
     \n        N = (int)V.size();\n        power.resize(N + 1, 0);\n        hashed.resize(N\
-    \ + 1, 0);\n\n        // power, hashed\u8A08\u7B97\n        power[0] = 1;\n  \
-    \      for(int i = 0; i < N; i++) {\n            power[i + 1] = mul(power[i],\
-    \ base);\n            hashed[i + 1] = calc_mod(mul(hashed[i], base) + V[i]);\n\
-    \        }\n    }\n    \n    // [l, r)\u306E\u30CF\u30C3\u30B7\u30E5\u3092\u8A08\
-    \u7B97\n    u64 get_hash(int l, int r) {\n        return calc_mod(hashed[r] +\
-    \ POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n\n    // p\u59CB\u70B9\u306E\
-    LCP\u8A08\u7B97\uFF0CO(logN)\n    int get_LCP(int p) {\n        int lb = -1, ub\
-    \ = N - p + 1;\n        while(ub - lb > 1) {\n            int mid = (ub + lb)\
-    \ / 2;\n            if(get_hash(p, p + mid) == get_hash(0, mid)) lb = mid;\n \
-    \           else ub = mid;\n        }\n        return lb;\n    }\n\n    // \u5168\
-    \u3066\u306ELCP\u3092\u8FD4\u3059\uFF0CO(NlogN)\n    vector<int> all_LCP() {\n\
-    \        vector<int> ret(N);\n        for(int i = 0; i < N; i++) {\n         \
-    \   ret[i] = get_LCP(i);\n        }\n        return ret;\n    }\n\n    // \u6BD4\
-    \u8F03\u95A2\u6570\uFF0CO(logN)\u3067i\u3068j\u306E\u63A5\u5C3E\u8F9E\u3092\u6BD4\
-    \u8F03\uFF0Csubstr(i) < substr(j)\u3092\u8FD4\u3059\n    bool comp(const int&\
-    \ i, const int& j) {\n        if(get_hash(i, i + 1) != get_hash(j, j + 1)) return\
-    \ get_hash(i, i + 1) < get_hash(j, j + 1);\n\n        // \u6307\u6570\u63A2\u7D22\
-    \u3067\u4E0A\u754C\u3092\u6C7A\u3081\u308B\n        int lb = 0, ub = 1, ma = N\
-    \ - max(i, j) + 1;\n        while(get_hash(i, i + ub) == get_hash(j, j + ub))\
-    \ {\n            ub *= 5;\n            if(ub >= ma) {\n                ub = ma;\n\
-    \                break;\n            }\n        }\n\n        // \u4E8C\u5206\u63A2\
-    \u7D22\u3067\u6700\u5927\u5171\u901A\u63A5\u982D\u8F9E\u9577\u3092\u5F97\u308B\
-    \n        while(ub - lb > 1) {\n            int mid = (ub + lb) / 2;\n       \
-    \     if(get_hash(i, i + mid) == get_hash(j, j + mid)) lb = mid;\n           \
-    \ else ub = mid;\n        }\n        if(i + lb == N) return true;\n        if(j\
-    \ + lb == N) return false;\n        return get_hash(i + lb, i + lb + 1) < get_hash(j\
-    \ + lb, j + lb + 1);\n    }\n\n    // SA\u3092\u8FD4\u3059\uFF0CO(Nlog^2N)\n \
-    \   vector<int> suffix_array() {\n        vector<int> ret(N);\n        iota(ret.begin(),\
-    \ ret.end(), 0);\n        sort(ret.begin(), ret.end(), [this](const int& i, const\
-    \ int& j) { return comp(i, j); });\n        return ret;\n    }\n};\n\n// i\u3092\
-    \u4E2D\u5FC3\u3068\u3057\u305F\u56DE\u6587\u306E\u9577\u3055\u3092\u8FD4\u3059\
-    \nint get_palindrome(int p, RollingHash& a, RollingHash& b) {\n    int N = a.N;\n\
-    \    int q = N - p - 1;\n\n    // \u521D\u671F\u5024\n    int lb = 0, ub = min(N\
-    \ - p, p + 1);\n    while(ub - lb > 1) {\n        int mid = (ub + lb) / 2;\n \
-    \       if(a.get_hash(p - mid, p + mid + 1) == b.get_hash(q - mid, q + mid + 1))\
-    \ lb = mid;\n        else ub = mid;\n    }\n\n    return lb;\n}\n\n// \u6587\u5B57\
-    \u5217S\u306E\u5404\u4E2D\u5FC3\u306E\u6700\u5927\u56DE\u6587\u9577\u3092\u8FD4\
-    \u3059\nvector<int> enumerate_palindromes(string S) {\n    int N = S.size();\n\
-    \    string T = \"\";\n    for(int i = 0; i < N; i++) {\n        T += '$';\n \
-    \       T += S[i];\n    }\n    T += '$';\n    RollingHash a(T);\n    reverse(T.begin(),\
-    \ T.end());\n    RollingHash b(T);\n\n    vector<int> ret;\n    for(int i = 1;\
-    \ i < a.N - 1; i++) {\n        ret.push_back(get_palindrome(i, a, b));\n    }\n\
-    \n    return ret;\n}"
+    \ + 1, 0);\n\n        power[0] = 1;\n        for(int i = 0; i < N; i++) {\n  \
+    \          power[i + 1] = mul(power[i], base);\n            hashed[i + 1] = calc_mod(mul(hashed[i],\
+    \ base) + V[i]);\n        }\n    }\n    \n    u64 get_hash(int l, int r) {\n \
+    \       return calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));\n\
+    \    }\n\n    // p\u59CB\u70B9\u306ELCP\u8A08\u7B97\uFF0CO(logN)\n    int get_LCP(int\
+    \ p) {\n        int lb = -1, ub = N - p + 1;\n        while(ub - lb > 1) {\n \
+    \           int mid = (ub + lb) / 2;\n            if(get_hash(p, p + mid) == get_hash(0,\
+    \ mid)) lb = mid;\n            else ub = mid;\n        }\n        return lb;\n\
+    \    }\n\n    // \u5168\u3066\u306ELCP\u3092\u8FD4\u3059\uFF0CO(NlogN)\n    vector<int>\
+    \ all_LCP() {\n        vector<int> ret(N);\n        for(int i = 0; i < N; i++)\
+    \ {\n            ret[i] = get_LCP(i);\n        }\n        return ret;\n    }\n\
+    \n    // \u6BD4\u8F03\u95A2\u6570\uFF0CO(logN)\u3067i\u3068j\u306E\u63A5\u5C3E\
+    \u8F9E\u3092\u6BD4\u8F03\uFF0Csubstr(i) < substr(j)\u3092\u8FD4\u3059\n    bool\
+    \ comp(const int& i, const int& j) {\n        if(get_hash(i, i + 1) != get_hash(j,\
+    \ j + 1)) return get_hash(i, i + 1) < get_hash(j, j + 1);\n\n        // \u6307\
+    \u6570\u63A2\u7D22\u3067\u4E0A\u754C\u3092\u6C7A\u3081\u308B\n        int lb =\
+    \ 0, ub = 1, ma = N - max(i, j) + 1;\n        while(get_hash(i, i + ub) == get_hash(j,\
+    \ j + ub)) {\n            ub *= 5;\n            if(ub >= ma) {\n             \
+    \   ub = ma;\n                break;\n            }\n        }\n\n        // \u4E8C\
+    \u5206\u63A2\u7D22\u3067\u6700\u5927\u5171\u901A\u63A5\u982D\u8F9E\u9577\u3092\
+    \u5F97\u308B\n        while(ub - lb > 1) {\n            int mid = (ub + lb) /\
+    \ 2;\n            if(get_hash(i, i + mid) == get_hash(j, j + mid)) lb = mid;\n\
+    \            else ub = mid;\n        }\n        if(i + lb == N) return true;\n\
+    \        if(j + lb == N) return false;\n        return get_hash(i + lb, i + lb\
+    \ + 1) < get_hash(j + lb, j + lb + 1);\n    }\n\n    // SA\u3092\u8FD4\u3059\uFF0C\
+    O(Nlog^2N)\n    vector<int> suffix_array() {\n        vector<int> ret(N);\n  \
+    \      iota(ret.begin(), ret.end(), 0);\n        sort(ret.begin(), ret.end(),\
+    \ [this](const int& i, const int& j) { return comp(i, j); });\n        return\
+    \ ret;\n    }\n};\n\n// i\u3092\u4E2D\u5FC3\u3068\u3057\u305F\u56DE\u6587\u306E\
+    \u9577\u3055\u3092\u8FD4\u3059\nint get_palindrome(int p, RollingHash& a, RollingHash&\
+    \ b) {\n    int N = a.N;\n    int q = N - p - 1;\n\n    // \u521D\u671F\u5024\n\
+    \    int lb = 0, ub = min(N - p, p + 1);\n    while(ub - lb > 1) {\n        int\
+    \ mid = (ub + lb) / 2;\n        if(a.get_hash(p - mid, p + mid + 1) == b.get_hash(q\
+    \ - mid, q + mid + 1)) lb = mid;\n        else ub = mid;\n    }\n\n    return\
+    \ lb;\n}\n\n// \u6587\u5B57\u5217S\u306E\u5404\u4E2D\u5FC3\u306E\u6700\u5927\u56DE\
+    \u6587\u9577\u3092\u8FD4\u3059\nvector<int> enumerate_palindromes(string S) {\n\
+    \    int N = S.size();\n    string T = \"\";\n    for(int i = 0; i < N; i++) {\n\
+    \        T += '$';\n        T += S[i];\n    }\n    T += '$';\n    RollingHash\
+    \ a(T);\n    reverse(T.begin(), T.end());\n    RollingHash b(T);\n\n    vector<int>\
+    \ ret;\n    for(int i = 1; i < a.N - 1; i++) {\n        ret.push_back(get_palindrome(i,\
+    \ a, b));\n    }\n\n    return ret;\n}\n"
+  code: "struct RollingHash{\n    using u64 = uint64_t;\n\n    constexpr static u64\
+    \ MASK30 = (1UL << 30) - 1;\n    constexpr static u64 MASK31 = (1UL << 31) - 1;\n\
+    \    constexpr static u64 MASK61 = (1UL << 61) - 1;\n    constexpr static u64\
+    \ MOD = (1UL << 61) - 1;\n    constexpr static u64 POSITIVIZER = MOD * 4;\n\n\
+    \    static inline u64 base;\n\n    int N;\n    vector<u64> hashed, power;\n \
+    \   \n    u64 mul(const u64& a, const u64& b) {\n        u64 au = a >> 31;\n \
+    \       u64 ad = a & MASK31;\n        u64 bu = b >> 31;\n        u64 bd = b &\
+    \ MASK31;\n        u64 mid = ad * bu + au * bd;\n        u64 midu = mid >> 30;\n\
+    \        u64 midd = mid & MASK30;\n        return au * bu * 2 + midu + (midd <<\
+    \ 31) + ad * bd;\n    }\n\n    u64 calc_mod(const u64& x) {\n        u64 xu =\
+    \ x >> 61;\n        u64 xd = x & MASK61;\n        u64 ret = xu + xd;\n       \
+    \ if(ret >= MOD) ret -= MOD;\n        return ret;\n    }\n\n    void gen_base()\
+    \ {\n        random_device seed_gen;\n        mt19937_64 engine(seed_gen());\n\
+    \        uniform_int_distribution<u64> rand(0, MOD - 1);\n        base = rand(engine);\n\
+    \    }\n\n    RollingHash(const string& S) { init(S); }\n    RollingHash(const\
+    \ vector<int>& V) { init(V); }\n\n    template<class VType>\n    void init(const\
+    \ VType& V) {\n        if(base == 0) gen_base();\n\n        N = (int)V.size();\n\
+    \        power.resize(N + 1, 0);\n        hashed.resize(N + 1, 0);\n\n       \
+    \ power[0] = 1;\n        for(int i = 0; i < N; i++) {\n            power[i + 1]\
+    \ = mul(power[i], base);\n            hashed[i + 1] = calc_mod(mul(hashed[i],\
+    \ base) + V[i]);\n        }\n    }\n    \n    u64 get_hash(int l, int r) {\n \
+    \       return calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));\n\
+    \    }\n\n    // p\u59CB\u70B9\u306ELCP\u8A08\u7B97\uFF0CO(logN)\n    int get_LCP(int\
+    \ p) {\n        int lb = -1, ub = N - p + 1;\n        while(ub - lb > 1) {\n \
+    \           int mid = (ub + lb) / 2;\n            if(get_hash(p, p + mid) == get_hash(0,\
+    \ mid)) lb = mid;\n            else ub = mid;\n        }\n        return lb;\n\
+    \    }\n\n    // \u5168\u3066\u306ELCP\u3092\u8FD4\u3059\uFF0CO(NlogN)\n    vector<int>\
+    \ all_LCP() {\n        vector<int> ret(N);\n        for(int i = 0; i < N; i++)\
+    \ {\n            ret[i] = get_LCP(i);\n        }\n        return ret;\n    }\n\
+    \n    // \u6BD4\u8F03\u95A2\u6570\uFF0CO(logN)\u3067i\u3068j\u306E\u63A5\u5C3E\
+    \u8F9E\u3092\u6BD4\u8F03\uFF0Csubstr(i) < substr(j)\u3092\u8FD4\u3059\n    bool\
+    \ comp(const int& i, const int& j) {\n        if(get_hash(i, i + 1) != get_hash(j,\
+    \ j + 1)) return get_hash(i, i + 1) < get_hash(j, j + 1);\n\n        // \u6307\
+    \u6570\u63A2\u7D22\u3067\u4E0A\u754C\u3092\u6C7A\u3081\u308B\n        int lb =\
+    \ 0, ub = 1, ma = N - max(i, j) + 1;\n        while(get_hash(i, i + ub) == get_hash(j,\
+    \ j + ub)) {\n            ub *= 5;\n            if(ub >= ma) {\n             \
+    \   ub = ma;\n                break;\n            }\n        }\n\n        // \u4E8C\
+    \u5206\u63A2\u7D22\u3067\u6700\u5927\u5171\u901A\u63A5\u982D\u8F9E\u9577\u3092\
+    \u5F97\u308B\n        while(ub - lb > 1) {\n            int mid = (ub + lb) /\
+    \ 2;\n            if(get_hash(i, i + mid) == get_hash(j, j + mid)) lb = mid;\n\
+    \            else ub = mid;\n        }\n        if(i + lb == N) return true;\n\
+    \        if(j + lb == N) return false;\n        return get_hash(i + lb, i + lb\
+    \ + 1) < get_hash(j + lb, j + lb + 1);\n    }\n\n    // SA\u3092\u8FD4\u3059\uFF0C\
+    O(Nlog^2N)\n    vector<int> suffix_array() {\n        vector<int> ret(N);\n  \
+    \      iota(ret.begin(), ret.end(), 0);\n        sort(ret.begin(), ret.end(),\
+    \ [this](const int& i, const int& j) { return comp(i, j); });\n        return\
+    \ ret;\n    }\n};\n\n// i\u3092\u4E2D\u5FC3\u3068\u3057\u305F\u56DE\u6587\u306E\
+    \u9577\u3055\u3092\u8FD4\u3059\nint get_palindrome(int p, RollingHash& a, RollingHash&\
+    \ b) {\n    int N = a.N;\n    int q = N - p - 1;\n\n    // \u521D\u671F\u5024\n\
+    \    int lb = 0, ub = min(N - p, p + 1);\n    while(ub - lb > 1) {\n        int\
+    \ mid = (ub + lb) / 2;\n        if(a.get_hash(p - mid, p + mid + 1) == b.get_hash(q\
+    \ - mid, q + mid + 1)) lb = mid;\n        else ub = mid;\n    }\n\n    return\
+    \ lb;\n}\n\n// \u6587\u5B57\u5217S\u306E\u5404\u4E2D\u5FC3\u306E\u6700\u5927\u56DE\
+    \u6587\u9577\u3092\u8FD4\u3059\nvector<int> enumerate_palindromes(string S) {\n\
+    \    int N = S.size();\n    string T = \"\";\n    for(int i = 0; i < N; i++) {\n\
+    \        T += '$';\n        T += S[i];\n    }\n    T += '$';\n    RollingHash\
+    \ a(T);\n    reverse(T.begin(), T.end());\n    RollingHash b(T);\n\n    vector<int>\
+    \ ret;\n    for(int i = 1; i < a.N - 1; i++) {\n        ret.push_back(get_palindrome(i,\
+    \ a, b));\n    }\n\n    return ret;\n}"
   dependsOn: []
   isVerificationFile: false
   path: string/rollong_hash.hpp
   requiredBy: []
-  timestamp: '2024-10-04 09:07:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-11-20 06:43:26+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - verify/yosupo/yosupo_enumerate_palindromes.test.cpp
   - verify/yosupo/yosupo_zalgorithm.test.cpp

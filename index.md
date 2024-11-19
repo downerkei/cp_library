@@ -119,7 +119,7 @@ data:
       title: misc/timer.hpp
   - name: string
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: string/rollong_hash.hpp
       title: string/rollong_hash.hpp
   - name: tree
@@ -194,7 +194,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_dynamic_sequence_range_affine_range_sum.test.cpp
       title: verify/yosupo/yosupo_dynamic_sequence_range_affine_range_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
       title: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
     - icon: ':heavy_check_mark:'
@@ -221,13 +221,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_staticrmq.test.cpp
       title: verify/yosupo/yosupo_staticrmq.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/yosupo/yosupo_suffix_array.test.cpp
       title: verify/yosupo/yosupo_suffix_array.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_unionfind.test.cpp
       title: verify/yosupo/yosupo_unionfind.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/yosupo/yosupo_zalgorithm.test.cpp
       title: verify/yosupo/yosupo_zalgorithm.test.cpp
   - name: verify/yukicoder
