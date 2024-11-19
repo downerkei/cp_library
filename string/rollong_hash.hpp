@@ -1,21 +1,17 @@
 struct RollingHash{
     using u64 = uint64_t;
 
-    // 定数
     constexpr static u64 MASK30 = (1UL << 30) - 1;
     constexpr static u64 MASK31 = (1UL << 31) - 1;
     constexpr static u64 MASK61 = (1UL << 61) - 1;
     constexpr static u64 MOD = (1UL << 61) - 1;
     constexpr static u64 POSITIVIZER = MOD * 4;
 
-    // static変数
     static inline u64 base;
 
-    // メンバ変数
     int N;
     vector<u64> hashed, power;
     
-    // 30bit, 31bitで区切る掛け算
     u64 mul(const u64& a, const u64& b) {
         u64 au = a >> 31;
         u64 ad = a & MASK31;
@@ -27,7 +23,6 @@ struct RollingHash{
         return au * bu * 2 + midu + (midd << 31) + ad * bd;
     }
 
-    // modを取る
     u64 calc_mod(const u64& x) {
         u64 xu = x >> 61;
         u64 xd = x & MASK61;
@@ -36,7 +31,6 @@ struct RollingHash{
         return ret;
     }
 
-    // baseを[0, MOD)から乱択
     void gen_base() {
         random_device seed_gen;
         mt19937_64 engine(seed_gen());
@@ -44,34 +38,17 @@ struct RollingHash{
         base = rand(engine);
     }
 
-    // コンストラクタ(文字列)
-    RollingHash(const string& S) {
-        // base初期化
+    RollingHash(const string& S) { init(S); }
+    RollingHash(const vector<int>& V) { init(V); }
+
+    template<class VType>
+    void init(const VType& V) {
         if(base == 0) gen_base();
 
-        // 変数初期化
-        N = (int)S.size();
-        power.resize(N + 1, 0);
-        hashed.resize(N + 1, 0);
-
-        // power, hashed計算
-        power[0] = 1;
-        for(int i = 0; i < N; i++) {
-            power[i + 1] = calc_mod(mul(power[i], base));
-            hashed[i + 1] = calc_mod(mul(hashed[i], base) + S[i]);
-        }
-    }
-    // コンストラクタ(数列)
-    RollingHash(const vector<int>& V) {
-        // base初期化
-        if(base == 0) gen_base();
-
-        // 変数初期化
         N = (int)V.size();
         power.resize(N + 1, 0);
         hashed.resize(N + 1, 0);
 
-        // power, hashed計算
         power[0] = 1;
         for(int i = 0; i < N; i++) {
             power[i + 1] = mul(power[i], base);
@@ -79,7 +56,6 @@ struct RollingHash{
         }
     }
     
-    // [l, r)のハッシュを計算
     u64 get_hash(int l, int r) {
         return calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));
     }
