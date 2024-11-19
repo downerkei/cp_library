@@ -12,7 +12,7 @@ struct RollingHash{
     int N;
     vector<u64> hashed, power;
     
-    u64 mul(const u64& a, const u64& b) {
+    u64 mul(const u64& a, const u64& b) const {
         u64 au = a >> 31;
         u64 ad = a & MASK31;
         u64 bu = b >> 31;
@@ -23,7 +23,7 @@ struct RollingHash{
         return au * bu * 2 + midu + (midd << 31) + ad * bd;
     }
 
-    u64 calc_mod(const u64& x) {
+    u64 calc_mod(const u64& x) const {
         u64 xu = x >> 61;
         u64 xd = x & MASK61;
         u64 ret = xu + xd;
@@ -38,8 +38,8 @@ struct RollingHash{
         base = rand(engine);
     }
 
-    RollingHash(const string& S) { init(S); }
-    RollingHash(const vector<int>& V) { init(V); }
+    RollingHash(const string& S) { init<string>(S); }
+    RollingHash(const vector<int>& V) { init<vector<int>>(V); }
 
     template<class VType>
     void init(const VType& V) {
@@ -51,12 +51,12 @@ struct RollingHash{
 
         power[0] = 1;
         for(int i = 0; i < N; i++) {
-            power[i + 1] = mul(power[i], base);
-            hashed[i + 1] = calc_mod(mul(hashed[i], base) + V[i]);
+            power[i + 1] = calc_mod(mul(power[i], base));
+            hashed[i + 1] = calc_mod(mul(hashed[i], base) + (long long)V[i]);
         }
     }
     
-    u64 get_hash(int l, int r) {
+    u64 get_hash(int l, int r) const {
         return calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));
     }
 
@@ -113,40 +113,3 @@ struct RollingHash{
         return ret;
     }
 };
-
-// iを中心とした回文の長さを返す
-int get_palindrome(int p, RollingHash& a, RollingHash& b) {
-    int N = a.N;
-    int q = N - p - 1;
-
-    // 初期値
-    int lb = 0, ub = min(N - p, p + 1);
-    while(ub - lb > 1) {
-        int mid = (ub + lb) / 2;
-        if(a.get_hash(p - mid, p + mid + 1) == b.get_hash(q - mid, q + mid + 1)) lb = mid;
-        else ub = mid;
-    }
-
-    return lb;
-}
-
-// 文字列Sの各中心の最大回文長を返す
-vector<int> enumerate_palindromes(string S) {
-    int N = S.size();
-    string T = "";
-    for(int i = 0; i < N; i++) {
-        T += '$';
-        T += S[i];
-    }
-    T += '$';
-    RollingHash a(T);
-    reverse(T.begin(), T.end());
-    RollingHash b(T);
-
-    vector<int> ret;
-    for(int i = 1; i < a.N - 1; i++) {
-        ret.push_back(get_palindrome(i, a, b));
-    }
-
-    return ret;
-}
