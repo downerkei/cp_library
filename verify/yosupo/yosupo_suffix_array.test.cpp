@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../string/rollong_hash.hpp"
+#include "../../string/rolling_hash.hpp"
 
 int main() {
     string S;
