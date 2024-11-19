@@ -1,20 +1,26 @@
-template<class T>
+template<class T=int>
 struct LowestCommonAncestor{
+    int mx_level;
     vector<vector<int>> parent;
-    vector<int> height;
+    vector<int> depth;
     vector<T> dist;
     LowestCommonAncestor(const vector<vector<pair<int, T>>>& G, int root=0) {
         init(G, root);
     }
 
-    void init(const vector<vector<pair<int, T>>>& G, int root=0) {
+    LowestCommonAncestor(const vector<vector<int>>& G, int root=0) {
+        init(G, root);
+    }
+
+    template<class GType>
+    void init(const GType& G, int root) {
         int N = G.size();
-        int M = 1; while((1 << M) < N) M++;
-        parent.assign(M, vector<int>(N, -1));
-        height.assign(N, -1);
+        mx_level = 1; while((1 << mx_level) < N) mx_level++;
+        parent.assign(mx_level, vector<int>(N, -1));
+        depth.assign(N, -1);
         dist.assign(N, -1);
         dfs(G, root, -1, 0, 0);
-        for(int lv = 1; lv < M; lv++) {
+        for(int lv = 1; lv < mx_level; lv++) {
             for(int i = 0; i < N; i++) {
                 if(parent[lv - 1][i] == -1) parent[lv][i] = -1;
                 else parent[lv][i] = parent[lv - 1][parent[lv - 1][i]];
@@ -22,24 +28,32 @@ struct LowestCommonAncestor{
         }
     }
 
-    void dfs(const vector<vector<pair<int, T>>>& G, int v, int p, int h, T d) {
+    template<class GType>
+    void dfs(const GType& G, int v, int p, int dep, T dis) {
         parent[0][v] = p;
-        height[v] = h;
-        dist[v] = d;
-        for(auto [nv, c] : G[v]) {
-            if(nv == p) continue;
-            dfs(G, nv, v, h + 1, d + c);
+        depth[v] = dep;
+        dist[v] = dis;
+        if constexpr (is_same_v<GType, vector<vector<pair<int, T>>>>) {
+            for(auto [nv, c] : G[v]) {
+                if(nv == p) continue;
+                dfs(G, nv, v, dep + 1, dis + c);
+            }
+        }
+        else if constexpr (is_same_v<GType, vector<vector<int>>>) {
+            for(int nv : G[v]) {
+                if(nv == p) continue;
+                dfs(G, nv, v, dep + 1, dis + T(1));
+            }
         }
     }
 
     int lca(int u, int v) {
-        if(height[u] < height[v]) swap(u, v);
-        int M = parent.size();
-        for(int lv = 0; lv < M; lv++) {
-            if(((height[u] - height[v]) >> lv) & 1) u = parent[lv][u];
+        if(depth[u] < depth[v]) swap(u, v);
+        for(int lv = 0; lv < mx_level; lv++) {
+            if(((depth[u] - depth[v]) >> lv) & 1) u = parent[lv][u];
         }
         if(u == v) return u;
-        for(int lv = M - 1; lv >= 0; lv--) {
+        for(int lv = mx_level - 1; lv >= 0; lv--) {
             if(parent[lv][u] != parent[lv][v]) {
                 u = parent[lv][u];
                 v = parent[lv][v];
@@ -50,5 +64,5 @@ struct LowestCommonAncestor{
 
     T dist_bitween(int u, int v) { return dist[u] + dist[v] - 2 * dist[lca(u, v)]; }
 
-    int path_len(int u, int v) { return height[u] + height[v] - 2 * height[lca(u, v)]; }
+    int path_len(int u, int v) { return depth[u] + depth[v] - 2 * depth[lca(u, v)]; }
 };
