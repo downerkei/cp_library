@@ -229,13 +229,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_staticrmq.test.cpp
       title: verify/yosupo/yosupo_staticrmq.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_suffix_array.test.cpp
       title: verify/yosupo/yosupo_suffix_array.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_unionfind.test.cpp
       title: verify/yosupo/yosupo_unionfind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_zalgorithm.test.cpp
       title: verify/yosupo/yosupo_zalgorithm.test.cpp
   - name: verify/yukicoder

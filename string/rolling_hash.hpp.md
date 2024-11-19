@@ -12,6 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
     title: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_suffix_array.test.cpp
+    title: verify/yosupo/yosupo_suffix_array.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_zalgorithm.test.cpp
+    title: verify/yosupo/yosupo_zalgorithm.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -122,6 +128,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_enumerate_palindromes.test.cpp
+  - verify/yosupo/yosupo_zalgorithm.test.cpp
+  - verify/yosupo/yosupo_suffix_array.test.cpp
 documentation_of: string/rolling_hash.hpp
 layout: document
 redirect_from:
