@@ -119,9 +119,12 @@ data:
       title: misc/timer.hpp
   - name: string
     pages:
-    - icon: ':x:'
-      path: string/rollong_hash.hpp
-      title: string/rollong_hash.hpp
+    - icon: ':heavy_check_mark:'
+      path: string/enumerate_palindromes.hpp
+      title: string/enumerate_palindromes.hpp
+    - icon: ':heavy_check_mark:'
+      path: string/rolling_hash.hpp
+      title: string/rolling_hash.hpp
   - name: tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -130,6 +133,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/lowest_common_ancestor.hpp
       title: tree/lowest_common_ancestor.hpp
+  - name: verify/yosupo
+    pages:
+    - icon: ':warning:'
+      path: verify/yosupo/tempCodeRunnerFile.cpp
+      title: verify/yosupo/tempCodeRunnerFile.cpp
   verificationCategories:
   - name: verify/aoj
     pages:
@@ -194,7 +202,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_dynamic_sequence_range_affine_range_sum.test.cpp
       title: verify/yosupo/yosupo_dynamic_sequence_range_affine_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
       title: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
     - icon: ':heavy_check_mark:'
