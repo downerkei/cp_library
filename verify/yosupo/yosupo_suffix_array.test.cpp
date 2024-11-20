@@ -3,13 +3,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../string/rolling_hash.hpp"
+#include "../../string/suffix_array.hpp"
 
 int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
     string S;
     cin >> S;
-    RollingHash rh(S);
-    for(auto ans : rh.suffix_array()) {
+    for(auto ans : calc_suffix_array(S)) {
         cout << ans << " ";
     }
     cout << endl;
