@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
+    path: string/enumerate_lcp.hpp
+    title: string/enumerate_lcp.hpp
+  - icon: ':heavy_check_mark:'
     path: string/rolling_hash.hpp
     title: string/rolling_hash.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/zalgorithm
@@ -39,22 +42,29 @@ data:
     \            hashed[i + 1] = calc_mod(mul(hashed[i], base) + (long long)V[i]);\n\
     \        }\n    }\n    \n    u64 get_hash(int l, int r) const {\n        return\
     \ calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n};\n\
-    #line 7 \"verify/yosupo/yosupo_zalgorithm.test.cpp\"\n\nint main() {\n    string\
-    \ S;\n    cin >> S;\n    RollingHash rh(S);\n    for(auto ans : rh.all_LCP())\
-    \ {\n        cout << ans << \" \";\n    }\n    cout << endl;\n\n    return 0;\n\
-    }\n"
+    #line 2 \"string/enumerate_lcp.hpp\"\n\nint get_lcp(int p, const RollingHash&\
+    \ rh) {\n    int lb = 0, ub = rh.N - p + 1;\n    while(ub - lb > 1) {\n      \
+    \  int mid = (ub + lb) / 2;\n        if(rh.get_hash(p, p + mid) == rh.get_hash(0,\
+    \ mid)) lb = mid;\n        else ub = mid;\n    }\n    return lb;\n}\n\nvector<int>\
+    \ enumerate_lcp(const string& S) {\n    RollingHash rh(S);\n    vector<int> ret(rh.N);\n\
+    \    for(int i = 0; i < rh.N; i++) {\n        ret[i] = get_lcp(i, rh);\n    }\n\
+    \    return ret;\n}\n#line 7 \"verify/yosupo/yosupo_zalgorithm.test.cpp\"\n\n\
+    int main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    string\
+    \ S;\n    cin >> S;\n    for(auto ans : enumerate_lcp(S)) {\n        cout << ans\
+    \ << \" \";\n    }\n    cout << endl;\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../string/rolling_hash.hpp\"\
-    \n\nint main() {\n    string S;\n    cin >> S;\n    RollingHash rh(S);\n    for(auto\
-    \ ans : rh.all_LCP()) {\n        cout << ans << \" \";\n    }\n    cout << endl;\n\
-    \n    return 0;\n}"
+    \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../string/enumerate_lcp.hpp\"\
+    \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
+    \  string S;\n    cin >> S;\n    for(auto ans : enumerate_lcp(S)) {\n        cout\
+    \ << ans << \" \";\n    }\n    cout << endl;\n\n    return 0;\n}"
   dependsOn:
+  - string/enumerate_lcp.hpp
   - string/rolling_hash.hpp
   isVerificationFile: true
   path: verify/yosupo/yosupo_zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2024-11-20 09:44:16+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-20 22:35:35+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_zalgorithm.test.cpp
 layout: document

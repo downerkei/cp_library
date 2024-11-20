@@ -7,8 +7,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/yosupo/yosupo_suffix_array.test.cpp
-    title: verify/yosupo/yosupo_suffix_array.test.cpp
+    path: verify/yosupo/yosupo_zalgorithm.test.cpp
+    title: verify/yosupo/yosupo_zalgorithm.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -37,45 +37,33 @@ data:
     \            hashed[i + 1] = calc_mod(mul(hashed[i], base) + (long long)V[i]);\n\
     \        }\n    }\n    \n    u64 get_hash(int l, int r) const {\n        return\
     \ calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n};\n\
-    #line 2 \"string/suffix_array.hpp\"\n\nbool comp(const int& i, const int& j, const\
-    \ RollingHash& rh) {\n    if(rh.get_hash(i, i + 1) != rh.get_hash(j, j + 1)) return\
-    \ rh.get_hash(i, i + 1) < rh.get_hash(j, j + 1);\n\n    int lb = 0, ub = 1, mx\
-    \ = rh.N - max(i, j) + 1;\n    while(rh.get_hash(i, i + ub) == rh.get_hash(j,\
-    \ j + ub)) {\n        ub *= 5;\n        if(ub >= mx) continue;\n        ub = mx;\n\
-    \        break;\n    }\n\n    while(ub - lb > 1) {\n        int mid = (ub + lb)\
-    \ / 2;\n        if(rh.get_hash(i, i + mid) == rh.get_hash(j, j + mid)) lb = mid;\n\
-    \        else ub = mid;\n    }\n\n    if(i + lb == rh.N) return true;\n    if(j\
-    \ + lb == rh.N) return false;\n    return rh.get_hash(i + lb, i + lb + 1) < rh.get_hash(j\
-    \ + lb, j + lb + 1);\n}\n\nvector<int> calc_suffix_array(const string& S) {\n\
-    \    RollingHash rh(S);\n    vector<int> ret(rh.N);\n    iota(ret.begin(), ret.end(),\
-    \ 0);\n    sort(ret.begin(), ret.end(), [&rh](const int& i, const int& j) { return\
-    \ comp(i, j, rh); });\n    return ret;\n}\n"
-  code: "#include \"rolling_hash.hpp\"\n\nbool comp(const int& i, const int& j, const\
-    \ RollingHash& rh) {\n    if(rh.get_hash(i, i + 1) != rh.get_hash(j, j + 1)) return\
-    \ rh.get_hash(i, i + 1) < rh.get_hash(j, j + 1);\n\n    int lb = 0, ub = 1, mx\
-    \ = rh.N - max(i, j) + 1;\n    while(rh.get_hash(i, i + ub) == rh.get_hash(j,\
-    \ j + ub)) {\n        ub *= 5;\n        if(ub >= mx) continue;\n        ub = mx;\n\
-    \        break;\n    }\n\n    while(ub - lb > 1) {\n        int mid = (ub + lb)\
-    \ / 2;\n        if(rh.get_hash(i, i + mid) == rh.get_hash(j, j + mid)) lb = mid;\n\
-    \        else ub = mid;\n    }\n\n    if(i + lb == rh.N) return true;\n    if(j\
-    \ + lb == rh.N) return false;\n    return rh.get_hash(i + lb, i + lb + 1) < rh.get_hash(j\
-    \ + lb, j + lb + 1);\n}\n\nvector<int> calc_suffix_array(const string& S) {\n\
-    \    RollingHash rh(S);\n    vector<int> ret(rh.N);\n    iota(ret.begin(), ret.end(),\
-    \ 0);\n    sort(ret.begin(), ret.end(), [&rh](const int& i, const int& j) { return\
-    \ comp(i, j, rh); });\n    return ret;\n}\n"
+    #line 2 \"string/enumerate_lcp.hpp\"\n\nint get_lcp(int p, const RollingHash&\
+    \ rh) {\n    int lb = 0, ub = rh.N - p + 1;\n    while(ub - lb > 1) {\n      \
+    \  int mid = (ub + lb) / 2;\n        if(rh.get_hash(p, p + mid) == rh.get_hash(0,\
+    \ mid)) lb = mid;\n        else ub = mid;\n    }\n    return lb;\n}\n\nvector<int>\
+    \ enumerate_lcp(const string& S) {\n    RollingHash rh(S);\n    vector<int> ret(rh.N);\n\
+    \    for(int i = 0; i < rh.N; i++) {\n        ret[i] = get_lcp(i, rh);\n    }\n\
+    \    return ret;\n}\n"
+  code: "#include \"rolling_hash.hpp\"\n\nint get_lcp(int p, const RollingHash& rh)\
+    \ {\n    int lb = 0, ub = rh.N - p + 1;\n    while(ub - lb > 1) {\n        int\
+    \ mid = (ub + lb) / 2;\n        if(rh.get_hash(p, p + mid) == rh.get_hash(0, mid))\
+    \ lb = mid;\n        else ub = mid;\n    }\n    return lb;\n}\n\nvector<int> enumerate_lcp(const\
+    \ string& S) {\n    RollingHash rh(S);\n    vector<int> ret(rh.N);\n    for(int\
+    \ i = 0; i < rh.N; i++) {\n        ret[i] = get_lcp(i, rh);\n    }\n    return\
+    \ ret;\n}\n"
   dependsOn:
   - string/rolling_hash.hpp
   isVerificationFile: false
-  path: string/suffix_array.hpp
+  path: string/enumerate_lcp.hpp
   requiredBy: []
   timestamp: '2024-11-20 22:35:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo/yosupo_suffix_array.test.cpp
-documentation_of: string/suffix_array.hpp
+  - verify/yosupo/yosupo_zalgorithm.test.cpp
+documentation_of: string/enumerate_lcp.hpp
 layout: document
 redirect_from:
-- /library/string/suffix_array.hpp
-- /library/string/suffix_array.hpp.html
-title: string/suffix_array.hpp
+- /library/string/enumerate_lcp.hpp
+- /library/string/enumerate_lcp.hpp.html
+title: string/enumerate_lcp.hpp
 ---

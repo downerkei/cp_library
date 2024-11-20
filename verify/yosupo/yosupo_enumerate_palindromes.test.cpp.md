@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/enumerate_palindromes.hpp
     title: string/enumerate_palindromes.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/rolling_hash.hpp
     title: string/rolling_hash.hpp
   _extendedRequiredBy: []

@@ -120,9 +120,12 @@ data:
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
+      path: string/enumerate_lcp.hpp
+      title: string/enumerate_lcp.hpp
+    - icon: ':heavy_check_mark:'
       path: string/enumerate_palindromes.hpp
       title: string/enumerate_palindromes.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: string/rolling_hash.hpp
       title: string/rolling_hash.hpp
     - icon: ':heavy_check_mark:'
@@ -233,7 +236,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_unionfind.test.cpp
       title: verify/yosupo/yosupo_unionfind.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_zalgorithm.test.cpp
       title: verify/yosupo/yosupo_zalgorithm.test.cpp
   - name: verify/yukicoder
