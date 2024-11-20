@@ -17,6 +17,8 @@ F composition(F f, F g) { return {f.first * g.first, f.first * g.second + f.seco
 F id() { return {1, 0}; }
 
 int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
     int N, Q;
     cin >> N >> Q;
     vector<S> A(N);
@@ -39,7 +41,7 @@ int main() {
         if(q == 1) {
             int l, r;
             cin >> l >> r;
-            cout << seg.prod(l, r).first << endl;
+            cout << seg.prod(l, r).first << "\n";
         }
     }
 
