@@ -3,13 +3,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../string/rolling_hash.hpp"
+#include "../../string/enumerate_lcp.hpp"
 
 int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
     string S;
     cin >> S;
-    RollingHash rh(S);
-    for(auto ans : rh.all_LCP()) {
+    for(auto ans : enumerate_lcp(S)) {
         cout << ans << " ";
     }
     cout << endl;
