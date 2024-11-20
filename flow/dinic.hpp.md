@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"flow/dinic.hpp\"\ntemplate<typename flow_t>\nstruct Dinic{\n\
-    \    struct Edge{\n        int from, to, rev;\n        flow_t cap;\n        bool\
-    \ is_rev;\n        Edge(int f, int t, int r, flow_t c, bool b) : from(f), to(t),\
-    \ rev(r), cap(c), is_rev(b) {}\n    };\n\n    vector<vector<Edge>> G;\n    vector<int>\
-    \ dist;\n    vector<int> iter;\n    const flow_t INF = numeric_limits<flow_t>::max();\n\
+  bundledCode: "#line 1 \"flow/dinic.hpp\"\ntemplate<typename flow_t=int>\nstruct\
+    \ Dinic{\n    struct Edge{\n        int from, to, rev;\n        flow_t cap;\n\
+    \        bool is_rev;\n        Edge(int f, int t, int r, flow_t c, bool b) : from(f),\
+    \ to(t), rev(r), cap(c), is_rev(b) {}\n    };\n\n    vector<vector<Edge>> G;\n\
+    \    vector<int> dist;\n    vector<int> iter;\n    const flow_t INF = numeric_limits<flow_t>::max();\n\
     \n    Dinic(int N) : G(N), dist(N), iter(N) {}\n\n    void add_edge(int from,\
     \ int to, flow_t cap) {\n        int fromrev = G[from].size();\n        int torev\
     \ = G[to].size();\n        G[from].push_back(Edge(from, to, torev, cap, 0));\n\
@@ -48,10 +48,10 @@ data:
     \ << e.to << \" (flow : \" << G[e.to][e.rev].cap << \" / \"\n                \
     \    << e.cap + G[e.to][e.rev].cap << \")\" << endl;\n            }\n        }\n\
     \    }\n};\n"
-  code: "template<typename flow_t>\nstruct Dinic{\n    struct Edge{\n        int from,\
-    \ to, rev;\n        flow_t cap;\n        bool is_rev;\n        Edge(int f, int\
-    \ t, int r, flow_t c, bool b) : from(f), to(t), rev(r), cap(c), is_rev(b) {}\n\
-    \    };\n\n    vector<vector<Edge>> G;\n    vector<int> dist;\n    vector<int>\
+  code: "template<typename flow_t=int>\nstruct Dinic{\n    struct Edge{\n        int\
+    \ from, to, rev;\n        flow_t cap;\n        bool is_rev;\n        Edge(int\
+    \ f, int t, int r, flow_t c, bool b) : from(f), to(t), rev(r), cap(c), is_rev(b)\
+    \ {}\n    };\n\n    vector<vector<Edge>> G;\n    vector<int> dist;\n    vector<int>\
     \ iter;\n    const flow_t INF = numeric_limits<flow_t>::max();\n\n    Dinic(int\
     \ N) : G(N), dist(N), iter(N) {}\n\n    void add_edge(int from, int to, flow_t\
     \ cap) {\n        int fromrev = G[from].size();\n        int torev = G[to].size();\n\
@@ -85,7 +85,7 @@ data:
   isVerificationFile: false
   path: flow/dinic.hpp
   requiredBy: []
-  timestamp: '2024-11-16 05:43:50+09:00'
+  timestamp: '2024-11-21 06:58:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_bipartitematching.test.cpp

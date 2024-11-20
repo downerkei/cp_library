@@ -17,10 +17,10 @@ data:
   bundledCode: "#line 1 \"verify/aoj/aoj_grl_6_a_dinic.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"flow/dinic.hpp\"\
-    \ntemplate<typename flow_t>\nstruct Dinic{\n    struct Edge{\n        int from,\
-    \ to, rev;\n        flow_t cap;\n        bool is_rev;\n        Edge(int f, int\
-    \ t, int r, flow_t c, bool b) : from(f), to(t), rev(r), cap(c), is_rev(b) {}\n\
-    \    };\n\n    vector<vector<Edge>> G;\n    vector<int> dist;\n    vector<int>\
+    \ntemplate<typename flow_t=int>\nstruct Dinic{\n    struct Edge{\n        int\
+    \ from, to, rev;\n        flow_t cap;\n        bool is_rev;\n        Edge(int\
+    \ f, int t, int r, flow_t c, bool b) : from(f), to(t), rev(r), cap(c), is_rev(b)\
+    \ {}\n    };\n\n    vector<vector<Edge>> G;\n    vector<int> dist;\n    vector<int>\
     \ iter;\n    const flow_t INF = numeric_limits<flow_t>::max();\n\n    Dinic(int\
     \ N) : G(N), dist(N), iter(N) {}\n\n    void add_edge(int from, int to, flow_t\
     \ cap) {\n        int fromrev = G[from].size();\n        int torev = G[to].size();\n\
@@ -65,7 +65,7 @@ data:
   isVerificationFile: true
   path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
   requiredBy: []
-  timestamp: '2024-11-16 05:43:50+09:00'
+  timestamp: '2024-11-21 06:58:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/aoj/aoj_grl_6_a_dinic.test.cpp

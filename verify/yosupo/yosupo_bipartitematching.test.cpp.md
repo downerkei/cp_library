@@ -16,7 +16,7 @@ data:
     - https://judge.yosupo.jp/problem/bipartitematching
   bundledCode: "#line 1 \"verify/yosupo/yosupo_bipartitematching.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\n\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 1 \"flow/dinic.hpp\"\ntemplate<typename flow_t>\n\
+    using namespace std;\n\n#line 1 \"flow/dinic.hpp\"\ntemplate<typename flow_t=int>\n\
     struct Dinic{\n    struct Edge{\n        int from, to, rev;\n        flow_t cap;\n\
     \        bool is_rev;\n        Edge(int f, int t, int r, flow_t c, bool b) : from(f),\
     \ to(t), rev(r), cap(c), is_rev(b) {}\n    };\n\n    vector<vector<Edge>> G;\n\
@@ -77,7 +77,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_bipartitematching.test.cpp
   requiredBy: []
-  timestamp: '2024-11-16 05:43:50+09:00'
+  timestamp: '2024-11-21 06:58:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_bipartitematching.test.cpp
