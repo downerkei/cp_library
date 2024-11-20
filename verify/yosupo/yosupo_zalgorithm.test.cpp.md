@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: string/rolling_hash.hpp
     title: string/rolling_hash.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/zalgorithm
@@ -38,35 +38,11 @@ data:
     \ i = 0; i < N; i++) {\n            power[i + 1] = calc_mod(mul(power[i], base));\n\
     \            hashed[i + 1] = calc_mod(mul(hashed[i], base) + (long long)V[i]);\n\
     \        }\n    }\n    \n    u64 get_hash(int l, int r) const {\n        return\
-    \ calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n\n\
-    \    // p\u59CB\u70B9\u306ELCP\u8A08\u7B97\uFF0CO(logN)\n    int get_LCP(int p)\
-    \ {\n        int lb = -1, ub = N - p + 1;\n        while(ub - lb > 1) {\n    \
-    \        int mid = (ub + lb) / 2;\n            if(get_hash(p, p + mid) == get_hash(0,\
-    \ mid)) lb = mid;\n            else ub = mid;\n        }\n        return lb;\n\
-    \    }\n\n    // \u5168\u3066\u306ELCP\u3092\u8FD4\u3059\uFF0CO(NlogN)\n    vector<int>\
-    \ all_LCP() {\n        vector<int> ret(N);\n        for(int i = 0; i < N; i++)\
-    \ {\n            ret[i] = get_LCP(i);\n        }\n        return ret;\n    }\n\
-    \n    // \u6BD4\u8F03\u95A2\u6570\uFF0CO(logN)\u3067i\u3068j\u306E\u63A5\u5C3E\
-    \u8F9E\u3092\u6BD4\u8F03\uFF0Csubstr(i) < substr(j)\u3092\u8FD4\u3059\n    bool\
-    \ comp(const int& i, const int& j) {\n        if(get_hash(i, i + 1) != get_hash(j,\
-    \ j + 1)) return get_hash(i, i + 1) < get_hash(j, j + 1);\n\n        // \u6307\
-    \u6570\u63A2\u7D22\u3067\u4E0A\u754C\u3092\u6C7A\u3081\u308B\n        int lb =\
-    \ 0, ub = 1, ma = N - max(i, j) + 1;\n        while(get_hash(i, i + ub) == get_hash(j,\
-    \ j + ub)) {\n            ub *= 5;\n            if(ub >= ma) {\n             \
-    \   ub = ma;\n                break;\n            }\n        }\n\n        // \u4E8C\
-    \u5206\u63A2\u7D22\u3067\u6700\u5927\u5171\u901A\u63A5\u982D\u8F9E\u9577\u3092\
-    \u5F97\u308B\n        while(ub - lb > 1) {\n            int mid = (ub + lb) /\
-    \ 2;\n            if(get_hash(i, i + mid) == get_hash(j, j + mid)) lb = mid;\n\
-    \            else ub = mid;\n        }\n        if(i + lb == N) return true;\n\
-    \        if(j + lb == N) return false;\n        return get_hash(i + lb, i + lb\
-    \ + 1) < get_hash(j + lb, j + lb + 1);\n    }\n\n    // SA\u3092\u8FD4\u3059\uFF0C\
-    O(Nlog^2N)\n    vector<int> suffix_array() {\n        vector<int> ret(N);\n  \
-    \      iota(ret.begin(), ret.end(), 0);\n        sort(ret.begin(), ret.end(),\
-    \ [this](const int& i, const int& j) { return comp(i, j); });\n        return\
-    \ ret;\n    }\n};\n#line 7 \"verify/yosupo/yosupo_zalgorithm.test.cpp\"\n\nint\
-    \ main() {\n    string S;\n    cin >> S;\n    RollingHash rh(S);\n    for(auto\
-    \ ans : rh.all_LCP()) {\n        cout << ans << \" \";\n    }\n    cout << endl;\n\
-    \n    return 0;\n}\n"
+    \ calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n};\n\
+    #line 7 \"verify/yosupo/yosupo_zalgorithm.test.cpp\"\n\nint main() {\n    string\
+    \ S;\n    cin >> S;\n    RollingHash rh(S);\n    for(auto ans : rh.all_LCP())\
+    \ {\n        cout << ans << \" \";\n    }\n    cout << endl;\n\n    return 0;\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../string/rolling_hash.hpp\"\
     \n\nint main() {\n    string S;\n    cin >> S;\n    RollingHash rh(S);\n    for(auto\
@@ -77,8 +53,8 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2024-11-20 08:50:34+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-20 09:44:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_zalgorithm.test.cpp
 layout: document

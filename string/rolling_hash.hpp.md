@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/enumerate_palindromes.hpp
     title: string/enumerate_palindromes.hpp
+  - icon: ':heavy_check_mark:'
+    path: string/suffix_array.hpp
+    title: string/suffix_array.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
@@ -12,12 +15,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_suffix_array.test.cpp
     title: verify/yosupo/yosupo_suffix_array.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/yosupo/yosupo_zalgorithm.test.cpp
     title: verify/yosupo/yosupo_zalgorithm.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"string/rolling_hash.hpp\"\nstruct RollingHash{\n    using\
@@ -42,32 +45,7 @@ data:
     \ i = 0; i < N; i++) {\n            power[i + 1] = calc_mod(mul(power[i], base));\n\
     \            hashed[i + 1] = calc_mod(mul(hashed[i], base) + (long long)V[i]);\n\
     \        }\n    }\n    \n    u64 get_hash(int l, int r) const {\n        return\
-    \ calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n\n\
-    \    // p\u59CB\u70B9\u306ELCP\u8A08\u7B97\uFF0CO(logN)\n    int get_LCP(int p)\
-    \ {\n        int lb = -1, ub = N - p + 1;\n        while(ub - lb > 1) {\n    \
-    \        int mid = (ub + lb) / 2;\n            if(get_hash(p, p + mid) == get_hash(0,\
-    \ mid)) lb = mid;\n            else ub = mid;\n        }\n        return lb;\n\
-    \    }\n\n    // \u5168\u3066\u306ELCP\u3092\u8FD4\u3059\uFF0CO(NlogN)\n    vector<int>\
-    \ all_LCP() {\n        vector<int> ret(N);\n        for(int i = 0; i < N; i++)\
-    \ {\n            ret[i] = get_LCP(i);\n        }\n        return ret;\n    }\n\
-    \n    // \u6BD4\u8F03\u95A2\u6570\uFF0CO(logN)\u3067i\u3068j\u306E\u63A5\u5C3E\
-    \u8F9E\u3092\u6BD4\u8F03\uFF0Csubstr(i) < substr(j)\u3092\u8FD4\u3059\n    bool\
-    \ comp(const int& i, const int& j) {\n        if(get_hash(i, i + 1) != get_hash(j,\
-    \ j + 1)) return get_hash(i, i + 1) < get_hash(j, j + 1);\n\n        // \u6307\
-    \u6570\u63A2\u7D22\u3067\u4E0A\u754C\u3092\u6C7A\u3081\u308B\n        int lb =\
-    \ 0, ub = 1, ma = N - max(i, j) + 1;\n        while(get_hash(i, i + ub) == get_hash(j,\
-    \ j + ub)) {\n            ub *= 5;\n            if(ub >= ma) {\n             \
-    \   ub = ma;\n                break;\n            }\n        }\n\n        // \u4E8C\
-    \u5206\u63A2\u7D22\u3067\u6700\u5927\u5171\u901A\u63A5\u982D\u8F9E\u9577\u3092\
-    \u5F97\u308B\n        while(ub - lb > 1) {\n            int mid = (ub + lb) /\
-    \ 2;\n            if(get_hash(i, i + mid) == get_hash(j, j + mid)) lb = mid;\n\
-    \            else ub = mid;\n        }\n        if(i + lb == N) return true;\n\
-    \        if(j + lb == N) return false;\n        return get_hash(i + lb, i + lb\
-    \ + 1) < get_hash(j + lb, j + lb + 1);\n    }\n\n    // SA\u3092\u8FD4\u3059\uFF0C\
-    O(Nlog^2N)\n    vector<int> suffix_array() {\n        vector<int> ret(N);\n  \
-    \      iota(ret.begin(), ret.end(), 0);\n        sort(ret.begin(), ret.end(),\
-    \ [this](const int& i, const int& j) { return comp(i, j); });\n        return\
-    \ ret;\n    }\n};\n"
+    \ calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n};\n"
   code: "struct RollingHash{\n    using u64 = uint64_t;\n\n    constexpr static u64\
     \ MASK30 = (1UL << 30) - 1;\n    constexpr static u64 MASK31 = (1UL << 31) - 1;\n\
     \    constexpr static u64 MASK61 = (1UL << 61) - 1;\n    constexpr static u64\
@@ -90,38 +68,15 @@ data:
     \        power[i + 1] = calc_mod(mul(power[i], base));\n            hashed[i +\
     \ 1] = calc_mod(mul(hashed[i], base) + (long long)V[i]);\n        }\n    }\n \
     \   \n    u64 get_hash(int l, int r) const {\n        return calc_mod(hashed[r]\
-    \ + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n\n    // p\u59CB\u70B9\
-    \u306ELCP\u8A08\u7B97\uFF0CO(logN)\n    int get_LCP(int p) {\n        int lb =\
-    \ -1, ub = N - p + 1;\n        while(ub - lb > 1) {\n            int mid = (ub\
-    \ + lb) / 2;\n            if(get_hash(p, p + mid) == get_hash(0, mid)) lb = mid;\n\
-    \            else ub = mid;\n        }\n        return lb;\n    }\n\n    // \u5168\
-    \u3066\u306ELCP\u3092\u8FD4\u3059\uFF0CO(NlogN)\n    vector<int> all_LCP() {\n\
-    \        vector<int> ret(N);\n        for(int i = 0; i < N; i++) {\n         \
-    \   ret[i] = get_LCP(i);\n        }\n        return ret;\n    }\n\n    // \u6BD4\
-    \u8F03\u95A2\u6570\uFF0CO(logN)\u3067i\u3068j\u306E\u63A5\u5C3E\u8F9E\u3092\u6BD4\
-    \u8F03\uFF0Csubstr(i) < substr(j)\u3092\u8FD4\u3059\n    bool comp(const int&\
-    \ i, const int& j) {\n        if(get_hash(i, i + 1) != get_hash(j, j + 1)) return\
-    \ get_hash(i, i + 1) < get_hash(j, j + 1);\n\n        // \u6307\u6570\u63A2\u7D22\
-    \u3067\u4E0A\u754C\u3092\u6C7A\u3081\u308B\n        int lb = 0, ub = 1, ma = N\
-    \ - max(i, j) + 1;\n        while(get_hash(i, i + ub) == get_hash(j, j + ub))\
-    \ {\n            ub *= 5;\n            if(ub >= ma) {\n                ub = ma;\n\
-    \                break;\n            }\n        }\n\n        // \u4E8C\u5206\u63A2\
-    \u7D22\u3067\u6700\u5927\u5171\u901A\u63A5\u982D\u8F9E\u9577\u3092\u5F97\u308B\
-    \n        while(ub - lb > 1) {\n            int mid = (ub + lb) / 2;\n       \
-    \     if(get_hash(i, i + mid) == get_hash(j, j + mid)) lb = mid;\n           \
-    \ else ub = mid;\n        }\n        if(i + lb == N) return true;\n        if(j\
-    \ + lb == N) return false;\n        return get_hash(i + lb, i + lb + 1) < get_hash(j\
-    \ + lb, j + lb + 1);\n    }\n\n    // SA\u3092\u8FD4\u3059\uFF0CO(Nlog^2N)\n \
-    \   vector<int> suffix_array() {\n        vector<int> ret(N);\n        iota(ret.begin(),\
-    \ ret.end(), 0);\n        sort(ret.begin(), ret.end(), [this](const int& i, const\
-    \ int& j) { return comp(i, j); });\n        return ret;\n    }\n};\n"
+    \ + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: string/rolling_hash.hpp
   requiredBy:
+  - string/suffix_array.hpp
   - string/enumerate_palindromes.hpp
-  timestamp: '2024-11-20 08:34:16+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-11-20 09:44:16+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/yosupo/yosupo_enumerate_palindromes.test.cpp
   - verify/yosupo/yosupo_zalgorithm.test.cpp
