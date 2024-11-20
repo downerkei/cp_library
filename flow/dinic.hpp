@@ -1,4 +1,4 @@
-template<typename flow_t>
+template<typename flow_t=int>
 struct Dinic{
     struct Edge{
         int from, to, rev;
