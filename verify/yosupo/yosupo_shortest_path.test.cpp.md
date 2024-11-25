@@ -18,10 +18,9 @@ data:
     \ \"https://judge.yosupo.jp/problem/shortest_path\"\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#line 1 \"graph/dijkstra.hpp\"\nstruct Dijkstra{\n   \
     \ static constexpr long long INF = 2e18;\n    vector<long long> dist;\n    vector<int>\
-    \ pre;\n    vector<vector<pair<int, long long>>> G;\n\n    Dijkstra(int N) : G(N),\
-    \ dist(N, INF), pre(N, -1) {}\n\n    void add_edge(int a, int b, long long c)\
-    \ {\n        G[a].push_back({b, c});\n    }\n\n    vector<long long> solve(int\
-    \ s) {\n        dist[s] = 0;\n        priority_queue<pair<long long, int>> pq;\n\
+    \ pre;\n\n    vector<long long> solve(const vector<vector<pair<int, long long>>>&\
+    \ G, int s) {\n        dist.resize(G.size(), INF);\n        pre.resize(G.size(),\
+    \ -1);\n        dist[s] = 0;\n        priority_queue<pair<long long, int>> pq;\n\
     \        pq.push({0, s});\n        while(pq.size()) {\n            auto [d, v]\
     \ = pq.top(); pq.pop();\n            if(dist[v] < -d) continue;\n            for(auto\
     \ [nv, c] : G[v]) {\n                if(dist[nv] <= dist[v] + c) continue;\n \
@@ -33,29 +32,31 @@ data:
     \        reverse(path.begin(), path.end());\n        return path;\n    }\n};\n\
     #line 7 \"verify/yosupo/yosupo_shortest_path.test.cpp\"\n\nint main() {\n    cin.tie(nullptr);\n\
     \    ios::sync_with_stdio(false);\n    int N, M, s, t;\n    cin >> N >> M >> s\
-    \ >> t;\n    \n    Dijkstra dij(N);\n    for(int i = 0; i < M; i++) {\n      \
-    \  int a, b, c;\n        cin >> a >> b >> c;\n        dij.add_edge(a, b, c);\n\
-    \    }\n\n    auto dist = dij.solve(s);\n\n    if(dist[t] == -1) {\n        cout\
-    \ << -1 << endl;\n        return 0;\n    }\n\n    auto path = dij.calc_path(t);\n\
-    \n    cout << dist[t] << \" \" << path.size() - 1 << endl;\n    for(int i = 0;\
-    \ i < (int)path.size() - 1; i++) {\n        cout << path[i] << \" \" << path[i\
-    \ + 1] << endl;\n    }\n\n    return 0;\n}\n"
+    \ >> t;\n\n    vector<vector<pair<int, long long>>> G(N);\n    \n    for(int i\
+    \ = 0; i < M; i++) {\n        int a, b, c;\n        cin >> a >> b >> c;\n    \
+    \    G[a].push_back({b, c});\n    }\n\n    Dijkstra dij;\n\n    auto dist = dij.solve(G,\
+    \ s);\n\n    if(dist[t] == -1) {\n        cout << -1 << endl;\n        return\
+    \ 0;\n    }\n\n    auto path = dij.calc_path(t);\n\n    cout << dist[t] << \"\
+    \ \" << path.size() - 1 << endl;\n    for(int i = 0; i < (int)path.size() - 1;\
+    \ i++) {\n        cout << path[i] << \" \" << path[i + 1] << endl;\n    }\n\n\
+    \    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../graph/dijkstra.hpp\"\
     \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
-    \  int N, M, s, t;\n    cin >> N >> M >> s >> t;\n    \n    Dijkstra dij(N);\n\
-    \    for(int i = 0; i < M; i++) {\n        int a, b, c;\n        cin >> a >> b\
-    \ >> c;\n        dij.add_edge(a, b, c);\n    }\n\n    auto dist = dij.solve(s);\n\
-    \n    if(dist[t] == -1) {\n        cout << -1 << endl;\n        return 0;\n  \
-    \  }\n\n    auto path = dij.calc_path(t);\n\n    cout << dist[t] << \" \" << path.size()\
-    \ - 1 << endl;\n    for(int i = 0; i < (int)path.size() - 1; i++) {\n        cout\
-    \ << path[i] << \" \" << path[i + 1] << endl;\n    }\n\n    return 0;\n}\n"
+    \  int N, M, s, t;\n    cin >> N >> M >> s >> t;\n\n    vector<vector<pair<int,\
+    \ long long>>> G(N);\n    \n    for(int i = 0; i < M; i++) {\n        int a, b,\
+    \ c;\n        cin >> a >> b >> c;\n        G[a].push_back({b, c});\n    }\n\n\
+    \    Dijkstra dij;\n\n    auto dist = dij.solve(G, s);\n\n    if(dist[t] == -1)\
+    \ {\n        cout << -1 << endl;\n        return 0;\n    }\n\n    auto path =\
+    \ dij.calc_path(t);\n\n    cout << dist[t] << \" \" << path.size() - 1 << endl;\n\
+    \    for(int i = 0; i < (int)path.size() - 1; i++) {\n        cout << path[i]\
+    \ << \" \" << path[i + 1] << endl;\n    }\n\n    return 0;\n}\n"
   dependsOn:
   - graph/dijkstra.hpp
   isVerificationFile: true
   path: verify/yosupo/yosupo_shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2024-10-14 21:14:48+09:00'
+  timestamp: '2024-11-25 14:08:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_shortest_path.test.cpp
