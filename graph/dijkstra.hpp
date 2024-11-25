@@ -2,15 +2,10 @@ struct Dijkstra{
     static constexpr long long INF = 2e18;
     vector<long long> dist;
     vector<int> pre;
-    vector<vector<pair<int, long long>>> G;
 
-    Dijkstra(int N) : G(N), dist(N, INF), pre(N, -1) {}
-
-    void add_edge(int a, int b, long long c) {
-        G[a].push_back({b, c});
-    }
-
-    vector<long long> solve(int s) {
+    vector<long long> solve(const vector<vector<pair<int, long long>>>& G, int s) {
+        dist.resize(G.size(), INF);
+        pre.resize(G.size(), -1);
         dist[s] = 0;
         priority_queue<pair<long long, int>> pq;
         pq.push({0, s});

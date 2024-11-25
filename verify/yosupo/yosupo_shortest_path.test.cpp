@@ -10,15 +10,18 @@ int main() {
     ios::sync_with_stdio(false);
     int N, M, s, t;
     cin >> N >> M >> s >> t;
+
+    vector<vector<pair<int, long long>>> G(N);
     
-    Dijkstra dij(N);
     for(int i = 0; i < M; i++) {
         int a, b, c;
         cin >> a >> b >> c;
-        dij.add_edge(a, b, c);
+        G[a].push_back({b, c});
     }
 
-    auto dist = dij.solve(s);
+    Dijkstra dij;
+
+    auto dist = dij.solve(G, s);
 
     if(dist[t] == -1) {
         cout << -1 << endl;
