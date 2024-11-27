@@ -38,11 +38,8 @@ struct RollingHash{
         base = rand(engine);
     }
 
-    RollingHash(const string& S) { init<string>(S); }
-    RollingHash(const vector<int>& V) { init<vector<int>>(V); }
-
     template<class VType>
-    void init(const VType& V) {
+    RollingHash(const VType& V) {
         if(base == 0) gen_base();
 
         N = (int)V.size();
