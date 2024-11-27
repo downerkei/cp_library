@@ -28,22 +28,20 @@ data:
     \ x & MASK61;\n        u64 ret = xu + xd;\n        if(ret >= MOD) ret -= MOD;\n\
     \        return ret;\n    }\n\n    void gen_base() {\n        random_device seed_gen;\n\
     \        mt19937_64 engine(seed_gen());\n        uniform_int_distribution<u64>\
-    \ rand(0, MOD - 1);\n        base = rand(engine);\n    }\n\n    RollingHash(const\
-    \ string& S) { init<string>(S); }\n    RollingHash(const vector<int>& V) { init<vector<int>>(V);\
-    \ }\n\n    template<class VType>\n    void init(const VType& V) {\n        if(base\
-    \ == 0) gen_base();\n\n        N = (int)V.size();\n        power.resize(N + 1,\
-    \ 0);\n        hashed.resize(N + 1, 0);\n\n        power[0] = 1;\n        for(int\
-    \ i = 0; i < N; i++) {\n            power[i + 1] = calc_mod(mul(power[i], base));\n\
-    \            hashed[i + 1] = calc_mod(mul(hashed[i], base) + (long long)V[i]);\n\
-    \        }\n    }\n    \n    u64 get_hash(int l, int r) const {\n        return\
-    \ calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n};\n\
-    #line 2 \"string/enumerate_lcp.hpp\"\n\nint get_lcp(int p, const RollingHash&\
-    \ rh) {\n    int lb = 0, ub = rh.N - p + 1;\n    while(ub - lb > 1) {\n      \
-    \  int mid = (ub + lb) / 2;\n        if(rh.get_hash(p, p + mid) == rh.get_hash(0,\
-    \ mid)) lb = mid;\n        else ub = mid;\n    }\n    return lb;\n}\n\nvector<int>\
-    \ enumerate_lcp(const string& S) {\n    RollingHash rh(S);\n    vector<int> ret(rh.N);\n\
-    \    for(int i = 0; i < rh.N; i++) {\n        ret[i] = get_lcp(i, rh);\n    }\n\
-    \    return ret;\n}\n"
+    \ rand(0, MOD - 1);\n        base = rand(engine);\n    }\n\n    template<class\
+    \ VType>\n    RollingHash(const VType& V) {\n        if(base == 0) gen_base();\n\
+    \n        N = (int)V.size();\n        power.resize(N + 1, 0);\n        hashed.resize(N\
+    \ + 1, 0);\n\n        power[0] = 1;\n        for(int i = 0; i < N; i++) {\n  \
+    \          power[i + 1] = calc_mod(mul(power[i], base));\n            hashed[i\
+    \ + 1] = calc_mod(mul(hashed[i], base) + (long long)V[i]);\n        }\n    }\n\
+    \    \n    u64 get_hash(int l, int r) const {\n        return calc_mod(hashed[r]\
+    \ + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n};\n#line 2 \"string/enumerate_lcp.hpp\"\
+    \n\nint get_lcp(int p, const RollingHash& rh) {\n    int lb = 0, ub = rh.N - p\
+    \ + 1;\n    while(ub - lb > 1) {\n        int mid = (ub + lb) / 2;\n        if(rh.get_hash(p,\
+    \ p + mid) == rh.get_hash(0, mid)) lb = mid;\n        else ub = mid;\n    }\n\
+    \    return lb;\n}\n\nvector<int> enumerate_lcp(const string& S) {\n    RollingHash\
+    \ rh(S);\n    vector<int> ret(rh.N);\n    for(int i = 0; i < rh.N; i++) {\n  \
+    \      ret[i] = get_lcp(i, rh);\n    }\n    return ret;\n}\n"
   code: "#include \"rolling_hash.hpp\"\n\nint get_lcp(int p, const RollingHash& rh)\
     \ {\n    int lb = 0, ub = rh.N - p + 1;\n    while(ub - lb > 1) {\n        int\
     \ mid = (ub + lb) / 2;\n        if(rh.get_hash(p, p + mid) == rh.get_hash(0, mid))\
@@ -56,7 +54,7 @@ data:
   isVerificationFile: false
   path: string/enumerate_lcp.hpp
   requiredBy: []
-  timestamp: '2024-11-20 22:35:35+09:00'
+  timestamp: '2024-11-27 19:22:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_zalgorithm.test.cpp

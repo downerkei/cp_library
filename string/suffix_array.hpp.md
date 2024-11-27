@@ -28,28 +28,26 @@ data:
     \ x & MASK61;\n        u64 ret = xu + xd;\n        if(ret >= MOD) ret -= MOD;\n\
     \        return ret;\n    }\n\n    void gen_base() {\n        random_device seed_gen;\n\
     \        mt19937_64 engine(seed_gen());\n        uniform_int_distribution<u64>\
-    \ rand(0, MOD - 1);\n        base = rand(engine);\n    }\n\n    RollingHash(const\
-    \ string& S) { init<string>(S); }\n    RollingHash(const vector<int>& V) { init<vector<int>>(V);\
-    \ }\n\n    template<class VType>\n    void init(const VType& V) {\n        if(base\
-    \ == 0) gen_base();\n\n        N = (int)V.size();\n        power.resize(N + 1,\
-    \ 0);\n        hashed.resize(N + 1, 0);\n\n        power[0] = 1;\n        for(int\
-    \ i = 0; i < N; i++) {\n            power[i + 1] = calc_mod(mul(power[i], base));\n\
-    \            hashed[i + 1] = calc_mod(mul(hashed[i], base) + (long long)V[i]);\n\
-    \        }\n    }\n    \n    u64 get_hash(int l, int r) const {\n        return\
-    \ calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n};\n\
-    #line 2 \"string/suffix_array.hpp\"\n\nbool comp(const int& i, const int& j, const\
-    \ RollingHash& rh) {\n    if(rh.get_hash(i, i + 1) != rh.get_hash(j, j + 1)) return\
-    \ rh.get_hash(i, i + 1) < rh.get_hash(j, j + 1);\n\n    int lb = 0, ub = 1, mx\
-    \ = rh.N - max(i, j) + 1;\n    while(rh.get_hash(i, i + ub) == rh.get_hash(j,\
-    \ j + ub)) {\n        ub *= 5;\n        if(ub >= mx) continue;\n        ub = mx;\n\
-    \        break;\n    }\n\n    while(ub - lb > 1) {\n        int mid = (ub + lb)\
-    \ / 2;\n        if(rh.get_hash(i, i + mid) == rh.get_hash(j, j + mid)) lb = mid;\n\
-    \        else ub = mid;\n    }\n\n    if(i + lb == rh.N) return true;\n    if(j\
-    \ + lb == rh.N) return false;\n    return rh.get_hash(i + lb, i + lb + 1) < rh.get_hash(j\
-    \ + lb, j + lb + 1);\n}\n\nvector<int> calc_suffix_array(const string& S) {\n\
-    \    RollingHash rh(S);\n    vector<int> ret(rh.N);\n    iota(ret.begin(), ret.end(),\
-    \ 0);\n    sort(ret.begin(), ret.end(), [&rh](const int& i, const int& j) { return\
-    \ comp(i, j, rh); });\n    return ret;\n}\n"
+    \ rand(0, MOD - 1);\n        base = rand(engine);\n    }\n\n    template<class\
+    \ VType>\n    RollingHash(const VType& V) {\n        if(base == 0) gen_base();\n\
+    \n        N = (int)V.size();\n        power.resize(N + 1, 0);\n        hashed.resize(N\
+    \ + 1, 0);\n\n        power[0] = 1;\n        for(int i = 0; i < N; i++) {\n  \
+    \          power[i + 1] = calc_mod(mul(power[i], base));\n            hashed[i\
+    \ + 1] = calc_mod(mul(hashed[i], base) + (long long)V[i]);\n        }\n    }\n\
+    \    \n    u64 get_hash(int l, int r) const {\n        return calc_mod(hashed[r]\
+    \ + POSITIVIZER - mul(hashed[l], power[r - l]));\n    }\n};\n#line 2 \"string/suffix_array.hpp\"\
+    \n\nbool comp(const int& i, const int& j, const RollingHash& rh) {\n    if(rh.get_hash(i,\
+    \ i + 1) != rh.get_hash(j, j + 1)) return rh.get_hash(i, i + 1) < rh.get_hash(j,\
+    \ j + 1);\n\n    int lb = 0, ub = 1, mx = rh.N - max(i, j) + 1;\n    while(rh.get_hash(i,\
+    \ i + ub) == rh.get_hash(j, j + ub)) {\n        ub *= 5;\n        if(ub >= mx)\
+    \ continue;\n        ub = mx;\n        break;\n    }\n\n    while(ub - lb > 1)\
+    \ {\n        int mid = (ub + lb) / 2;\n        if(rh.get_hash(i, i + mid) == rh.get_hash(j,\
+    \ j + mid)) lb = mid;\n        else ub = mid;\n    }\n\n    if(i + lb == rh.N)\
+    \ return true;\n    if(j + lb == rh.N) return false;\n    return rh.get_hash(i\
+    \ + lb, i + lb + 1) < rh.get_hash(j + lb, j + lb + 1);\n}\n\nvector<int> calc_suffix_array(const\
+    \ string& S) {\n    RollingHash rh(S);\n    vector<int> ret(rh.N);\n    iota(ret.begin(),\
+    \ ret.end(), 0);\n    sort(ret.begin(), ret.end(), [&rh](const int& i, const int&\
+    \ j) { return comp(i, j, rh); });\n    return ret;\n}\n"
   code: "#include \"rolling_hash.hpp\"\n\nbool comp(const int& i, const int& j, const\
     \ RollingHash& rh) {\n    if(rh.get_hash(i, i + 1) != rh.get_hash(j, j + 1)) return\
     \ rh.get_hash(i, i + 1) < rh.get_hash(j, j + 1);\n\n    int lb = 0, ub = 1, mx\
@@ -68,7 +66,7 @@ data:
   isVerificationFile: false
   path: string/suffix_array.hpp
   requiredBy: []
-  timestamp: '2024-11-20 22:35:35+09:00'
+  timestamp: '2024-11-27 19:22:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_suffix_array.test.cpp
