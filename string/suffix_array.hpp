@@ -1,31 +1,31 @@
-#include "rolling_hash.hpp"
+vector<int> suffix_array(const string& S) {
+    int N = S.size();
+    vector<int> rank(N), sa(N);
 
-bool comp(const int& i, const int& j, const RollingHash& rh) {
-    if(rh.get_hash(i, i + 1) != rh.get_hash(j, j + 1)) return rh.get_hash(i, i + 1) < rh.get_hash(j, j + 1);
-
-    int lb = 0, ub = 1, mx = rh.N - max(i, j) + 1;
-    while(rh.get_hash(i, i + ub) == rh.get_hash(j, j + ub)) {
-        ub *= 5;
-        if(ub >= mx) continue;
-        ub = mx;
-        break;
+    // 1文字のランク計算
+    for(int i = 0; i < N; i++) {
+        sa[i] = i;
+        rank[i] = S[i] - 'a';
     }
 
-    while(ub - lb > 1) {
-        int mid = (ub + lb) / 2;
-        if(rh.get_hash(i, i + mid) == rh.get_hash(j, j + mid)) lb = mid;
-        else ub = mid;
+    for(int k = 1; k < N; k *= 2) {
+        // rankに基づいてソート
+        auto cmp = [&](int i, int j) {
+            if(rank[i] != rank[j]) return rank[i] < rank[j];
+            int ri = i + k < N ? rank[i + k] : -1;
+            int rj = j + k < N ? rank[j + k] : -1;
+            return ri < rj;
+        };
+        sort(sa.begin(), sa.end(), cmp);
+
+        // 次のrank計算
+        vector<int> nrank(N);
+        nrank[sa[0]] = 0;
+        for(int i = 1; i < N; i++) {
+            nrank[sa[i]] = nrank[sa[i - 1]] + cmp(sa[i - 1], sa[i]);
+        }
+        swap(rank, nrank);
     }
 
-    if(i + lb == rh.N) return true;
-    if(j + lb == rh.N) return false;
-    return rh.get_hash(i + lb, i + lb + 1) < rh.get_hash(j + lb, j + lb + 1);
-}
-
-vector<int> calc_suffix_array(const string& S) {
-    RollingHash rh(S);
-    vector<int> ret(rh.N);
-    iota(ret.begin(), ret.end(), 0);
-    sort(ret.begin(), ret.end(), [&rh](const int& i, const int& j) { return comp(i, j, rh); });
-    return ret;
+    return sa;
 }
