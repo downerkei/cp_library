@@ -10,7 +10,7 @@ int main() {
     ios::sync_with_stdio(false);
     string S;
     cin >> S;
-    for(auto ans : calc_suffix_array(S)) {
+    for(auto ans : suffix_array(S)) {
         cout << ans << " ";
     }
     cout << endl;

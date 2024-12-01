@@ -1,31 +1,41 @@
-#include "rolling_hash.hpp"
+vector<int> suffix_array(const string& S) {
+    int N = S.size();
+    vector<int> rank(N), sa(N);
 
-bool comp(const int& i, const int& j, const RollingHash& rh) {
-    if(rh.get_hash(i, i + 1) != rh.get_hash(j, j + 1)) return rh.get_hash(i, i + 1) < rh.get_hash(j, j + 1);
-
-    int lb = 0, ub = 1, mx = rh.N - max(i, j) + 1;
-    while(rh.get_hash(i, i + ub) == rh.get_hash(j, j + ub)) {
-        ub *= 5;
-        if(ub >= mx) continue;
-        ub = mx;
-        break;
+    for(int i = 0; i < N; i++) {
+        sa[i] = i;
+        rank[i] = S[i];
     }
 
-    while(ub - lb > 1) {
-        int mid = (ub + lb) / 2;
-        if(rh.get_hash(i, i + mid) == rh.get_hash(j, j + mid)) lb = mid;
-        else ub = mid;
+    for(int k = 1; k < N; k *= 2) {
+        auto get_rank = [&](int i) -> int { return (i < N) ? rank[i] : 0; };
+
+        auto radix_sort = [&](int k) -> void {
+            const int CHAR_SIZE = 130;
+            vector<int> backet(max(N + 1, CHAR_SIZE), 0), nsa(N);
+            for(int i = 0; i < N; i++) {
+                backet[get_rank(i + k)]++;
+            }
+            for(int i = 1; i < backet.size(); i++) {
+                backet[i] += backet[i - 1];
+            }
+            for(int i = N; i--;) {
+                int& x = backet[get_rank(sa[i] + k)];
+                nsa[--x] = sa[i];
+            }
+            swap(sa, nsa);
+        };
+        radix_sort(k);
+        radix_sort(0);
+
+        vector<int> nrank(N);
+        nrank[sa[0]] = 1;
+        for(int i = 1; i < N; i++) {
+            bool is_different = (get_rank(sa[i - 1]) != get_rank(sa[i]) || get_rank(sa[i - 1] + k) != get_rank(sa[i] + k));
+            nrank[sa[i]] = nrank[sa[i - 1]] + is_different;
+        }
+        swap(rank, nrank);
     }
 
-    if(i + lb == rh.N) return true;
-    if(j + lb == rh.N) return false;
-    return rh.get_hash(i + lb, i + lb + 1) < rh.get_hash(j + lb, j + lb + 1);
-}
-
-vector<int> calc_suffix_array(const string& S) {
-    RollingHash rh(S);
-    vector<int> ret(rh.N);
-    iota(ret.begin(), ret.end(), 0);
-    sort(ret.begin(), ret.end(), [&rh](const int& i, const int& j) { return comp(i, j, rh); });
-    return ret;
+    return sa;
 }
