@@ -125,6 +125,9 @@ data:
     - icon: ':x:'
       path: string/enumerate_palindromes.hpp
       title: string/enumerate_palindromes.hpp
+    - icon: ':heavy_check_mark:'
+      path: string/lcp_array.hpp
+      title: string/lcp_array.hpp
     - icon: ':x:'
       path: string/rolling_hash.hpp
       title: string/rolling_hash.hpp
@@ -212,6 +215,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_lca.test.cpp
       title: verify/yosupo/yosupo_lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_longest_common_substring.test.cpp
+      title: verify/yosupo/yosupo_longest_common_substring.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
       title: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp

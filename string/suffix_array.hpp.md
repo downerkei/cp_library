@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_longest_common_substring.test.cpp
+    title: verify/yosupo/yosupo_longest_common_substring.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_suffix_array.test.cpp
     title: verify/yosupo/yosupo_suffix_array.test.cpp
   _isVerificationFailed: false
@@ -52,6 +55,7 @@ data:
   timestamp: '2024-12-01 17:46:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/yosupo/yosupo_longest_common_substring.test.cpp
   - verify/yosupo/yosupo_suffix_array.test.cpp
 documentation_of: string/suffix_array.hpp
 layout: document

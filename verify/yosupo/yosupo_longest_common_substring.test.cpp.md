@@ -1,0 +1,83 @@
+---
+data:
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: string/lcp_array.hpp
+    title: string/lcp_array.hpp
+  - icon: ':heavy_check_mark:'
+    path: string/suffix_array.hpp
+    title: string/suffix_array.hpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
+  _pathExtension: cpp
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/longest_common_substring
+    links:
+    - https://judge.yosupo.jp/problem/longest_common_substring
+  bundledCode: "#line 1 \"verify/yosupo/yosupo_longest_common_substring.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/longest_common_substring\"\
+    \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"string/suffix_array.hpp\"\
+    \nvector<int> suffix_array(const string& S) {\n    int N = S.size();\n    vector<int>\
+    \ rank(N), sa(N);\n\n    for(int i = 0; i < N; i++) {\n        sa[i] = i;\n  \
+    \      rank[i] = S[i];\n    }\n\n    for(int k = 1; k < N; k *= 2) {\n       \
+    \ auto get_rank = [&](int i) -> int { return (i < N) ? rank[i] : 0; };\n\n   \
+    \     auto radix_sort = [&](int k) -> void {\n            const int CHAR_SIZE\
+    \ = 130;\n            vector<int> backet(max(N + 1, CHAR_SIZE), 0), nsa(N);\n\
+    \            for(int i = 0; i < N; i++) {\n                backet[get_rank(i +\
+    \ k)]++;\n            }\n            for(int i = 1; i < backet.size(); i++) {\n\
+    \                backet[i] += backet[i - 1];\n            }\n            for(int\
+    \ i = N; i--;) {\n                int& x = backet[get_rank(sa[i] + k)];\n    \
+    \            nsa[--x] = sa[i];\n            }\n            swap(sa, nsa);\n  \
+    \      };\n        radix_sort(k);\n        radix_sort(0);\n\n        vector<int>\
+    \ nrank(N);\n        nrank[sa[0]] = 1;\n        for(int i = 1; i < N; i++) {\n\
+    \            bool is_different = (get_rank(sa[i - 1]) != get_rank(sa[i]) || get_rank(sa[i\
+    \ - 1] + k) != get_rank(sa[i] + k));\n            nrank[sa[i]] = nrank[sa[i -\
+    \ 1]] + is_different;\n        }\n        swap(rank, nrank);\n    }\n\n    return\
+    \ sa;\n}\n#line 1 \"string/lcp_array.hpp\"\nvector<int> lcp_array(const string&\
+    \ S, const vector<int>& sa) {\n    int N = S.size();\n    vector<int> rank(N);\n\
+    \    for(int i = 0; i < N; i++) {\n        rank[sa[i]] = i;\n    }\n    vector<int>\
+    \ lcp(N - 1);\n    int h = 0;\n    for(int i = 0; i < N; i++) {\n        if(h\
+    \ > 0) h--;\n        if(rank[i] == 0) continue;\n        int j = sa[rank[i] -\
+    \ 1];\n        while(i + h < N && j + h < N && S[i + h] == S[j + h]) h++;\n  \
+    \      lcp[rank[i] - 1] = h;\n    }\n    return lcp;\n}\n#line 8 \"verify/yosupo/yosupo_longest_common_substring.test.cpp\"\
+    \n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n  \
+    \  string S, T;\n    cin >> S >> T;\n\n    int ssz = S.size();\n\n    S += \"\
+    $\";\n    S += T;\n\n    auto sa = suffix_array(S);\n    auto lcp = lcp_array(S,\
+    \ sa);\n\n    int N = S.size();\n    int a = 0, b = 0, c = 0, d = 0;\n    for(int\
+    \ i = 0; i < N - 1; i++) {\n        int i1 = i, i2 = i + 1;\n        if(sa[i1]\
+    \ > sa[i2]) swap(i1, i2);\n        if(lcp[i] <= b - a) continue;\n        if(sa[i1]\
+    \ < ssz && ssz < sa[i2]) {\n            a = sa[i1];\n            b = a + lcp[i];\n\
+    \            c = sa[i2] - ssz - 1;\n            d = c + lcp[i];\n        }\n \
+    \   }\n\n    cout << a << \" \" << b << \" \" << c << \" \" << d << \"\\n\";\n\
+    \n    return 0;\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/longest_common_substring\"\
+    \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../string/suffix_array.hpp\"\
+    \n#include \"../../string/lcp_array.hpp\"\n\nint main() {\n    cin.tie(nullptr);\n\
+    \    ios::sync_with_stdio(false);\n    string S, T;\n    cin >> S >> T;\n\n  \
+    \  int ssz = S.size();\n\n    S += \"$\";\n    S += T;\n\n    auto sa = suffix_array(S);\n\
+    \    auto lcp = lcp_array(S, sa);\n\n    int N = S.size();\n    int a = 0, b =\
+    \ 0, c = 0, d = 0;\n    for(int i = 0; i < N - 1; i++) {\n        int i1 = i,\
+    \ i2 = i + 1;\n        if(sa[i1] > sa[i2]) swap(i1, i2);\n        if(lcp[i] <=\
+    \ b - a) continue;\n        if(sa[i1] < ssz && ssz < sa[i2]) {\n            a\
+    \ = sa[i1];\n            b = a + lcp[i];\n            c = sa[i2] - ssz - 1;\n\
+    \            d = c + lcp[i];\n        }\n    }\n\n    cout << a << \" \" << b\
+    \ << \" \" << c << \" \" << d << \"\\n\";\n\n    return 0;\n}"
+  dependsOn:
+  - string/suffix_array.hpp
+  - string/lcp_array.hpp
+  isVerificationFile: true
+  path: verify/yosupo/yosupo_longest_common_substring.test.cpp
+  requiredBy: []
+  timestamp: '2024-12-02 02:18:27+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: verify/yosupo/yosupo_longest_common_substring.test.cpp
+layout: document
+redirect_from:
+- /verify/verify/yosupo/yosupo_longest_common_substring.test.cpp
+- /verify/verify/yosupo/yosupo_longest_common_substring.test.cpp.html
+title: verify/yosupo/yosupo_longest_common_substring.test.cpp
+---
