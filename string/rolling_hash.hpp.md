@@ -8,16 +8,10 @@ data:
   - icon: ':x:'
     path: string/enumerate_palindromes.hpp
     title: string/enumerate_palindromes.hpp
-  - icon: ':x:'
-    path: string/suffix_array.hpp
-    title: string/suffix_array.hpp
   _extendedVerifiedWith:
   - icon: ':x:'
     path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
     title: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo/yosupo_suffix_array.test.cpp
-    title: verify/yosupo/yosupo_suffix_array.test.cpp
   - icon: ':x:'
     path: verify/yosupo/yosupo_zalgorithm.test.cpp
     title: verify/yosupo/yosupo_zalgorithm.test.cpp
@@ -74,7 +68,6 @@ data:
   isVerificationFile: false
   path: string/rolling_hash.hpp
   requiredBy:
-  - string/suffix_array.hpp
   - string/enumerate_palindromes.hpp
   - string/enumerate_lcp.hpp
   timestamp: '2024-12-01 03:17:31+09:00'
@@ -82,7 +75,6 @@ data:
   verifiedWith:
   - verify/yosupo/yosupo_enumerate_palindromes.test.cpp
   - verify/yosupo/yosupo_zalgorithm.test.cpp
-  - verify/yosupo/yosupo_suffix_array.test.cpp
 documentation_of: string/rolling_hash.hpp
 layout: document
 redirect_from:

@@ -128,7 +128,7 @@ data:
     - icon: ':x:'
       path: string/rolling_hash.hpp
       title: string/rolling_hash.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: string/suffix_array.hpp
       title: string/suffix_array.hpp
   - name: tree
@@ -230,7 +230,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_staticrmq.test.cpp
       title: verify/yosupo/yosupo_staticrmq.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_suffix_array.test.cpp
       title: verify/yosupo/yosupo_suffix_array.test.cpp
     - icon: ':heavy_check_mark:'
