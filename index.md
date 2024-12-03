@@ -24,6 +24,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/lazy_segmemt_tree.hpp
       title: data_structure/lazy_segmemt_tree.hpp
+    - icon: ':warning:'
+      path: data_structure/merge_sort_tree.hpp
+      title: data_structure/merge_sort_tree.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/montgomery_modint_32.hpp
       title: data_structure/montgomery_modint_32.hpp
