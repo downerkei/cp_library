@@ -6,7 +6,7 @@ struct LazySegmentTree{
 
     LazySegmentTree(int n) : LazySegmentTree(vector<S>(n, e())) {}
 
-    LazySegmentTree(vector<S> &v) {
+    LazySegmentTree(const vector<S> &v) {
         int sz = v.size();
         n = 1; 
         log = 0;
