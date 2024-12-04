@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_range_kth_smallest.test.cpp
+    title: verify/yosupo/yosupo_range_kth_smallest.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"data_structure/merge_sort_tree.hpp\"\ntemplate<typename\
@@ -46,8 +49,9 @@ data:
   path: data_structure/merge_sort_tree.hpp
   requiredBy: []
   timestamp: '2024-12-04 03:56:00+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/yosupo/yosupo_range_kth_smallest.test.cpp
 documentation_of: data_structure/merge_sort_tree.hpp
 layout: document
 redirect_from:

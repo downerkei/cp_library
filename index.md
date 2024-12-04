@@ -24,7 +24,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/lazy_segmemt_tree.hpp
       title: data_structure/lazy_segmemt_tree.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/merge_sort_tree.hpp
       title: data_structure/merge_sort_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -233,6 +233,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
       title: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_range_kth_smallest.test.cpp
+      title: verify/yosupo/yosupo_range_kth_smallest.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_shortest_path.test.cpp
       title: verify/yosupo/yosupo_shortest_path.test.cpp
