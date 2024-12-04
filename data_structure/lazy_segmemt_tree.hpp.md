@@ -15,7 +15,7 @@ data:
     \ S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S), F (*composition)(F, F),\
     \ F (*id)()>\nstruct LazySegmentTree{\n    int n, log;\n    vector<S> data;\n\
     \    vector<F> lazy;\n\n    LazySegmentTree(int n) : LazySegmentTree(vector<S>(n,\
-    \ e())) {}\n\n    LazySegmentTree(vector<S> &v) {\n        int sz = v.size();\n\
+    \ e())) {}\n\n    LazySegmentTree(const vector<S> &v) {\n        int sz = v.size();\n\
     \        n = 1; \n        log = 0;\n        while(n < sz) {\n            n <<=\
     \ 1;\n            log++;\n        }\n\n        data.resize(2 * n, e());\n    \
     \    lazy.resize(2 * n, id());\n\n        for(int i = 0; i < sz; i++) data[i +\
@@ -44,7 +44,7 @@ data:
   code: "template<class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S), F\
     \ (*composition)(F, F), F (*id)()>\nstruct LazySegmentTree{\n    int n, log;\n\
     \    vector<S> data;\n    vector<F> lazy;\n\n    LazySegmentTree(int n) : LazySegmentTree(vector<S>(n,\
-    \ e())) {}\n\n    LazySegmentTree(vector<S> &v) {\n        int sz = v.size();\n\
+    \ e())) {}\n\n    LazySegmentTree(const vector<S> &v) {\n        int sz = v.size();\n\
     \        n = 1; \n        log = 0;\n        while(n < sz) {\n            n <<=\
     \ 1;\n            log++;\n        }\n\n        data.resize(2 * n, e());\n    \
     \    lazy.resize(2 * n, id());\n\n        for(int i = 0; i < sz; i++) data[i +\
@@ -74,7 +74,7 @@ data:
   isVerificationFile: false
   path: data_structure/lazy_segmemt_tree.hpp
   requiredBy: []
-  timestamp: '2024-11-21 06:41:22+09:00'
+  timestamp: '2024-12-04 23:54:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_range_affine_range_sum.test.cpp
