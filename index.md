@@ -61,6 +61,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: flow/primal_dual.hpp
       title: flow/primal_dual.hpp
+  - name: geometry
+    pages:
+    - icon: ':warning:'
+      path: geometry/point.hpp
+      title: geometry/point.hpp
+    - icon: ':warning:'
+      path: geometry/polar_sort.hpp
+      title: geometry/polar_sort.hpp
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
