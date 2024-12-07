@@ -10,3 +10,7 @@ bool cmp(const Point& a, const Point& b) {
     if(up(a) == up(b)) return (long long)a.y * b.x < (long long)b.y * a.x;
     return up(a) < up(b);
 }
+
+void polar_sort(vector<Point>& V) {
+    sort(V.begin(), V.end(), cmp);
+}
