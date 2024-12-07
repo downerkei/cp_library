@@ -4,7 +4,10 @@ data:
   - icon: ':warning:'
     path: geometry/point.hpp
     title: geometry/point.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: geometry/convex_hull.hpp
+    title: geometry/convex_hull.hpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -24,7 +27,8 @@ data:
   - geometry/point.hpp
   isVerificationFile: false
   path: geometry/ccw.hpp
-  requiredBy: []
+  requiredBy:
+  - geometry/convex_hull.hpp
   timestamp: '2024-12-08 05:37:43+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

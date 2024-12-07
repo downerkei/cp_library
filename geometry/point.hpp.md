@@ -6,6 +6,9 @@ data:
     path: geometry/ccw.hpp
     title: geometry/ccw.hpp
   - icon: ':warning:'
+    path: geometry/convex_hull.hpp
+    title: geometry/convex_hull.hpp
+  - icon: ':warning:'
     path: geometry/dist.hpp
     title: geometry/dist.hpp
   - icon: ':warning:'
@@ -25,6 +28,7 @@ data:
   requiredBy:
   - geometry/ccw.hpp
   - geometry/polar_sort.hpp
+  - geometry/convex_hull.hpp
   - geometry/dist.hpp
   timestamp: '2024-12-07 00:38:23+09:00'
   verificationStatus: LIBRARY_NO_TESTS

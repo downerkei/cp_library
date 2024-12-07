@@ -67,6 +67,9 @@ data:
       path: geometry/ccw.hpp
       title: geometry/ccw.hpp
     - icon: ':warning:'
+      path: geometry/convex_hull.hpp
+      title: geometry/convex_hull.hpp
+    - icon: ':warning:'
       path: geometry/dist.hpp
       title: geometry/dist.hpp
     - icon: ':warning:'
@@ -174,6 +177,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_alds1_5_d.test.cpp
       title: verify/aoj/aoj_alds1_5_d.test.cpp
+    - icon: ':x:'
+      path: verify/aoj/aoj_cgl_4_a.test.cpp
+      title: verify/aoj/aoj_cgl_4_a.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp
