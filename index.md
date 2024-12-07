@@ -64,6 +64,12 @@ data:
   - name: geometry
     pages:
     - icon: ':warning:'
+      path: geometry/ccw.hpp
+      title: geometry/ccw.hpp
+    - icon: ':warning:'
+      path: geometry/dist.hpp
+      title: geometry/dist.hpp
+    - icon: ':warning:'
       path: geometry/point.hpp
       title: geometry/point.hpp
     - icon: ':warning:'

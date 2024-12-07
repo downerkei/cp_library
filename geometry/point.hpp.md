@@ -3,6 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: geometry/ccw.hpp
+    title: geometry/ccw.hpp
+  - icon: ':warning:'
+    path: geometry/dist.hpp
+    title: geometry/dist.hpp
+  - icon: ':warning:'
     path: geometry/polar_sort.hpp
     title: geometry/polar_sort.hpp
   _extendedVerifiedWith: []
@@ -17,7 +23,9 @@ data:
   isVerificationFile: false
   path: geometry/point.hpp
   requiredBy:
+  - geometry/ccw.hpp
   - geometry/polar_sort.hpp
+  - geometry/dist.hpp
   timestamp: '2024-12-07 00:38:23+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
