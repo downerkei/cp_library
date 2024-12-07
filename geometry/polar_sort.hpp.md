@@ -16,18 +16,20 @@ data:
     \ 0 || (p.y == 0 && p.x < 0)) return 1;\n    if(p.y < 0 || (p.y == 0 && p.x >\
     \ 0)) return -1;\n    return 0;\n}\n\nbool cmp(const Point& a, const Point& b)\
     \ {\n    if(up(a) == up(b)) return (long long)a.y * b.x < (long long)b.y * a.x;\n\
-    \    return up(a) < up(b);\n}\n"
+    \    return up(a) < up(b);\n}\n\nvoid polar_sort(vector<Point>& V) {\n    sort(V.begin(),\
+    \ V.end(), cmp);\n}\n"
   code: "#include \"point.hpp\"\n\nint up(const Point& p) {\n    if(p.y > 0 || (p.y\
     \ == 0 && p.x < 0)) return 1;\n    if(p.y < 0 || (p.y == 0 && p.x > 0)) return\
     \ -1;\n    return 0;\n}\n\nbool cmp(const Point& a, const Point& b) {\n    if(up(a)\
     \ == up(b)) return (long long)a.y * b.x < (long long)b.y * a.x;\n    return up(a)\
-    \ < up(b);\n}\n"
+    \ < up(b);\n}\n\nvoid polar_sort(vector<Point>& V) {\n    sort(V.begin(), V.end(),\
+    \ cmp);\n}\n"
   dependsOn:
   - geometry/point.hpp
   isVerificationFile: false
   path: geometry/polar_sort.hpp
   requiredBy: []
-  timestamp: '2024-12-07 00:38:35+09:00'
+  timestamp: '2024-12-08 04:47:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/polar_sort.hpp
