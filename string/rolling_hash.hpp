@@ -12,7 +12,7 @@ struct RollingHash{
     int N;
     vector<u64> hashed, power;
     
-    constexpr u64 mul(const u64& a, const u64& b) const {
+    u64 mul(const u64& a, const u64& b) const {
         u64 au = a >> 31;
         u64 ad = a & MASK31;
         u64 bu = b >> 31;
@@ -23,7 +23,7 @@ struct RollingHash{
         return au * bu * 2 + midu + (midd << 31) + ad * bd;
     }
 
-    constexpr u64 calc_mod(const u64& x) const {
+    u64 calc_mod(const u64& x) const {
         u64 xu = x >> 61;
         u64 xd = x & MASK61;
         u64 ret = xu + xd;
@@ -39,7 +39,7 @@ struct RollingHash{
     }
 
     template<class VType>
-    constexpr RollingHash(const VType& V) {
+    RollingHash(const VType& V) {
         if(base == 0) gen_base();
 
         N = (int)V.size();
@@ -53,7 +53,7 @@ struct RollingHash{
         }
     }
     
-    constexpr u64 get_hash(int l, int r) const {
+    u64 get_hash(int l, int r) const {
         return calc_mod(hashed[r] + POSITIVIZER - mul(hashed[l], power[r - l]));
     }
 };
