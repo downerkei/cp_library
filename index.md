@@ -64,20 +64,8 @@ data:
   - name: geometry
     pages:
     - icon: ':warning:'
-      path: geometry/ccw.hpp
-      title: geometry/ccw.hpp
-    - icon: ':warning:'
-      path: geometry/convex_hull.hpp
-      title: geometry/convex_hull.hpp
-    - icon: ':warning:'
-      path: geometry/dist.hpp
-      title: geometry/dist.hpp
-    - icon: ':warning:'
-      path: geometry/point.hpp
-      title: geometry/point.hpp
-    - icon: ':warning:'
-      path: geometry/polar_sort.hpp
-      title: geometry/polar_sort.hpp
+      path: geometry/geometry.hpp
+      title: geometry/geometry.hpp
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -177,9 +165,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_alds1_5_d.test.cpp
       title: verify/aoj/aoj_alds1_5_d.test.cpp
-    - icon: ':x:'
-      path: verify/aoj/aoj_cgl_4_a.test.cpp
-      title: verify/aoj/aoj_cgl_4_a.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp
