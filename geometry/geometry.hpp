@@ -1,22 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr double EPS = 1e-7;
+
+namespace geometry {
+
+using Real = double;
+constexpr Real EPS = 1e-7;
 
 struct Point {
-    double x, y;
-    constexpr Point(double x=0, double y=0) : x(x), y(y) {}
+    Real x, y;
+    constexpr Point(Real x=0, Real y=0) : x(x), y(y) {}
 
     constexpr Point& operator += (const Point& rhs) { return x += rhs.x, y += rhs.y, *this; }
     constexpr Point& operator -= (const Point& rhs) { return x -= rhs.x, y -= rhs.y, *this; }
-    constexpr Point& operator *= (double k) { return x *= k, y *= k, *this; }
-    constexpr Point& operator /= (double k) { return x /= k, y /= k, *this; }
+    constexpr Point& operator *= (Real k) { return x *= k, y *= k, *this; }
+    constexpr Point& operator /= (Real k) { return x /= k, y /= k, *this; }
 
     constexpr Point operator + (const Point& rhs) const { return Point(*this) += rhs; }
     constexpr Point operator - (const Point& rhs) const { return Point(*this) -= rhs; }
-    constexpr Point operator * (double k) const { return Point(*this) *= k; }
-    constexpr Point operator / (double k) const { return Point(*this) /= k; }
-    friend constexpr Point operator * (double k, const Point& p) { return Point(p.x * k, p.y * k); }
+    constexpr Point operator * (Real k) const { return Point(*this) *= k; }
+    constexpr Point operator / (Real k) const { return Point(*this) /= k; }
+    friend constexpr Point operator * (Real k, const Point& p) { return Point(p.x * k, p.y * k); }
 
     constexpr Point operator - () const { return Point() - *this; }
 
@@ -25,34 +29,34 @@ struct Point {
     constexpr bool operator == (const Point& rhs) const { return fabs(x - rhs.x) < EPS && fabs(y - rhs.y) < EPS; }
     constexpr bool operator != (const Point& rhs) const { return !(*this == rhs); }
 
-    constexpr double norm2() const { return x * x + y * y; }
-    constexpr double norm() const { return sqrt(norm2()); }
-    constexpr double arg() const { return atan2(y, x); }
-    constexpr Point rotate(double theta) const { return Point(x * cos(theta) - y * sin(theta), x * sin(theta) + y * cos(theta)); }
+    constexpr Real norm2() const { return x * x + y * y; }
+    constexpr Real norm() const { return sqrt(norm2()); }
+    constexpr Real arg() const { return atan2(y, x); }
+    constexpr Point rotate(Real theta) const { return Point(x * cos(theta) - y * sin(theta), x * sin(theta) + y * cos(theta)); }
 
     friend istream& operator >> (istream& is, Point& p) { return is >> p.x >> p.y; }
     friend ostream& operator << (ostream& os, const Point& p) { return os << "(" << p.x << ", " << p.y << ")"; }
 
-    friend constexpr double dot(const Point& a, const Point& b) { return a.x * b.x + a.y * b.y; }
-    friend constexpr double cross(const Point& a, const Point& b) { return a.x * b.y - a.y * b.x; }
+    friend constexpr Real dot(const Point& a, const Point& b) { return a.x * b.x + a.y * b.y; }
+    friend constexpr Real cross(const Point& a, const Point& b) { return a.x * b.y - a.y * b.x; }
 
-    friend constexpr double norm2(const Point& p) { return p.norm2(); }
-    friend constexpr double norm(const Point& p) { return p.norm(); }
-    friend constexpr double arg(const Point& p) { return p.arg(); }
+    friend constexpr Real norm2(const Point& p) { return p.norm2(); }
+    friend constexpr Real norm(const Point& p) { return p.norm(); }
+    friend constexpr Real arg(const Point& p) { return p.arg(); }
 };
 
 struct Line {
     Point s, t;
     constexpr Line(Point s=Point(0, 0), Point t=Point(0, 0)) : s(s), t(t) {}
     constexpr Point dir() const { return t - s; }
-    constexpr double norm() const { return dir().norm(); }
+    constexpr Real norm() const { return dir().norm(); }
 
     friend constexpr Point dir(const Line& l) { return l.dir(); }
-    friend constexpr double norm(const Line& l) { return l.norm(); }
+    friend constexpr Real norm(const Line& l) { return l.norm(); }
 };
 
 Point projection(const Line& l, const Point& p) {
-    double t = dot(p - l.s, l.t - l.s) / norm2(l.t - l.s);
+    Real t = dot(p - l.s, l.t - l.s) / norm2(l.t - l.s);
     return l.s + l.dir() * t;
 }
 
@@ -88,29 +92,29 @@ bool is_intersect(const Line& a, const Line& b) {
 }
 
 Point cross_point(const Line& a, const Line& b) {
-    double d1 = cross(a.dir(), b.dir());
-    double d2 = cross(a.dir(), a.t - b.s);
+    Real d1 = cross(a.dir(), b.dir());
+    Real d2 = cross(a.dir(), a.t - b.s);
     return b.s + b.dir() * (d2 / d1);
 }
 
-double dist_lp(const Line& l, const Point& p) {
+Real dist_lp(const Line& l, const Point& p) {
     return abs(cross(l.dir(), p - l.s)) / norm(l);
 }
 
-double dist_sp(const Line& l, const Point& p) {
+Real dist_sp(const Line& l, const Point& p) {
     if(dot(l.dir(), p - l.s) < EPS) return norm(p - l.s);
     if(dot(-l.dir(), p - l.t) < EPS) return norm(p - l.t);
     return dist_lp(l, p);
 }
 
-double dist_ss(const Line& a, const Line& b) {
+Real dist_ss(const Line& a, const Line& b) {
     if(is_intersect(a, b)) return 0;
     return min({dist_sp(a, b.s), dist_sp(a, b.t), dist_sp(b, a.s), dist_sp(b, a.t)});
 }
 
-double area(const vector<Point>& p) {
+Real area(const vector<Point>& p) {
     int sz = p.size();
-    double ret = 0;
+    Real ret = 0;
     for(int i = 0; i < sz; i++) {
         ret += cross(p[i], p[(i + 1) % sz]);
     }
@@ -164,7 +168,7 @@ pair<int, int> diameter(const vector<Point>& p) {
         if(p[i].x < p[left].x) left = i;
         if(p[i].x > p[right].x) right = i;
     }
-    double max_dist = norm2(p[left] - p[right]);
+    Real max_dist = norm2(p[left] - p[right]);
     pair<int, int> ret = {left, right};
     for(int i = 0; i < sz; i++) {
         Point pre = p[(left + 1) % sz] - p[left];
@@ -175,3 +179,5 @@ pair<int, int> diameter(const vector<Point>& p) {
     }
     return ret;
 }
+
+}  // namespace geometry
