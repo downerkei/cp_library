@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 namespace geometry {
 
 using Real = double;
 constexpr Real EPS = 1e-7;
+
+constexpr int sgn(Real a) { return (a < EPS) ? -1 : (EPS < a) ? 1 : 0; }
 
 struct Point {
     Real x, y;
@@ -24,9 +25,9 @@ struct Point {
 
     constexpr Point operator - () const { return Point() - *this; }
 
-    constexpr bool operator < (const Point& rhs) const { return (fabs(x - rhs.x) >= EPS) ? (x < rhs.x) : (y < rhs.y); }
+    constexpr bool operator < (const Point& rhs) const { return sgn(x - rhs.x) ? (x < rhs.x) : (y < rhs.y); }
     constexpr bool operator > (const Point& rhs) const { return rhs < *this; }
-    constexpr bool operator == (const Point& rhs) const { return fabs(x - rhs.x) < EPS && fabs(y - rhs.y) < EPS; }
+    constexpr bool operator == (const Point& rhs) const { return sgn(x - rhs.x) && sgn(y - rhs.y); }
     constexpr bool operator != (const Point& rhs) const { return !(*this == rhs); }
 
     constexpr Real norm2() const { return x * x + y * y; }
@@ -72,19 +73,19 @@ Point reflection(const Line& l, const Point& p) {
 //  0 : a - c - b    : on_segment
 int ccw(const Point& a, Point b, Point c) {
     b -= a, c -= a;
-    if(cross(b, c) > EPS) return 1;
-    if(cross(b, c) < -EPS) return -1;
-    if(dot(b, c) < -EPS) return 2;
+    if(sgn(cross(b, c)) == 1) return 1;
+    if(sgn(cross(b, c)) == -1) return -1;
+    if(sgn(dot(b, c)) == -1) return 2;
     if(b.norm2() < c.norm2()) return -2;
     return 0; 
 }
 
 bool is_parallel(const Line& a, const Line& b) {
-    return fabs(cross(a.dir(), b.dir())) < EPS;
+    return sgn(cross(a.dir(), b.dir())) == 0;
 }
 
 bool is_orthogonal(const Line& a, const Line& b) {
-    return fabs(dot(a.dir(), b.dir())) < EPS;
+    return sgn(dot(a.dir(), b.dir())) == 0;
 }
 
 bool is_intersect(const Line& a, const Line& b) {
@@ -97,87 +98,97 @@ Point cross_point(const Line& a, const Line& b) {
     return b.s + b.dir() * (d2 / d1);
 }
 
+Real dist(const Point& a, const Point& b) {
+    return norm(a - b);
+}
 Real dist_lp(const Line& l, const Point& p) {
     return abs(cross(l.dir(), p - l.s)) / norm(l);
 }
-
 Real dist_sp(const Line& l, const Point& p) {
-    if(dot(l.dir(), p - l.s) < EPS) return norm(p - l.s);
-    if(dot(-l.dir(), p - l.t) < EPS) return norm(p - l.t);
+    if(sgn(dot(l.dir(), p - l.s)) == -1) return norm(p - l.s);
+    if(sgn(dot(-l.dir(), p - l.t)) == -1) return norm(p - l.t);
     return dist_lp(l, p);
 }
-
 Real dist_ss(const Line& a, const Line& b) {
     if(is_intersect(a, b)) return 0;
     return min({dist_sp(a, b.s), dist_sp(a, b.t), dist_sp(b, a.s), dist_sp(b, a.t)});
 }
 
-Real area(const vector<Point>& p) {
-    int sz = p.size();
-    Real ret = 0;
-    for(int i = 0; i < sz; i++) {
-        ret += cross(p[i], p[(i + 1) % sz]);
+struct Polygon : public vector<Point> {
+    using vector<Point>::vector;
+    Real area() const {
+        int sz = size();
+        Real ret = 0;
+        for(int i = 0; i < sz; i++) {
+            ret += cross((*this)[i], (*this)[(i + 1) % sz]);
+        }
+        return ret / 2;
     }
-    return ret / 2;
-}
 
-bool is_convex(const vector<Point>& p) {
-    int sz = p.size();
-    for(int i = 0; i < sz; i++) {
-        if(ccw(p[i], p[(i + 1) % sz], p[(i + 2) % sz]) == -1) return false;
+    bool is_convex() const {
+        int sz = size();
+        for(int i = 0; i < sz; i++) {
+            if(ccw((*this)[i], (*this)[(i + 1) % sz], (*this)[(i + 2) % sz]) == -1) false;
+        }
+        return true;
     }
-    return true;
-}
 
-// 2 : contain
-// 1 : on line
-// 0 : outside
-int contain(const vector<Point>& g, const Point& p) {
-    bool in = false;
-    int sz = g.size();
-    for(int i = 0; i < sz; i++) {
-        Point a = g[i] - p, b = g[(i + 1) % sz] - p;
-        if(a.y > b.y) swap(a, b);
-        if(a.y <= EPS && EPS <= b.y && EPS <= cross(a, b)) in ^= 1;
-        if(fabs(cross(a, b)) < EPS && dot(a, b) < EPS) return 1;
+    // 2 : contain
+    // 1 : on line
+    // 0 : outside
+    int contain(const Point& p) const {
+        bool in = false;
+        int sz = size();
+        for(int i = 0; i < sz; i++) {
+            Point a = (*this)[i] - p;
+            Point b = (*this)[(i + 1) % sz] - p;
+            if(a.y > b.y) std::swap(a, b);
+            if(sgn(a.y) == -1 && sgn(b.y) == 1 && sgn(cross(a, b)) == 1) in ^= 1;
+            if(sgn(cross(a, b)) == -1 && sgn(dot(a, b)) == -1) return 1;
+        }
+        return 2 * in;
     }
-    return 2 * in;
-}
 
-vector<Point> convex_hull(vector<Point> p) {
-    int sz = p.size();
-    sort(p.begin(), p.end());
-    vector<Point> ret;
+    pair<int, int> diameter() const {
+        assert(is_convex());
+        int sz = size();
+        int right = max_element(begin(), end()) - begin();
+        int left = min_element(begin(), end()) - begin();
+        Real max_dist = norm2((*this)[left] - (*this)[right]);
+        pair<int, int> ret = {left, right};
+        for(int i = 0; i < sz; i++) {
+            Point pre = (*this)[(left + 1) % sz] - (*this)[left];
+            Point nxt = (*this)[right] - (*this)[(right + 1) % sz];
+            if(ccw(Point(0, 0), pre, nxt) == 1) left = (left + 1) % sz;
+            else right = (right + 1) % sz;
+            if(norm2((*this)[left] - (*this)[right]) > max_dist) max_dist = norm2((*this)[left] - (*this)[right]), ret = {left, right};
+        }
+        return ret;
+    }
+
+    friend Real area(const Polygon& pol) { return pol.area(); }
+    friend bool is_convex(const Polygon& pol) { return pol.is_convex(); }
+    friend int contain(const Polygon& pol, const Point& p) { return pol.contain(p); }
+    friend pair<int, int> diameter(const Polygon& pol) { return pol.diameter(); } 
+};
+
+Polygon convex_hull(Polygon pol) {
+    int sz = pol.size();
+    sort(pol.begin(), pol.end());
+    Polygon ret;
     for(int i = 0; i < sz; i++) {
-        while(ret.size() > 1 && ccw(ret[ret.size() - 2], ret.back(), p[i]) == -1) ret.pop_back();
-        ret.push_back(p[i]);
+        while(ret.size() > 1 && ccw(ret[ret.size() - 2], ret.back(), pol[i]) == -1) ret.pop_back();
+        ret.push_back(pol[i]);
     }
     int t = ret.size();
     for(int i = sz - 2; i >= 0; i--) {
-        while(ret.size() > t && ccw(ret[ret.size() - 2], ret.back(), p[i]) == -1) ret.pop_back();
-        ret.push_back(p[i]);
+        while(ret.size() > t && ccw(ret[ret.size() - 2], ret.back(), pol[i]) == -1) ret.pop_back();
+        ret.push_back(pol[i]);
     }
     ret.pop_back();
     return ret;
 }
 
-pair<int, int> diameter(const vector<Point>& p) {
-    int sz = p.size();
-    int right = 0, left = 0;
-    for(int i = 0; i < sz; i++) {
-        if(p[i].x < p[left].x) left = i;
-        if(p[i].x > p[right].x) right = i;
-    }
-    Real max_dist = norm2(p[left] - p[right]);
-    pair<int, int> ret = {left, right};
-    for(int i = 0; i < sz; i++) {
-        Point pre = p[(left + 1) % sz] - p[left];
-        Point nxt = p[right] - p[(right + 1) % sz];
-        if(ccw(Point(0, 0), pre, nxt) == 1) left = (left + 1) % sz;
-        else right = (right + 1) % sz;
-        if(norm2(p[left] - p[right]) > max_dist) max_dist = norm2(p[left] - p[right]), ret = {left, right};
-    }
-    return ret;
-}
-
 }  // namespace geometry
+
+using namespace geometry;
