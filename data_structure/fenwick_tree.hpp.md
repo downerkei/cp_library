@@ -41,8 +41,8 @@ data:
   timestamp: '2024-11-16 03:55:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
   - verify/aoj/aoj_alds1_5_d.test.cpp
+  - verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
 documentation_of: data_structure/fenwick_tree.hpp
 layout: document
 redirect_from:

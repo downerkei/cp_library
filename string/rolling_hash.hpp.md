@@ -72,8 +72,8 @@ data:
   timestamp: '2024-12-08 06:19:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo/yosupo_enumerate_palindromes.test.cpp
   - verify/yosupo/yosupo_zalgorithm.test.cpp
+  - verify/yosupo/yosupo_enumerate_palindromes.test.cpp
 documentation_of: string/rolling_hash.hpp
 layout: document
 redirect_from:
