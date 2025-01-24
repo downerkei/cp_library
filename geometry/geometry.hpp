@@ -189,17 +189,15 @@ Polygon convex_hull(Polygon pol) {
     return ret;
 }
 
-Real convex_cut_area(const Polygon& pol, const Line& l) {
+Polygon convex_cut(const Polygon& pol, const Line& l) {
     int sz = pol.size();
-    Real ret = 0;
-    for(int i = 0; i < sz; i++) {
-        if(ccw(l.s, l.t, pol[i]) == 1) ret += cross(l.dir(), pol[i]); 
-        if(sgn(ccw(l.s, l.t, pol[i])) != sgn(ccw(l.s, l.t, pol[(i + 1) % sz])) && ccw(l.s, l.t, pol[i]) != 0) {
-            Point crs = cross_point(Line(pol[i], pol[(i + 1) % sz]), l);
-            ret += cross(l.dir(), crs);
-        } 
+    Polygon ret;
+    for(int i = 0; i < pol.size(); i++) {
+        int t1 = sgn(cross(l.dir(), pol[i] - l.s)), t2 = sgn(cross(l.dir(), pol[(i + 1) % sz] - l.s));
+        if(t1 >= 0) ret.push_back(pol[i]); 
+        if(t1 * t2 < 0) ret.push_back(cross_point(Line(pol[i], pol[(i + 1) % sz]), l));
     }
-    return ret / 2;
+    return ret;
 }
 
 }  // namespace geometry
