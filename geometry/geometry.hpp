@@ -6,7 +6,7 @@ namespace geometry {
 using Real = double;
 constexpr Real EPS = 1e-7;
 
-constexpr int sgn(Real a) { return (a < EPS) ? -1 : (EPS < a) ? 1 : 0; }
+constexpr int sgn(Real a) { return (a < -EPS) ? -1 : (EPS < a) ? 1 : 0; }
 
 struct Point {
     Real x, y;
