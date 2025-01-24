@@ -10,7 +10,7 @@ data:
     links: []
   bundledCode: "#line 1 \"geometry/geometry.hpp\"\n#include <bits/stdc++.h>\nusing\
     \ namespace std;\n\nnamespace geometry {\n\nusing Real = double;\nconstexpr Real\
-    \ EPS = 1e-7;\n\nconstexpr int sgn(Real a) { return (a < EPS) ? -1 : (EPS < a)\
+    \ EPS = 1e-7;\n\nconstexpr int sgn(Real a) { return (a < -EPS) ? -1 : (EPS < a)\
     \ ? 1 : 0; }\n\nstruct Point {\n    Real x, y;\n    constexpr Point(Real x=0,\
     \ Real y=0) : x(x), y(y) {}\n\n    constexpr Point& operator += (const Point&\
     \ rhs) { return x += rhs.x, y += rhs.y, *this; }\n    constexpr Point& operator\
@@ -103,8 +103,8 @@ data:
     \    return ret;\n}\n\n}  // namespace geometry\n\nusing namespace geometry;\n"
   code: "#include <bits/stdc++.h>\nusing namespace std;\n\nnamespace geometry {\n\n\
     using Real = double;\nconstexpr Real EPS = 1e-7;\n\nconstexpr int sgn(Real a)\
-    \ { return (a < EPS) ? -1 : (EPS < a) ? 1 : 0; }\n\nstruct Point {\n    Real x,\
-    \ y;\n    constexpr Point(Real x=0, Real y=0) : x(x), y(y) {}\n\n    constexpr\
+    \ { return (a < -EPS) ? -1 : (EPS < a) ? 1 : 0; }\n\nstruct Point {\n    Real\
+    \ x, y;\n    constexpr Point(Real x=0, Real y=0) : x(x), y(y) {}\n\n    constexpr\
     \ Point& operator += (const Point& rhs) { return x += rhs.x, y += rhs.y, *this;\
     \ }\n    constexpr Point& operator -= (const Point& rhs) { return x -= rhs.x,\
     \ y -= rhs.y, *this; }\n    constexpr Point& operator *= (Real k) { return x *=\
@@ -198,7 +198,7 @@ data:
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2025-01-24 23:30:10+09:00'
+  timestamp: '2025-01-25 00:04:21+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/geometry.hpp
