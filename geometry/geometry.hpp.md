@@ -100,13 +100,12 @@ data:
     \    }\n    int t = ret.size();\n    for(int i = sz - 2; i >= 0; i--) {\n    \
     \    while(ret.size() > t && ccw(ret[ret.size() - 2], ret.back(), pol[i]) == -1)\
     \ ret.pop_back();\n        ret.push_back(pol[i]);\n    }\n    ret.pop_back();\n\
-    \    return ret;\n}\n\nReal convex_cut_area(const Polygon& pol, const Line& l)\
-    \ {\n    int sz = pol.size();\n    Real ret = 0;\n    for(int i = 0; i < sz; i++)\
-    \ {\n        if(ccw(l.s, l.t, pol[i]) == 1) ret += cross(l.dir(), pol[i]); \n\
-    \        if(sgn(ccw(l.s, l.t, pol[i])) != sgn(ccw(l.s, l.t, pol[(i + 1) % sz]))\
-    \ && ccw(l.s, l.t, pol[i]) != 0) {\n            Point crs = cross_point(Line(pol[i],\
-    \ pol[(i + 1) % sz]), l);\n            ret += cross(l.dir(), crs);\n        }\
-    \ \n    }\n    return ret / 2;\n}\n\n}  // namespace geometry\n\nusing namespace\
+    \    return ret;\n}\n\nPolygon convex_cut(const Polygon& pol, const Line& l) {\n\
+    \    int sz = pol.size();\n    Polygon ret;\n    for(int i = 0; i < pol.size();\
+    \ i++) {\n        int t1 = sgn(cross(l.dir(), pol[i] - l.s)), t2 = sgn(cross(l.dir(),\
+    \ pol[(i + 1) % sz] - l.s));\n        if(t1 >= 0) ret.push_back(pol[i]); \n  \
+    \      if(t1 * t2 < 0) ret.push_back(cross_point(Line(pol[i], pol[(i + 1) % sz]),\
+    \ l));\n    }\n    return ret;\n}\n\n}  // namespace geometry\n\nusing namespace\
     \ geometry;\n"
   code: "#include <bits/stdc++.h>\nusing namespace std;\n\nnamespace geometry {\n\n\
     using Real = double;\nconstexpr Real EPS = 1e-7;\n\nconstexpr int sgn(Real a)\
@@ -200,19 +199,18 @@ data:
     \    }\n    int t = ret.size();\n    for(int i = sz - 2; i >= 0; i--) {\n    \
     \    while(ret.size() > t && ccw(ret[ret.size() - 2], ret.back(), pol[i]) == -1)\
     \ ret.pop_back();\n        ret.push_back(pol[i]);\n    }\n    ret.pop_back();\n\
-    \    return ret;\n}\n\nReal convex_cut_area(const Polygon& pol, const Line& l)\
-    \ {\n    int sz = pol.size();\n    Real ret = 0;\n    for(int i = 0; i < sz; i++)\
-    \ {\n        if(ccw(l.s, l.t, pol[i]) == 1) ret += cross(l.dir(), pol[i]); \n\
-    \        if(sgn(ccw(l.s, l.t, pol[i])) != sgn(ccw(l.s, l.t, pol[(i + 1) % sz]))\
-    \ && ccw(l.s, l.t, pol[i]) != 0) {\n            Point crs = cross_point(Line(pol[i],\
-    \ pol[(i + 1) % sz]), l);\n            ret += cross(l.dir(), crs);\n        }\
-    \ \n    }\n    return ret / 2;\n}\n\n}  // namespace geometry\n\nusing namespace\
+    \    return ret;\n}\n\nPolygon convex_cut(const Polygon& pol, const Line& l) {\n\
+    \    int sz = pol.size();\n    Polygon ret;\n    for(int i = 0; i < pol.size();\
+    \ i++) {\n        int t1 = sgn(cross(l.dir(), pol[i] - l.s)), t2 = sgn(cross(l.dir(),\
+    \ pol[(i + 1) % sz] - l.s));\n        if(t1 >= 0) ret.push_back(pol[i]); \n  \
+    \      if(t1 * t2 < 0) ret.push_back(cross_point(Line(pol[i], pol[(i + 1) % sz]),\
+    \ l));\n    }\n    return ret;\n}\n\n}  // namespace geometry\n\nusing namespace\
     \ geometry;"
   dependsOn: []
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2025-01-25 03:17:14+09:00'
+  timestamp: '2025-01-25 03:19:56+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/geometry.hpp
