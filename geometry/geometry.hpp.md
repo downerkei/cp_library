@@ -105,8 +105,19 @@ data:
     \ i++) {\n        int t1 = sgn(cross(l.dir(), pol[i] - l.s)), t2 = sgn(cross(l.dir(),\
     \ pol[(i + 1) % sz] - l.s));\n        if(t1 >= 0) ret.push_back(pol[i]); \n  \
     \      if(t1 * t2 < 0) ret.push_back(cross_point(Line(pol[i], pol[(i + 1) % sz]),\
-    \ l));\n    }\n    return ret;\n}\n\n}  // namespace geometry\n\nusing namespace\
-    \ geometry;\n"
+    \ l));\n    }\n    return ret;\n}\n\nReal closest_pair(vector<Point> ps) {\n \
+    \   auto rec = [](auto f, vector<Point>& ps, int l, int r) -> Real {\n       \
+    \ if(r - l < 2) return 1e100;\n        int mid = (l + r) / 2;\n        Real x\
+    \ = ps[mid].x;\n        Real d = min(f(f, ps, l, mid), f(f, ps, mid, r));\n  \
+    \      auto it = ps.begin(), itl = it + l, itm = it + mid, itr = it + r;\n   \
+    \     inplace_merge(itl, itm, itr, [](Point a, Point b) { return a.y < b.y; });\n\
+    \        vector<Point> near_line;\n        for(int i = l; i < r; i++) {\n    \
+    \        if(abs(ps[i].x - x) >= d) continue;\n            int sz = near_line.size();\n\
+    \            for(int j = sz; j--;) {\n                if(ps[i].y - near_line[j].y\
+    \ >= d) break;\n                d = min(d, dist(ps[i], near_line[j]));\n     \
+    \       }\n            near_line.push_back(ps[i]);\n        }\n        return\
+    \ d;\n    };\n    sort(ps.begin(), ps.end());\n    return rec(rec, ps, 0, ps.size());\n\
+    }\n\n}  // namespace geometry\n\nusing namespace geometry;\n"
   code: "#include <bits/stdc++.h>\nusing namespace std;\n\nnamespace geometry {\n\n\
     using Real = double;\nconstexpr Real EPS = 1e-7;\n\nconstexpr int sgn(Real a)\
     \ { return (a < -EPS) ? -1 : (EPS < a) ? 1 : 0; }\n\nstruct Point {\n    Real\
@@ -204,13 +215,24 @@ data:
     \ i++) {\n        int t1 = sgn(cross(l.dir(), pol[i] - l.s)), t2 = sgn(cross(l.dir(),\
     \ pol[(i + 1) % sz] - l.s));\n        if(t1 >= 0) ret.push_back(pol[i]); \n  \
     \      if(t1 * t2 < 0) ret.push_back(cross_point(Line(pol[i], pol[(i + 1) % sz]),\
-    \ l));\n    }\n    return ret;\n}\n\n}  // namespace geometry\n\nusing namespace\
-    \ geometry;"
+    \ l));\n    }\n    return ret;\n}\n\nReal closest_pair(vector<Point> ps) {\n \
+    \   auto rec = [](auto f, vector<Point>& ps, int l, int r) -> Real {\n       \
+    \ if(r - l < 2) return 1e100;\n        int mid = (l + r) / 2;\n        Real x\
+    \ = ps[mid].x;\n        Real d = min(f(f, ps, l, mid), f(f, ps, mid, r));\n  \
+    \      auto it = ps.begin(), itl = it + l, itm = it + mid, itr = it + r;\n   \
+    \     inplace_merge(itl, itm, itr, [](Point a, Point b) { return a.y < b.y; });\n\
+    \        vector<Point> near_line;\n        for(int i = l; i < r; i++) {\n    \
+    \        if(abs(ps[i].x - x) >= d) continue;\n            int sz = near_line.size();\n\
+    \            for(int j = sz; j--;) {\n                if(ps[i].y - near_line[j].y\
+    \ >= d) break;\n                d = min(d, dist(ps[i], near_line[j]));\n     \
+    \       }\n            near_line.push_back(ps[i]);\n        }\n        return\
+    \ d;\n    };\n    sort(ps.begin(), ps.end());\n    return rec(rec, ps, 0, ps.size());\n\
+    }\n\n}  // namespace geometry\n\nusing namespace geometry;"
   dependsOn: []
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2025-01-25 03:19:56+09:00'
+  timestamp: '2025-01-27 04:18:58+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/geometry.hpp
