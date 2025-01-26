@@ -200,6 +200,30 @@ Polygon convex_cut(const Polygon& pol, const Line& l) {
     return ret;
 }
 
+Real closest_pair(vector<Point> ps) {
+    auto rec = [](auto f, vector<Point>& ps, int l, int r) -> Real {
+        if(r - l < 2) return 1e100;
+        int mid = (l + r) / 2;
+        Real x = ps[mid].x;
+        Real d = min(f(f, ps, l, mid), f(f, ps, mid, r));
+        auto it = ps.begin(), itl = it + l, itm = it + mid, itr = it + r;
+        inplace_merge(itl, itm, itr, [](Point a, Point b) { return a.y < b.y; });
+        vector<Point> near_line;
+        for(int i = l; i < r; i++) {
+            if(abs(ps[i].x - x) >= d) continue;
+            int sz = near_line.size();
+            for(int j = sz; j--;) {
+                if(ps[i].y - near_line[j].y >= d) break;
+                d = min(d, dist(ps[i], near_line[j]));
+            }
+            near_line.push_back(ps[i]);
+        }
+        return d;
+    };
+    sort(ps.begin(), ps.end());
+    return rec(rec, ps, 0, ps.size());
+}
+
 }  // namespace geometry
 
 using namespace geometry;
