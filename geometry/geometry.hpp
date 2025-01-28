@@ -27,7 +27,7 @@ struct Point {
 
     constexpr bool operator < (const Point& rhs) const { return sgn(x - rhs.x) ? (x < rhs.x) : (y < rhs.y); }
     constexpr bool operator > (const Point& rhs) const { return rhs < *this; }
-    constexpr bool operator == (const Point& rhs) const { return sgn(x - rhs.x) && sgn(y - rhs.y); }
+    constexpr bool operator == (const Point& rhs) const { return !sgn(x - rhs.x) && !sgn(y - rhs.y); }
     constexpr bool operator != (const Point& rhs) const { return !(*this == rhs); }
 
     constexpr Real norm2() const { return x * x + y * y; }
