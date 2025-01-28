@@ -117,7 +117,13 @@ data:
     \ >= d) break;\n                d = min(d, dist(ps[i], near_line[j]));\n     \
     \       }\n            near_line.push_back(ps[i]);\n        }\n        return\
     \ d;\n    };\n    sort(ps.begin(), ps.end());\n    return rec(rec, ps, 0, ps.size());\n\
-    }\n\n}  // namespace geometry\n\nusing namespace geometry;\n"
+    }\n\nstruct Circle {\n    Point p;\n    Real r;\n    Circle() : p(Point(0, 0)),\
+    \ r(0) {}\n    Circle(Point p, Real r) : p(p), r(r) {}\n\n    int intersection(const\
+    \ Circle& c) {\n        Real d = dist(p, c.p);\n        if(sgn(d - (r + c.r))\
+    \ == 1) return 4;\n        if(sgn(d - (r + c.r)) == 0) return 3;\n        if(sgn(d\
+    \ - abs(r - c.r)) == 1) return 2;\n        if(sgn(d - abs(r - c.r)) == 0) return\
+    \ 1;\n        return 0;\n    }\n};\n\n}  // namespace geometry\n\nusing namespace\
+    \ geometry;\n"
   code: "#include <bits/stdc++.h>\nusing namespace std;\n\nnamespace geometry {\n\n\
     using Real = double;\nconstexpr Real EPS = 1e-7;\n\nconstexpr int sgn(Real a)\
     \ { return (a < -EPS) ? -1 : (EPS < a) ? 1 : 0; }\n\nstruct Point {\n    Real\
@@ -227,12 +233,18 @@ data:
     \ >= d) break;\n                d = min(d, dist(ps[i], near_line[j]));\n     \
     \       }\n            near_line.push_back(ps[i]);\n        }\n        return\
     \ d;\n    };\n    sort(ps.begin(), ps.end());\n    return rec(rec, ps, 0, ps.size());\n\
-    }\n\n}  // namespace geometry\n\nusing namespace geometry;"
+    }\n\nstruct Circle {\n    Point p;\n    Real r;\n    Circle() : p(Point(0, 0)),\
+    \ r(0) {}\n    Circle(Point p, Real r) : p(p), r(r) {}\n\n    int intersection(const\
+    \ Circle& c) {\n        Real d = dist(p, c.p);\n        if(sgn(d - (r + c.r))\
+    \ == 1) return 4;\n        if(sgn(d - (r + c.r)) == 0) return 3;\n        if(sgn(d\
+    \ - abs(r - c.r)) == 1) return 2;\n        if(sgn(d - abs(r - c.r)) == 0) return\
+    \ 1;\n        return 0;\n    }\n};\n\n}  // namespace geometry\n\nusing namespace\
+    \ geometry;"
   dependsOn: []
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2025-01-27 04:18:58+09:00'
+  timestamp: '2025-01-29 03:22:45+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/geometry.hpp
