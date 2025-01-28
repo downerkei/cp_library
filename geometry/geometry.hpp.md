@@ -26,8 +26,8 @@ data:
     \ Point() - *this; }\n\n    constexpr bool operator < (const Point& rhs) const\
     \ { return sgn(x - rhs.x) ? (x < rhs.x) : (y < rhs.y); }\n    constexpr bool operator\
     \ > (const Point& rhs) const { return rhs < *this; }\n    constexpr bool operator\
-    \ == (const Point& rhs) const { return sgn(x - rhs.x) && sgn(y - rhs.y); }\n \
-    \   constexpr bool operator != (const Point& rhs) const { return !(*this == rhs);\
+    \ == (const Point& rhs) const { return !sgn(x - rhs.x) && !sgn(y - rhs.y); }\n\
+    \    constexpr bool operator != (const Point& rhs) const { return !(*this == rhs);\
     \ }\n\n    constexpr Real norm2() const { return x * x + y * y; }\n    constexpr\
     \ Real norm() const { return sqrt(norm2()); }\n    constexpr Real arg() const\
     \ { return atan2(y, x); }\n    constexpr Point rotate(Real theta) const { return\
@@ -142,9 +142,9 @@ data:
     \ operator < (const Point& rhs) const { return sgn(x - rhs.x) ? (x < rhs.x) :\
     \ (y < rhs.y); }\n    constexpr bool operator > (const Point& rhs) const { return\
     \ rhs < *this; }\n    constexpr bool operator == (const Point& rhs) const { return\
-    \ sgn(x - rhs.x) && sgn(y - rhs.y); }\n    constexpr bool operator != (const Point&\
-    \ rhs) const { return !(*this == rhs); }\n\n    constexpr Real norm2() const {\
-    \ return x * x + y * y; }\n    constexpr Real norm() const { return sqrt(norm2());\
+    \ !sgn(x - rhs.x) && !sgn(y - rhs.y); }\n    constexpr bool operator != (const\
+    \ Point& rhs) const { return !(*this == rhs); }\n\n    constexpr Real norm2()\
+    \ const { return x * x + y * y; }\n    constexpr Real norm() const { return sqrt(norm2());\
     \ }\n    constexpr Real arg() const { return atan2(y, x); }\n    constexpr Point\
     \ rotate(Real theta) const { return Point(x * cos(theta) - y * sin(theta), x *\
     \ sin(theta) + y * cos(theta)); }\n\n    friend istream& operator >> (istream&\
@@ -244,7 +244,7 @@ data:
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2025-01-29 03:22:45+09:00'
+  timestamp: '2025-01-29 03:27:58+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/geometry.hpp
