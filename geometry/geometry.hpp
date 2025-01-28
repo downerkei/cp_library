@@ -240,6 +240,15 @@ struct Circle {
     }
 };
 
+Circle incircle(const Point& a, const Point& b, const Point& c) {
+    Real d1 = dist(b, c);
+    Real d2 = dist(c, a);
+    Real d3 = dist(a, b);
+    Point ip = (a * d1 + b * d2 + c * d3) / (d1 + d2 + d3);
+    Real r = dist_lp(Line(a, b), ip);
+    return Circle(ip, r);
+}
+
 }  // namespace geometry
 
 using namespace geometry;
