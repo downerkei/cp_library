@@ -122,8 +122,11 @@ data:
     \ Circle& c) {\n        Real d = dist(p, c.p);\n        if(sgn(d - (r + c.r))\
     \ == 1) return 4;\n        if(sgn(d - (r + c.r)) == 0) return 3;\n        if(sgn(d\
     \ - abs(r - c.r)) == 1) return 2;\n        if(sgn(d - abs(r - c.r)) == 0) return\
-    \ 1;\n        return 0;\n    }\n};\n\n}  // namespace geometry\n\nusing namespace\
-    \ geometry;\n"
+    \ 1;\n        return 0;\n    }\n};\n\nCircle incircle(const Point& a, const Point&\
+    \ b, const Point& c) {\n    Real d1 = dist(b, c);\n    Real d2 = dist(c, a);\n\
+    \    Real d3 = dist(a, b);\n    Point ip = (a * d1 + b * d2 + c * d3) / (d1 +\
+    \ d2 + d3);\n    Real r = dist_lp(Line(a, b), ip);\n    return Circle(ip, r);\n\
+    }\n\n}  // namespace geometry\n\nusing namespace geometry;\n"
   code: "#include <bits/stdc++.h>\nusing namespace std;\n\nnamespace geometry {\n\n\
     using Real = double;\nconstexpr Real EPS = 1e-7;\n\nconstexpr int sgn(Real a)\
     \ { return (a < -EPS) ? -1 : (EPS < a) ? 1 : 0; }\n\nstruct Point {\n    Real\
@@ -238,13 +241,16 @@ data:
     \ Circle& c) {\n        Real d = dist(p, c.p);\n        if(sgn(d - (r + c.r))\
     \ == 1) return 4;\n        if(sgn(d - (r + c.r)) == 0) return 3;\n        if(sgn(d\
     \ - abs(r - c.r)) == 1) return 2;\n        if(sgn(d - abs(r - c.r)) == 0) return\
-    \ 1;\n        return 0;\n    }\n};\n\n}  // namespace geometry\n\nusing namespace\
-    \ geometry;"
+    \ 1;\n        return 0;\n    }\n};\n\nCircle incircle(const Point& a, const Point&\
+    \ b, const Point& c) {\n    Real d1 = dist(b, c);\n    Real d2 = dist(c, a);\n\
+    \    Real d3 = dist(a, b);\n    Point ip = (a * d1 + b * d2 + c * d3) / (d1 +\
+    \ d2 + d3);\n    Real r = dist_lp(Line(a, b), ip);\n    return Circle(ip, r);\n\
+    }\n\n}  // namespace geometry\n\nusing namespace geometry;"
   dependsOn: []
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2025-01-29 03:27:58+09:00'
+  timestamp: '2025-01-29 07:02:18+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/geometry.hpp
