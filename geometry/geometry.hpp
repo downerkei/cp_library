@@ -224,6 +224,22 @@ Real closest_pair(vector<Point> ps) {
     return rec(rec, ps, 0, ps.size());
 }
 
+struct Circle {
+    Point p;
+    Real r;
+    Circle() : p(Point(0, 0)), r(0) {}
+    Circle(Point p, Real r) : p(p), r(r) {}
+
+    int intersection(const Circle& c) {
+        Real d = dist(p, c.p);
+        if(sgn(d - (r + c.r)) == 1) return 4;
+        if(sgn(d - (r + c.r)) == 0) return 3;
+        if(sgn(d - abs(r - c.r)) == 1) return 2;
+        if(sgn(d - abs(r - c.r)) == 0) return 1;
+        return 0;
+    }
+};
+
 }  // namespace geometry
 
 using namespace geometry;
