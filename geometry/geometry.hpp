@@ -33,7 +33,8 @@ struct Point {
     constexpr Real norm2() const { return x * x + y * y; }
     constexpr Real norm() const { return sqrt(norm2()); }
     constexpr Real arg() const { return atan2(y, x); }
-    constexpr Point rotate(Real theta) const { return Point(x * cos(theta) - y * sin(theta), x * sin(theta) + y * cos(theta)); }
+    constexpr Point rot(Real theta) const { return Point(x * cos(theta) - y * sin(theta), x * sin(theta) + y * cos(theta)); }
+    constexpr Point rot90() const { return Point(-y, x); }
 
     friend istream& operator >> (istream& is, Point& p) { return is >> p.x >> p.y; }
     friend ostream& operator << (ostream& os, const Point& p) { return os << "(" << p.x << ", " << p.y << ")"; }
@@ -44,6 +45,8 @@ struct Point {
     friend constexpr Real norm2(const Point& p) { return p.norm2(); }
     friend constexpr Real norm(const Point& p) { return p.norm(); }
     friend constexpr Real arg(const Point& p) { return p.arg(); }
+    friend constexpr Point rot(const Point& p, Real theta) { return p.rot(theta); }
+    friend constexpr Point rot90(const Point& p) { return p.rot90(); }
 };
 
 struct Line {
@@ -98,6 +101,9 @@ Point cross_point(const Line& a, const Line& b) {
     return b.s + b.dir() * (d2 / d1);
 }
 
+Real dist2(const Point& a, const Point& b) {
+    return norm2(a - b);
+}
 Real dist(const Point& a, const Point& b) {
     return norm(a - b);
 }
@@ -247,6 +253,14 @@ Circle incircle(const Point& a, const Point& b, const Point& c) {
     Point ip = (a * d1 + b * d2 + c * d3) / (d1 + d2 + d3);
     Real r = dist_lp(Line(a, b), ip);
     return Circle(ip, r);
+}
+
+Circle outcircle(const Point& a, const Point& b, const Point& c) {
+    Line l1((a + b) / 2, (a + b) / 2 + rot90(b - a));
+    Line l2((b + c) / 2, (b + c) / 2 + rot90(c - b));
+    Point op = cross_point(l1, l2);
+    Real r = dist(op, a);
+    return Circle(op, r);
 }
 
 }  // namespace geometry
