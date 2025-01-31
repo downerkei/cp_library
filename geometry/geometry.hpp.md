@@ -78,29 +78,29 @@ data:
     \ + 1) % sz]);\n        }\n        return ret / 2;\n    }\n\n    bool is_convex()\
     \ const {\n        int sz = size();\n        for(int i = 0; i < sz; i++) {\n \
     \           if(ccw((*this)[i], (*this)[(i + 1) % sz], (*this)[(i + 2) % sz]) ==\
-    \ -1) false;\n        }\n        return true;\n    }\n\n    \n\n    pair<int,\
-    \ int> diameter() const {\n        assert(is_convex());\n        int sz = size();\n\
-    \        int right = max_element(begin(), end()) - begin();\n        int left\
-    \ = min_element(begin(), end()) - begin();\n        Real max_dist = norm2((*this)[left]\
-    \ - (*this)[right]);\n        pair<int, int> ret = {left, right};\n        for(int\
-    \ i = 0; i < sz; i++) {\n            Point pre = (*this)[(left + 1) % sz] - (*this)[left];\n\
-    \            Point nxt = (*this)[right] - (*this)[(right + 1) % sz];\n       \
-    \     if(ccw(Point(0, 0), pre, nxt) == 1) left = (left + 1) % sz;\n          \
-    \  else right = (right + 1) % sz;\n            if(norm2((*this)[left] - (*this)[right])\
-    \ > max_dist) max_dist = norm2((*this)[left] - (*this)[right]), ret = {left, right};\n\
-    \        }\n        return ret;\n    }\n\n    friend Real area(const Polygon&\
-    \ pol) { return pol.area(); }\n    friend bool is_convex(const Polygon& pol) {\
-    \ return pol.is_convex(); }\n    friend pair<int, int> diameter(const Polygon&\
-    \ pol) { return pol.diameter(); } \n};\n\n// 2 : contain\n// 1 : on line\n// 0\
-    \ : outside\nint contain(const Polygon& pol, const Point& p) {\n    bool in =\
-    \ false;\n    int sz = pol.size();\n    for(int i = 0; i < sz; i++) {\n      \
-    \  Point a = pol[i] - p;\n        Point b = pol[(i + 1) % sz] - p;\n        if(a.y\
-    \ > b.y) swap(a, b);\n        if(sgn(a.y) == -1 && sgn(b.y) == 1 && sgn(cross(a,\
-    \ b)) == 1) in ^= 1;\n        if(sgn(cross(a, b)) == -1 && sgn(dot(a, b)) == -1)\
-    \ return 1;\n    }\n    return 2 * in;\n}\n\nPolygon convex_hull(Polygon pol)\
-    \ {\n    int sz = pol.size();\n    sort(pol.begin(), pol.end());\n    Polygon\
-    \ ret;\n    for(int i = 0; i < sz; i++) {\n        while(ret.size() > 1 && ccw(ret[ret.size()\
-    \ - 2], ret.back(), pol[i]) == -1) ret.pop_back();\n        ret.push_back(pol[i]);\n\
+    \ -1) false;\n        }\n        return true;\n    }\n\n    pair<int, int> diameter()\
+    \ const {\n        assert(is_convex());\n        int sz = size();\n        int\
+    \ right = max_element(begin(), end()) - begin();\n        int left = min_element(begin(),\
+    \ end()) - begin();\n        Real max_dist = norm2((*this)[left] - (*this)[right]);\n\
+    \        pair<int, int> ret = {left, right};\n        for(int i = 0; i < sz; i++)\
+    \ {\n            Point pre = (*this)[(left + 1) % sz] - (*this)[left];\n     \
+    \       Point nxt = (*this)[right] - (*this)[(right + 1) % sz];\n            if(ccw(Point(0,\
+    \ 0), pre, nxt) == 1) left = (left + 1) % sz;\n            else right = (right\
+    \ + 1) % sz;\n            if(norm2((*this)[left] - (*this)[right]) > max_dist)\
+    \ max_dist = norm2((*this)[left] - (*this)[right]), ret = {left, right};\n   \
+    \     }\n        return ret;\n    }\n\n    friend Real area(const Polygon& pol)\
+    \ { return pol.area(); }\n    friend bool is_convex(const Polygon& pol) { return\
+    \ pol.is_convex(); }\n    friend pair<int, int> diameter(const Polygon& pol) {\
+    \ return pol.diameter(); } \n};\n\n// 2 : contain\n// 1 : on line\n// 0 : outside\n\
+    int contain(const Polygon& pol, const Point& p) {\n    bool in = false;\n    int\
+    \ sz = pol.size();\n    for(int i = 0; i < sz; i++) {\n        Point a = pol[i]\
+    \ - p;\n        Point b = pol[(i + 1) % sz] - p;\n        if(a.y > b.y) swap(a,\
+    \ b);\n        if(sgn(a.y) == -1 && sgn(b.y) == 1 && sgn(cross(a, b)) == 1) in\
+    \ ^= 1;\n        if(sgn(cross(a, b)) == -1 && sgn(dot(a, b)) == -1) return 1;\n\
+    \    }\n    return 2 * in;\n}\n\nPolygon convex_hull(Polygon pol) {\n    int sz\
+    \ = pol.size();\n    sort(pol.begin(), pol.end());\n    Polygon ret;\n    for(int\
+    \ i = 0; i < sz; i++) {\n        while(ret.size() > 1 && ccw(ret[ret.size() -\
+    \ 2], ret.back(), pol[i]) == -1) ret.pop_back();\n        ret.push_back(pol[i]);\n\
     \    }\n    int t = ret.size();\n    for(int i = sz - 2; i >= 0; i--) {\n    \
     \    while(ret.size() > t && ccw(ret[ret.size() - 2], ret.back(), pol[i]) == -1)\
     \ ret.pop_back();\n        ret.push_back(pol[i]);\n    }\n    ret.pop_back();\n\
@@ -142,8 +142,19 @@ data:
     \ c2.p);\n    Real theta = acos((c1.r * c1.r + d * d - c2.r * c2.r) / (2 * c1.r\
     \ * d));\n    Real phi = arg(c2.p - c1.p);\n    Point p1 = c1.p + polar(c1.r,\
     \ phi - theta);\n    Point p2 = c1.p + polar(c1.r, phi + theta);\n    if(p1 >\
-    \ p2) swap(p1, p2);\n    return {p1, p2};\n}\n\n}  // namespace geometry\n\nusing\
-    \ namespace geometry;\n"
+    \ p2) swap(p1, p2);\n    return {p1, p2};\n}\n\npair<Point, Point> tangent_cp(const\
+    \ Circle& c, const Point& p) {\n    return cross_cc(c, Circle(p, sqrt(norm2(c.p\
+    \ - p) - c.r * c.r)));\n}\n\nvector<Line> tangent_cc(const Circle& c1, const Circle&\
+    \ c2) {\n    vector<Line> ret;\n    Real d = dist_pp(c1.p, c2.p);\n    if(sgn(d)\
+    \ == 0) return {};\n    Point u = Line(c1.p, c2.p).normalize();\n    Point v =\
+    \ rot90(u);\n    for(int s : {-1, 1}) {\n        Real h = (c1.r + c2.r * s) /\
+    \ d;\n        if(sgn(h * h - 1) == 0) ret.push_back(Line(c1.p + h * u * c1.r,\
+    \ c1.p + h * u * c1.r + v));\n        else if(sgn(h * h - 1) == -1) {\n      \
+    \      Point U = u * h;\n            Point V = v * sqrt(1 - h * h);\n        \
+    \    ret.push_back(Line(c1.p + (U + V) * c1.r, c2.p - (U + V) * c2.r * s));\n\
+    \            ret.push_back(Line(c1.p + (U - V) * c1.r, c2.p - (U - V) * c2.r *\
+    \ s));\n        } \n    }\n    return ret;\n}\n\n}  // namespace geometry\n\n\
+    using namespace geometry;\n"
   code: "#include <bits/stdc++.h>\nusing namespace std;\n\nnamespace geometry {\n\n\
     using Real = double;\nconstexpr Real EPS = 1e-7;\n\nconstexpr int sgn(Real a)\
     \ { return (a < -EPS) ? -1 : (EPS < a) ? 1 : 0; }\n\nstruct Point {\n    Real\
@@ -213,29 +224,29 @@ data:
     \ + 1) % sz]);\n        }\n        return ret / 2;\n    }\n\n    bool is_convex()\
     \ const {\n        int sz = size();\n        for(int i = 0; i < sz; i++) {\n \
     \           if(ccw((*this)[i], (*this)[(i + 1) % sz], (*this)[(i + 2) % sz]) ==\
-    \ -1) false;\n        }\n        return true;\n    }\n\n    \n\n    pair<int,\
-    \ int> diameter() const {\n        assert(is_convex());\n        int sz = size();\n\
-    \        int right = max_element(begin(), end()) - begin();\n        int left\
-    \ = min_element(begin(), end()) - begin();\n        Real max_dist = norm2((*this)[left]\
-    \ - (*this)[right]);\n        pair<int, int> ret = {left, right};\n        for(int\
-    \ i = 0; i < sz; i++) {\n            Point pre = (*this)[(left + 1) % sz] - (*this)[left];\n\
-    \            Point nxt = (*this)[right] - (*this)[(right + 1) % sz];\n       \
-    \     if(ccw(Point(0, 0), pre, nxt) == 1) left = (left + 1) % sz;\n          \
-    \  else right = (right + 1) % sz;\n            if(norm2((*this)[left] - (*this)[right])\
-    \ > max_dist) max_dist = norm2((*this)[left] - (*this)[right]), ret = {left, right};\n\
-    \        }\n        return ret;\n    }\n\n    friend Real area(const Polygon&\
-    \ pol) { return pol.area(); }\n    friend bool is_convex(const Polygon& pol) {\
-    \ return pol.is_convex(); }\n    friend pair<int, int> diameter(const Polygon&\
-    \ pol) { return pol.diameter(); } \n};\n\n// 2 : contain\n// 1 : on line\n// 0\
-    \ : outside\nint contain(const Polygon& pol, const Point& p) {\n    bool in =\
-    \ false;\n    int sz = pol.size();\n    for(int i = 0; i < sz; i++) {\n      \
-    \  Point a = pol[i] - p;\n        Point b = pol[(i + 1) % sz] - p;\n        if(a.y\
-    \ > b.y) swap(a, b);\n        if(sgn(a.y) == -1 && sgn(b.y) == 1 && sgn(cross(a,\
-    \ b)) == 1) in ^= 1;\n        if(sgn(cross(a, b)) == -1 && sgn(dot(a, b)) == -1)\
-    \ return 1;\n    }\n    return 2 * in;\n}\n\nPolygon convex_hull(Polygon pol)\
-    \ {\n    int sz = pol.size();\n    sort(pol.begin(), pol.end());\n    Polygon\
-    \ ret;\n    for(int i = 0; i < sz; i++) {\n        while(ret.size() > 1 && ccw(ret[ret.size()\
-    \ - 2], ret.back(), pol[i]) == -1) ret.pop_back();\n        ret.push_back(pol[i]);\n\
+    \ -1) false;\n        }\n        return true;\n    }\n\n    pair<int, int> diameter()\
+    \ const {\n        assert(is_convex());\n        int sz = size();\n        int\
+    \ right = max_element(begin(), end()) - begin();\n        int left = min_element(begin(),\
+    \ end()) - begin();\n        Real max_dist = norm2((*this)[left] - (*this)[right]);\n\
+    \        pair<int, int> ret = {left, right};\n        for(int i = 0; i < sz; i++)\
+    \ {\n            Point pre = (*this)[(left + 1) % sz] - (*this)[left];\n     \
+    \       Point nxt = (*this)[right] - (*this)[(right + 1) % sz];\n            if(ccw(Point(0,\
+    \ 0), pre, nxt) == 1) left = (left + 1) % sz;\n            else right = (right\
+    \ + 1) % sz;\n            if(norm2((*this)[left] - (*this)[right]) > max_dist)\
+    \ max_dist = norm2((*this)[left] - (*this)[right]), ret = {left, right};\n   \
+    \     }\n        return ret;\n    }\n\n    friend Real area(const Polygon& pol)\
+    \ { return pol.area(); }\n    friend bool is_convex(const Polygon& pol) { return\
+    \ pol.is_convex(); }\n    friend pair<int, int> diameter(const Polygon& pol) {\
+    \ return pol.diameter(); } \n};\n\n// 2 : contain\n// 1 : on line\n// 0 : outside\n\
+    int contain(const Polygon& pol, const Point& p) {\n    bool in = false;\n    int\
+    \ sz = pol.size();\n    for(int i = 0; i < sz; i++) {\n        Point a = pol[i]\
+    \ - p;\n        Point b = pol[(i + 1) % sz] - p;\n        if(a.y > b.y) swap(a,\
+    \ b);\n        if(sgn(a.y) == -1 && sgn(b.y) == 1 && sgn(cross(a, b)) == 1) in\
+    \ ^= 1;\n        if(sgn(cross(a, b)) == -1 && sgn(dot(a, b)) == -1) return 1;\n\
+    \    }\n    return 2 * in;\n}\n\nPolygon convex_hull(Polygon pol) {\n    int sz\
+    \ = pol.size();\n    sort(pol.begin(), pol.end());\n    Polygon ret;\n    for(int\
+    \ i = 0; i < sz; i++) {\n        while(ret.size() > 1 && ccw(ret[ret.size() -\
+    \ 2], ret.back(), pol[i]) == -1) ret.pop_back();\n        ret.push_back(pol[i]);\n\
     \    }\n    int t = ret.size();\n    for(int i = sz - 2; i >= 0; i--) {\n    \
     \    while(ret.size() > t && ccw(ret[ret.size() - 2], ret.back(), pol[i]) == -1)\
     \ ret.pop_back();\n        ret.push_back(pol[i]);\n    }\n    ret.pop_back();\n\
@@ -277,13 +288,24 @@ data:
     \ c2.p);\n    Real theta = acos((c1.r * c1.r + d * d - c2.r * c2.r) / (2 * c1.r\
     \ * d));\n    Real phi = arg(c2.p - c1.p);\n    Point p1 = c1.p + polar(c1.r,\
     \ phi - theta);\n    Point p2 = c1.p + polar(c1.r, phi + theta);\n    if(p1 >\
-    \ p2) swap(p1, p2);\n    return {p1, p2};\n}\n\n}  // namespace geometry\n\nusing\
-    \ namespace geometry;\n"
+    \ p2) swap(p1, p2);\n    return {p1, p2};\n}\n\npair<Point, Point> tangent_cp(const\
+    \ Circle& c, const Point& p) {\n    return cross_cc(c, Circle(p, sqrt(norm2(c.p\
+    \ - p) - c.r * c.r)));\n}\n\nvector<Line> tangent_cc(const Circle& c1, const Circle&\
+    \ c2) {\n    vector<Line> ret;\n    Real d = dist_pp(c1.p, c2.p);\n    if(sgn(d)\
+    \ == 0) return {};\n    Point u = Line(c1.p, c2.p).normalize();\n    Point v =\
+    \ rot90(u);\n    for(int s : {-1, 1}) {\n        Real h = (c1.r + c2.r * s) /\
+    \ d;\n        if(sgn(h * h - 1) == 0) ret.push_back(Line(c1.p + h * u * c1.r,\
+    \ c1.p + h * u * c1.r + v));\n        else if(sgn(h * h - 1) == -1) {\n      \
+    \      Point U = u * h;\n            Point V = v * sqrt(1 - h * h);\n        \
+    \    ret.push_back(Line(c1.p + (U + V) * c1.r, c2.p - (U + V) * c2.r * s));\n\
+    \            ret.push_back(Line(c1.p + (U - V) * c1.r, c2.p - (U - V) * c2.r *\
+    \ s));\n        } \n    }\n    return ret;\n}\n\n}  // namespace geometry\n\n\
+    using namespace geometry;"
   dependsOn: []
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2025-02-01 03:08:12+09:00'
+  timestamp: '2025-02-01 05:24:38+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/geometry.hpp
