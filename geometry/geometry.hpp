@@ -130,8 +130,6 @@ struct Polygon : public vector<Point> {
         return true;
     }
 
-    
-
     pair<int, int> diameter() const {
         assert(is_convex());
         int sz = size();
@@ -273,6 +271,29 @@ pair<Point, Point> cross_cc(const Circle& c1, const Circle& c2) {
     Point p2 = c1.p + polar(c1.r, phi + theta);
     if(p1 > p2) swap(p1, p2);
     return {p1, p2};
+}
+
+pair<Point, Point> tangent_cp(const Circle& c, const Point& p) {
+    return cross_cc(c, Circle(p, sqrt(norm2(c.p - p) - c.r * c.r)));
+}
+
+vector<Line> tangent_cc(const Circle& c1, const Circle& c2) {
+    vector<Line> ret;
+    Real d = dist_pp(c1.p, c2.p);
+    if(sgn(d) == 0) return {};
+    Point u = Line(c1.p, c2.p).normalize();
+    Point v = rot90(u);
+    for(int s : {-1, 1}) {
+        Real h = (c1.r + c2.r * s) / d;
+        if(sgn(h * h - 1) == 0) ret.push_back(Line(c1.p + h * u * c1.r, c1.p + h * u * c1.r + v));
+        else if(sgn(h * h - 1) == -1) {
+            Point U = u * h;
+            Point V = v * sqrt(1 - h * h);
+            ret.push_back(Line(c1.p + (U + V) * c1.r, c2.p - (U + V) * c2.r * s));
+            ret.push_back(Line(c1.p + (U - V) * c1.r, c2.p - (U - V) * c2.r * s));
+        } 
+    }
+    return ret;
 }
 
 }  // namespace geometry
