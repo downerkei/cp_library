@@ -5,6 +5,7 @@ namespace geometry {
 
 using Real = double;
 constexpr Real EPS = 1e-7;
+constexpr Real PI = numbers::pi;
 
 constexpr int sgn(Real a) { return (a < -EPS) ? -1 : (EPS < a) ? 1 : 0; }
 
@@ -328,6 +329,20 @@ Real common_area_cp(const Circle& c, const Polygon& pol) {
         ret += cross_area(pol[i], pol[(i + 1) % sz]);
     }
     return ret * 0.5;
+}
+
+Real common_area_cc(const Circle& c1, const Circle& c2) {
+    Real d = dist_pp(c1.p, c2.p);
+    if(sgn(c1.r + c2.r - d) <= 0) return 0;
+    if(sgn(d - abs(c1.r - c2.r)) <= 0) {
+        Real r = min(c1.r, c2.r);
+        return PI * r * r;
+    }
+    auto area = [&](const Circle& c1, const Circle& c2) -> Real {
+        Real theta = 2 * acos((d * d + c1.r * c1.r - c2.r * c2.r) / (2 * d * c1.r));
+        return (theta - sin(theta)) * c1.r * c1.r * 0.5;
+    };
+    return area(c1, c2) + area(c2, c1);
 }
 
 }  // namespace geometry
