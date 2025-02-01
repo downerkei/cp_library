@@ -14,11 +14,15 @@ struct Point {
 
     constexpr Point& operator += (const Point& rhs) { return x += rhs.x, y += rhs.y, *this; }
     constexpr Point& operator -= (const Point& rhs) { return x -= rhs.x, y -= rhs.y, *this; }
+    constexpr Point& operator *= (const Point& rhs) { return *this = Point(x * rhs.x - y * rhs.y, x * rhs.y + y * rhs.x); }
+    constexpr Point& operator /= (const Point& rhs) { return *this *= rhs.conj() * rhs.norm2(); }
     constexpr Point& operator *= (Real k) { return x *= k, y *= k, *this; }
     constexpr Point& operator /= (Real k) { return x /= k, y /= k, *this; }
 
     constexpr Point operator + (const Point& rhs) const { return Point(*this) += rhs; }
     constexpr Point operator - (const Point& rhs) const { return Point(*this) -= rhs; }
+    constexpr Point operator * (const Point& rhs) const { return Point(*this) *= rhs; }
+    constexpr Point operator / (const Point& rhs) const { return Point(*this) /= rhs; }
     constexpr Point operator * (Real k) const { return Point(*this) *= k; }
     constexpr Point operator / (Real k) const { return Point(*this) /= k; }
     friend constexpr Point operator * (Real k, const Point& p) { return Point(p.x * k, p.y * k); }
@@ -35,12 +39,14 @@ struct Point {
     constexpr Real arg() const { return atan2(y, x); }
     constexpr Point rot(Real theta) const { return Point(x * cos(theta) - y * sin(theta), x * sin(theta) + y * cos(theta)); }
     constexpr Point rot90() const { return Point(-y, x); }
+    constexpr Point conj() const { return Point(x, -y); }
 
     friend constexpr Real norm2(const Point& p) { return p.norm2(); }
     friend constexpr Real norm(const Point& p) { return p.norm(); }
     friend constexpr Real arg(const Point& p) { return p.arg(); }
     friend constexpr Point rot(const Point& p, Real theta) { return p.rot(theta); }
     friend constexpr Point rot90(const Point& p) { return p.rot90(); }
+    friend constexpr Point conj(const Point& p) { return p.conj(); }
 
     friend istream& operator >> (istream& is, Point& p) { return is >> p.x >> p.y; }
     friend ostream& operator << (ostream& os, const Point& p) { return os << "(" << p.x << ", " << p.y << ")"; }
@@ -242,7 +248,7 @@ pair<Point, Point> cross_cl(const Circle& c, const Line& l) {
     Real d = sqrt(c.r * c.r - h * h);
     Point p1 = proj + l.normalize() * d;
     Point p2 = proj - l.normalize() * d;
-    if(p1 > p2) swap(p1, p2);
+    if(dist_pp(p1, l.s) > dist_pp(p2, l.s)) swap(p1, p2);
     return {p1, p2};
 }
 
@@ -294,6 +300,34 @@ vector<Line> tangent_cc(const Circle& c1, const Circle& c2) {
         } 
     }
     return ret;
+}
+
+Real get_angle(const Point& a, const Point& b) {
+    return (b * conj(a)).arg();
+}
+
+Real common_area_cp(const Circle& c, const Polygon& pol) {
+    int sz = pol.size();
+    auto cross_area = [&](const Point& a, const Point& b) -> Real {
+        Point va = a - c.p, vb = b - c.p;
+        Real f = cross(va, vb), ret = 0;
+        if(sgn(f) == 0) return 0;
+        if(sgn(c.r - max(norm(va), norm(vb))) >= 0) return f;
+        if(sgn(dist_sp(Line(a, b), c.p) - c.r) >= 0) return c.r * c.r * get_angle(va, vb);
+        auto [cp1, cp2] = cross_cl(c, Line(a, b));
+        cp1 -= c.p, cp2 -= c.p;
+        if(ccw(va, vb, cp1) != 0) cp1 = cp2;
+        if(ccw(va, vb, cp2) != 0) cp2 = cp1;
+        ret += (sgn(c.r - norm(va)) >= 0) ? cross(va, cp1) : c.r * c.r * get_angle(va, cp1);
+        ret += cross(cp1, cp2);
+        ret += (sgn(c.r - norm(vb)) >= 0) ? cross(cp2, vb) : c.r * c.r * get_angle(cp2, vb);
+        return ret;
+    };
+    Real ret = 0;
+    for(int i = 0; i < sz; i++) {
+        ret += cross_area(pol[i], pol[(i + 1) % sz]);
+    }
+    return ret * 0.5;
 }
 
 }  // namespace geometry
