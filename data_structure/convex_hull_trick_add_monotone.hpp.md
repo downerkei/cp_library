@@ -43,7 +43,7 @@ data:
   verifiedWith: []
 documentation_of: data_structure/convex_hull_trick_add_monotone.hpp
 layout: document
-title: "\u8FFD\u52A0\u30AF\u30A8\u30EA\u306E\u50BE\u304D\u304C\u5358\u8ABF\u306ACHT"
+title: "\u50BE\u304D\u5358\u8ABFCHT"
 ---
 
 ## 概要
