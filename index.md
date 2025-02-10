@@ -14,6 +14,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/binary_search_tree.hpp
       title: data_structure/binary_search_tree.hpp
+    - icon: ':warning:'
+      path: data_structure/convex_hull_trick_add_monotone.hpp
+      title: "\u8FFD\u52A0\u30AF\u30A8\u30EA\u306E\u50BE\u304D\u304C\u5358\u8ABF\u306A\
+        CHT"
     - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.hpp
       title: data_structure/fenwick_tree.hpp
