@@ -1,5 +1,5 @@
 ---
-title: 追加クエリの傾きが単調なCHT
+title: 傾き単調CHT
 documentation_of: //data_structure/convex_hull_trick_add_monotone.hpp
 ---
 
