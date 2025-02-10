@@ -62,3 +62,31 @@ T cht.get_min(T x);
 * $x$ が単調の場合，償却 $O(1)$
 
 * $x$ が単調でない場合，直線の数を $n$ として $O(\log n)$
+
+
+## 使用例
+
+```cpp
+int main() {
+    int N;
+    cin >> N;
+    vector<long long> A(N), B(N), dp(N, 0);
+    for(int i = 0; i < N; i++) 
+        cin >> A[i];
+    
+    for(int i = 0; i < N; i++) 
+        cin >> B[i];
+    
+
+    ConvexHullTrickAddMonotone cht;
+    cht.add(B[0], dp[0]);
+    for(int i = 1; i < N; i++) {
+        dp[i] = cht.get_min(A[i]);
+        cht.add(B[i], dp[i]);
+    }
+
+    cout << dp[N - 1] << "\n";
+
+    return 0;
+}
+```
