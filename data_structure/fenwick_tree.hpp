@@ -1,19 +1,17 @@
-template <typename T>
+template <typename T=int>
 struct FenwickTree {
-    int n_;
+    int n;
     vector<T> data;
-    FenwickTree(int n) : n_(n), data(n, 0) {}
+    FenwickTree(int n) : n(n), data(n, 0) {}
 
-    // data[p] += x
     void add(int p, T x) {
         p++;
-        while(p <= n_) {
+        while(p <= n) {
             data[p - 1] += x;
             p += p & -p;
         }
     }
 
-    // sum[0, r)
     T sum(int r) {
         T s = 0;
         while(r > 0) {
@@ -23,7 +21,6 @@ struct FenwickTree {
         return s;
     }
     
-    // sum[l, r)
     T sum(int l, int r) {
         return sum(r) - sum(l);
     }
