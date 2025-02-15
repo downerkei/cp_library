@@ -90,8 +90,8 @@ data:
   timestamp: '2024-06-25 11:57:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo/yosupo_factorize.test.cpp
   - verify/yosupo/yosupo_primality_test.test.cpp
+  - verify/yosupo/yosupo_factorize.test.cpp
 documentation_of: math/miller_rabin.hpp
 layout: document
 redirect_from:

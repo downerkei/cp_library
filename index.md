@@ -42,6 +42,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/static_modint.hpp
       title: data_structure/static_modint.hpp
+    - icon: ':warning:'
+      path: data_structure/trie.hpp
+      title: data_structure/trie.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/union_find.hpp
       title: UnionFind
