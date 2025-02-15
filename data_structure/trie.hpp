@@ -8,11 +8,13 @@ struct Trie {
 
     Node* root;
 
+    Trie() : root(new Node()) {}
+
     void insert(const string& word) {
         Node* cur_node = root;
         for(char c : word) {
             int idx = c - 'a';
-            if(cur_node->children[idx] == nullptr) cur_node->children[idx] = Node();
+            if(cur_node->children[idx] == nullptr) cur_node->children[idx] = new Node();
             cur_node = cur_node->children[idx];
         }
 
