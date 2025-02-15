@@ -35,5 +35,6 @@
 "verify/yukicoder/yukicoder_1002.test.cpp": "2024-10-14 21:14:48 +0900",
 "verify/yukicoder/yukicoder_1094.test.cpp": "2024-11-20 05:40:05 +0900",
 "verify/yukicoder/yukicoder_186.test.cpp": "2024-06-26 03:18:46 +0900",
-"verify/yukicoder/yukicoder_386.test.cpp": "2024-11-20 05:40:05 +0900"
+"verify/yukicoder/yukicoder_386.test.cpp": "2024-11-20 05:40:05 +0900",
+"verify/yukicoder/yukicoder_430.test.cpp": "2025-02-16 03:13:12 +0900"
 }
