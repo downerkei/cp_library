@@ -134,6 +134,9 @@ data:
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
+      path: string/aho_corasick.hpp
+      title: string/aho_corasick.hpp
+    - icon: ':heavy_check_mark:'
       path: string/enumerate_lcp.hpp
       title: string/enumerate_lcp.hpp
     - icon: ':heavy_check_mark:'
@@ -276,5 +279,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yukicoder/yukicoder_386.test.cpp
       title: verify/yukicoder/yukicoder_386.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yukicoder/yukicoder_430.test.cpp
+      title: verify/yukicoder/yukicoder_430.test.cpp
 layout: toppage
 ---
