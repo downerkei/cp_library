@@ -36,7 +36,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/montgomery_modint_64.hpp
       title: data_structure/montgomery_modint_64.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/persistent_segment_tree.hpp
       title: data_structure/persistent_segment_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -253,6 +253,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_range_kth_smallest.test.cpp
       title: verify/yosupo/yosupo_range_kth_smallest.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_rectangle_sum.test.cpp
+      title: verify/yosupo/yosupo_rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_shortest_path.test.cpp
       title: verify/yosupo/yosupo_shortest_path.test.cpp
