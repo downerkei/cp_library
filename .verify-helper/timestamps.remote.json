@@ -27,6 +27,7 @@
 "verify/yosupo/yosupo_primality_test.test.cpp": "2024-06-25 11:57:36 +0900",
 "verify/yosupo/yosupo_range_affine_range_sum.test.cpp": "2024-12-04 23:54:58 +0900",
 "verify/yosupo/yosupo_range_kth_smallest.test.cpp": "2024-12-04 23:13:29 +0900",
+"verify/yosupo/yosupo_rectangle_sum.test.cpp": "2025-02-18 22:31:40 +0900",
 "verify/yosupo/yosupo_shortest_path.test.cpp": "2024-11-25 14:08:01 +0900",
 "verify/yosupo/yosupo_staticrmq.test.cpp": "2024-07-23 19:50:25 +0900",
 "verify/yosupo/yosupo_suffix_array.test.cpp": "2024-12-01 17:46:49 +0900",
