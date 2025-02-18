@@ -9,8 +9,6 @@ using S = long long;
 S op(S l, S r) { return l + r; }
 S e() { return 0; }
 
-constexpr int MX = 1e9;
-
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
