@@ -36,6 +36,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/montgomery_modint_64.hpp
       title: data_structure/montgomery_modint_64.hpp
+    - icon: ':warning:'
+      path: data_structure/persistent_segment_tree.hpp
+      title: data_structure/persistent_segment_tree.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/segment_tree.hpp
       title: data_structure/segment_tree.hpp
