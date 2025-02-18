@@ -54,7 +54,7 @@ data:
     \        int m = (l + r) >> 1;\n        return op(prod(a, b, n->l, l, m), prod(a,\
     \ b, n->r, m, r));\n    }\n};\n#line 7 \"verify/yosupo/yosupo_rectangle_sum.test.cpp\"\
     \n\nusing S = long long;\nS op(S l, S r) { return l + r; }\nS e() { return 0;\
-    \ }\n\nconstexpr int MX = 1e9;\n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
+    \ }\n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
     \    int N, Q;\n    cin >> N >> Q;\n    \n    vector<array<int, 3>> ps(N);\n \
     \   for(int i = 0; i < N; i++) {\n        cin >> ps[i][0] >> ps[i][1] >> ps[i][2];\n\
     \    }\n\n    sort(ps.begin(), ps.end());\n\n    vector<int> xs(N);\n    for(int\
@@ -72,7 +72,7 @@ data:
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/rectangle_sum\"\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../data_structure/persistent_segment_tree.hpp\"\
     \n\nusing S = long long;\nS op(S l, S r) { return l + r; }\nS e() { return 0;\
-    \ }\n\nconstexpr int MX = 1e9;\n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
+    \ }\n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
     \    int N, Q;\n    cin >> N >> Q;\n    \n    vector<array<int, 3>> ps(N);\n \
     \   for(int i = 0; i < N; i++) {\n        cin >> ps[i][0] >> ps[i][1] >> ps[i][2];\n\
     \    }\n\n    sort(ps.begin(), ps.end());\n\n    vector<int> xs(N);\n    for(int\
@@ -92,7 +92,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_rectangle_sum.test.cpp
   requiredBy: []
-  timestamp: '2025-02-18 22:31:40+09:00'
+  timestamp: '2025-02-18 22:39:17+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_rectangle_sum.test.cpp
