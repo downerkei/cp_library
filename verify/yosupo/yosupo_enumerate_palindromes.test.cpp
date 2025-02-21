@@ -3,15 +3,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../string/enumerate_palindromes.hpp"
+#include "../../string/manacher.hpp"
 
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
     string S;
     cin >> S;
-    for(auto ans : enumerate_palindromes(S)) {
-        cout << ans << " ";
+
+    string T;
+    for(int i = 0; i < S.size(); i++) {
+        T += '$';
+        T += S[i];
+    }
+    T += '$';
+
+    auto ans = manacher(T);
+    for(int i = 1; i < ans.size() - 1; i++) {
+        cout << ans[i] - 1 << " ";
     }
     cout << "\n";
 
