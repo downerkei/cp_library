@@ -140,9 +140,6 @@ data:
       path: string/aho_corasick.hpp
       title: string/aho_corasick.hpp
     - icon: ':heavy_check_mark:'
-      path: string/enumerate_lcp.hpp
-      title: string/enumerate_lcp.hpp
-    - icon: ':heavy_check_mark:'
       path: string/enumerate_palindromes.hpp
       title: string/enumerate_palindromes.hpp
     - icon: ':heavy_check_mark:'
@@ -154,6 +151,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/suffix_array.hpp
       title: string/suffix_array.hpp
+    - icon: ':heavy_check_mark:'
+      path: string/z_algorithm.hpp
+      title: string/z_algorithm.hpp
   - name: tree
     pages:
     - icon: ':heavy_check_mark:'

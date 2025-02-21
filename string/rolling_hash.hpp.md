@@ -3,18 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: string/enumerate_lcp.hpp
-    title: string/enumerate_lcp.hpp
-  - icon: ':heavy_check_mark:'
     path: string/enumerate_palindromes.hpp
     title: string/enumerate_palindromes.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
     title: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: verify/yosupo/yosupo_zalgorithm.test.cpp
-    title: verify/yosupo/yosupo_zalgorithm.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -68,12 +62,10 @@ data:
   path: string/rolling_hash.hpp
   requiredBy:
   - string/enumerate_palindromes.hpp
-  - string/enumerate_lcp.hpp
   timestamp: '2024-12-08 06:19:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_enumerate_palindromes.test.cpp
-  - verify/yosupo/yosupo_zalgorithm.test.cpp
 documentation_of: string/rolling_hash.hpp
 layout: document
 redirect_from:
