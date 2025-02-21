@@ -140,12 +140,12 @@ data:
       path: string/aho_corasick.hpp
       title: string/aho_corasick.hpp
     - icon: ':heavy_check_mark:'
-      path: string/enumerate_palindromes.hpp
-      title: string/enumerate_palindromes.hpp
-    - icon: ':heavy_check_mark:'
       path: string/lcp_array.hpp
       title: string/lcp_array.hpp
     - icon: ':heavy_check_mark:'
+      path: string/manacher.hpp
+      title: string/manacher.hpp
+    - icon: ':warning:'
       path: string/rolling_hash.hpp
       title: string/rolling_hash.hpp
     - icon: ':heavy_check_mark:'

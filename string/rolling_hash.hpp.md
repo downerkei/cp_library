@@ -1,17 +1,11 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: string/enumerate_palindromes.hpp
-    title: string/enumerate_palindromes.hpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
-    title: verify/yosupo/yosupo_enumerate_palindromes.test.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"string/rolling_hash.hpp\"\nstruct RollingHash{\n    using\
@@ -60,12 +54,10 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: string/rolling_hash.hpp
-  requiredBy:
-  - string/enumerate_palindromes.hpp
+  requiredBy: []
   timestamp: '2024-12-08 06:19:51+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - verify/yosupo/yosupo_enumerate_palindromes.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: string/rolling_hash.hpp
 layout: document
 redirect_from:
