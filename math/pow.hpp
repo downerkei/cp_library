@@ -10,6 +10,7 @@ long long pow(long long b, long long e) {
 
 long long modpow(long long b, long long e, long long MOD=998244353) {
     long long ret = 1;
+    b %= MOD;
     while(e) {
         if(e & 1) ret = ret * b % MOD;
         b = b * b % MOD;
