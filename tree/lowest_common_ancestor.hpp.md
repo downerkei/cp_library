@@ -84,10 +84,10 @@ data:
   timestamp: '2024-11-20 05:35:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yukicoder/yukicoder_1094.test.cpp
-  - verify/yukicoder/yukicoder_386.test.cpp
-  - verify/yosupo/yosupo_lca.test.cpp
   - verify/aoj/aoj_gcl_5_c.test.cpp
+  - verify/yukicoder/yukicoder_386.test.cpp
+  - verify/yukicoder/yukicoder_1094.test.cpp
+  - verify/yosupo/yosupo_lca.test.cpp
 documentation_of: tree/lowest_common_ancestor.hpp
 layout: document
 redirect_from:

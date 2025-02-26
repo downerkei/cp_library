@@ -17,6 +17,9 @@ data:
     - icon: ':warning:'
       path: data_structure/convex_hull_trick_add_monotone.hpp
       title: "\u50BE\u304D\u5358\u8ABFCHT"
+    - icon: ':warning:'
+      path: data_structure/dual_segment_tree.hpp
+      title: data_structure/dual_segment_tree.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.hpp
       title: data_structure/fenwick_tree.hpp
