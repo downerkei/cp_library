@@ -5,19 +5,12 @@ struct FenwickTree {
     FenwickTree(int n) : n(n), data(n, 0) {}
 
     void add(int p, T x) {
-        p++;
-        while(p <= n) {
-            data[p - 1] += x;
-            p += p & -p;
-        }
+        for(p++; p <= n; p += p & -p) data[p - 1] += x;
     }
 
     T sum(int r) {
         T s = 0;
-        while(r > 0) {
-            s += data[r - 1];
-            r -= r & -r;
-        }
+        for(; r; r -= r & -r) s += data[r - 1];
         return s;
     }
     
