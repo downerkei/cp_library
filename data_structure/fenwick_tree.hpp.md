@@ -19,25 +19,22 @@ data:
     links: []
   bundledCode: "#line 1 \"data_structure/fenwick_tree.hpp\"\ntemplate <typename T=int>\n\
     struct FenwickTree {\n    int n;\n    vector<T> data;\n    FenwickTree(int n)\
-    \ : n(n), data(n, 0) {}\n\n    void add(int p, T x) {\n        p++;\n        while(p\
-    \ <= n) {\n            data[p - 1] += x;\n            p += p & -p;\n        }\n\
-    \    }\n\n    T sum(int r) {\n        T s = 0;\n        while(r > 0) {\n     \
-    \       s += data[r - 1];\n            r -= r & -r;\n        }\n        return\
-    \ s;\n    }\n    \n    T sum(int l, int r) {\n        return sum(r) - sum(l);\n\
-    \    }\n};\n"
+    \ : n(n), data(n, 0) {}\n\n    void add(int p, T x) {\n        for(p++; p <= n;\
+    \ p += p & -p) data[p - 1] += x;\n    }\n\n    T sum(int r) {\n        T s = 0;\n\
+    \        for(; r; r -= r & -r) s += data[r - 1];\n        return s;\n    }\n \
+    \   \n    T sum(int l, int r) {\n        return sum(r) - sum(l);\n    }\n};\n"
   code: "template <typename T=int>\nstruct FenwickTree {\n    int n;\n    vector<T>\
     \ data;\n    FenwickTree(int n) : n(n), data(n, 0) {}\n\n    void add(int p, T\
-    \ x) {\n        p++;\n        while(p <= n) {\n            data[p - 1] += x;\n\
-    \            p += p & -p;\n        }\n    }\n\n    T sum(int r) {\n        T s\
-    \ = 0;\n        while(r > 0) {\n            s += data[r - 1];\n            r -=\
-    \ r & -r;\n        }\n        return s;\n    }\n    \n    T sum(int l, int r)\
-    \ {\n        return sum(r) - sum(l);\n    }\n};\n"
+    \ x) {\n        for(p++; p <= n; p += p & -p) data[p - 1] += x;\n    }\n\n   \
+    \ T sum(int r) {\n        T s = 0;\n        for(; r; r -= r & -r) s += data[r\
+    \ - 1];\n        return s;\n    }\n    \n    T sum(int l, int r) {\n        return\
+    \ sum(r) - sum(l);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/fenwick_tree.hpp
   requiredBy:
   - math/inversion_number.hpp
-  timestamp: '2025-02-11 15:51:30+09:00'
+  timestamp: '2025-02-27 06:13:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/aoj/aoj_alds1_5_d.test.cpp
