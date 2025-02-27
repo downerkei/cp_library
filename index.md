@@ -145,6 +145,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/lcp_array.hpp
       title: string/lcp_array.hpp
+    - icon: ':warning:'
+      path: string/lps_table.hpp
+      title: string/lps_table.hpp
     - icon: ':heavy_check_mark:'
       path: string/manacher.hpp
       title: string/manacher.hpp
