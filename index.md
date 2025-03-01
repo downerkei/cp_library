@@ -14,7 +14,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/binary_search_tree.hpp
       title: data_structure/binary_search_tree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/binary_trie.hpp
       title: data_structure/binary_trie.hpp
     - icon: ':warning:'
@@ -265,7 +265,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_rectangle_sum.test.cpp
       title: verify/yosupo/yosupo_rectangle_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_set_xor_min.test.cpp
       title: verify/yosupo/yosupo_set_xor_min.test.cpp
     - icon: ':heavy_check_mark:'
