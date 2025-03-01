@@ -14,6 +14,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/binary_search_tree.hpp
       title: data_structure/binary_search_tree.hpp
+    - icon: ':x:'
+      path: data_structure/binary_trie.hpp
+      title: data_structure/binary_trie.hpp
     - icon: ':warning:'
       path: data_structure/convex_hull_trick_add_monotone.hpp
       title: "\u50BE\u304D\u5358\u8ABFCHT"
@@ -262,6 +265,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_rectangle_sum.test.cpp
       title: verify/yosupo/yosupo_rectangle_sum.test.cpp
+    - icon: ':x:'
+      path: verify/yosupo/yosupo_set_xor_min.test.cpp
+      title: verify/yosupo/yosupo_set_xor_min.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_shortest_path.test.cpp
       title: verify/yosupo/yosupo_shortest_path.test.cpp
