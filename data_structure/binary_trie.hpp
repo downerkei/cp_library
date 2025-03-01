@@ -22,19 +22,16 @@ struct BinaryTrie {
         n->cnt++;
         if(b >= 0) insert(n->ch[(x >> b) & 1], x, b - 1);
     }    
-
     void erase(Node*& n, U x, int b = B - 1) {
         if(b >= 0) erase(n->ch[(x >> b) & 1], x, b - 1);
         if(n && --n->cnt == 0) { delete n; n = nullptr; }
     }
-
     bool find(Node* n, U x, int b = B - 1) {
         if(n == nullptr) return false;
         if(b < 0) return true;
         if(n->ch[(x >> b) & 1] == nullptr) return false;
         return find(n->ch[(x >> b) & 1], x, b - 1);
     }
-
     U xor_min(Node* n, U x, int b = B - 1) {
         if(b < 0) return 0;
         bool f = (x >> b) & 1;
