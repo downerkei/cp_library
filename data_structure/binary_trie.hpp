@@ -14,7 +14,7 @@ struct BinaryTrie {
     U xor_max(U x) { return xor_min(root, ~x); }
     U xor_min(U x) { return xor_min(root, x); }
 
-//   private: 
+  private: 
     Node* root;
 
     void insert(Node*& n, U x, int b = B - 1) {
