@@ -68,15 +68,15 @@ data:
     \    return 2 * x - p;\n}\n\nbool is_parallel(const Line& a, const Line& b) {\
     \ return sgn(cross(a.dir(), b.dir())) == 0; }\nbool is_orthogonal(const Line&\
     \ a, const Line& b) { return sgn(dot(a.dir(), b.dir())) == 0; }\nbool is_intersect(const\
-    \ Line& a, const Line& b) { return ccw(a.s, a.t, b.s) * ccw(a.s, a.t, b.t) <=\
-    \ 0 && ccw(b.s, b.t, a.s) * ccw(b.s, b.t, a.t) <= 0; }\n\nPoint cross_ll(const\
-    \ Line& a, const Line& b) {\n    Real d1 = cross(a.dir(), b.dir());\n    Real\
-    \ d2 = cross(a.dir(), a.t - b.s);\n    return b.s + b.dir() * (d2 / d1);\n}\n\n\
-    Real dist_pp(const Point& a, const Point& b) {\n    return norm(a - b);\n}\nReal\
-    \ dist_lp(const Line& l, const Point& p) {\n    return abs(cross(l.dir(), p -\
-    \ l.s)) / norm(l);\n}\nReal dist_sp(const Line& l, const Point& p) {\n    if(sgn(dot(l.dir(),\
-    \ p - l.s)) == -1) return norm(p - l.s);\n    if(sgn(dot(-l.dir(), p - l.t)) ==\
-    \ -1) return norm(p - l.t);\n    return dist_lp(l, p);\n}\nReal dist_ss(const\
+    \ Line& a, const Line& b) { \n    return sgn(ccw(a.s, a.t, b.s)) * sgn(ccw(a.s,\
+    \ a.t, b.t)) <= 0 && sgn(ccw(b.s, b.t, a.s)) * sgn(ccw(b.s, b.t, a.t)) <= 0; \n\
+    }\n\nPoint cross_ll(const Line& a, const Line& b) {\n    Real d1 = cross(a.dir(),\
+    \ b.dir());\n    Real d2 = cross(a.dir(), a.t - b.s);\n    return b.s + b.dir()\
+    \ * (d2 / d1);\n}\n\nReal dist_pp(const Point& a, const Point& b) {\n    return\
+    \ norm(a - b);\n}\nReal dist_lp(const Line& l, const Point& p) {\n    return abs(cross(l.dir(),\
+    \ p - l.s)) / norm(l);\n}\nReal dist_sp(const Line& l, const Point& p) {\n   \
+    \ if(sgn(dot(l.dir(), p - l.s)) == -1) return norm(p - l.s);\n    if(sgn(dot(-l.dir(),\
+    \ p - l.t)) == -1) return norm(p - l.t);\n    return dist_lp(l, p);\n}\nReal dist_ss(const\
     \ Line& a, const Line& b) {\n    if(is_intersect(a, b)) return 0;\n    return\
     \ min({dist_sp(a, b.s), dist_sp(a, b.t), dist_sp(b, a.s), dist_sp(b, a.t)});\n\
     }\n\nstruct Polygon : public vector<Point> {\n    using vector<Point>::vector;\n\
@@ -85,29 +85,29 @@ data:
     \ + 1) % sz]);\n        }\n        return ret / 2;\n    }\n\n    bool is_convex()\
     \ const {\n        int sz = size();\n        for(int i = 0; i < sz; i++) {\n \
     \           if(ccw((*this)[i], (*this)[(i + 1) % sz], (*this)[(i + 2) % sz]) ==\
-    \ -1) false;\n        }\n        return true;\n    }\n\n    pair<int, int> diameter()\
-    \ const {\n        assert(is_convex());\n        int sz = size();\n        int\
-    \ right = max_element(begin(), end()) - begin();\n        int left = min_element(begin(),\
-    \ end()) - begin();\n        Real max_dist = norm2((*this)[left] - (*this)[right]);\n\
-    \        pair<int, int> ret = {left, right};\n        for(int i = 0; i < sz; i++)\
-    \ {\n            Point pre = (*this)[(left + 1) % sz] - (*this)[left];\n     \
-    \       Point nxt = (*this)[right] - (*this)[(right + 1) % sz];\n            if(ccw(Point(0,\
-    \ 0), pre, nxt) == 1) left = (left + 1) % sz;\n            else right = (right\
-    \ + 1) % sz;\n            if(norm2((*this)[left] - (*this)[right]) > max_dist)\
-    \ max_dist = norm2((*this)[left] - (*this)[right]), ret = {left, right};\n   \
-    \     }\n        return ret;\n    }\n\n    friend Real area(const Polygon& pol)\
-    \ { return pol.area(); }\n    friend bool is_convex(const Polygon& pol) { return\
-    \ pol.is_convex(); }\n    friend pair<int, int> diameter(const Polygon& pol) {\
-    \ return pol.diameter(); } \n};\n\n// 2 : contain\n// 1 : on line\n// 0 : outside\n\
-    int contain(const Polygon& pol, const Point& p) {\n    bool in = false;\n    int\
-    \ sz = pol.size();\n    for(int i = 0; i < sz; i++) {\n        Point a = pol[i]\
-    \ - p;\n        Point b = pol[(i + 1) % sz] - p;\n        if(a.y > b.y) swap(a,\
-    \ b);\n        if(sgn(a.y) == -1 && sgn(b.y) == 1 && sgn(cross(a, b)) == 1) in\
-    \ ^= 1;\n        if(sgn(cross(a, b)) == -1 && sgn(dot(a, b)) == -1) return 1;\n\
-    \    }\n    return 2 * in;\n}\n\nPolygon convex_hull(Polygon pol) {\n    int sz\
-    \ = pol.size();\n    sort(pol.begin(), pol.end());\n    Polygon ret;\n    for(int\
-    \ i = 0; i < sz; i++) {\n        while(ret.size() > 1 && ccw(ret[ret.size() -\
-    \ 2], ret.back(), pol[i]) == -1) ret.pop_back();\n        ret.push_back(pol[i]);\n\
+    \ -1) return false;\n        }\n        return true;\n    }\n\n    pair<int, int>\
+    \ diameter() const {\n        assert(is_convex());\n        int sz = size();\n\
+    \        int right = max_element(begin(), end()) - begin();\n        int left\
+    \ = min_element(begin(), end()) - begin();\n        Real max_dist = norm2((*this)[left]\
+    \ - (*this)[right]);\n        pair<int, int> ret = {left, right};\n        for(int\
+    \ i = 0; i < sz; i++) {\n            Point pre = (*this)[(left + 1) % sz] - (*this)[left];\n\
+    \            Point nxt = (*this)[right] - (*this)[(right + 1) % sz];\n       \
+    \     if(ccw(Point(0, 0), pre, nxt) == 1) left = (left + 1) % sz;\n          \
+    \  else right = (right + 1) % sz;\n            if(norm2((*this)[left] - (*this)[right])\
+    \ > max_dist) max_dist = norm2((*this)[left] - (*this)[right]), ret = {left, right};\n\
+    \        }\n        return ret;\n    }\n\n    friend Real area(const Polygon&\
+    \ pol) { return pol.area(); }\n    friend bool is_convex(const Polygon& pol) {\
+    \ return pol.is_convex(); }\n    friend pair<int, int> diameter(const Polygon&\
+    \ pol) { return pol.diameter(); } \n};\n\n// 2 : contain\n// 1 : on line\n// 0\
+    \ : outside\nint contain(const Polygon& pol, const Point& p) {\n    bool in =\
+    \ false;\n    int sz = pol.size();\n    for(int i = 0; i < sz; i++) {\n      \
+    \  Point a = pol[i] - p;\n        Point b = pol[(i + 1) % sz] - p;\n        if(a.y\
+    \ > b.y) swap(a, b);\n        if(sgn(a.y) <= 0 && sgn(b.y) == 1 && sgn(cross(a,\
+    \ b)) == -1) in ^= 1;\n        if(sgn(cross(a, b)) == 0 && sgn(dot(a, b)) == -1)\
+    \ return 1;\n    }\n    return 2 * in;\n}\n\nPolygon convex_hull(Polygon pol)\
+    \ {\n    int sz = pol.size();\n    sort(pol.begin(), pol.end());\n    Polygon\
+    \ ret;\n    for(int i = 0; i < sz; i++) {\n        while(ret.size() > 1 && ccw(ret[ret.size()\
+    \ - 2], ret.back(), pol[i]) == -1) ret.pop_back();\n        ret.push_back(pol[i]);\n\
     \    }\n    int t = ret.size();\n    for(int i = sz - 2; i >= 0; i--) {\n    \
     \    while(ret.size() > t && ccw(ret[ret.size() - 2], ret.back(), pol[i]) == -1)\
     \ ret.pop_back();\n        ret.push_back(pol[i]);\n    }\n    ret.pop_back();\n\
@@ -241,15 +241,15 @@ data:
     \ x = projection(l, p);\n    return 2 * x - p;\n}\n\nbool is_parallel(const Line&\
     \ a, const Line& b) { return sgn(cross(a.dir(), b.dir())) == 0; }\nbool is_orthogonal(const\
     \ Line& a, const Line& b) { return sgn(dot(a.dir(), b.dir())) == 0; }\nbool is_intersect(const\
-    \ Line& a, const Line& b) { return ccw(a.s, a.t, b.s) * ccw(a.s, a.t, b.t) <=\
-    \ 0 && ccw(b.s, b.t, a.s) * ccw(b.s, b.t, a.t) <= 0; }\n\nPoint cross_ll(const\
-    \ Line& a, const Line& b) {\n    Real d1 = cross(a.dir(), b.dir());\n    Real\
-    \ d2 = cross(a.dir(), a.t - b.s);\n    return b.s + b.dir() * (d2 / d1);\n}\n\n\
-    Real dist_pp(const Point& a, const Point& b) {\n    return norm(a - b);\n}\nReal\
-    \ dist_lp(const Line& l, const Point& p) {\n    return abs(cross(l.dir(), p -\
-    \ l.s)) / norm(l);\n}\nReal dist_sp(const Line& l, const Point& p) {\n    if(sgn(dot(l.dir(),\
-    \ p - l.s)) == -1) return norm(p - l.s);\n    if(sgn(dot(-l.dir(), p - l.t)) ==\
-    \ -1) return norm(p - l.t);\n    return dist_lp(l, p);\n}\nReal dist_ss(const\
+    \ Line& a, const Line& b) { \n    return sgn(ccw(a.s, a.t, b.s)) * sgn(ccw(a.s,\
+    \ a.t, b.t)) <= 0 && sgn(ccw(b.s, b.t, a.s)) * sgn(ccw(b.s, b.t, a.t)) <= 0; \n\
+    }\n\nPoint cross_ll(const Line& a, const Line& b) {\n    Real d1 = cross(a.dir(),\
+    \ b.dir());\n    Real d2 = cross(a.dir(), a.t - b.s);\n    return b.s + b.dir()\
+    \ * (d2 / d1);\n}\n\nReal dist_pp(const Point& a, const Point& b) {\n    return\
+    \ norm(a - b);\n}\nReal dist_lp(const Line& l, const Point& p) {\n    return abs(cross(l.dir(),\
+    \ p - l.s)) / norm(l);\n}\nReal dist_sp(const Line& l, const Point& p) {\n   \
+    \ if(sgn(dot(l.dir(), p - l.s)) == -1) return norm(p - l.s);\n    if(sgn(dot(-l.dir(),\
+    \ p - l.t)) == -1) return norm(p - l.t);\n    return dist_lp(l, p);\n}\nReal dist_ss(const\
     \ Line& a, const Line& b) {\n    if(is_intersect(a, b)) return 0;\n    return\
     \ min({dist_sp(a, b.s), dist_sp(a, b.t), dist_sp(b, a.s), dist_sp(b, a.t)});\n\
     }\n\nstruct Polygon : public vector<Point> {\n    using vector<Point>::vector;\n\
@@ -258,29 +258,29 @@ data:
     \ + 1) % sz]);\n        }\n        return ret / 2;\n    }\n\n    bool is_convex()\
     \ const {\n        int sz = size();\n        for(int i = 0; i < sz; i++) {\n \
     \           if(ccw((*this)[i], (*this)[(i + 1) % sz], (*this)[(i + 2) % sz]) ==\
-    \ -1) false;\n        }\n        return true;\n    }\n\n    pair<int, int> diameter()\
-    \ const {\n        assert(is_convex());\n        int sz = size();\n        int\
-    \ right = max_element(begin(), end()) - begin();\n        int left = min_element(begin(),\
-    \ end()) - begin();\n        Real max_dist = norm2((*this)[left] - (*this)[right]);\n\
-    \        pair<int, int> ret = {left, right};\n        for(int i = 0; i < sz; i++)\
-    \ {\n            Point pre = (*this)[(left + 1) % sz] - (*this)[left];\n     \
-    \       Point nxt = (*this)[right] - (*this)[(right + 1) % sz];\n            if(ccw(Point(0,\
-    \ 0), pre, nxt) == 1) left = (left + 1) % sz;\n            else right = (right\
-    \ + 1) % sz;\n            if(norm2((*this)[left] - (*this)[right]) > max_dist)\
-    \ max_dist = norm2((*this)[left] - (*this)[right]), ret = {left, right};\n   \
-    \     }\n        return ret;\n    }\n\n    friend Real area(const Polygon& pol)\
-    \ { return pol.area(); }\n    friend bool is_convex(const Polygon& pol) { return\
-    \ pol.is_convex(); }\n    friend pair<int, int> diameter(const Polygon& pol) {\
-    \ return pol.diameter(); } \n};\n\n// 2 : contain\n// 1 : on line\n// 0 : outside\n\
-    int contain(const Polygon& pol, const Point& p) {\n    bool in = false;\n    int\
-    \ sz = pol.size();\n    for(int i = 0; i < sz; i++) {\n        Point a = pol[i]\
-    \ - p;\n        Point b = pol[(i + 1) % sz] - p;\n        if(a.y > b.y) swap(a,\
-    \ b);\n        if(sgn(a.y) == -1 && sgn(b.y) == 1 && sgn(cross(a, b)) == 1) in\
-    \ ^= 1;\n        if(sgn(cross(a, b)) == -1 && sgn(dot(a, b)) == -1) return 1;\n\
-    \    }\n    return 2 * in;\n}\n\nPolygon convex_hull(Polygon pol) {\n    int sz\
-    \ = pol.size();\n    sort(pol.begin(), pol.end());\n    Polygon ret;\n    for(int\
-    \ i = 0; i < sz; i++) {\n        while(ret.size() > 1 && ccw(ret[ret.size() -\
-    \ 2], ret.back(), pol[i]) == -1) ret.pop_back();\n        ret.push_back(pol[i]);\n\
+    \ -1) return false;\n        }\n        return true;\n    }\n\n    pair<int, int>\
+    \ diameter() const {\n        assert(is_convex());\n        int sz = size();\n\
+    \        int right = max_element(begin(), end()) - begin();\n        int left\
+    \ = min_element(begin(), end()) - begin();\n        Real max_dist = norm2((*this)[left]\
+    \ - (*this)[right]);\n        pair<int, int> ret = {left, right};\n        for(int\
+    \ i = 0; i < sz; i++) {\n            Point pre = (*this)[(left + 1) % sz] - (*this)[left];\n\
+    \            Point nxt = (*this)[right] - (*this)[(right + 1) % sz];\n       \
+    \     if(ccw(Point(0, 0), pre, nxt) == 1) left = (left + 1) % sz;\n          \
+    \  else right = (right + 1) % sz;\n            if(norm2((*this)[left] - (*this)[right])\
+    \ > max_dist) max_dist = norm2((*this)[left] - (*this)[right]), ret = {left, right};\n\
+    \        }\n        return ret;\n    }\n\n    friend Real area(const Polygon&\
+    \ pol) { return pol.area(); }\n    friend bool is_convex(const Polygon& pol) {\
+    \ return pol.is_convex(); }\n    friend pair<int, int> diameter(const Polygon&\
+    \ pol) { return pol.diameter(); } \n};\n\n// 2 : contain\n// 1 : on line\n// 0\
+    \ : outside\nint contain(const Polygon& pol, const Point& p) {\n    bool in =\
+    \ false;\n    int sz = pol.size();\n    for(int i = 0; i < sz; i++) {\n      \
+    \  Point a = pol[i] - p;\n        Point b = pol[(i + 1) % sz] - p;\n        if(a.y\
+    \ > b.y) swap(a, b);\n        if(sgn(a.y) <= 0 && sgn(b.y) == 1 && sgn(cross(a,\
+    \ b)) == -1) in ^= 1;\n        if(sgn(cross(a, b)) == 0 && sgn(dot(a, b)) == -1)\
+    \ return 1;\n    }\n    return 2 * in;\n}\n\nPolygon convex_hull(Polygon pol)\
+    \ {\n    int sz = pol.size();\n    sort(pol.begin(), pol.end());\n    Polygon\
+    \ ret;\n    for(int i = 0; i < sz; i++) {\n        while(ret.size() > 1 && ccw(ret[ret.size()\
+    \ - 2], ret.back(), pol[i]) == -1) ret.pop_back();\n        ret.push_back(pol[i]);\n\
     \    }\n    int t = ret.size();\n    for(int i = sz - 2; i >= 0; i--) {\n    \
     \    while(ret.size() > t && ccw(ret[ret.size() - 2], ret.back(), pol[i]) == -1)\
     \ ret.pop_back();\n        ret.push_back(pol[i]);\n    }\n    ret.pop_back();\n\
@@ -359,7 +359,7 @@ data:
   isVerificationFile: false
   path: geometry/geometry.hpp
   requiredBy: []
-  timestamp: '2025-02-01 11:10:16+09:00'
+  timestamp: '2025-03-08 01:15:39+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: geometry/geometry.hpp

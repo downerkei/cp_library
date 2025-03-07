@@ -23,26 +23,25 @@ data:
     \ long N) {\n    assert(0 <= N);\n    unsigned long long root = sqrtl(N);\n  \
     \  while(root * root > N) root--;\n    while((root + 1) * (root + 1) <= N) root++;\n\
     \    return root;\n}\n#line 1 \"math/random_number_generator.hpp\"\nstruct RandomNumberGenerator\
-    \ {\n    mt19937 mt;\n\n    RandomNumberGenerator() : mt(random_device()()) {}\n\
-    \n    // [a, b)\u306E\u7BC4\u56F2\n    long long operator()(long long a, long\
-    \ long b) {\n        uniform_int_distribution<long long> dist(a, b - 1);\n   \
-    \     return dist(mt);\n    }\n\n    // [0, b)\u306E\u7BC4\u56F2\n    long long\
-    \ operator()(long long b) {\n        return (*this)(0, b);\n    }\n};\n#line 8\
-    \ \"verify/unit_test/sqrt_floor.test.cpp\"\n\nRandomNumberGenerator rnd;\n\nvoid\
-    \ test() {\n    assert(sqrt_floor(0) == 0);\n    assert(sqrt_floor(1) == 1);\n\
-    \    assert(sqrt_floor(4) == 2);\n    assert(sqrt_floor(9) == 3);\n    assert(sqrt_floor(16)\
-    \ == 4);\n\n    assert(sqrt_floor(2) == 1);\n    assert(sqrt_floor(3) == 1);\n\
-    \    assert(sqrt_floor(5) == 2);\n    assert(sqrt_floor(8) == 2);\n    assert(sqrt_floor(10)\
-    \ == 3);\n\n    assert(sqrt_floor(1000000000000000000LL) == 1000000000);\n   \
-    \ assert(sqrt_floor(999999999999999999LL) == 999999999);\n\n    assert(sqrt_floor(9223372030926249001LL)\
-    \ == 3037000499LL);\n    assert(sqrt_floor(9223372036854775807LL) == 3037000499LL);\n\
-    \n    for(int i = 0; i < 1e7; i++) {\n        long long a = rnd(INT64_MAX);\n\
-    \        unsigned long long root = sqrt_floor(a);\n        assert(root * root\
-    \ <= a);\n        assert((root + 1) * (root + 1) > a);\n    }\n\n    for(int i\
-    \ = 0; i < 1e7; i++) {\n        long long a = rnd(INT32_MAX);\n        long long\
-    \ a2 = a * a;\n        assert(sqrt_floor(a2) == a);\n    }\n\n    cerr << \"All\
-    \ tests passed\" << endl;\n}\n\nint main() {\n    test();\n    int A, B;\n   \
-    \ cin >> A >> B;\n    cout << A + B << endl;\n\n    return 0;\n}\n"
+    \ {\n    mt19937 mt;\n    RandomNumberGenerator() : mt(random_device()()) {}\n\
+    \    long long operator()(long long a, long long b) { return uniform_int_distribution<long\
+    \ long>(a, b - 1)(mt); }\n    long long operator()(long long b) { return (*this)(0,\
+    \ b); }\n};\n#line 8 \"verify/unit_test/sqrt_floor.test.cpp\"\n\nRandomNumberGenerator\
+    \ rnd;\n\nvoid test() {\n    assert(sqrt_floor(0) == 0);\n    assert(sqrt_floor(1)\
+    \ == 1);\n    assert(sqrt_floor(4) == 2);\n    assert(sqrt_floor(9) == 3);\n \
+    \   assert(sqrt_floor(16) == 4);\n\n    assert(sqrt_floor(2) == 1);\n    assert(sqrt_floor(3)\
+    \ == 1);\n    assert(sqrt_floor(5) == 2);\n    assert(sqrt_floor(8) == 2);\n \
+    \   assert(sqrt_floor(10) == 3);\n\n    assert(sqrt_floor(1000000000000000000LL)\
+    \ == 1000000000);\n    assert(sqrt_floor(999999999999999999LL) == 999999999);\n\
+    \n    assert(sqrt_floor(9223372030926249001LL) == 3037000499LL);\n    assert(sqrt_floor(9223372036854775807LL)\
+    \ == 3037000499LL);\n\n    for(int i = 0; i < 1e7; i++) {\n        long long a\
+    \ = rnd(INT64_MAX);\n        unsigned long long root = sqrt_floor(a);\n      \
+    \  assert(root * root <= a);\n        assert((root + 1) * (root + 1) > a);\n \
+    \   }\n\n    for(int i = 0; i < 1e7; i++) {\n        long long a = rnd(INT32_MAX);\n\
+    \        long long a2 = a * a;\n        assert(sqrt_floor(a2) == a);\n    }\n\n\
+    \    cerr << \"All tests passed\" << endl;\n}\n\nint main() {\n    test();\n \
+    \   int A, B;\n    cin >> A >> B;\n    cout << A + B << endl;\n\n    return 0;\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#include \"../../math/sqrt_floor.hpp\"\n#include \"../../math/random_number_generator.hpp\"\
     \n\nRandomNumberGenerator rnd;\n\nvoid test() {\n    assert(sqrt_floor(0) == 0);\n\
@@ -66,7 +65,7 @@ data:
   isVerificationFile: true
   path: verify/unit_test/sqrt_floor.test.cpp
   requiredBy: []
-  timestamp: '2024-07-07 15:05:24+09:00'
+  timestamp: '2025-03-08 01:15:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/unit_test/sqrt_floor.test.cpp

@@ -60,29 +60,27 @@ data:
     \  is >> t;\n        x = mint(t);\n        return is;\n    }\n    friend ostream&\
     \ operator << (ostream& os, const mint& x) {\n        return os << x.val();\n\
     \    }\n};\n#line 1 \"math/random_number_generator.hpp\"\nstruct RandomNumberGenerator\
-    \ {\n    mt19937 mt;\n\n    RandomNumberGenerator() : mt(random_device()()) {}\n\
-    \n    // [a, b)\u306E\u7BC4\u56F2\n    long long operator()(long long a, long\
-    \ long b) {\n        uniform_int_distribution<long long> dist(a, b - 1);\n   \
-    \     return dist(mt);\n    }\n\n    // [0, b)\u306E\u7BC4\u56F2\n    long long\
-    \ operator()(long long b) {\n        return (*this)(0, b);\n    }\n};\n#line 8\
-    \ \"verify/unit_test/montgomery_modint_32.test.cpp\"\n\nusing mint = MontgomeryModint32;\n\
-    RandomNumberGenerator rnd;\n\nvoid set_test() {\n    for(int i = 0; i < 1e6; i++)\
-    \ {\n        int mod = rnd(1e9);\n        if(mod % 2 == 0) mod += 1;\n\n     \
-    \   mint::set_mod(mod);\n\n        int v = rnd(mod + 1, 1e9);\n\n        assert(mint(v)\
-    \ == v % mod);\n    }\n}\n\nvoid operator_test(int mod) {\n    mint::set_mod(mod);\n\
-    \    for(int i = 0; i < 1e5; i++) {\n        int a = rnd(mod);\n        if(rnd(1e9)\
-    \ % 10 == 0) a = 0;\n        if(rnd(1e9) % 10 == 0) a = mod - 1;\n        mint\
-    \ A = a;\n        assert(A.val() == a);\n\n        int b = rnd(mod);\n       \
-    \ if(rnd(1e9) % 10 == 0) b = 0;\n        if(rnd(1e9) % 10 == 0) b = mod - 1;\n\
-    \        mint B = b;\n        assert(B.val() == b);\n\n        int c = (a + b)\
-    \ % mod;\n        mint C = A + B;\n        assert(C.val() == c);\n\n        int\
-    \ d = (a + mod - b) % mod;\n        mint D = A - B;\n        assert(D.val() ==\
-    \ d);\n\n        int e = (1LL * a * b) % mod;\n        mint E = A * B;\n     \
-    \   assert(E.val() == e);\n\n        mint F = rnd(1, mod);\n        mint G = F.inv();\n\
-    \        if(F * G != 1) cerr << mod << endl;\n        assert(F * G == 1);\n  \
-    \  }\n}\n\nvoid test() {\n    set_test();\n    operator_test(998244353);\n   \
-    \ operator_test(1000000007);\n    operator_test(1);\n    operator_test(3);\n \
-    \   operator_test(5);\n    operator_test(7);\n    operator_test(11);\n    operator_test(101);\n\
+    \ {\n    mt19937 mt;\n    RandomNumberGenerator() : mt(random_device()()) {}\n\
+    \    long long operator()(long long a, long long b) { return uniform_int_distribution<long\
+    \ long>(a, b - 1)(mt); }\n    long long operator()(long long b) { return (*this)(0,\
+    \ b); }\n};\n#line 8 \"verify/unit_test/montgomery_modint_32.test.cpp\"\n\nusing\
+    \ mint = MontgomeryModint32;\nRandomNumberGenerator rnd;\n\nvoid set_test() {\n\
+    \    for(int i = 0; i < 1e6; i++) {\n        int mod = rnd(1e9);\n        if(mod\
+    \ % 2 == 0) mod += 1;\n\n        mint::set_mod(mod);\n\n        int v = rnd(mod\
+    \ + 1, 1e9);\n\n        assert(mint(v) == v % mod);\n    }\n}\n\nvoid operator_test(int\
+    \ mod) {\n    mint::set_mod(mod);\n    for(int i = 0; i < 1e5; i++) {\n      \
+    \  int a = rnd(mod);\n        if(rnd(1e9) % 10 == 0) a = 0;\n        if(rnd(1e9)\
+    \ % 10 == 0) a = mod - 1;\n        mint A = a;\n        assert(A.val() == a);\n\
+    \n        int b = rnd(mod);\n        if(rnd(1e9) % 10 == 0) b = 0;\n        if(rnd(1e9)\
+    \ % 10 == 0) b = mod - 1;\n        mint B = b;\n        assert(B.val() == b);\n\
+    \n        int c = (a + b) % mod;\n        mint C = A + B;\n        assert(C.val()\
+    \ == c);\n\n        int d = (a + mod - b) % mod;\n        mint D = A - B;\n  \
+    \      assert(D.val() == d);\n\n        int e = (1LL * a * b) % mod;\n       \
+    \ mint E = A * B;\n        assert(E.val() == e);\n\n        mint F = rnd(1, mod);\n\
+    \        mint G = F.inv();\n        if(F * G != 1) cerr << mod << endl;\n    \
+    \    assert(F * G == 1);\n    }\n}\n\nvoid test() {\n    set_test();\n    operator_test(998244353);\n\
+    \    operator_test(1000000007);\n    operator_test(1);\n    operator_test(3);\n\
+    \    operator_test(5);\n    operator_test(7);\n    operator_test(11);\n    operator_test(101);\n\
     \    \n    cerr << \"ok\" << endl;\n}\n\nint main() {\n    test();\n\n    int\
     \ a, b;\n    cin >> a >> b;\n    cout << a + b << endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n\n#include <bits/stdc++.h>\n\
@@ -113,7 +111,7 @@ data:
   isVerificationFile: true
   path: verify/unit_test/montgomery_modint_32.test.cpp
   requiredBy: []
-  timestamp: '2024-06-25 02:44:34+09:00'
+  timestamp: '2025-03-08 01:15:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/unit_test/montgomery_modint_32.test.cpp
