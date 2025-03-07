@@ -1,16 +1,6 @@
 struct RandomNumberGenerator {
     mt19937 mt;
-
     RandomNumberGenerator() : mt(random_device()()) {}
-
-    // [a, b)の範囲
-    long long operator()(long long a, long long b) {
-        uniform_int_distribution<long long> dist(a, b - 1);
-        return dist(mt);
-    }
-
-    // [0, b)の範囲
-    long long operator()(long long b) {
-        return (*this)(0, b);
-    }
+    long long operator()(long long a, long long b) { return uniform_int_distribution<long long>(a, b - 1)(mt); }
+    long long operator()(long long b) { return (*this)(0, b); }
 };

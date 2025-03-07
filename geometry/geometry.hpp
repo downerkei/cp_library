@@ -94,7 +94,9 @@ Point reflection(const Line& l, const Point& p) {
 
 bool is_parallel(const Line& a, const Line& b) { return sgn(cross(a.dir(), b.dir())) == 0; }
 bool is_orthogonal(const Line& a, const Line& b) { return sgn(dot(a.dir(), b.dir())) == 0; }
-bool is_intersect(const Line& a, const Line& b) { return ccw(a.s, a.t, b.s) * ccw(a.s, a.t, b.t) <= 0 && ccw(b.s, b.t, a.s) * ccw(b.s, b.t, a.t) <= 0; }
+bool is_intersect(const Line& a, const Line& b) { 
+    return sgn(ccw(a.s, a.t, b.s)) * sgn(ccw(a.s, a.t, b.t)) <= 0 && sgn(ccw(b.s, b.t, a.s)) * sgn(ccw(b.s, b.t, a.t)) <= 0; 
+}
 
 Point cross_ll(const Line& a, const Line& b) {
     Real d1 = cross(a.dir(), b.dir());
@@ -132,7 +134,7 @@ struct Polygon : public vector<Point> {
     bool is_convex() const {
         int sz = size();
         for(int i = 0; i < sz; i++) {
-            if(ccw((*this)[i], (*this)[(i + 1) % sz], (*this)[(i + 2) % sz]) == -1) false;
+            if(ccw((*this)[i], (*this)[(i + 1) % sz], (*this)[(i + 2) % sz]) == -1) return false;
         }
         return true;
     }
@@ -169,8 +171,8 @@ int contain(const Polygon& pol, const Point& p) {
         Point a = pol[i] - p;
         Point b = pol[(i + 1) % sz] - p;
         if(a.y > b.y) swap(a, b);
-        if(sgn(a.y) == -1 && sgn(b.y) == 1 && sgn(cross(a, b)) == 1) in ^= 1;
-        if(sgn(cross(a, b)) == -1 && sgn(dot(a, b)) == -1) return 1;
+        if(sgn(a.y) <= 0 && sgn(b.y) == 1 && sgn(cross(a, b)) == -1) in ^= 1;
+        if(sgn(cross(a, b)) == 0 && sgn(dot(a, b)) == -1) return 1;
     }
     return 2 * in;
 }
