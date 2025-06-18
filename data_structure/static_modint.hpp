@@ -50,6 +50,11 @@ template<int m> struct StaticModint {
     constexpr mint operator - (const mint& r) const { return mint(*this) -= r; }
     constexpr mint operator * (const mint& r) const { return mint(*this) *= r; }
     constexpr mint operator / (const mint& r) const { return mint(*this) /= r; }
+
+    friend constexpr mint operator + (long long l, const mint& r) { return mint(l) + r; }
+    friend constexpr mint operator - (long long l, const mint& r) { return mint(l) - r; }
+    friend constexpr mint operator * (long long l, const mint& r) { return mint(l) * r; }
+    friend constexpr mint operator / (long long l, const mint& r) { return mint(l) / r; }
     
     constexpr bool operator == (const mint& r) const { return _v == r._v; }
     constexpr bool operator != (const mint& r) const { return _v != r._v; }
