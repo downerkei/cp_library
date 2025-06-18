@@ -71,19 +71,24 @@ data:
     \ const { return mint(*this) += r; }\n    constexpr mint operator - (const mint&\
     \ r) const { return mint(*this) -= r; }\n    constexpr mint operator * (const\
     \ mint& r) const { return mint(*this) *= r; }\n    constexpr mint operator / (const\
-    \ mint& r) const { return mint(*this) /= r; }\n    \n    constexpr bool operator\
-    \ == (const mint& r) const { return _v == r._v; }\n    constexpr bool operator\
-    \ != (const mint& r) const { return _v != r._v; }\n\n    friend istream& operator\
-    \ >> (istream& is, mint& x) {\n        long long t;\n        is >> t;\n      \
-    \  x = mint(t);\n        return is;\n    }\n    friend ostream& operator << (ostream&\
-    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n\n// using mint\
-    \ = StaticModint<998244353>;\n// using mint = StaticModint<1000000007>;\n#line\
-    \ 8 \"verify/yosupo/yosupo_range_affine_range_sum.test.cpp\"\n\nusing mint = StaticModint<998244353>;\n\
-    \nusing S = pair<mint, mint>;\nS op(S l, S r) { return {l.first + r.first, l.second\
-    \ + r.second}; }\nS e() { return {0, 0}; }\nusing F = pair<mint, mint>;\nS mapping(F\
-    \ f, S x) { return {x.first * f.first + x.second * f.second, x.second}; }\nF composition(F\
-    \ f, F g) { return {f.first * g.first, f.first * g.second + f.second}; }\nF id()\
-    \ { return {1, 0}; }\n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
+    \ mint& r) const { return mint(*this) /= r; }\n\n    friend constexpr mint operator\
+    \ + (long long l, const mint& r) { return mint(l) + r; }\n    friend constexpr\
+    \ mint operator - (long long l, const mint& r) { return mint(l) - r; }\n    friend\
+    \ constexpr mint operator * (long long l, const mint& r) { return mint(l) * r;\
+    \ }\n    friend constexpr mint operator / (long long l, const mint& r) { return\
+    \ mint(l) / r; }\n    \n    constexpr bool operator == (const mint& r) const {\
+    \ return _v == r._v; }\n    constexpr bool operator != (const mint& r) const {\
+    \ return _v != r._v; }\n\n    friend istream& operator >> (istream& is, mint&\
+    \ x) {\n        long long t;\n        is >> t;\n        x = mint(t);\n       \
+    \ return is;\n    }\n    friend ostream& operator << (ostream& os, const mint&\
+    \ x) {\n        return os << x._v;\n    }\n};\n\n// using mint = StaticModint<998244353>;\n\
+    // using mint = StaticModint<1000000007>;\n#line 8 \"verify/yosupo/yosupo_range_affine_range_sum.test.cpp\"\
+    \n\nusing mint = StaticModint<998244353>;\n\nusing S = pair<mint, mint>;\nS op(S\
+    \ l, S r) { return {l.first + r.first, l.second + r.second}; }\nS e() { return\
+    \ {0, 0}; }\nusing F = pair<mint, mint>;\nS mapping(F f, S x) { return {x.first\
+    \ * f.first + x.second * f.second, x.second}; }\nF composition(F f, F g) { return\
+    \ {f.first * g.first, f.first * g.second + f.second}; }\nF id() { return {1, 0};\
+    \ }\n\nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
     \    int N, Q;\n    cin >> N >> Q;\n    vector<S> A(N);\n    for(int i = 0; i\
     \ < N; i++) {\n        int a;\n        cin >> a;\n        A[i] = {a, 1};\n   \
     \ }\n\n    LazySegmentTree<S, op, e, F, mapping, composition, id> seg(A);\n\n\
@@ -114,7 +119,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-12-04 23:54:58+09:00'
+  timestamp: '2025-06-19 01:34:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo/yosupo_range_affine_range_sum.test.cpp

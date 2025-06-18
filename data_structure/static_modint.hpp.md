@@ -40,13 +40,18 @@ data:
     \ const { return mint(*this) += r; }\n    constexpr mint operator - (const mint&\
     \ r) const { return mint(*this) -= r; }\n    constexpr mint operator * (const\
     \ mint& r) const { return mint(*this) *= r; }\n    constexpr mint operator / (const\
-    \ mint& r) const { return mint(*this) /= r; }\n    \n    constexpr bool operator\
-    \ == (const mint& r) const { return _v == r._v; }\n    constexpr bool operator\
-    \ != (const mint& r) const { return _v != r._v; }\n\n    friend istream& operator\
-    \ >> (istream& is, mint& x) {\n        long long t;\n        is >> t;\n      \
-    \  x = mint(t);\n        return is;\n    }\n    friend ostream& operator << (ostream&\
-    \ os, const mint& x) {\n        return os << x._v;\n    }\n};\n\n// using mint\
-    \ = StaticModint<998244353>;\n// using mint = StaticModint<1000000007>;\n"
+    \ mint& r) const { return mint(*this) /= r; }\n\n    friend constexpr mint operator\
+    \ + (long long l, const mint& r) { return mint(l) + r; }\n    friend constexpr\
+    \ mint operator - (long long l, const mint& r) { return mint(l) - r; }\n    friend\
+    \ constexpr mint operator * (long long l, const mint& r) { return mint(l) * r;\
+    \ }\n    friend constexpr mint operator / (long long l, const mint& r) { return\
+    \ mint(l) / r; }\n    \n    constexpr bool operator == (const mint& r) const {\
+    \ return _v == r._v; }\n    constexpr bool operator != (const mint& r) const {\
+    \ return _v != r._v; }\n\n    friend istream& operator >> (istream& is, mint&\
+    \ x) {\n        long long t;\n        is >> t;\n        x = mint(t);\n       \
+    \ return is;\n    }\n    friend ostream& operator << (ostream& os, const mint&\
+    \ x) {\n        return os << x._v;\n    }\n};\n\n// using mint = StaticModint<998244353>;\n\
+    // using mint = StaticModint<1000000007>;\n"
   code: "template<int m> struct StaticModint {\n    using mint = StaticModint;\n \
     \   int _v;\n\n    constexpr StaticModint() : _v(0) {}\n    template<class T>\n\
     \    constexpr StaticModint(T v) : _v((v % m + m) % m) {}\n\n    constexpr int\
@@ -69,23 +74,28 @@ data:
     \ + (const mint& r) const { return mint(*this) += r; }\n    constexpr mint operator\
     \ - (const mint& r) const { return mint(*this) -= r; }\n    constexpr mint operator\
     \ * (const mint& r) const { return mint(*this) *= r; }\n    constexpr mint operator\
-    \ / (const mint& r) const { return mint(*this) /= r; }\n    \n    constexpr bool\
-    \ operator == (const mint& r) const { return _v == r._v; }\n    constexpr bool\
-    \ operator != (const mint& r) const { return _v != r._v; }\n\n    friend istream&\
-    \ operator >> (istream& is, mint& x) {\n        long long t;\n        is >> t;\n\
-    \        x = mint(t);\n        return is;\n    }\n    friend ostream& operator\
-    \ << (ostream& os, const mint& x) {\n        return os << x._v;\n    }\n};\n\n\
-    // using mint = StaticModint<998244353>;\n// using mint = StaticModint<1000000007>;\n"
+    \ / (const mint& r) const { return mint(*this) /= r; }\n\n    friend constexpr\
+    \ mint operator + (long long l, const mint& r) { return mint(l) + r; }\n    friend\
+    \ constexpr mint operator - (long long l, const mint& r) { return mint(l) - r;\
+    \ }\n    friend constexpr mint operator * (long long l, const mint& r) { return\
+    \ mint(l) * r; }\n    friend constexpr mint operator / (long long l, const mint&\
+    \ r) { return mint(l) / r; }\n    \n    constexpr bool operator == (const mint&\
+    \ r) const { return _v == r._v; }\n    constexpr bool operator != (const mint&\
+    \ r) const { return _v != r._v; }\n\n    friend istream& operator >> (istream&\
+    \ is, mint& x) {\n        long long t;\n        is >> t;\n        x = mint(t);\n\
+    \        return is;\n    }\n    friend ostream& operator << (ostream& os, const\
+    \ mint& x) {\n        return os << x._v;\n    }\n};\n\n// using mint = StaticModint<998244353>;\n\
+    // using mint = StaticModint<1000000007>;\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/static_modint.hpp
   requiredBy:
   - convolution/ntt.hpp
-  timestamp: '2024-11-18 18:12:45+09:00'
+  timestamp: '2025-06-19 01:34:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo/yosupo_convolution.test.cpp
   - verify/yosupo/yosupo_range_affine_range_sum.test.cpp
+  - verify/yosupo/yosupo_convolution.test.cpp
 documentation_of: data_structure/static_modint.hpp
 layout: document
 redirect_from:
