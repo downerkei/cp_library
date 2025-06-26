@@ -89,6 +89,9 @@ data:
     - icon: ':warning:'
       path: graph/lowlink.hpp
       title: graph/lowlink.hpp
+    - icon: ':warning:'
+      path: graph/scc.hpp
+      title: graph/scc.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
