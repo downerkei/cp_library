@@ -1,4 +1,4 @@
-long long pow(long long b, long long e) {
+long long mypow(long long b, long long e) {
     long long ret = 1;
     while(e) {
         if(e & 1) ret *= b;
