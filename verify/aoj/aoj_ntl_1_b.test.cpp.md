@@ -16,7 +16,7 @@ data:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B&lang=jp
   bundledCode: "#line 1 \"verify/aoj/aoj_ntl_1_b.test.cpp\"\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B&lang=jp\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"math/pow.hpp\"\
-    \nlong long pow(long long b, long long e) {\n    long long ret = 1;\n    while(e)\
+    \nlong long mypow(long long b, long long e) {\n    long long ret = 1;\n    while(e)\
     \ {\n        if(e & 1) ret *= b;\n        b *= b;\n        e >>= 1;\n    }\n \
     \   return ret;\n}\n\nlong long modpow(long long b, long long e, long long MOD=998244353)\
     \ {\n    long long ret = 1;\n    b %= MOD;\n    while(e) {\n        if(e & 1)\
@@ -33,7 +33,7 @@ data:
   isVerificationFile: true
   path: verify/aoj/aoj_ntl_1_b.test.cpp
   requiredBy: []
-  timestamp: '2025-02-25 02:13:40+09:00'
+  timestamp: '2025-07-04 13:35:02+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/aoj/aoj_ntl_1_b.test.cpp
