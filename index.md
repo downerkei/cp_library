@@ -169,6 +169,9 @@ data:
   - name: tree
     pages:
     - icon: ':heavy_check_mark:'
+      path: tree/cartesian_tree.hpp
+      title: tree/cartesian_tree.hpp
+    - icon: ':heavy_check_mark:'
       path: tree/centroid_decomposition.hpp
       title: tree/centroid_decomposition.hpp
     - icon: ':heavy_check_mark:'
@@ -229,6 +232,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_bipartitematching.test.cpp
       title: verify/yosupo/yosupo_bipartitematching.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_cartesian_tree.test.cpp
+      title: verify/yosupo/yosupo_cartesian_tree.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_convolution.test.cpp
       title: verify/yosupo/yosupo_convolution.test.cpp

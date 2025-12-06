@@ -88,8 +88,8 @@ data:
   timestamp: '2024-11-21 06:58:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo/yosupo_bipartitematching.test.cpp
   - verify/aoj/aoj_grl_6_a_dinic.test.cpp
+  - verify/yosupo/yosupo_bipartitematching.test.cpp
 documentation_of: flow/dinic.hpp
 layout: document
 redirect_from:
