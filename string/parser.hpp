@@ -1,8 +1,3 @@
-#pragma once
-
-#include <bits/stdc++.h>
-using namespace std;
-
 // 構文解析ひな型
 struct Parser {
     string S;
