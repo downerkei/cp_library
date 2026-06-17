@@ -214,8 +214,8 @@ data:
       path: verify/aoj/aoj_gcl_5_c.test.cpp
       title: verify/aoj/aoj_gcl_5_c.test.cpp
     - icon: ':heavy_check_mark:'
-      path: verify/aoj/aoj_grl_1_v.test.cpp
-      title: verify/aoj/aoj_grl_1_v.test.cpp
+      path: verify/aoj/aoj_grl_1_b.test.cpp
+      title: verify/aoj/aoj_grl_1_b.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
       title: verify/aoj/aoj_grl_6_a_dinic.test.cpp

@@ -14,7 +14,7 @@ data:
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_B
     links:
     - https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_B
-  bundledCode: "#line 1 \"verify/aoj/aoj_grl_1_v.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_B\"\
+  bundledCode: "#line 1 \"verify/aoj/aoj_grl_1_b.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/GRL_1_B\"\
     \n\n#include <bits/stdc++.h>\nusing namespace std;\n\n#line 1 \"graph/bellman_ford.hpp\"\
     \nstruct BellmanFord {\n    static constexpr long long INF = 2e18;\n\n    struct\
     \ Edge {\n        int from, to;\n        long long weight;\n    };\n\n    vector<long\
@@ -42,7 +42,7 @@ data:
     \ }\n\n    vector<int> restore_path(int t) {\n        vector<int> path;\n    \
     \    if(dist[t] == INF || negative_inf[t]) return path;\n        for(; t != -1;\
     \ t = prev[t]) path.push_back(t);\n        reverse(path.begin(), path.end());\n\
-    \        return path;\n    }\n};\n#line 7 \"verify/aoj/aoj_grl_1_v.test.cpp\"\n\
+    \        return path;\n    }\n};\n#line 7 \"verify/aoj/aoj_grl_1_b.test.cpp\"\n\
     \nint main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n  \
     \  int V, E, r;\n    cin >> V >> E >> r;\n\n    vector<BellmanFord::Edge> edges;\n\
     \    for(int i = 0; i < E; i++) {\n        int s, t;\n        long long d;\n \
@@ -66,15 +66,15 @@ data:
   dependsOn:
   - graph/bellman_ford.hpp
   isVerificationFile: true
-  path: verify/aoj/aoj_grl_1_v.test.cpp
+  path: verify/aoj/aoj_grl_1_b.test.cpp
   requiredBy: []
-  timestamp: '2026-06-17 22:16:12+09:00'
+  timestamp: '2026-06-17 23:20:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: verify/aoj/aoj_grl_1_v.test.cpp
+documentation_of: verify/aoj/aoj_grl_1_b.test.cpp
 layout: document
 redirect_from:
-- /verify/verify/aoj/aoj_grl_1_v.test.cpp
-- /verify/verify/aoj/aoj_grl_1_v.test.cpp.html
-title: verify/aoj/aoj_grl_1_v.test.cpp
+- /verify/verify/aoj/aoj_grl_1_b.test.cpp
+- /verify/verify/aoj/aoj_grl_1_b.test.cpp.html
+title: verify/aoj/aoj_grl_1_b.test.cpp
 ---
