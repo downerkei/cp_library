@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: math/two_sat.hpp
+    title: math/two_sat.hpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -41,7 +44,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: graph/scc.hpp
-  requiredBy: []
+  requiredBy:
+  - math/two_sat.hpp
   timestamp: '2025-06-27 05:13:54+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

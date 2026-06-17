@@ -94,8 +94,8 @@ data:
   timestamp: '2025-06-19 01:34:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo/yosupo_range_affine_range_sum.test.cpp
   - verify/yosupo/yosupo_convolution.test.cpp
+  - verify/yosupo/yosupo_range_affine_range_sum.test.cpp
 documentation_of: data_structure/static_modint.hpp
 layout: document
 redirect_from:
