@@ -95,6 +95,9 @@ data:
     - icon: ':warning:'
       path: graph/scc.hpp
       title: graph/scc.hpp
+    - icon: ':heavy_check_mark:'
+      path: graph/warshall_floyd.hpp
+      title: graph/warshall_floyd.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
@@ -216,6 +219,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_grl_1_b.test.cpp
       title: verify/aoj/aoj_grl_1_b.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/aoj/aoj_grl_1_c.test.cpp
+      title: verify/aoj/aoj_grl_1_c.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_grl_6_a_dinic.test.cpp
       title: verify/aoj/aoj_grl_6_a_dinic.test.cpp
