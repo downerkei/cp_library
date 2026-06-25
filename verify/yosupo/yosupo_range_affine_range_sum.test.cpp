@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../data_structure/lazy_segmemt_tree.hpp"
+#include "../../data_structure/lazy_segment_tree.hpp"
 #include "../../data_structure/static_modint.hpp"
 
 using mint = StaticModint<998244353>;
