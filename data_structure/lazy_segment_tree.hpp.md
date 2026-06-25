@@ -2,16 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
-    title: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"data_structure/lazy_segmemt_tree.hpp\"\ntemplate<class S,\
+  bundledCode: "#line 1 \"data_structure/lazy_segment_tree.hpp\"\ntemplate<class S,\
     \ S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S), F (*composition)(F, F),\
     \ F (*id)()>\nstruct LazySegmentTree{\n    int n, log;\n    vector<S> data;\n\
     \    vector<F> lazy;\n\n    LazySegmentTree(int n) : LazySegmentTree(vector<S>(n,\
@@ -72,16 +69,15 @@ data:
     \ id();\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
-  path: data_structure/lazy_segmemt_tree.hpp
+  path: data_structure/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2024-12-04 23:54:58+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - verify/yosupo/yosupo_range_affine_range_sum.test.cpp
-documentation_of: data_structure/lazy_segmemt_tree.hpp
+  timestamp: '2026-06-25 18:51:34+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: data_structure/lazy_segment_tree.hpp
 layout: document
 redirect_from:
-- /library/data_structure/lazy_segmemt_tree.hpp
-- /library/data_structure/lazy_segmemt_tree.hpp.html
-title: data_structure/lazy_segmemt_tree.hpp
+- /library/data_structure/lazy_segment_tree.hpp
+- /library/data_structure/lazy_segment_tree.hpp.html
+title: data_structure/lazy_segment_tree.hpp
 ---

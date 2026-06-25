@@ -30,9 +30,9 @@ data:
       path: data_structure/lazy_reversible_splay_tree.hpp
       title: "\u9045\u5EF6\u4F1D\u642C\u53CD\u8EE2\u53EF\u80FD\u30B9\u30D7\u30EC\u30FC\
         \u6728"
-    - icon: ':heavy_check_mark:'
-      path: data_structure/lazy_segmemt_tree.hpp
-      title: data_structure/lazy_segmemt_tree.hpp
+    - icon: ':warning:'
+      path: data_structure/lazy_segment_tree.hpp
+      title: data_structure/lazy_segment_tree.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/merge_sort_tree.hpp
       title: data_structure/merge_sort_tree.hpp
@@ -289,7 +289,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_primality_test.test.cpp
       title: verify/yosupo/yosupo_primality_test.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
       title: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
