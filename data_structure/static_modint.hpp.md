@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_convolution.test.cpp
     title: verify/yosupo/yosupo_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
+    title: verify/yosupo/yosupo_range_affine_range_sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -92,6 +95,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_convolution.test.cpp
+  - verify/yosupo/yosupo_range_affine_range_sum.test.cpp
 documentation_of: data_structure/static_modint.hpp
 layout: document
 redirect_from:
