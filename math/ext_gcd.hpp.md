@@ -17,19 +17,18 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"math/ext_gcd.hpp\"\ntuple<long long, long long, long long>\
-    \ ext_gcd(long long a, long long b) {\n    if(b == 0) return {a, 1, 0};\n    auto\
-    \ [d, y, x] = ext_gcd(b, a % b);\n    y -= a / b * x;\n    return {d, x, y};\n\
-    }\n"
-  code: "tuple<long long, long long, long long> ext_gcd(long long a, long long b)\
-    \ {\n    if(b == 0) return {a, 1, 0};\n    auto [d, y, x] = ext_gcd(b, a % b);\n\
-    \    y -= a / b * x;\n    return {d, x, y};\n}"
+  bundledCode: "#line 1 \"math/ext_gcd.hpp\"\narray<long long, 3> ext_gcd(long long\
+    \ a, long long b) {\n    if(b == 0) return {a, 1, 0};\n    auto [d, y, x] = ext_gcd(b,\
+    \ a % b);\n    y -= a / b * x;\n    return {d, x, y};\n}\n"
+  code: "array<long long, 3> ext_gcd(long long a, long long b) {\n    if(b == 0) return\
+    \ {a, 1, 0};\n    auto [d, y, x] = ext_gcd(b, a % b);\n    y -= a / b * x;\n \
+    \   return {d, x, y};\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/ext_gcd.hpp
   requiredBy:
   - math/crt.hpp
-  timestamp: '2024-06-26 02:37:52+09:00'
+  timestamp: '2026-07-16 01:29:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/aoj/aoj_ntl_1_e.test.cpp

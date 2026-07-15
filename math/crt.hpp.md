@@ -14,17 +14,17 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"math/ext_gcd.hpp\"\ntuple<long long, long long, long long>\
-    \ ext_gcd(long long a, long long b) {\n    if(b == 0) return {a, 1, 0};\n    auto\
-    \ [d, y, x] = ext_gcd(b, a % b);\n    y -= a / b * x;\n    return {d, x, y};\n\
-    }\n#line 2 \"math/crt.hpp\"\n\ninline long long safe_mod(long long a, long long\
-    \ m) {\n    return (a % m + m) % m;\n}\n\npair<long long, long long> crt(const\
-    \ vector<long long>& b, const vector<long long>& m) {\n    assert(b.size() ==\
-    \ m.size());\n    long long r = 0, M = 1;\n    for(int i = 0; i < (int)b.size();\
-    \ i++) {\n        auto [d, p, q] = ext_gcd(M, m[i]);\n        if((b[i] - r) %\
-    \ d != 0) return {0, -1};\n        long long tmp = (b[i] - r) / d * p % (m[i]\
-    \ / d);\n        r += M * tmp;\n        M *= m[i] / d;\n    }\n    r = safe_mod(r,\
-    \ M);\n    return {r, M};\n}\n"
+  bundledCode: "#line 1 \"math/ext_gcd.hpp\"\narray<long long, 3> ext_gcd(long long\
+    \ a, long long b) {\n    if(b == 0) return {a, 1, 0};\n    auto [d, y, x] = ext_gcd(b,\
+    \ a % b);\n    y -= a / b * x;\n    return {d, x, y};\n}\n#line 2 \"math/crt.hpp\"\
+    \n\ninline long long safe_mod(long long a, long long m) {\n    return (a % m +\
+    \ m) % m;\n}\n\npair<long long, long long> crt(const vector<long long>& b, const\
+    \ vector<long long>& m) {\n    assert(b.size() == m.size());\n    long long r\
+    \ = 0, M = 1;\n    for(int i = 0; i < (int)b.size(); i++) {\n        auto [d,\
+    \ p, q] = ext_gcd(M, m[i]);\n        if((b[i] - r) % d != 0) return {0, -1};\n\
+    \        long long tmp = (b[i] - r) / d * p % (m[i] / d);\n        r += M * tmp;\n\
+    \        M *= m[i] / d;\n    }\n    r = safe_mod(r, M);\n    return {r, M};\n\
+    }\n"
   code: "#include \"ext_gcd.hpp\"\n\ninline long long safe_mod(long long a, long long\
     \ m) {\n    return (a % m + m) % m;\n}\n\npair<long long, long long> crt(const\
     \ vector<long long>& b, const vector<long long>& m) {\n    assert(b.size() ==\
@@ -38,7 +38,7 @@ data:
   isVerificationFile: false
   path: math/crt.hpp
   requiredBy: []
-  timestamp: '2024-06-26 03:18:46+09:00'
+  timestamp: '2026-07-16 01:29:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yukicoder/yukicoder_186.test.cpp
