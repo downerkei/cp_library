@@ -80,7 +80,7 @@ data:
     pages:
     - icon: ':warning:'
       path: geometry/geometry.hpp
-      title: geometry/geometry.hpp
+      title: Geometry
   - name: graph
     pages:
     - icon: ':heavy_check_mark:'
