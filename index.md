@@ -314,6 +314,9 @@ data:
       path: verify/yosupo/yosupo_shortest_path.test.cpp
       title: verify/yosupo/yosupo_shortest_path.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_static_range_frequency.test.cpp
+      title: verify/yosupo/yosupo_static_range_frequency.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_staticrmq.test.cpp
       title: verify/yosupo/yosupo_staticrmq.test.cpp
     - icon: ':heavy_check_mark:'

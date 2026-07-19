@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_range_kth_smallest.test.cpp
     title: verify/yosupo/yosupo_range_kth_smallest.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_static_range_frequency.test.cpp
+    title: verify/yosupo/yosupo_static_range_frequency.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -21,13 +24,13 @@ data:
     \ int sz = data[k << 1].size();\n        int i1 = 0, i2 = 0;\n        while(i1\
     \ < sz || i2 < sz) {\n            if(i2 == sz || (i1 != sz && data[k << 1][i1]\
     \ < data[k << 1 | 1][i2])) data[k].push_back(data[k << 1][i1++]);\n          \
-    \  else data[k].push_back(data[k << 1 | 1][i2++]);\n        }\n    }\n\n    int\
-    \ count_between(int l, int r, S lo, S up) {\n        l += N; r += N;\n       \
-    \ int ans = 0;\n        auto get_between = [&](int k) { return upper_bound(data[k].begin(),\
-    \ data[k].end(), up) - lower_bound(data[k].begin(), data[k].end(), lo); };\n \
-    \       while(l < r) {\n            if(l & 1) ans += get_between(l++);\n     \
-    \       if(r & 1) ans += get_between(--r);\n            l >>= 1; r >>= 1;\n  \
-    \      }\n        return ans;\n    }\n};\n"
+    \  else data[k].push_back(data[k << 1 | 1][i2++]);\n        }\n    }\n\n    //\
+    \ [l,r), [lo,up)\n    int count_range(int l, int r, S lo, S up) {\n        l +=\
+    \ N; r += N;\n        int ans = 0;\n        auto get_between = [&](int k) { return\
+    \ lower_bound(data[k].begin(), data[k].end(), up) - lower_bound(data[k].begin(),\
+    \ data[k].end(), lo); };\n        while(l < r) {\n            if(l & 1) ans +=\
+    \ get_between(l++);\n            if(r & 1) ans += get_between(--r);\n        \
+    \    l >>= 1; r >>= 1;\n        }\n        return ans;\n    }\n};\n"
   code: "template<typename S>\nstruct MergeSortTree {\n    int N;\n    vector<vector<S>>\
     \ data;\n    const S INF = numeric_limits<S>::max();\n    \n    MergeSortTree(const\
     \ vector<S>& V) : N(1) {\n        int sz = V.size();\n        while(N < sz) N\
@@ -38,20 +41,21 @@ data:
     \       while(i1 < sz || i2 < sz) {\n            if(i2 == sz || (i1 != sz && data[k\
     \ << 1][i1] < data[k << 1 | 1][i2])) data[k].push_back(data[k << 1][i1++]);\n\
     \            else data[k].push_back(data[k << 1 | 1][i2++]);\n        }\n    }\n\
-    \n    int count_between(int l, int r, S lo, S up) {\n        l += N; r += N;\n\
-    \        int ans = 0;\n        auto get_between = [&](int k) { return upper_bound(data[k].begin(),\
-    \ data[k].end(), up) - lower_bound(data[k].begin(), data[k].end(), lo); };\n \
-    \       while(l < r) {\n            if(l & 1) ans += get_between(l++);\n     \
-    \       if(r & 1) ans += get_between(--r);\n            l >>= 1; r >>= 1;\n  \
-    \      }\n        return ans;\n    }\n};\n"
+    \n    // [l,r), [lo,up)\n    int count_range(int l, int r, S lo, S up) {\n   \
+    \     l += N; r += N;\n        int ans = 0;\n        auto get_between = [&](int\
+    \ k) { return lower_bound(data[k].begin(), data[k].end(), up) - lower_bound(data[k].begin(),\
+    \ data[k].end(), lo); };\n        while(l < r) {\n            if(l & 1) ans +=\
+    \ get_between(l++);\n            if(r & 1) ans += get_between(--r);\n        \
+    \    l >>= 1; r >>= 1;\n        }\n        return ans;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/merge_sort_tree.hpp
   requiredBy: []
-  timestamp: '2024-12-04 03:56:00+09:00'
+  timestamp: '2026-07-20 03:39:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_range_kth_smallest.test.cpp
+  - verify/yosupo/yosupo_static_range_frequency.test.cpp
 documentation_of: data_structure/merge_sort_tree.hpp
 layout: document
 redirect_from:
