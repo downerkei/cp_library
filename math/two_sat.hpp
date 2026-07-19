@@ -1,10 +1,10 @@
 #include "../graph/scc.hpp"
 
-struct two_sat {
+struct TwoSat {
     int n;
     vector<bool> ans;
     vector<vector<int>> G;
-    two_sat(int n) : n(n), ans(n), G(2 * n) {}
+    TwoSat(int n) : n(n), ans(n), G(2 * n) {}
 
     void add_clause(int i, bool f, int j, bool g) {
         G[2 * i + (f ? 0 : 1)].push_back(2 * j + (g ? 1 : 0));
