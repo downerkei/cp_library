@@ -104,8 +104,8 @@ data:
   timestamp: '2024-06-25 08:47:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo/yosupo_primality_test.test.cpp
   - verify/yosupo/yosupo_factorize.test.cpp
+  - verify/yosupo/yosupo_primality_test.test.cpp
 documentation_of: data_structure/montgomery_modint_64.hpp
 layout: document
 redirect_from:
