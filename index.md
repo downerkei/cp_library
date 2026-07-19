@@ -305,6 +305,9 @@ data:
       path: verify/yosupo/yosupo_rectangle_sum.test.cpp
       title: verify/yosupo/yosupo_rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_scc.test.cpp
+      title: verify/yosupo/yosupo_scc.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_set_xor_min.test.cpp
       title: verify/yosupo/yosupo_set_xor_min.test.cpp
     - icon: ':heavy_check_mark:'

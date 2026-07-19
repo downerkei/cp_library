@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_2sat.test.cpp
     title: verify/yosupo/yosupo_2sat.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_scc.test.cpp
+    title: verify/yosupo/yosupo_scc.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -53,6 +56,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_2sat.test.cpp
+  - verify/yosupo/yosupo_scc.test.cpp
 documentation_of: graph/scc.hpp
 layout: document
 redirect_from:
