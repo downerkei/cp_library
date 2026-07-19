@@ -59,7 +59,7 @@ data:
       title: UnionFind
   - name: dp
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/longest_increasing_subsequence.hpp
       title: dp/longest_increasing_subsequence.hpp
     - icon: ':heavy_check_mark:'
@@ -210,7 +210,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_alds1_5_d.test.cpp
       title: verify/aoj/aoj_alds1_5_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/aoj/aoj_dpl_1_d.test.cpp
       title: verify/aoj/aoj_dpl_1_d.test.cpp
     - icon: ':heavy_check_mark:'
@@ -283,7 +283,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_longest_common_substring.test.cpp
       title: verify/yosupo/yosupo_longest_common_substring.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_longest_increasing_subsequence.test.cpp
       title: verify/yosupo/yosupo_longest_increasing_subsequence.test.cpp
     - icon: ':heavy_check_mark:'
