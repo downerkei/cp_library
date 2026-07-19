@@ -12,7 +12,7 @@ int main() {
     for(int i = 0; i < n; i++) {
         cin >> A[i];
     }
-    cout << longest_increasing_subsequence<int>(A) << endl;
+    cout << longest_increasing_subsequence_size<int>(A) << endl;
 
     return 0;
 }
