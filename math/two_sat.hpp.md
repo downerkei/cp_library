@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: graph/scc.hpp
     title: graph/scc.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_2sat.test.cpp
+    title: verify/yosupo/yosupo_2sat.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"graph/scc.hpp\"\nvector<vector<int>> calc_scc(const vector<vector<int>>&\
@@ -25,8 +28,8 @@ data:
     \            component.push_back(v);\n            for(int nv : RG[v]) {\n    \
     \            if(used[nv]) continue;\n                dfs2(dfs2, nv);\n       \
     \     }\n        };\n        dfs2(dfs2, s);\n\n        scc.push_back(component);\n\
-    \    }\n\n    return scc;\n}\n#line 2 \"math/two_sat.hpp\"\n\nstruct two_sat {\n\
-    \    int n;\n    vector<bool> ans;\n    vector<vector<int>> G;\n    two_sat(int\
+    \    }\n\n    return scc;\n}\n#line 2 \"math/two_sat.hpp\"\n\nstruct TwoSat {\n\
+    \    int n;\n    vector<bool> ans;\n    vector<vector<int>> G;\n    TwoSat(int\
     \ n) : n(n), ans(n), G(2 * n) {}\n\n    void add_clause(int i, bool f, int j,\
     \ bool g) {\n        G[2 * i + (f ? 0 : 1)].push_back(2 * j + (g ? 1 : 0));\n\
     \        G[2 * j + (g ? 0 : 1)].push_back(2 * i + (f ? 1 : 0));\n    }\n\n   \
@@ -37,8 +40,8 @@ data:
     \ * i + 1]) return false;\n            ans[i] = scc_id[2 * i] < scc_id[2 * i +\
     \ 1];\n        }\n        return true;\n    }\n\n    vector<bool> answer() {\n\
     \        return ans;\n    }\n};\n"
-  code: "#include \"../graph/scc.hpp\"\n\nstruct two_sat {\n    int n;\n    vector<bool>\
-    \ ans;\n    vector<vector<int>> G;\n    two_sat(int n) : n(n), ans(n), G(2 * n)\
+  code: "#include \"../graph/scc.hpp\"\n\nstruct TwoSat {\n    int n;\n    vector<bool>\
+    \ ans;\n    vector<vector<int>> G;\n    TwoSat(int n) : n(n), ans(n), G(2 * n)\
     \ {}\n\n    void add_clause(int i, bool f, int j, bool g) {\n        G[2 * i +\
     \ (f ? 0 : 1)].push_back(2 * j + (g ? 1 : 0));\n        G[2 * j + (g ? 0 : 1)].push_back(2\
     \ * i + (f ? 1 : 0));\n    }\n\n    bool satisfiable() {\n        auto scc = calc_scc(G);\n\
@@ -53,9 +56,10 @@ data:
   isVerificationFile: false
   path: math/two_sat.hpp
   requiredBy: []
-  timestamp: '2026-06-13 04:56:18+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2026-07-20 02:02:53+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/yosupo/yosupo_2sat.test.cpp
 documentation_of: math/two_sat.hpp
 layout: document
 redirect_from:

@@ -92,7 +92,7 @@ data:
     - icon: ':warning:'
       path: graph/lowlink.hpp
       title: graph/lowlink.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/scc.hpp
       title: graph/scc.hpp
     - icon: ':heavy_check_mark:'
@@ -136,7 +136,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/sqrt_floor.hpp
       title: math/sqrt_floor.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/two_sat.hpp
       title: math/two_sat.hpp
   - name: matrix
@@ -250,6 +250,9 @@ data:
       title: verify/unit_test/sqrt_floor.test.cpp
   - name: verify/yosupo
     pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_2sat.test.cpp
+      title: verify/yosupo/yosupo_2sat.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
       title: verify/yosupo/yosupo_binomial_coefficient_prime_mod.test.cpp
