@@ -287,6 +287,9 @@ data:
       path: verify/yosupo/yosupo_longest_increasing_subsequence.test.cpp
       title: verify/yosupo/yosupo_longest_increasing_subsequence.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo/yosupo_minimum_spanning_tree.test.cpp
+      title: verify/yosupo/yosupo_minimum_spanning_tree.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
       title: verify/yosupo/yosupo_point_add_range_sum_fenwick.test.cpp
     - icon: ':heavy_check_mark:'

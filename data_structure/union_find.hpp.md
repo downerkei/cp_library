@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo/yosupo_minimum_spanning_tree.test.cpp
+    title: verify/yosupo/yosupo_minimum_spanning_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo/yosupo_unionfind.test.cpp
     title: verify/yosupo/yosupo_unionfind.test.cpp
   _isVerificationFailed: false
@@ -36,6 +39,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo/yosupo_unionfind.test.cpp
+  - verify/yosupo/yosupo_minimum_spanning_tree.test.cpp
 documentation_of: data_structure/union_find.hpp
 layout: document
 title: UnionFind
