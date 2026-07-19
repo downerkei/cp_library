@@ -70,15 +70,15 @@ UnionFind uf(int n)
 ## unite
 
 ```cpp
-bool uf.unite(int a, int b)
+bool uf.unite(int u, int v)
 ```
 
-* 無向辺 $(a, b)$ を足す．既に $a, b$ が連結なら`false`，非連結なら`true`を返す．
+* 無向辺 $(u, v)$ を足す．既に $u, v$ が連結なら`false`，非連結なら`true`を返す．
 
 ### 制約
 
-* $0 \leq a < n$
-* $0 \leq b < n$
+* $0 \leq u < n$
+* $0 \leq v < n$
 
 ### 計算時間
 
@@ -89,15 +89,15 @@ bool uf.unite(int a, int b)
 ## same
 
 ```cpp
-bool uf.same(int a, int b)
+bool uf.same(int u, int v)
 ```
 
-* 頂点 $a, b$ が連結かどうか判定する．
+* 頂点 $u, v$ が連結かどうか判定する．
 
 ### 制約
 
-* $0 \leq a < n$
-* $0 \leq b < n$
+* $0 \leq u < n$
+* $0 \leq v < n$
 
 ### 計算時間
 
@@ -108,14 +108,14 @@ bool uf.same(int a, int b)
 ## root
 
 ```cpp
-int uf.root(int a)
+int uf.root(int v)
 ```
 
-* 頂点 $a$ の属する連結成分の代表元を返す．
+* 頂点 $v$ の属する連結成分の代表元を返す．
 
 ### 制約
 
-* $0 \leq a < n$
+* $0 \leq v < n$
 
 ### 計算時間
 
@@ -126,14 +126,14 @@ int uf.root(int a)
 ## size
 
 ```cpp
-int uf.size(int a)
+int uf.size(int v)
 ```
 
-* 頂点 $a$ の属する連結成分のサイズを返す．
+* 頂点 $v$ の属する連結成分のサイズを返す．
 
 ### 制約
 
-* $0 \leq a < n$
+* $0 \leq v < n$
 
 ### 計算時間
 
