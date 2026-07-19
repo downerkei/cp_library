@@ -1,30 +1,29 @@
 struct UnionFind {
-  public:
-    UnionFind(int n) : par(n, -1), rank(n, 0), siz(n, 1) {}
+    vector<int> par, siz;
 
-    int root(int a) {
-        if(par[a] == -1) return a;
-        else return par[a] = root(par[a]);
+    UnionFind(int n) : par(n, -1), siz(n, 1) {}
+
+    int root(int v) {
+        if(par[v] == -1) return v;
+        return par[v] = root(par[v]);
     }
 
-    bool same(int a, int b) {
-        return root(a) == root(b);
+    bool same(int u, int v) {
+        return root(u) == root(v);
     }
 
-    bool unite(int a, int b) {
-        int ra = root(a), rb = root(b);
-        if(ra == rb) return false;
-        if(rank[ra] < rank[rb]) swap(ra, rb);
-        par[rb] = ra;
-        if(rank[ra] == rank[rb]) rank[ra]++;
-        siz[ra] += siz[rb];
+    bool unite(int u, int v) {
+        u = root(u);
+        v = root(v);
+        if(u == v) return false;
+        if(siz[u] < siz[v]) swap(u, v);
+        par[v] = u;
+        siz[u] += siz[v];
+        // write something
         return true;
     }
 
-    int size(int a) {
-        return siz[root(a)];
+    int size(int v) {
+        return siz[root(v)];
     }
-
-  private:
-    vector<int> par, rank, siz;
 };
