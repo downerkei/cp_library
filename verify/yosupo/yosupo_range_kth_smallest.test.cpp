@@ -25,7 +25,7 @@ int main() {
         int lb = -1, ub = INF;
         while(ub - lb > 1) {
             int mid = (lb + ub) / 2;
-            if(mst.count_between(l, r, 0, mid) <= k) lb = mid;
+            if(mst.count_range(l, r, 0, mid + 1) <= k) lb = mid;
             else ub = mid;
         }
         cout << ub << "\n";

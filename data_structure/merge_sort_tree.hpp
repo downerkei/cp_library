@@ -22,10 +22,11 @@ struct MergeSortTree {
         }
     }
 
-    int count_between(int l, int r, S lo, S up) {
+    // [l,r), [lo,up)
+    int count_range(int l, int r, S lo, S up) {
         l += N; r += N;
         int ans = 0;
-        auto get_between = [&](int k) { return upper_bound(data[k].begin(), data[k].end(), up) - lower_bound(data[k].begin(), data[k].end(), lo); };
+        auto get_between = [&](int k) { return lower_bound(data[k].begin(), data[k].end(), up) - lower_bound(data[k].begin(), data[k].end(), lo); };
         while(l < r) {
             if(l & 1) ans += get_between(l++);
             if(r & 1) ans += get_between(--r);
